@@ -1,18 +1,11 @@
 version: 2
 jobs:
-  build_windows:
+  build:
     docker:
-      - image: electronuserland/builder:wine
+      - image: electronuserland/builder
     steps:
       - checkout
-      - run: yarn && yarn release --win
-
-  build_macos:
-    macos:
-      xcode: "10.0.0"
-    steps:
-      - checkout
-      - run: yarn && yarn release --mac
+      - run: yarn && yarn release
 
 workflows:
   version: 2
