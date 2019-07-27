@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     macos:
-      - image: electronuserland/builder:wine
+      xcode: "10.0.0"
     steps:
       - checkout
       - run: yarn
