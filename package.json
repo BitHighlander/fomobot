@@ -1,8 +1,8 @@
 {
-  "name": "electron-circleci",
-  "version": "1.0.7",
-  "description": "Example Electron app with MacOS & Windows build integration with Circle CI",
-  "author": "Joe Ireland",
+  "name": "fomobot",
+  "version": "0.0.1",
+  "description": "Your fomo bro!",
+  "author": "Highlander",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
@@ -13,8 +13,8 @@
     "release": "electron-builder --publish always"
   },
   "build": {
-    "appId": "ca.joeireland.electron-circleci",
-    "productName": "Electron CircleCI",
+    "appId": "com.fomobro",
+    "productName": "Fomobot",
     "copyright": "MIT",
     "files": [
       "**/*",
