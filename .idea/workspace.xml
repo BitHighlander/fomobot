@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="222539ec-8fd8-4098-b8a4-b0833b44921b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -27,8 +27,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="44" lean-forward="true" selection-start-line="14" selection-start-column="44" selection-end-line="14" selection-end-column="44" />
+            <state relative-caret-position="300">
+              <caret line="20" column="69" selection-start-line="20" selection-start-column="69" selection-end-line="20" selection-end-column="69" />
             </state>
           </provider>
         </entry>
@@ -190,7 +190,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1564199065821</updated>
-      <workItem from="1564199066908" duration="4943000" />
+      <workItem from="1564199066908" duration="5288000" />
     </task>
     <task id="LOCAL-00001" summary="what dis do">
       <created>1564199926256</created>
@@ -297,11 +297,18 @@
       <option name="project" value="LOCAL" />
       <updated>1564203951703</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="force push">
+      <created>1564204155178</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1564204155178</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4943000" />
+    <option name="totallyTimeSpent" value="5288000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2933" y="200" width="1319" height="1841" extended-state="0" />
@@ -344,7 +351,8 @@
     <MESSAGE value="yolo" />
     <MESSAGE value="I need that green" />
     <MESSAGE value="push as latest" />
-    <option name="LAST_COMMIT_MESSAGE" value="push as latest" />
+    <MESSAGE value="force push" />
+    <option name="LAST_COMMIT_MESSAGE" value="force push" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/package-lock.json">
@@ -370,8 +378,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="44" lean-forward="true" selection-start-line="14" selection-start-column="44" selection-end-line="14" selection-end-column="44" />
+        <state relative-caret-position="300">
+          <caret line="20" column="69" selection-start-line="20" selection-start-column="69" selection-end-line="20" selection-end-column="69" />
         </state>
       </provider>
     </entry>
