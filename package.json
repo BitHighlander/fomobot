@@ -1,10 +1,11 @@
 {
   "name": "fomobot",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Your fomo bro!",
   "author": "Highlander",
   "main": "main.js",
   "scripts": {
+    "publich": "npm version",
     "start": "electron .",
     "build": "run-os",
     "build:win32": "electron-builder --win",

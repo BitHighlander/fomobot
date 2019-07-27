@@ -12,7 +12,7 @@ jobs:
       - image: electronuserland/builder
     steps:
       - checkout
-      - run: yarn && yarn release
+      - run: yarn && yarn release --linux
 
   build_macos:
     macos:
