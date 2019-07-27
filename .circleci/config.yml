@@ -7,13 +7,6 @@ jobs:
       - checkout
       - run: yarn && yarn release --win
 
-  build_linux:
-    docker:
-      - image: electronuserland/builder
-    steps:
-      - checkout
-      - run: yarn && yarn release --linux
-
   build_macos:
     macos:
       xcode: "10.0.0"
