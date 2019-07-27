@@ -9,10 +9,10 @@ jobs:
 
   build_linux:
     docker:
-      - image: electronuserland/builder:wine
+      - image: electronuserland/builder
     steps:
       - checkout
-      - run: yarn && yarn release --linux
+      - run: yarn && yarn release
 
   build_macos:
     macos:
