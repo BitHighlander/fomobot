@@ -5,6 +5,7 @@ jobs:
       - image: electronuserland/builder
     steps:
       - checkout
+      - run: node .electron-vue/build.js
       - run: yarn && yarn release
 
 workflows:
