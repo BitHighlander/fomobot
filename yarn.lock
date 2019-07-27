@@ -2200,7 +2200,7 @@ center-align@^0.1.1:
     align-text "^0.1.3"
     lazy-cache "^1.0.3"
 
-cfonts@^2.1.2:
+cfonts@^2.4.4:
   version "2.4.4"
   resolved "https://registry.yarnpkg.com/cfonts/-/cfonts-2.4.4.tgz#1c6d20bde9b7177c303fc6a9157197037f634cc4"
   integrity sha512-iKiphAU2266sAdtCLGP7x/B8aEqRXbGVuZkiYj3X2mqLHCJ6lPpEGEICaPWIJjxcK/N3223e5zd68PHCLqfRdQ==
