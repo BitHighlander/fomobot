@@ -1,6 +1,6 @@
 {
   "name": "fomobot",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "author": "highlander <bithighlander@gmail.com>",
   "description": "Your Fomo Bro!",
   "license": null,
@@ -18,7 +18,7 @@
     "pack:renderer": "cross-env NODE_ENV=production webpack --progress --colors --config .electron-vue/webpack.renderer.config.js",
     "test": "npm run unit && npm run e2e",
     "unit": "karma start test/unit/karma.conf.js",
-    "release": "electron-builder --publish onTag",
+    "release": "electron-builder --publish always",
     "postinstall": ""
   },
   "build": {
