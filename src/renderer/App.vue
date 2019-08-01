@@ -25,6 +25,7 @@
 <script>
   import { messageBus } from '@/messagebus'
   import checkUpdate from '../modules/updateChecker'
+  import {downloadUrl, locale, gnodeOption, getConfig, setConfig, updateConfig, apiSecretPath,checkConfigs} from '../modules/config'
   //modules
 
   import Setup from '@/components/Setup'
