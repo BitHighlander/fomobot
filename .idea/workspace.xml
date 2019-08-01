@@ -2,181 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="222539ec-8fd8-4098-b8a4-b0833b44921b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/exchanges/binance.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/exchanges/bitfinex.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/exchanges/bitmex.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/exchanges/bittrex.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/exchanges/kraken.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/exchanges/poloniex.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lang/en.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lang/es.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lang/fr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lang/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lang/ru.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lang/zh.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/messagebus.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/audit.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/binance-client.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/client.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/coincap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/fomo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/historical-price.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/liquidity.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/logger.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/mongo/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/mongo/schema.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/redis.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/reporting.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/signing/__test__/signing.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/signing/config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/signing/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/views.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/css/nucleo-icons.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/demo/demo.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/fonts/nucleo.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/fonts/nucleo.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/fonts/nucleo.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/fonts/nucleo.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/_alert.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/_badge.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/_breadcrumb.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/_button-group.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/_buttons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/_card.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/_carousel.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/_close.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/_code.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/_custom-forms.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/_dropdown.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/_forms.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/_functions.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/_grid.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/_images.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/_input-group.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/_jumbotron.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/_list-group.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/_media.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/_mixins.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/_modal.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/_nav.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/_navbar.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/_pagination.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/_popover.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/_print.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/_progress.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/_reboot.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/_root.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/_tables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/_tooltip.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/_transitions.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/_type.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/_utilities.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/_variables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/mixins/_alert.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/mixins/_background-variant.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/mixins/_badge.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/mixins/_border-radius.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/mixins/_box-shadow.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/mixins/_breakpoints.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/mixins/_buttons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/mixins/_caret.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/mixins/_clearfix.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/mixins/_float.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/mixins/_forms.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/mixins/_gradients.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/mixins/_grid-framework.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/mixins/_grid.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/mixins/_hover.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/mixins/_image.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/mixins/_list-group.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/mixins/_lists.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/mixins/_nav-divider.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/mixins/_pagination.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/mixins/_reset-text.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/mixins/_resize.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/mixins/_screen-reader.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/mixins/_size.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/mixins/_table-row.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/mixins/_text-emphasis.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/mixins/_text-hide.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/mixins/_text-truncate.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/mixins/_transition.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/mixins/_visibility.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/utilities/_align.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/utilities/_background.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/utilities/_borders.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/utilities/_clearfix.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/utilities/_display.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/utilities/_embed.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/utilities/_flex.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/utilities/_float.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/utilities/_position.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/utilities/_screenreaders.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/utilities/_shadows.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/utilities/_sizing.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/utilities/_spacing.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/utilities/_text.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/bootstrap/utilities/_visibility.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/_alerts.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/_buttons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/_card.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/_checkboxes-radio.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/_dropdown.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/_fixed-plugin.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/_footer.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/_forms.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/_functions.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/_images.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/_input-group.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/_misc.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/_mixins.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/_modal.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/_navbar.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/_rtl.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/_sidebar-and-main-panel.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/_tables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/_type.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/_utilities.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/_variables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/_white-content.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/cards/_card-chart.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/cards/_card-map.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/cards/_card-plain.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/cards/_card-task.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/cards/_card-user.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/mixins/_alert.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/mixins/_background-variant.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/mixins/_badges.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/mixins/_buttons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/mixins/_dropdown.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/mixins/_forms.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/mixins/_icon.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/mixins/_inputs.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/mixins/_modals.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/mixins/_page-header.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/mixins/_popovers.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/mixins/_vendor-prefixes.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/mixins/_wizard.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/mixins/opacity.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/utilities/_backgrounds.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/utilities/_floating.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/utilities/_helper.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/utilities/_position.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/utilities/_shadows.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/utilities/_sizing.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/utilities/_spacing.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/utilities/_text.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/utilities/_transform.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/vendor/_plugin-animate-bootstrap-notify.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/vendor/_plugin-perfect-scrollbar.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/plugins/_plugin-perfect-scrollbar.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/renderer/assets/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/renderer/components/Configuration.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/renderer/components/Create.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/renderer/components/DisplaySeed.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/renderer/components/Restore.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/renderer/components/RestoreSeed.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/renderer/components/Setup.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/renderer/components/Welcome.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/assets/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/assets/logo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/renderer/components/LandingPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/components/LandingPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -192,8 +29,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/renderer/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="32" column="5" lean-forward="true" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+            <state relative-caret-position="1110">
+              <caret line="74" selection-start-line="74" selection-end-line="74" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
                 <element signature="e#253#297#0" expanded="true" />
@@ -203,11 +40,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/modules/config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+            <state relative-caret-position="795">
+              <caret line="68" selection-start-line="68" selection-end-line="68" />
               <folding>
                 <element signature="e#69#93#0" expanded="true" />
               </folding>
@@ -216,29 +53,56 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/messagebus.js">
+        <entry file="file://$PROJECT_DIR$/src/renderer/messagebus.js">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modules/logger.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
+        <entry file="file://$PROJECT_DIR$/src/renderer/App.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="679">
-              <caret line="144" column="30" selection-start-line="144" selection-start-column="30" selection-end-line="144" selection-end-column="30" />
+            <state relative-caret-position="411">
+              <caret line="44" column="18" selection-start-line="44" selection-start-column="18" selection-end-line="44" selection-end-column="18" />
+              <folding>
+                <element signature="e#963#1001#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/renderer/components/Configuration.vue">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/renderer/components/Restore.vue">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/renderer/components/Welcome.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
+              <folding>
+                <element signature="e#3034#3074#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/lang/en.js">
+        <entry file="file://$PROJECT_DIR$/src/renderer/assets/icon.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/renderer/router/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="780">
-              <caret line="52" column="10" selection-start-line="52" selection-start-column="10" selection-end-line="52" selection-end-column="10" />
+            <state>
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -246,38 +110,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/renderer/components/LandingPage.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="3" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
+            <state relative-caret-position="30">
+              <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modules/redis.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modules/reporting.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modules/views.js">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Vue Single File Component" />
+      </list>
+    </option>
+  </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>cfont</find>
+      <find>diagonPath</find>
+      <find>niffler</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -287,10 +139,14 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/.circleci/config.yml" />
-        <option value="$PROJECT_DIR$/src/renderer/components/LandingPage.vue" />
-        <option value="$PROJECT_DIR$/src/renderer/main.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/modules/config.js" />
+        <option value="$PROJECT_DIR$/src/renderer/main.js" />
+        <option value="$PROJECT_DIR$/src/renderer/components/LandingPage.vue" />
+        <option value="$PROJECT_DIR$/src/renderer/components/Config.vue" />
+        <option value="$PROJECT_DIR$/src/renderer/components/ConfigModal.vue" />
+        <option value="$PROJECT_DIR$/src/renderer/components/Welcome.vue" />
+        <option value="$PROJECT_DIR$/src/renderer/App.vue" />
       </list>
     </option>
   </component>
@@ -322,13 +178,21 @@
               <item name="fomobot" type="b2602c69:ProjectViewProjectNode" />
               <item name="fomobot" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="renderer" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="fomobot" type="b2602c69:ProjectViewProjectNode" />
               <item name="fomobot" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="renderer" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fomobot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fomobot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="renderer" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -340,17 +204,22 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/renderer/components" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/renderer/assets" />
+      <recent name="$PROJECT_DIR$/src/renderer" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/renderer/components" />
+      <recent name="$PROJECT_DIR$/src/renderer" />
+      <recent name="$PROJECT_DIR$/src/renderer/assets" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/modules" />
-      <recent name="$PROJECT_DIR$/src/renderer/assets" />
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -440,7 +309,7 @@
       <workItem from="1564260767941" duration="599000" />
       <workItem from="1564261903519" duration="7000" />
       <workItem from="1564368727344" duration="6612000" />
-      <workItem from="1564545257971" duration="3234000" />
+      <workItem from="1564545257971" duration="8245000" />
     </task>
     <task id="LOCAL-00001" summary="what dis do">
       <created>1564199926256</created>
@@ -589,11 +458,18 @@
       <option name="project" value="LOCAL" />
       <updated>1564205181251</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="lots o code">
+      <created>1564548977519</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1564548977519</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18123000" />
+    <option name="totallyTimeSpent" value="23134000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2880" y="27" width="1440" height="2533" extended-state="6" />
@@ -642,7 +518,8 @@
     <MESSAGE value="magic" />
     <MESSAGE value="magic really" />
     <MESSAGE value="magic really really" />
-    <option name="LAST_COMMIT_MESSAGE" value="magic really really" />
+    <MESSAGE value="lots o code" />
+    <option name="LAST_COMMIT_MESSAGE" value="lots o code" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/package-lock.json" />
@@ -664,9 +541,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/renderer/assets/css/nucleo-icons.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/App.vue">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/mongo/index-old.js">
@@ -716,13 +590,6 @@
     <entry file="file://$PROJECT_DIR$/src/modules/views.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/components/LandingPage.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="3" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/lang/en.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="780">
@@ -743,13 +610,23 @@
     <entry file="file://$PROJECT_DIR$/src/db.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/messagebus.js">
+    <entry file="file://$PROJECT_DIR$/src/renderer/messagebus.js">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="795">
+          <caret line="68" selection-start-line="68" selection-end-line="68" />
+          <folding>
+            <element signature="e#69#93#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/renderer/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="32" column="5" lean-forward="true" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+        <state relative-caret-position="1110">
+          <caret line="74" selection-start-line="74" selection-end-line="74" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
             <element signature="e#253#297#0" expanded="true" />
@@ -758,15 +635,104 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/config.js">
+    <entry file="file://$PROJECT_DIR$/src/renderer/router/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+        <state>
           <folding>
-            <element signature="e#69#93#0" expanded="true" />
+            <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/renderer/components/LandingPage.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/renderer/components/ConfigModal.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="36" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="36" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#section#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#3543#3655#0" />
+            <element signature="e#3568#3645#0" />
+            <element signature="e#3672#4104#0" />
+            <element signature="e#3693#4094#0" />
+            <element signature="e#4139#4185#0" />
+            <element signature="e#4205#4235#0" />
+            <element signature="e#4254#8670#0" />
+            <element signature="e#4278#6838#0" />
+            <element signature="e#4609#5409#0" />
+            <element signature="e#4735#5228#0" />
+            <element signature="e#4883#5050#0" />
+            <element signature="e#5054#5221#0" />
+            <element signature="e#5234#5402#0" />
+            <element signature="e#5415#6733#0" />
+            <element signature="e#5869#5977#0" />
+            <element signature="e#6204#6377#0" />
+            <element signature="e#6383#6727#0" />
+            <element signature="e#6753#6767#0" />
+            <element signature="e#6871#7505#0" />
+            <element signature="e#7279#7393#0" />
+            <element signature="e#7399#7491#0" />
+            <element signature="e#7540#7653#0" />
+            <element signature="e#7685#8143#0" />
+            <element signature="e#7941#8041#0" />
+            <element signature="e#8046#8061#0" />
+            <element signature="e#8164#8226#0" />
+            <element signature="e#8253#8329#0" />
+            <element signature="e#8357#8496#0" />
+            <element signature="e#8526#8659#0" />
+            <element signature="n#style#0;n#!!top" />
+            <element signature="e#8703#8774#0" />
+            <element signature="e#8795#8837#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/renderer/components/Create.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+          <folding>
+            <element signature="n#style#0;n#h2#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#h2#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/renderer/assets/icon.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/renderer/components/Restore.vue">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/renderer/components/Welcome.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="e#3034#3074#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/renderer/App.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="411">
+          <caret line="44" column="18" selection-start-line="44" selection-start-column="18" selection-end-line="44" selection-end-column="18" />
+          <folding>
+            <element signature="e#963#1001#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/renderer/components/Configuration.vue">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>

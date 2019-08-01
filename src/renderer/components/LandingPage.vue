@@ -1,6 +1,6 @@
 <template>
   <div class="center">
-    <h2> Fomobot Desktop app</h2>
+    <h2> Fomobot Desktop app2</h2>
   </div>
 </template>
 
