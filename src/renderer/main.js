@@ -4,7 +4,7 @@ import 'bulma/css/bulma.css'
 import 'animate.css/animate.css'
 import { remote, ipcRenderer} from 'electron'
 import VueI18n from 'vue-i18n'
-
+import log from '../modules/logger'
 import App from './App'
 import router from './router'
 import store from './store'
@@ -25,7 +25,7 @@ let VueTruncate = require('vue-truncate-filter')
 
 
 Vue.use(VueI18n)
-
+Vue.log = Vue.prototype.$log = log
 
 const messages = {
   en,

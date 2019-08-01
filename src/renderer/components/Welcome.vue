@@ -41,10 +41,6 @@
 						<div class="column"><a class="button" @click="restoreSeed">
 							{{ $t("msg.new_.restore") }}</a>
 						</div>
-<!--						<div class="column">-->
-<!--							<a class="button is-link is-outlined has-text-grey" style="pointer-events: none;">-->
-<!--								{{ $t("msg.new_.import") }}</a>-->
-<!--						</div>-->
 
 					</div>
 
@@ -104,7 +100,7 @@
     //import {isFirstTime} from '../../modules/first'
     import Create from '@/components/Create'
     import Restore from '@/components/Restore'
-    //import {version, grinNode, gnodeOption, getLocale,innitConfig,locale,languageList,languages,getConfig,importConfig,updateConfig,checkConfigs} from '../../modules/config'
+    import {version, grinNode, gnodeOption, getLocale,innitConfig,locale,languageList,languages,getConfig,importConfig,updateConfig,checkConfigs} from '../../modules/config'
     import CountryFlag from 'vue-country-flag'
     const { app } = require('electron')
 
@@ -129,7 +125,7 @@
                 isLauguageSelected:false,
                 availableSettings:[],
                 lauguageSelected:languages[0],
-                languages:[],
+                languages:languages,
                 languageKeys:languages,
                 current:'new',
                 version: version,

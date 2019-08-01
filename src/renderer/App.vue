@@ -32,6 +32,9 @@
   import DisplaySeed from '@/components/DisplaySeed'
   import RestoreSeed from '@/components/RestoreSeed'
   import Configuration from '@/components/Configuration'
+  import Register from "@/components/Register";
+  import Password from '@/components/Password'
+
   //require
   const {ipcRenderer} = require('electron')
 
@@ -43,6 +46,8 @@
       Configuration,
       RestoreSeed,
       DisplaySeed,
+      Register,
+      Password,
     },
     data(){
       return {

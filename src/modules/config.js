@@ -9,6 +9,42 @@ const mkdirp = require('mkdirp');
 let appRootDir = require('app-root-dir').get().replace('app.asar', '').replace(/(\s+)/g, '\\$1');
 export const rootDir = require('app-root-dir').get()
 
+
+function getPlatform(){
+    switch (os.platform()) {
+        case 'aix':
+        case 'freebsd':
+        case 'linux':
+        case 'openbsd':
+        case 'android':
+            return 'linux';
+        case 'darwin':
+        case 'sunos':
+            return 'mac';
+        case 'win32':
+            return 'win';
+    }
+}
+
+
+
+export const platform = getPlatform()
+
+const IS_PROD = process.env.NODE_ENV === 'production';
+const root = process.cwd();
+const APP = process.type === 'renderer' ? remote.app : app
+
+const binariesPath =
+    IS_PROD || APP.isPackaged
+        ? path.join(process.resourcesPath, 'bin', platform)
+        : path.join(root, 'resources', 'bin', platform);
+
+
+
+//configs config
+export const fomoConfig = path.join(APP.getPath('home'), '.fomobro','fomobro.json')
+export const seedPath = path.join(APP.getPath('home'), '.fomobro', 'wallet/wallet.seed')
+
 //Language Settings
 
 export const  languageList = [
@@ -42,30 +78,8 @@ export const  languages = [
 ]
 
 
-function getPlatform(){
-    switch (os.platform()) {
-        case 'aix':
-        case 'freebsd':
-        case 'linux':
-        case 'openbsd':
-        case 'android':
-            return 'linux';
-        case 'darwin':
-        case 'sunos':
-            return 'mac';
-        case 'win32':
-            return 'win';
-    }
-}
-
-export const platform = getPlatform()
-
-const IS_PROD = process.env.NODE_ENV === 'production';
-const root = process.cwd();
-const APP = process.type === 'renderer' ? remote.app : app
-
-
-
+export const fomoPath = path.join(APP.getPath('home'), '.fomobro')
+export const logDir = path.join(fomoPath, 'log')
 
 
 export const releaseUrl = 'https://api.github.com/repos/BitHighlander/fomobot/releases/latest'
@@ -73,6 +87,30 @@ export const downloadUrl = 'https://github.com/BitHighlander/fomobot/releases/la
 
 //innit
 
+//check
+export function checkConfigs(){
+    let output = {}
+    output.isConfigured = false
+    output.isWallet = false
+    output.isRegistered = false
+
+    let fileFound = fs.existsSync(fomoConfig)?true:false
+    if(fileFound){
+        output.config = JSON.parse(fs.readFileSync(configPath))
+        if(output.config.version) output.isConfigured = true
+        if(output.config.username) output.isRegistered = true
+    }
+
+    if(output.config  && output.config.version )output.isConfigured = true
+
+    //wallet found?
+    let walletFound = fs.existsSync(seedPath)?true:false
+    if(walletFound){
+        output.isWallet = true
+    }
+
+    return output
+}
 
 export function getWallet(){
     try{
