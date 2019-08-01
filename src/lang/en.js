@@ -1,7 +1,7 @@
 const messages = {
   msg: {
     changeLanguage:' Change in Language Detected! restarting!',
-    title: 'DiagonAlley.io',
+    title: 'FomoBro',
     password: 'Password',
     passwordAgain: 'Enter password again',
     wrongPassword: 'Wrong password',
@@ -33,7 +33,7 @@ const messages = {
 
     welcome:{
       continue:'Continue',
-      title:'Welcome to DiagonAlley.io',
+      title:'Welcome to FomoBro',
       selectLanguage:' Select your preferred language',
       welcomeNoWallet:' No previous Wallets were detected! you can: ',
       settingsAvailable:' Found a Grin wallet already installed! Would you like to import settings?',
@@ -43,11 +43,11 @@ const messages = {
 
     register:{
       found:' Wallet found! ',
-      title:'Setup DiagonAlley.io wallet',
+      title:'Setup FomoBro wallet',
       keypairTitle:'keypair',
       keypair:' This Keypair displayed here is a derivative of your wallets seed.',
       keypair3:' Your seed will restore both your wallet funds and all encrypted slates and messages.',
-      keypair2:' You will use these for Proof of Payment and encrypted slate transfer during diagonAlley.io services.',
+      keypair2:' You will use these for Proof of Payment and encrypted slate transfer during FomoBro services.',
       verifyWallet:' Lets verify your wallet is intact! ',
       unavailable: 'Username is Unavailable!',
       missing:'Username is undefined!',
