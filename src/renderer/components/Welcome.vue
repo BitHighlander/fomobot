@@ -105,6 +105,7 @@
             this.showModal = false
         },
         mounted() {
+            innitConfig('en')
 			this.getState()
         },
         methods: {
@@ -172,11 +173,11 @@
 
                 //save
             },
-            languageConfirmed(){
+            async languageConfirmed(){
                 this.$log.info("confirm selectLanguage ")
 
                 //init config
-                innitConfig(this.lauguageSelected)
+                await innitConfig(this.lauguageSelected)
 
                 this.isDropdownActive = false
                 //let local = getLocale()
@@ -187,6 +188,7 @@
                     alert( this.$t("msg.changeLanguage") )
                     process.exit(0)
                 } else {
+                    innitConfig('en')
                     this.lauguageSelected = true
                     this.getState()
 				}

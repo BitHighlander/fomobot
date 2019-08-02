@@ -72,6 +72,7 @@ export const  languages = [
 
 //configs config
 export const fomoConfig = path.join(APP.getPath('home'), '.fomobro','fomobro.json')
+export const configPath = path.join(APP.getPath('home'), '.fomobro','fomobro.json')
 export const seedPath = path.join(APP.getPath('home'), '.fomobro', 'wallet_data/wallet.seed')
 export const seedDir = path.join(APP.getPath('home'), '.fomobro', 'wallet_data')
 export const fomoPath = path.join(APP.getPath('home'), '.fomobro')
@@ -86,12 +87,12 @@ export function innitConfig(languageSelected){
     try{
         let output = {}
         console.log(tag,"CHECKPOINT innitConfig")
-        console.log(tag,"diagonPath: ",fomoPath)
+        console.log(tag,"fomoPath: ",fomoPath)
         console.log(tag,"seedDir: ",seedDir)
 
         mkdirp(fomoPath, function (err) {
             if (err) console.error(err)
-            else console.log('created: ',configPath)
+            else console.log('created: ',fomoPath)
         });
 
         mkdirp(logDir, function (err) {
@@ -113,7 +114,7 @@ export function innitConfig(languageSelected){
         config.localeSelected = true
         config.version = VERSION
 
-        fs.writeFileSync(configPath,JSON.stringify(config))
+        fs.writeFileSync(fomoConfig,JSON.stringify(config))
 
     }catch (e) {
         console.error(tag,"e: ",e)

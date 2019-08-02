@@ -56,7 +56,7 @@
         openConfiguration: false,
         openDisplaySeed: false,
         openRestoreSeed: false,
-        openWelcome: true,
+        openWelcome: false,
         openCheckPublic: false,
         openSetup: false,
         openCheckPrivate: false,
