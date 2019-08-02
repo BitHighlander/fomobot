@@ -97,8 +97,8 @@
 
       this.$log.info("checkpoint 1 mounted")
 
-      this.checkNewVersion()
-      this.$log.info("checkpoint 2 passed version check")
+      //this.checkNewVersion()
+      //this.$log.info("checkpoint 2 passed version check")
 
       //detect configs
       this.loadConfig()
@@ -113,12 +113,108 @@
           if(window =='windowConfiguration'){
             this.openConfiguration = true
           }
+          if(window =='windowDisplaySeed'){
+            this.openDisplaySeed = true
+          }
+          if(window =='windowRestoreSeed'){
+            this.openRestoreSeed = true
+          }
+          if(window =='windowPassword'){
+            this.openPassword = true
+          }
+          if(window =='windowSetup'){
+            this.openSetup = true
+          }
+          if(window =='windowWelcome'){
+            this.openWelcome = true
+          }
+          if(window =='windowReceive'){
+            this.openReceive = true
+          }
+          if(window =='windowRegister'){
+            this.openRegister = true
+          }
+          if(window =='windowCheckPrivate'){
+            this.openCheckPrivate = true
+          }
+          if(window =='windowCheckPrivate'){
+            this.openCheckPublic = true
+          }
+          if(window =='windowFileSend'){
+            this.openFileSend = true
+          }
+          if(window =='windowFinalize'){
+            this.openFinalize = true
+          }
+          if(window =='windowHttpReceive'){
+            this.openHttpReceive = true
+          }
+          if(window =='windowHedwigV1'){
+            this.openHedwigV1 = true
+          }
+          if(window =='windowCheck'){
+            this.openCheck = true
+          }
+          if(window =='windowLang'){
+            this.openLang = true
+          }
+          if(window =='windowGnode'){
+            this.openGnode = true
+          }
         })
 
         //close
         messageBus.$on('close', (window)=>{
           if(window =='windowDisplaySeed'){
+            this.openDisplaySeed = false
+          }
+          if(window =='windowConfiguration'){
             this.openConfiguration = false
+          }
+          if(window =='windowRestoreSeed'){
+            this.openRestoreSeed = false
+          }
+          if(window =='windowPassword'){
+            this.openPassword = false
+          }
+          if(window =='windowSetup'){
+            this.openSetup = false
+          }
+          if(window =='windowWelcome'){
+            this.openWelcome = false
+          }
+          if(window =='windowReceive'){
+            this.openReceive = false
+          }
+          if(window =='windowRegister'){
+            this.openRegister = false
+          }
+          if(window =='windowCheckPrivate'){
+            this.openCheckPrivate = false
+          }
+          if(window =='windowCheckPrivate'){
+            this.openCheckPublic = false
+          }
+          if(window =='windowFileSend'){
+            this.openFileSend = false
+          }
+          if(window =='windowFinalize'){
+            this.openFinalize = false
+          }
+          if(window =='windowHttpReceive'){
+            this.openHttpReceive = false
+          }
+          if(window =='windowHedwigV1'){
+            this.openHedwigV1 = false
+          }
+          if(window =='windowCheck'){
+            this.openCheck = false
+          }
+          if(window =='windowLang'){
+            this.openLang = false
+          }
+          if(window =='windowGnode'){
+            this.openGnode = false
           }
         })
 

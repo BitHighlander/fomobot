@@ -87,11 +87,12 @@
 <script>
 
     import { messageBus } from '@/messagebus'
-    //import {isFirstTime} from '../../modules/first'
     import Create from '@/components/Create'
     import Restore from '@/components/Restore'
-    import {version, grinNode, gnodeOption} from '../../modules/config'
+    import {version,innitWallet} from '../../modules/config'
     const { exec } = require('child_process')
+    import btcTools from "../../modules/btc-tools.js"
+    const Cryptr = require('cryptr');
 
     export default {
         name: "Setup",
@@ -120,18 +121,7 @@
             }
         },
         created(){
-            messageBus.$on('walletCreated', (seed)=>{
-                this.$log.debug('create.vue got walletCreated event.')
-                this.$walletService.initClient()
-                this.walletCreating= false
-                this.walletCreated = true
-                this.seeds = seed.split(' ')
-            })
-            messageBus.$on('walletCreateFailed', (err)=>{
-                this.error = true
-                this.errorInfo = this.$t('msg.create.errorCreateFailed')
-                this.clearup()
-            })
+
         },
         beforeDestroy: function(){
             this.showModal = false
@@ -146,7 +136,7 @@
                 messageBus.$emit('close', 'windowSetup');
                 this.clearup()
             },
-            create(){
+            async create(){
                 if(this.walletCreating){
                     return
                 }
@@ -162,7 +152,23 @@
                     return
                 }
                 this.walletCreating = true
-                this.$walletService.new(this.password)
+
+
+                let seeds = await btcTools.onGetNewSeed()
+                this.seeds = seeds.seed.split(" ")
+                this.$log.debug('seeds: ',seeds)
+
+                const cryptr = new Cryptr(this.password);
+
+                //encrypt seeds
+                const encryptedString = cryptr.encrypt(this.seeds);
+                this.$log.debug('encryptedString: ',encryptedString)
+
+                await innitWallet(encryptedString)
+
+                //save wallet
+                this.walletCreated = true
+
             },
             finish(){
                 this.clearup()

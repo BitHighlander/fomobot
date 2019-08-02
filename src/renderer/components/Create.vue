@@ -79,14 +79,14 @@
 import { messageBus } from '@/messagebus'
 const { exec } = require('child_process')
 import {version} from '../../modules/config'
+import btcTools from "../../modules/btc-tools.js"
 
 export default {
   name: "create",
   data() {
     return {
-      password: "", 
+      password: "",
       password2: "",
-
       walletCreated: false,
       walletCreating: false,
       error: false,
@@ -96,42 +96,43 @@ export default {
     }
   },
   created(){
-    messageBus.$on('walletCreated', (seed)=>{
-      this.$log.debug('create.vue got walletCreated event.')
-      this.$walletService.initClient()
-      this.walletCreating= false
-      this.walletCreated = true
-      this.seeds = seed.split(' ')
-    })
-    messageBus.$on('walletCreateFailed', (err)=>{
-      this.error = true
-      this.errorInfo = this.$t('msg.create.errorCreateFailed')
-      this.clearup()
-    })
+    //create new seed
   },
   methods: {
     closeModal() {
       messageBus.$emit('close', 'windowCreate');
       this.clearup()
     },
-    create(){
-      if(this.walletCreating){
-        return
-      }
-      this.resetErrors()
+    async create(){
+
       if(this.password.length == 0 ){
         this.error = true
         this.errorInfo = this.$t('msg.create.errorPasswdEmpty')
         return
       }
+
       if(this.password != this.password2 ){
         this.error = true
         this.errorInfo = this.$t('msg.create.errorPasswdConsistency')
         return
       }
       this.walletCreating = true
-      this.$walletService.new(this.password)
+
+      let seeds = await btcTools.onGetNewSeed()
+      this.seeds = seeds
+      this.$log.debug('seeds: ',seeds)
+
+      //encrypt seeds
+
+      //save wallet
+
+      this.walletCreated = true
+
+      this.resetErrors()
+
+
     },
+
     finish(){
       this.clearup()
       messageBus.$emit('walletCreateFinished')
@@ -151,7 +152,7 @@ export default {
       this.clearup()
       messageBus.$emit('backToNew')
     }
-    
+
   }
 }
 </script>

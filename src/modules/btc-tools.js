@@ -21,6 +21,9 @@ let onGetNewSeed = async function () {
     try {
         //this.setState({ error: null });
         let seed = await bip39.generateMnemonic()
+        //Note uses https://node.readthedocs.io/en/latest/api/crypto/#cryptorandombytessize-callback
+        //Generates cryptographically strong pseudo-random data.
+        //dont let the pseudo fool you, true random is insecure for crypto!
 
         let success = true
 

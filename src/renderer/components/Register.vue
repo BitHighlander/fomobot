@@ -56,15 +56,6 @@
 						</div>
 					</div>
 
-
-
-
-
-
-
-
-
-
 				</div>
 				<div v-else="isWalletVerified">
 					{{ $t("msg.register.verifyWallet") }}

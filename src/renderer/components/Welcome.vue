@@ -7,29 +7,6 @@
 
 			</header>
 				<section class="modal-card-body" style="height:280px;">
-				<div v-if=isSettingsAvailable>
-
-
-					<div class="columns">
-						<div class ="colum">
-							<h1>{{ $t("msg.welcome.settingsAvailable") }}</h1>
-						</div>
-						<div class ="colum">
-
-						</div>
-						<div class="column">
-
-
-
-						</div>
-					</div>
-
-
-
-
-				</div>
-
-				<div v-else=isSettingsAvailable>
 
 					<div v-if=isLauguageSelected>
 						<h2>{{ $t("msg.welcome.welcomeNoWallet") }}</h2>
@@ -46,9 +23,6 @@
 
 					<div v-else=isLauguageSelected>
 						<h1>{{ $t("msg.welcome.selectLanguage") }}</h1>
-
-
-
 
 						<div v-bind:class="{ 'is-active': isDropdownActive }" class="dropdown">
 							<div class="dropdown-trigger" @click="isDropdownActive=!isDropdownActive">
@@ -72,14 +46,11 @@
 							</div>
 						</div>
 
-
-
 					</div>
 
-				</div>
 				</section>
 
-			<footer v-if="!isSettingsAvailable && !isLauguageSelected"  class="modal-card-foot is-primary is-right">
+			<footer v-if="!isLauguageSelected"  class="modal-card-foot is-primary is-right">
 				<button class="button" @click="languageConfirmed">{{ $t("msg.welcome.continue") }}</button>
 			</footer>
 
@@ -97,10 +68,9 @@
 <script>
 
     import { messageBus } from '@/messagebus'
-    //import {isFirstTime} from '../../modules/first'
     import Create from '@/components/Create'
     import Restore from '@/components/Restore'
-    import {version, grinNode, gnodeOption, getLocale,innitConfig,locale,languageList,languages,getConfig,importConfig,updateConfig,checkConfigs} from '../../modules/config'
+    import {version, getLocale, innitConfig,locale,languages,getConfig,importConfig,checkConfigs} from '../../modules/config'
     import CountryFlag from 'vue-country-flag'
     const { app } = require('electron')
 
@@ -122,7 +92,7 @@
                 isWalletImported:false,
                 isSettingsAvailable:false,
                 isDropdownActive: false,
-                isLauguageSelected:false,
+                isLauguageSelected:true,
                 availableSettings:[],
                 lauguageSelected:languages[0],
                 languages:languages,

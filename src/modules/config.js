@@ -1,6 +1,6 @@
 let TAG = " | Config | "
 const VERSION = 1.0
-var fs = require('fs');
+var fs = require('fs-extra');
 import path from 'path';
 import { app, remote } from 'electron';
 import os from 'os'
@@ -26,8 +26,6 @@ function getPlatform(){
     }
 }
 
-
-
 export const platform = getPlatform()
 
 const IS_PROD = process.env.NODE_ENV === 'production';
@@ -39,11 +37,6 @@ const binariesPath =
         ? path.join(process.resourcesPath, 'bin', platform)
         : path.join(root, 'resources', 'bin', platform);
 
-
-
-//configs config
-export const fomoConfig = path.join(APP.getPath('home'), '.fomobro','fomobro.json')
-export const seedPath = path.join(APP.getPath('home'), '.fomobro', 'wallet/wallet.seed')
 
 //Language Settings
 
@@ -77,15 +70,80 @@ export const  languages = [
     }
 ]
 
-
+//configs config
+export const fomoConfig = path.join(APP.getPath('home'), '.fomobro','fomobro.json')
+export const seedPath = path.join(APP.getPath('home'), '.fomobro', 'wallet_data/wallet.seed')
+export const seedDir = path.join(APP.getPath('home'), '.fomobro', 'wallet_data')
 export const fomoPath = path.join(APP.getPath('home'), '.fomobro')
 export const logDir = path.join(fomoPath, 'log')
-
 
 export const releaseUrl = 'https://api.github.com/repos/BitHighlander/fomobot/releases/latest'
 export const downloadUrl = 'https://github.com/BitHighlander/fomobot/releases/latest'
 
 //innit
+export function innitConfig(languageSelected){
+    let tag = TAG + " | importConfig | "
+    try{
+        let output = {}
+        console.log(tag,"CHECKPOINT innitConfig")
+        console.log(tag,"diagonPath: ",fomoPath)
+        console.log(tag,"seedDir: ",seedDir)
+
+        mkdirp(fomoPath, function (err) {
+            if (err) console.error(err)
+            else console.log('created: ',configPath)
+        });
+
+        mkdirp(logDir, function (err) {
+            if (err) console.error(err)
+            else console.log('created: ',logDir)
+        });
+
+
+        mkdirp(seedDir, function (err) {
+            if (err) console.error(err)
+            else console.log('seedDir: ',seedDir)
+        });
+
+
+        console.log(tag," innit config checkpiont 2")
+
+        let config = {}
+        config.locale = languageSelected.code
+        config.localeSelected = true
+        config.version = VERSION
+
+        fs.writeFileSync(configPath,JSON.stringify(config))
+
+    }catch (e) {
+        console.error(tag,"e: ",e)
+        return {}
+    }
+}
+
+
+//innit Wallet
+export function innitWallet(encryptedSeed){
+    let tag = TAG + " | innitWallet | "
+    try{
+        let output = {}
+        console.log(tag,"CHECKPOINT innitConfig")
+        console.log(tag,"encryptedSeed: ",encryptedSeed)
+
+
+        let wallet = {}
+        wallet.version = 1
+        wallet.type = "seedwords"
+        wallet.vault = encryptedSeed
+
+        console.log("result: ",result)
+        let result = fs.writeFileSync(seedPath,JSON.stringify(wallet))
+        console.log("result: ",result)
+    }catch (e) {
+        console.error(tag,"e: ",e)
+        return {}
+    }
+}
 
 //check
 export function checkConfigs(){
@@ -143,9 +201,7 @@ export function updateConfig(options){
 //export const logLevel = getConfig()['debug']?'debug':'info'
 export const logLevel = 'debug'
 
-
-
-function getLocale(){
+export function getLocale(){
     let locale = getConfig()['locale']
     if(locale)return locale
     locale = APP.getLocale().toLowerCase()
@@ -153,11 +209,11 @@ function getLocale(){
     if(locale.startsWith('ru'))return 'ru'
     return 'en'
 }
+
 export function setLocale(locale){
     updateConfig({'locale':locale})
 }
 export const locale = getLocale()
-
 
 import pkg from '../../package.json'
 export const version = pkg.version
