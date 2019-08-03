@@ -237,7 +237,7 @@
                 }
             },
             async submitForm() {
-                let isValid = this.checkForm()
+                let isValid = await this.checkForm()
 				if(isValid){
                     this.$log.info('Checkpoint register ',isValid)
 

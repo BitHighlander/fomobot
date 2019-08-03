@@ -8,6 +8,9 @@ import log from '../modules/logger'
 import App from './App'
 import router from './router'
 import store from './store'
+import walletService from '../modules/wallet'
+//import fomoService from '../modules/fomo'
+import dbService from '@/db'
 
 //css assets
 import "@/assets/sass/black-dashboard.scss";
@@ -23,7 +26,9 @@ import es from '../lang/es'
 let VueTruncate = require('vue-truncate-filter')
 
 
-
+Vue.walletService = Vue.prototype.$walletService = walletService
+//Vue.walletService = Vue.prototype.fomoService = fomoService
+Vue.dbService = Vue.prototype.$dbService = dbService
 Vue.use(VueI18n)
 Vue.log = Vue.prototype.$log = log
 

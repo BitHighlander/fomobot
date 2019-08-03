@@ -110,7 +110,8 @@
     "vue-router": "^3.0.1",
     "vue-truncate-filter": "^1.1.7",
     "vuex": "^3.0.1",
-    "vuex-electron": "^1.0.0"
+    "vuex-electron": "^1.0.0",
+    "web3": "^1.2.0"
   },
   "devDependencies": {
     "ajv": "^6.5.0",

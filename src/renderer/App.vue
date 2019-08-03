@@ -35,6 +35,7 @@
   import Configuration from '@/components/Configuration'
   import Register from "@/components/Register";
   import Password from '@/components/Password'
+  import SummaryInfo from '@/components/SummaryInfo'
 
   //require
   const {ipcRenderer} = require('electron')

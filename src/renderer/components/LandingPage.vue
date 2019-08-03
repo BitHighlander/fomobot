@@ -1,16 +1,45 @@
 <template>
   <div class="center">
-    <h2> Fomobot Desktop app2</h2>
+    <h2> Fomobot Desktop Dashboard</h2>
+    <h2>balance: {{total}}</h2>
   </div>
 </template>
 
 <script>
   import SystemInformation from './LandingPage/SystemInformation'
+  import { messageBus } from '@/messagebus'
 
   export default {
     name: 'landing-page',
     components: { SystemInformation },
+    data(){
+      return {
+        spendable: 0,
+        total: 0,
+        unconfirmed: 0,
+        smallTitle: false
+      }
+    },
+    mounted () {
+      this.getSummaryinfo()
+    },
+    created () {
+      messageBus.$on('update', ()=>this.getSummaryinfo())
+    },
     methods: {
+      getSummaryinfo: function() {
+        this.$walletService.getSummaryInfo(10)
+          .then( (res) => {
+            this.$log.info("res: ",res)
+            this.total = res.balance
+          }).catch((error) => {
+            this.$log.error('getSummaryinfo error:' + error)
+            if (error.response) {
+              let resp = error.response
+              this.$log.error(`resp.data:${resp.data}; status:${resp.status};headers:${resp.headers}`)
+            }
+        })
+      },
       open (link) {
         this.$electron.shell.openExternal(link)
       }
