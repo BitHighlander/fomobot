@@ -87,7 +87,7 @@
 <script>
 
     import { messageBus } from '@/messagebus'
-    import Create from '@/components/Create'
+    //import Create from '@/components/Create'
     import Restore from '@/components/Restore'
     import {version,innitWallet} from '../../modules/config'
     const { exec } = require('child_process')
@@ -97,7 +97,7 @@
     export default {
         name: "Setup",
         components: {
-            Create,
+            //Create,
             Restore
         },
         props: {

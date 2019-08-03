@@ -68,7 +68,7 @@
 <script>
 
     import { messageBus } from '@/messagebus'
-    import Create from '@/components/Create'
+    //import Create from '@/components/Create'
     import Restore from '@/components/Restore'
     import {version, getLocale, innitConfig,locale,languages,getConfig,importConfig,checkConfigs} from '../../modules/config'
     import CountryFlag from 'vue-country-flag'
@@ -77,7 +77,7 @@
     export default {
         name: "Welcome",
         components: {
-            Create,
+            //Create,
             Restore,
             CountryFlag
         },

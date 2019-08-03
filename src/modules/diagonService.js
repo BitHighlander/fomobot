@@ -27,9 +27,9 @@ const bitcoinMessage = require('bitcoinjs-message')
 
 let URL_BASE
 if(process.env.NODE_ENV === "development"){
-    URL_BASE = process.env.VUE_APP_SERVICE_HOSTNAME || "https://diagonalley.io"
+    URL_BASE = process.env.VUE_APP_SERVICE_HOSTNAME || "http://127.0.0.1:3000"
 } else {
-    URL_BASE = "https://diagonAlley.io"
+    URL_BASE = "http://127.0.0.1:3000"
 }
 
 
@@ -48,7 +48,7 @@ let isValid = async function (username) {
         let url = URL_BASE + '/user/'+username
         let result = await send_get_request(url)
 
-        output = result.isAvailable
+        output = result
         return output
     } catch (error) {
         return error

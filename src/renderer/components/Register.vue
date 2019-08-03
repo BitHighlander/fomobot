@@ -115,6 +115,7 @@
     import {version, grinNode, gnodeOption, getConfig, updateConfig,getWallet} from '../../modules/config'
     import btcTools from "../../modules/btc-tools.js"
     const delay = require('delay');
+    const Cryptr = require('cryptr');
 
     export default {
         name: "Register",
@@ -165,11 +166,18 @@
 			},
             async tryLogin(){
                 this.$log.info('password: ',this.password)
-
-				//get seed from password
-                let seed = await this.$walletService.displaySeed(this.password,grinNode)
+                const cryptr = new Cryptr(this.password);
+                let wallet = this.rawWallet
+                wallet = JSON.parse(wallet)
+                let seed = cryptr.decrypt(wallet.vault);
                 this.$log.info('seed: ',seed)
-				this.seeds = seed.seed
+                this.$log.info('seed: ',typeof(seed))
+
+                //seed = seed.split(" ")
+				//get seed from password
+                //let seed = await this.$walletService.displaySeed(this.password,grinNode)
+				this.seeds = seed
+                this.$log.info('seed: ',seed)
 				//use seed to build keypair
                 let btcKeys = await btcTools.onBuildWallet(seed.toString())
 				console.log("btcKeys:  ",btcKeys)
@@ -186,6 +194,20 @@
                 updateConfig({signingPriv})
 
                 this.isWalletVerified = true
+
+				//check if username
+				let userInfo = await service.isValid(signingPub)
+                console.log("userInfo:  ",userInfo)
+
+				if(userInfo.username){
+                    //save username to config
+                    updateConfig({'username':userInfo.username})
+                    messageBus.$emit('successRegister');
+
+                    this.closeModal()
+				}
+
+
             },
             closeModal() {
                 messageBus.$emit('close', 'windowRegister');
