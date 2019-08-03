@@ -94,22 +94,9 @@
                 let password = this.password
 
                 this.resetErrors()
-                this.$walletService.initClient()
-                this.$walletService.startOwnerApi(this.password, grinNode)
-                setTimeout(() => {
-                    this.$walletService.getNodeHeight().then(
-                        (res) => {
-                            setPassword(password)
-                            messageBus.$emit('logined')
-                            if (gnodeOption.type != 'remoteAllTime') messageBus.$emit('gnodeStarting')
+                this.$walletService.initClient(password)
+                //this.$walletService.startOwnerApi(this.password, grinNode)
 
-                            messageBus.$emit('close', 'windowPassword');
-                        }).catch((error) => {
-                        this.$log.error('Failed to start wallet! ',error)
-                        return this.error = true
-                    })
-                }, 800)
-                this.resetErrors()
             },
             resetErrors() {
                 this.error = false;
@@ -128,7 +115,7 @@
                 }
             },
             stop() {
-                this.$walletService.stopProcess('listen')
+                //this.$walletService.stopProcess('listen')
                 this.running = false
                 this.closeModal()
             },
@@ -141,72 +128,6 @@
                 this.errors = []
                 this.starting = false
                 this.started = false
-            },
-
-            getIP(log) {
-                return new Promise(function (resolve, reject) {
-                    publicIp.v4().then((ip) => {
-                        return resolve(ip)
-                    }).catch((err) => {
-                        log.error('Failed to get ip use publicIp: ' + err)
-                        externalip(function (err, ip) {
-                            if (ip) {
-                                return resolve(ip)
-                            } else {
-                                log.error('Failed to get ip use externalip: ' + err)
-                                return reject(err)
-                            }
-                        })
-                    })
-                })
-            },
-
-            checklocalReachable() {
-                const url = 'http://127.0.0.1:3415'
-                this.$log.debug('Try to tests if http listen locally reachable?')
-                return this.$http.get(url, {timeout: 5000})
-            },
-
-            checkRunning() {
-                this.checklocalReachable().catch((err) => {
-                    if (err.response) {
-                        this.localReachable = true
-                    }
-                })
-                this.getIP(this.$log).then((ip) => {
-                    this.ip = ip
-                    this.$log.debug('Get ip: ' + ip)
-                    const url = `http://${ip}:3415`
-                    this.$log.debug(`Try to test ${url} ?`)
-                    this.$http.get(url, {timeout: 4000}).catch((error) => {
-                        if (error.response) {
-                            this.running = true
-                            if (this.starting) {
-                                this.started = true
-                                this.starting = false
-                            }
-                            this.$log.debug('wallet HTTP listen works.')
-                        } else {
-                            if (this.starting) {
-                                this.starting = false
-                                if (this.localReachable) {
-                                    this.errors.push(this.$t('msg.httpReceive.failed4'))
-                                } else {
-                                    this.errors.push(this.$t('msg.httpReceive.failed2'))
-                                }
-                            }
-                            this.running = false
-                            this.$log.debug('Failed to connect ', url)
-                        }
-                    })
-                }).catch(
-                    (err) => {
-                        this.$log.error('Error when try to get ip: ' + err)
-                        this.errors.push(this.$t('msg.httpReceive.failed3'))
-                        this.starting = false
-                        this.running = false
-                    }
-                )
             }
         }
     }

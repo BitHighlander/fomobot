@@ -225,7 +225,6 @@
     },
     methods: {
       loadConfig:function(){
-
         let configStatus = checkConfigs()
         let config = getConfig()
         this.$log.info("config: ",config)
