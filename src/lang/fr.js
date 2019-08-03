@@ -200,7 +200,7 @@ const messages = {
             intro2: "Quand quelqu'un envoie GRIN à l'adresse, Hedwig (v1) transmettra la demande à votre portefeuille. Donc, vous aurez votre GRIN.",
             start: 'Début',
             failed: 'Erreur de connexion au serveur Hedwig, réessayez plus tard.',
-            failed2: "Erreur lors du test de l'adresse Hedwig, réessayez ultérieurement ou redémarrez le portefeuille.",
+            failed2: "Erreur lors du tests de l'adresse Hedwig, réessayez ultérieurement ou redémarrez le portefeuille.",
             failed3: 'Impossible de démarrer le service de réception GRIN local, réessayez ultérieurement ou redémarrez le portefeuille.',
             copy: 'Adresse de copie',
             copied: "L'adresse a été copiée dans le presse-papier"

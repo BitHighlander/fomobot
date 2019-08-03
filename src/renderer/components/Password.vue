@@ -163,7 +163,7 @@
 
             checklocalReachable() {
                 const url = 'http://127.0.0.1:3415'
-                this.$log.debug('Try to test if http listen locally reachable?')
+                this.$log.debug('Try to tests if http listen locally reachable?')
                 return this.$http.get(url, {timeout: 5000})
             },
 

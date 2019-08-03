@@ -12,12 +12,11 @@
     "build:clean": "cross-env BUILD_TARGET=clean node .electron-vue/build.js",
     "build:web": "cross-env BUILD_TARGET=web node .electron-vue/build.js",
     "dev": "node .electron-vue/dev-runner.js",
-    "e2e": "npm run pack && mocha test/e2e",
+    "e2e": "npm run pack && mocha tests/e2e",
     "pack": "npm run pack:main && npm run pack:renderer",
     "pack:main": "cross-env NODE_ENV=production webpack --progress --colors --config .electron-vue/webpack.main.config.js",
     "pack:renderer": "cross-env NODE_ENV=production webpack --progress --colors --config .electron-vue/webpack.renderer.config.js",
-    "test": "npm run unit && npm run e2e",
-    "unit": "karma start test/unit/karma.conf.js",
+    "test": "jest",
     "release": "electron-builder --publish always --mac --win --linux",
     "postinstall": ""
   },
@@ -56,6 +55,7 @@
     }
   },
   "dependencies": {
+    "@vue/babel-preset-app": "^3.9.2",
     "animate.css": "^3.7.0",
     "app-root-dir": "^1.0.2",
     "axios": "^0.18.0",
@@ -80,6 +80,10 @@
     "harry-potter-names": "^1.2.0",
     "hdkey": "^1.1.1",
     "is-valid-domain": "0.0.5",
+    "jest": "^24.8.0",
+    "jest-serializer-vue": "^2.0.2",
+    "jest-transform-stub": "^2.0.0",
+    "jest-watch-typeahead": "^0.3.1",
     "jquery": "^3.4.1",
     "mkdirp": "^0.5.1",
     "moment": "^2.24.0",
@@ -105,6 +109,7 @@
     "vue-electron": "^1.0.6",
     "vue-flag-icon": "^1.0.6",
     "vue-i18n": "^8.10.0",
+    "vue-jest": "^3.0.4",
     "vue-languages-dropdown": "^1.0.16",
     "vue-moment": "^4.0.0",
     "vue-router": "^3.0.1",
@@ -114,8 +119,9 @@
     "web3": "^1.2.0"
   },
   "devDependencies": {
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
     "ajv": "^6.5.0",
-    "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
     "babel-plugin-istanbul": "^4.1.6",
     "babel-plugin-transform-runtime": "^6.23.0",

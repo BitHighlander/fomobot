@@ -196,7 +196,7 @@ const messages = {
             intro2: 'When someone send grin to the address, Hedwig(v1) will forward the send request to your wallet. So you will get your grin.',
             start: 'Start',
             failed: 'Error when try to connect Hedwig server, try it latter maybe',
-            failed2: 'Error when test Hedwig address, try it later maybe or restart wallet.',
+            failed2: 'Error when tests Hedwig address, try it later maybe or restart wallet.',
             failed3: 'Failed to start local grin receive service, try it later maybe or restart wallet.',
             copy: 'copy address',
             copied: 'address was copied in clipboard'

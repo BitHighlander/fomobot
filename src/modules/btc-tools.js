@@ -63,7 +63,7 @@ let onBuildWallet = async function (seed) {
                 mk = HDKey.fromMasterSeed(bufferSeed)
             } else {
                 console.log("Building testnet keypair")
-                mk = HDKey.fromMasterSeed(bufferSeed, coininfo('bitcoin-test').versions.bip32)
+                mk = HDKey.fromMasterSeed(bufferSeed, coininfo('bitcoin-tests').versions.bip32)
             }
         }catch(e){
             console.error("unable to create key from seed! ",seed)

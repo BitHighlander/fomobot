@@ -205,10 +205,10 @@ let initialize_service = async function () {
 
         // views.displayStringToChannel("Starting up exchange services!",'wallet')
         //
-        // let test = function(){
+        // let tests = function(){
 		 //    views.displayStringToChannel("Starting up exchange services!",'wallet')
         // }
-        // setInterval(test,1000)
+        // setInterval(tests,1000)
 
         //get oldest history object
         // let checkpoint = await mongo['binance-balances'].findOne({},{sort:{nonce:-1}})
