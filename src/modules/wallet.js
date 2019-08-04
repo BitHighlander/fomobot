@@ -11,6 +11,7 @@ const EthereumBip44 = require('ethereum-bip44-update');
 let bitcoin = require("bitcoinjs-lib");
 const ethUtils = require('ethereumjs-util');
 const bip32 = require(`bip32`)
+const Promise = require("bluebird");
 //import {exec, execFile, spawn, fork} from 'child_process'
 
 let Web3 = require('web3');
@@ -26,9 +27,14 @@ let BASE = 1000000000000000000;
 let online = false
 let MASTER_ADDRESS
 let MASTER_PRIVATE
+let ETH_BALANCE
+let FOMO_BALANCE
 let XPUB
 let SEED
 let password_
+
+let token = "MEESH";
+let abiInfo = require("../coins/"+token.toUpperCase()+".abi.js");
 
 class WalletService {
 
@@ -100,14 +106,38 @@ class WalletService {
             }
         });
 
+//
+        let ABI = abiInfo.ABI;
+        let metaData = abiInfo.metaData;
 
-        this.online = true
+
+        //
+        let contract = new web3.eth.Contract(ABI,metaData.contractAddress)
+        console.log("contract: ",contract);
+
+        //let contract = abiInterface.at(metaData.contractAddress);
+        let balance = await contract.methods.balanceOf(MASTER_ADDRESS).call()
+
+        // let getBalance = Promise.promisify(contract.balanceOf);
+        //
+        //
+        //let balance = await getBalance(result.coinbase, "pending");
+        console.log("balance: ",balance);
+
+        FOMO_BALANCE = balance/metaData.BASE;
+
+        online = true
 
         return
     }
 
     static async getSummaryInfo() {
-        let output = {online:this.online}
+        let output = {
+            online,
+            address:MASTER_ADDRESS,
+            ethBalance:ETH_BALANCE,
+            balance:FOMO_BALANCE
+        }
         //get balance?
         output.balance = 1000
 
