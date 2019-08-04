@@ -101,6 +101,7 @@ class WalletService {
             if(!error){
                 let balance = result.toString()/BASE
                 log.debug("balance: ",balance)
+                ETH_BALANCE = balance
             } else {
                 console.error(error,result)
             }
@@ -138,8 +139,6 @@ class WalletService {
             ethBalance:ETH_BALANCE,
             balance:FOMO_BALANCE
         }
-        //get balance?
-        output.balance = 1000
 
         //set globals?
         return output

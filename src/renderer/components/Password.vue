@@ -97,6 +97,7 @@
                 this.$walletService.initClient(password)
                 //this.$walletService.startOwnerApi(this.password, grinNode)
 				this.closeModal()
+                messageBus.$emit('update');
             },
             resetErrors() {
                 this.error = false;

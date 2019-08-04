@@ -2,6 +2,8 @@
   <div class="center">
     <h2> Fomobot Desktop Dashboard</h2>
     <h2>balance: {{total}}</h2>
+    <button class="button is-text" @click="getSummaryinfo">
+      {{ $t("msg.update") }}</button>
   </div>
 </template>
 

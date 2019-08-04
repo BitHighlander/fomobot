@@ -7,6 +7,10 @@
     <p>{{ $t("msg.info.unfinalization") }}: {{unfinalization}} ツ</p>
     <p v-if="immature>0">{{ $t("msg.info.immature") }}: {{immature}} ツ</p>
     <p>{{ $t("msg.locked") }}: {{locked}} ツ</p>
+
+    <button class="button is-text" @click="getSummaryinfo">
+      {{ $t("msg.update") }}</button>
+
   </div>
 </template>
 
