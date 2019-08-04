@@ -73,6 +73,7 @@
     "electron-log": "^3.0.1",
     "electron-store": "^4.0.0",
     "ethereum-bip44-update": "^2.1.5",
+    "ethereumjs-tx": "^2.1.0",
     "external-ip": "^2.1.1",
     "externalip": "^1.0.2",
     "fs-extra": "^7.0.1",

@@ -4,6 +4,14 @@
     <h2>balance: {{total}}</h2>
     <button class="button is-text" @click="getSummaryinfo">
       {{ $t("msg.update") }}</button>
+
+    <br/>
+    <input v-model="amount" placeholder="amount" >
+    <br/>
+    <input v-model="address" placeholder="address" >
+    <br/>
+    <button class="button is-text" @click="send">
+      {{ $t("msg.update") }}</button>
   </div>
 </template>
 
@@ -16,6 +24,8 @@
     components: { SystemInformation },
     data(){
       return {
+        amount: 0,
+        address: '',
         spendable: 0,
         total: 0,
         unconfirmed: 0,
@@ -40,6 +50,21 @@
               let resp = error.response
               this.$log.error(`resp.data:${resp.data}; status:${resp.status};headers:${resp.headers}`)
             }
+        })
+      },
+      send: function() {
+        if(!this.address) throw Error("address required! ")
+        if(!this.amount) throw Error("amount required! ")
+        this.$walletService.send(this.address,this.amount)
+                .then( (res) => {
+                  this.$log.info("res: ",res)
+                  this.total = res.balance
+                }).catch((error) => {
+          this.$log.error('getSummaryinfo error:' + error)
+          if (error.response) {
+            let resp = error.response
+            this.$log.error(`resp.data:${resp.data}; status:${resp.status};headers:${resp.headers}`)
+          }
         })
       },
       open (link) {
