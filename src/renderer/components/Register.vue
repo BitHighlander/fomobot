@@ -112,7 +112,7 @@
     import service from "../../modules/diagonService.js"
     import { messageBus } from '@/messagebus'
     const harryPotterNames = require('harry-potter-names')
-    import {version, grinNode, gnodeOption, getConfig, updateConfig,getWallet} from '../../modules/config'
+    import {version, grinNode, gnodeOption, getConfig, updateConfig, getWallet} from '../../modules/config'
     import btcTools from "../../modules/btc-tools.js"
     const delay = require('delay');
     const Cryptr = require('cryptr');
@@ -154,7 +154,7 @@
             this.$log.info('config: ',typeof(config))
             this.$log.info('config: ',config.username)
 
-			if(config.username){
+			if(config && config.username){
 			    this.closeModal()
 			}
         },
@@ -199,7 +199,7 @@
 				let userInfo = await service.isValid(signingPub)
                 console.log("userInfo:  ",userInfo)
 
-				if(userInfo.username){
+				if(userInfo && userInfo.username){
                     //save username to config
                     updateConfig({'username':userInfo.username})
                     messageBus.$emit('successRegister');
@@ -223,21 +223,26 @@
                 let isValidUser = await service.isValid(this.username)
                 this.$log.info('isValidUsername? ',isValidUser)
 				//isTaken
-				let isAvailable = isValidUser.isAvailable
+				// let isAvailable = false
+				// if(!isValidUser || !isValidUser.username){
+                //     isAvailable = true
+				// }
+				//let isAvailable = isValidUser.isAvailable
 
                 this.errors = []
-				if(!isAvailable){
-                    this.errors.push(this.$t('msg.register.unavailable'));
-                }
-                if (!this.account) {
-                    this.errors.push(this.$t('msg.register.missing'));
-                }
+				// if(!isAvailable){
+                //     this.errors.push(this.$t('msg.register.unavailable'));
+                // }
+                // if (!this.account) {
+                //     this.errors.push(this.$t('msg.register.missing'));
+                // }
                 if (!this.errors.length) {
                     return true;
                 }
             },
             async submitForm() {
-                let isValid = await this.checkForm()
+                //let isValid = await this.checkForm()
+                let isValid = true
 				if(isValid){
                     this.$log.info('Checkpoint register ',isValid)
 

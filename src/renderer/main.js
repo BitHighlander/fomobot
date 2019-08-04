@@ -11,7 +11,9 @@ import store from './store'
 import walletService from '../modules/wallet'
 //import fomoService from '../modules/fomo'
 import dbService from '@/db'
+import BootstrapVue from 'bootstrap-vue'
 
+Vue.use(BootstrapVue)
 //css assets
 import "@/assets/sass/black-dashboard.scss";
 import "@/assets/css/nucleo-icons.css";

@@ -12,33 +12,30 @@
 				<!--				<remove :showModal="openRemove"></remove>-->
 				<h1 class="title">{{ $t('msg.restore.title') }}</h1>
 				<div v-if="page==='addSeeds'">
-					<p class="animated bounce has-text-weight-semibold has-text-warning"
-					   style="animation-iteration-count:2;margin-bottom:12px">
-						{{ $t('msg.restore.addSeedsInfo') }} ({{seeds.length}}/{{total}})
-					</p>
-					<div class="field has-addons">
-						<div class="control">
-							<input class="input" type="text" v-model="currentSeed"  v-on:keyup.enter="add">
-						</div>
 
-						<div class="control">
-							<a class="button is-warning" @click="add">{{ $t('msg.restore.add') }}</a>
-						</div>
-					</div>
-					<p class="help is-warning" v-show="currentSeedInvalid">{{ $t('msg.restore.invalid') }}</p>
-					<button class="button is-link is-outlined is-small" @click="delete_">{{ $t('msg.restore.delete') }}</button>
-					<button class="button is-link is-outlined is-small" @click="back">{{ $t("msg.back") }}</button>
-
-					<br/>
-					<br/>
-					<ol>
-						<li v-for="item in seeds">
-							{{ item }}
-						</li>
-					</ol>
-
-					<a class="button is-link is-outlined" v-show="enoughSeeds" @click="page='addPassword'">
-						{{ $t('msg.restore.added') }}</a>
+					<b-container class="bv-example-row">
+						<b-row>
+							<b-col>
+								<input class="border: none; is shorthand for border-style: none;" v-model="word1" placeholder="edit me" @paste="onPaste">
+								<input v-model="word2" placeholder="edit me" @paste="onPaste">
+								<input v-model="word3" placeholder="edit me" @paste="onPaste">
+								<input v-model="word4" placeholder="edit me" @paste="onPaste">
+								<input v-model="word5" placeholder="edit me" @paste="onPaste">
+								<input v-model="word6" placeholder="edit me" @paste="onPaste">
+							</b-col>
+							<b-col>
+								<input v-model="word7" placeholder="edit me" @paste="onPaste">
+								<input v-model="word8" placeholder="edit me" @paste="onPaste">
+								<input v-model="word9" placeholder="edit me" @paste="onPaste">
+								<input v-model="word10" placeholder="edit me" @paste="onPaste">
+								<input v-model="word11" placeholder="edit me" @paste="onPaste">
+								<input v-model="word12" placeholder="edit me" @paste="onPaste">
+							</b-col>
+						</b-row>
+					</b-container>
+					<button class="button is-link  is-outlined" @click="page='addPassword'">
+						{{ $t('msg.restore.add') }}
+					</button>
 				</div>
 
 				<div v-else-if="page==='addPassword'">
@@ -66,7 +63,7 @@
 						</div>
 
 						<div class="field">
-							<button class="button is-link" @click="initR" >
+							<button class="button is-link" @click="createWallet" >
 								{{ $t('msg.restore.recover') }}</button>
 							<button class="button is-text" @click="back">
 								{{ $t("msg.back") }}</button>
@@ -116,7 +113,8 @@
 <script>
 
     import { messageBus } from '@/messagebus'
-
+    import {version,initWallet} from '../../modules/config'
+    const Cryptr = require('cryptr');
 
     export default {
         name: "RestoreSeed",
@@ -130,62 +128,49 @@
             return {
                 currentSeed: '',
                 currentSeedInvalid: false,
-                enoughSeeds: false,
+                enoughSeeds: true,
                 seeds:[],
                 password: '',
                 password2: '',
-                total: 24,
+                total: 12,
                 page: 'addSeeds',
-
                 errorPassword: false,
                 errorInfoPassword: '',
-
                 recoverErrorInfo: '',
-
                 restoreOutputs: [],
+                word1:'',
+                word2:'',
+                word3:'',
+                word4:'',
+                word5:'',
+                word6:'',
+                word7:'',
+                word8:'',
+                word9:'',
+                word10:'',
+                word11:'',
+                word12:'',
             }
         },
         created(){
-            messageBus.$on('walletRecoverReturn', (ret)=>{
-                if(ret === 'ok'){
-                    this.page = 'recovered'
-                    this.$walletService.restore(this.password, this.updateOutput)
-                }else if(ret === 'invalidSeeds'){
-                    this.page = 'recoverError'
-                    this.recoverErrorInfo = this.$t('msg.restore.invalid')
-                }else{
-                    this.page = 'recoverError'
-                    this.recoverErrorInfo = ret
-                }
-            })
-            messageBus.$on('walletRestored', (ret)=>{
-                this.$log.info('walletRestored!')
-                this.closeModal()
-            })
-            messageBus.$on('walletRecoverReturnError', (ret)=>{
-                this.error = ret
-            })
-            messageBus.$on('walletRecoverReturnExit', (code)=>{
-                this.$log.info('walletRecoverReturnExit!')
-
-				if(code === 0){
-				    //close modal
-					this.closeModal()
-
-					//open register
-                    messageBus.$emit('open', 'windowRegister');
-				} else {
-                    this.$log.error("exit code: ",code)
-				}
-            })
         },
         watch: {
             seeds:function(newVal, oldVal){
                 if(newVal.length == this.total){
                     this.enoughSeeds = true
                 }else{
-                    this.enoughSeeds = false
+                    this.enoughSeeds = true
                 }
+            },
+            word1: function (val) {
+                //validate word
+                this.$log.debug("val: ",val)
+
+                //edge case, if whole seed
+                //val = val.split("\n")
+                val = val.split(" ")
+                this.$log.debug("val2: ",val)
+                this.word1 = val[0]
             }
         },
         beforeDestroy: function(){
@@ -195,6 +180,51 @@
 
         },
         methods: {
+            async createWallet(){
+                if(!this.password) throw Error("102:  can't create wallet without seed! ")
+                this.$log.debug(this.seeds)
+
+
+                const cryptr = new Cryptr(this.password);
+
+                //encrypt seeds
+                const encryptedString = cryptr.encrypt(this.seeds);
+                this.$log.debug('encryptedString: ',encryptedString)
+
+                await initWallet(encryptedString)
+
+
+				this.closeModal()
+
+			},
+            onPaste (evt) {
+                this.$log.debug('on paste', evt)
+                this.$log.debug('on paste', evt.clipboardData.getData('Text'))
+                let seedWords = evt.clipboardData.getData('Text')
+                seedWords = seedWords.split(" ")
+                this.$log.debug('seedWords', seedWords)
+
+				for(let i = 0; i < seedWords.length; i++){
+				    this.seeds.push(seedWords[i])
+				}
+
+                this.word2 = seedWords[1]
+                this.word3 = seedWords[2]
+                this.word4 = seedWords[3]
+                this.word5 = seedWords[4]
+                this.word6 = seedWords[5]
+                this.word7 = seedWords[6]
+                this.word8 = seedWords[7]
+                this.word9 = seedWords[8]
+                this.word10 = seedWords[9]
+                this.word11 = seedWords[10]
+                this.word12 = seedWords[11]
+                //this.word1 = seedWords[0]
+
+                this.enoughSeeds = true
+
+                return true
+            },
             closeModal() {
                 messageBus.$emit('close', 'windowRestoreSeed');
             },
@@ -236,23 +266,6 @@
             },
             resetErrors(){
                 this.errorPassword = false;
-            },
-            initR(){
-                this.$log.info('initR: Checkpoint')
-                this.resetErrors()
-                if(this.password.length == 0 ){
-                    this.errorPassword = true
-                    this.errorInfoPassword = this.$t('msg.create.errorPasswdEmpty')
-                    return
-                }
-                if(this.password != this.password2 ){
-                    this.errorPassword = true
-                    this.errorInfoPassword = this.$t('msg.create.errorPasswdConsistency')
-                    return
-                }
-                this.$walletService.recover(this.seeds.join(' '), this.password)
-
-				//this.closeModal()
             },
             delete_(){
                 if(this.seeds.length>0)this.seeds.pop()

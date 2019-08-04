@@ -69,7 +69,7 @@
 
     import { messageBus } from '@/messagebus'
     //import Create from '@/components/Create'
-    import Restore from '@/components/Restore'
+    //import Restore from '@/components/Restore'
     import {version, getLocale, innitConfig,locale,languages,getConfig,importConfig,checkConfigs} from '../../modules/config'
     import CountryFlag from 'vue-country-flag'
     const { app } = require('electron')
@@ -78,7 +78,7 @@
         name: "Welcome",
         components: {
             //Create,
-            Restore,
+            //Restore,
             CountryFlag
         },
         props: {
@@ -140,30 +140,31 @@
 					}
 
 				} else {
+					innitConfig('en')
                     this.$log.info("Checkpoint 1a wallet NOT configured ")
                     //get langs
-                    this.languageKeys = languages
-                    this.languages = Object.keys(languages)
-                    this.$log.info("languageKeys: ",this.languageKeys)
-                    this.$log.info("languages: ",this.languages)
-
-                    //default
-                    this.availableSettings = []
-
-                    //if other wallet detected offer import settings
-                    if(this.availableSettings.length > 0){
-                        this.$log.info("WELCOME CHECKPOINT1 Settings available for import!")
-                        this.isSettingsAvailable = true
-
-                    } else {
-                        this.$log.info("WELCOME CHECKPOINT1 No Settings available")
-                        //guess local
-                        let local = getLocale()
-                        this.$log.info("local: ",local)
-                        this.lauguageSelected = local
-                        //confirm local
-
-                    }
+                    // this.languageKeys = languages
+                    // this.languages = Object.keys(languages)
+                    // this.$log.info("languageKeys: ",this.languageKeys)
+                    // this.$log.info("languages: ",this.languages)
+					//
+                    // //default
+                    // this.availableSettings = []
+					//
+                    // //if other wallet detected offer import settings
+                    // if(this.availableSettings.length > 0){
+                    //     this.$log.info("WELCOME CHECKPOINT1 Settings available for import!")
+                    //     this.isSettingsAvailable = true
+					//
+                    // } else {
+                    //     this.$log.info("WELCOME CHECKPOINT1 No Settings available")
+                    //     //guess local
+                    //     let local = getLocale()
+                    //     this.$log.info("local: ",local)
+                    //     this.lauguageSelected = local
+                    //     //confirm local
+					//
+                    // }
 				}
 
 

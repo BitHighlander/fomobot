@@ -124,22 +124,30 @@ export function innitConfig(languageSelected){
 
 
 //innit Wallet
-export function innitWallet(encryptedSeed){
-    let tag = TAG + " | innitWallet | "
+export function initWallet(encryptedSeed){
+    let tag = TAG + " | initWallet | "
     try{
-        let output = {}
-        console.log(tag,"CHECKPOINT innitConfig")
-        console.log(tag,"encryptedSeed: ",encryptedSeed)
+
+        mkdirp(seedDir, function (err) {
+            if (err) console.error(err)
+            else console.log('seedDir: ',seedDir)
+
+            let output = {}
+            console.log(tag,"CHECKPOINT innitConfig")
+            console.log(tag,"encryptedSeed: ",encryptedSeed)
 
 
-        let wallet = {}
-        wallet.version = 1
-        wallet.type = "seedwords"
-        wallet.vault = encryptedSeed
+            let wallet = {}
+            wallet.version = 1
+            wallet.type = "seedwords"
+            wallet.vault = encryptedSeed
 
-        console.log("result: ",result)
-        let result = fs.writeFileSync(seedPath,JSON.stringify(wallet))
-        console.log("result: ",result)
+            let result = fs.writeFileSync(seedPath,JSON.stringify(wallet))
+            console.log("result: ",result)
+        });
+
+
+
     }catch (e) {
         console.error(tag,"e: ",e)
         return {}

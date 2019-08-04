@@ -60,7 +60,7 @@
     "app-root-dir": "^1.0.2",
     "axios": "^0.18.0",
     "bip39": "2.5.0",
-    "bitcoinjs-lib": "3.3.2",
+    "bitcoinjs-lib": "^5.1.2",
     "bitcoinjs-message": "2.0.0",
     "bootstrap-vue": "^2.0.0-rc.19",
     "bulma": "^0.7.4",

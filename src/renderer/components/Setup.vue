@@ -88,8 +88,8 @@
 
     import { messageBus } from '@/messagebus'
     //import Create from '@/components/Create'
-    import Restore from '@/components/Restore'
-    import {version,innitWallet} from '../../modules/config'
+    //import Restore from '@/components/Restore'
+    import {version,initWallet} from '../../modules/config'
     const { exec } = require('child_process')
     import btcTools from "../../modules/btc-tools.js"
     const Cryptr = require('cryptr');
@@ -98,7 +98,7 @@
         name: "Setup",
         components: {
             //Create,
-            Restore
+            //Restore
         },
         props: {
             showModal: {
@@ -164,7 +164,7 @@
                 const encryptedString = cryptr.encrypt(this.seeds);
                 this.$log.debug('encryptedString: ',encryptedString)
 
-                await innitWallet(encryptedString)
+                await initWallet(encryptedString)
 
                 //save wallet
                 this.walletCreated = true
