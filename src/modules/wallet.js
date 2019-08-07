@@ -33,6 +33,7 @@ let FOMO_BALANCE
 let XPUB
 let SEED
 let password_
+let TXS_ALL = []
 
 let token = "MEESH";
 let abiInfo = require("../coins/"+token.toUpperCase()+".abi.js");
@@ -45,6 +46,10 @@ class WalletService {
 
     static getPassword(){
         return password_
+    }
+
+    static getAllTxs(){
+        return TXS_ALL
     }
 
     static async initClient(password) {
@@ -122,6 +127,39 @@ class WalletService {
         FOMO_BALANCE = balance/metaData.BASE;
         online = true
 
+        //get past events
+        contract.getPastEvents('Transfer', {
+            // Using an array means OR: e.g. 20 or 23
+            fromBlock: 0,
+            toBlock: 'latest'
+        }, function(error, events){ console.log(events); })
+            .then(function(events){
+                //log.debug(events) // same results as the optional callback above
+
+                //for each
+                for(let i = 0; i < events.length; i++){
+                    let event = events[i]
+                    log.debug("event: ",event)
+                    //push events to message bus
+                    let txInfo = {}
+                    txInfo.contractAddress = event.address
+                    txInfo.confirmed = true
+                    txInfo.blockHash = event.blockHash
+                    txInfo.blockNumber = event.blockNumber
+                    txInfo.from = event.returnValues._from
+                    txInfo.to = event.returnValues._to
+                    txInfo.amount = event.returnValues._value
+                    txInfo.txid = event.transactionHash
+                    txInfo.index = event.transactionIndex
+
+                    log.debug("event: ",txInfo)
+
+                    TXS_ALL.push(txInfo)
+                }
+
+            });
+
+
         return
     }
 
@@ -130,7 +168,8 @@ class WalletService {
             online,
             address:MASTER_ADDRESS,
             ethBalance:ETH_BALANCE,
-            balance:FOMO_BALANCE
+            balance:FOMO_BALANCE,
+            txs:TXS_ALL
         }
 
         //set globals?

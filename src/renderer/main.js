@@ -6,15 +6,18 @@ import { remote, ipcRenderer} from 'electron'
 import VueI18n from 'vue-i18n'
 import log from '../modules/logger'
 import App from './App'
-import router from './router'
 import store from './store'
 import walletService from '../modules/wallet'
+import SortedTablePlugin from "vue-sorted-table";
 //import fomoService from '../modules/fomo'
 import dbService from '@/db'
 import BootstrapVue from 'bootstrap-vue'
 
 Vue.use(BootstrapVue)
 //css assets
+// app.js
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 import "@/assets/sass/black-dashboard.scss";
 import "@/assets/css/nucleo-icons.css";
 import "@/assets/demo/demo.css";
@@ -33,6 +36,10 @@ Vue.walletService = Vue.prototype.$walletService = walletService
 Vue.dbService = Vue.prototype.$dbService = dbService
 Vue.use(VueI18n)
 Vue.log = Vue.prototype.$log = log
+Vue.use(SortedTablePlugin, {
+  ascIcon: '<i class="material-icons">arrow_drop_up</i>',
+  descIcon: '<i class="material-icons">arrow_drop_down</i>'
+});
 
 const messages = {
   en,
@@ -66,7 +73,6 @@ Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
   components: { App },
-  router,
   store,
   template: '<App/>',
   i18n
