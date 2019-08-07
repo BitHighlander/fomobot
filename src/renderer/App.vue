@@ -1,6 +1,38 @@
 <template>
 	<div id="app">
 
+		<div class="container">
+			<div class="columns">
+				<div class="column is-12">
+					<div class="tabs help-tabs">
+						<ul>
+							<li :class="[ lang === 'crontab' ? 'is-active' : '']"><a @click="lang='crontab'">Wallet</a></li>
+							<li :class="[ lang === 'php' ? 'is-active' : '']"><a @click="lang='php'">Balances</a></li>
+							<li :class="[ lang === 'bash' ? 'is-active' : '']"><a @click="lang='bash'">Train</a></li>
+							<li :class="[ lang === 'python' ? 'is-active' : '']"><a @click="lang='python'">Subscribe</a></li>
+						</ul>
+					</div>
+					<div class="box help-content">
+						<code v-if="lang ==='crontab'">
+							{{monitor.schedule}} your_script.sh && curl -fsS --retry 3 {{monitor.url_code}>
+							/dev/null
+						</code>
+						<code v-if="lang ==='php'">
+							file_get_contents({{monitor.url_code}});
+						</code>
+						<code v-if="lang ==='bash'">
+							curl --retry 2 {{monitor.url_code}}
+						</code>
+						<code v-if="lang ==='python'">
+							# using urllib2:
+							import urllib2
+							urllib2.urlopen("{{monitor.url_code}}")
+						</code>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<!--    <div v-if="isWalletLocked">-->
 		<!--      &lt;!&ndash; Unprotected &ndash;&gt;-->
 		<!--      <password :showModal="openPassword"></password>-->
@@ -12,74 +44,75 @@
 		<!--    </div>-->
 
 
-		<b-container class="bv-example-row">
-			<b-row>
-				<b-col>
-					<h2> Fomobot Desktop Dashboard</h2>
-					<h2>balance: {{total}}</h2>
-					<button class="button is-text" @click="getSummaryinfo">
-						{{ $t("msg.update") }}
-					</button>
+<!--		<b-container class="bv-example-row">-->
+<!--			<b-row>-->
+<!--				<b-col>-->
+<!--					<h2> Fomobot Desktop Dashboard</h2>-->
+<!--					<h2>balance: {{total}}</h2>-->
+<!--					<h3>Total TXS: {{txCount}}</h3>-->
+<!--					<button class="button is-text" @click="getSummaryinfo">-->
+<!--						{{ $t("msg.update") }}-->
+<!--					</button>-->
 
-					<br/>
-					<input v-model="amount" placeholder="amount">
-					<br/>
-					<input v-model="address" placeholder="address">
-					<br/>
-					<button class="button is-text" @click="send">
-						{{ $t("msg.update") }}
-					</button>
+<!--					<br/>-->
+<!--					<input v-model="amount" placeholder="amount">-->
+<!--					<br/>-->
+<!--					<input v-model="address" placeholder="address">-->
+<!--					<br/>-->
+<!--					<button class="button is-text" @click="send">-->
+<!--						{{ $t("msg.update") }}-->
+<!--					</button>-->
 
-				</b-col>
-				<b-col>
+<!--				</b-col>-->
+<!--				<b-col>-->
 
-					<div class="col-12">
-						<card :title="table1.title">
-							<div class="table-responsive">
+<!--					<div class="col-12">-->
+<!--						<card :title="table1.title">-->
+<!--							<div class="table-responsive">-->
 
-								<SortedTable :values="table1.data">
-									<thead>
-									<tr>
-										<th scope="col" style="text-align: left; width: 10rem;">
-											<SortLink name="blockNumber">blockNumber</SortLink>
-										</th>
-										<th scope="col" style="text-align: left; width: 10rem;">
-											<SortLink name="amount">amount</SortLink>
-										</th>
-										<th scope="col" style="text-align: left; width: 10rem;">
-											<SortLink name="to">to</SortLink>
-										</th>
-										<th scope="col" style="text-align: left; width: 10rem;">
-											<SortLink name="from">from</SortLink>
-										</th>
-										<th scope="col" style="text-align: left; width: 10rem;">
-											<SortLink name="txid">txid</SortLink>
-										</th>
-									</tr>
-									</thead>
-									<tbody slot="body" slot-scope="sort">
-									<tr v-for="value in sort.values" :key="value.blockNumber">
-										<td>{{ value.blockNumber }}</td>
-										<td>{{ value.amount }}</td>
-										<td>{{ value.to }}</td>
-										<td>{{ value.from }}</td>
-										<td>{{ value.txid }}</td>
-									</tr>
-									</tbody>
-								</SortedTable>
+<!--								<SortedTable :values="table1.data">-->
+<!--									<thead>-->
+<!--									<tr>-->
+<!--										<th scope="col" style="text-align: left; width: 10rem;">-->
+<!--											<SortLink name="blockNumber">blockNumber</SortLink>-->
+<!--										</th>-->
+<!--										<th scope="col" style="text-align: left; width: 10rem;">-->
+<!--											<SortLink name="amount">amount</SortLink>-->
+<!--										</th>-->
+<!--										<th scope="col" style="text-align: left; width: 10rem;">-->
+<!--											<SortLink name="to">to</SortLink>-->
+<!--										</th>-->
+<!--										<th scope="col" style="text-align: left; width: 10rem;">-->
+<!--											<SortLink name="from">from</SortLink>-->
+<!--										</th>-->
+<!--										<th scope="col" style="text-align: left; width: 10rem;">-->
+<!--											<SortLink name="txid">txid</SortLink>-->
+<!--										</th>-->
+<!--									</tr>-->
+<!--									</thead>-->
+<!--									<tbody slot="body" slot-scope="sort">-->
+<!--									<tr v-for="value in sort.values" :key="value.blockNumber">-->
+<!--										<td>{{ value.blockNumber }}</td>-->
+<!--										<td>{{ value.amount }}</td>-->
+<!--										<td>{{ value.to }}</td>-->
+<!--										<td>{{ value.from }}</td>-->
+<!--										<td>{{ value.txid }}</td>-->
+<!--									</tr>-->
+<!--									</tbody>-->
+<!--								</SortedTable>-->
 
-								<!--          <base-table :data="table1.data"-->
-								<!--                      :columns="table1.columns"-->
-								<!--                      thead-classes="text-primary">-->
-								<!--          </base-table>-->
-							</div>
-						</card>
-					</div>
+<!--								&lt;!&ndash;          <base-table :data="table1.data"&ndash;&gt;-->
+<!--								&lt;!&ndash;                      :columns="table1.columns"&ndash;&gt;-->
+<!--								&lt;!&ndash;                      thead-classes="text-primary">&ndash;&gt;-->
+<!--								&lt;!&ndash;          </base-table>&ndash;&gt;-->
+<!--							</div>-->
+<!--						</card>-->
+<!--					</div>-->
 
-				</b-col>
+<!--				</b-col>-->
 
-			</b-row>
-		</b-container>
+<!--			</b-row>-->
+<!--		</b-container>-->
 
 
 		<password :showModal="openPassword"></password>
@@ -141,6 +174,11 @@
         },
         data() {
             return {
+                monitor: {
+                    schedule: '* * * * *',
+                    url_code: 'https://cronhub.io/random_uuid',
+                },
+                lang: 'crontab',
                 isWalletLocked: true,
                 openConfiguration: false,
                 openDisplaySeed: false,
@@ -163,6 +201,7 @@
                 address: '',
                 spendable: 0,
                 total: 0,
+                txCount:0,
                 table1: {
                     title: "transactions",
                     columns: [...tableColumns],
@@ -327,6 +366,7 @@
                         this.$log.info("res: ", res)
                         this.total = res.balance
 						this.table1.data = [...res.txs]
+						this.txCount = res.txs.length
                     }).catch((error) => {
                     this.$log.error('getSummaryinfo error:' + error)
                     if (error.response) {
@@ -483,4 +523,20 @@
 
 <style>
 	/* CSS */
+	.help-content {
+		background-color: white !important;
+	}
+	.help-tabs {
+		margin-bottom: 10px !important;
+	}
+	.tabs li.is-active a {
+		border-bottom-color: #000000;
+		color: #7763A9;
+		border-bottom: 3px solid;
+		font-weight: bold;
+	}
+	code, pre {
+		color: #1b1e21 !important;
+		background-color: white !important;
+	}
 </style>

@@ -13,11 +13,12 @@ import SortedTablePlugin from "vue-sorted-table";
 import dbService from '@/db'
 import BootstrapVue from 'bootstrap-vue'
 
-Vue.use(BootstrapVue)
+//Vue.use(BootstrapVue)
 //css assets
 // app.js
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
+// import 'bootstrap/dist/css/bootstrap.css'
+// import 'bootstrap-vue/dist/bootstrap-vue.css'
+
 import "@/assets/sass/black-dashboard.scss";
 import "@/assets/css/nucleo-icons.css";
 import "@/assets/demo/demo.css";
