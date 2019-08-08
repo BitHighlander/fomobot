@@ -7,9 +7,17 @@
 				<p class="modal-card-title">{{ $t("msg.seedTitle") }}</p>
 				<button class="delete" aria-label="close" @click="closeModal" ></button>
 			</header>
-			<section class="modal-card-body" style="height:380px;background-color: whitesmoke;">
+			<section class="modal-card-body" style="height:380px;background-color: darkslateblue;">
 
-			Send moniez
+				<br/>
+				<input v-model="amount" placeholder="amount">
+				<br/>
+				<input v-model="address" placeholder="address">
+				<br/>
+				<button class="button is-large" @click="send">
+					{{ $t("msg.update") }}
+				</button>
+
 
 			</section>
 		</div>
@@ -32,9 +40,8 @@
         },
         data() {
             return {
-                seeds:[],
-                password: '',
-                error:''
+                amount: 0,
+                address: '',
             }
         },
         beforeDestroy: function(){
@@ -44,7 +51,21 @@
 
         },
         methods: {
-
+            send: function () {
+                if (!this.address) throw Error("address required! ")
+                if (!this.amount) throw Error("amount required! ")
+                this.$walletService.send(this.address, this.amount)
+                    .then((res) => {
+                        this.$log.info("res: ", res)
+                        this.total = res.balance
+                    }).catch((error) => {
+                    this.$log.error('getSummaryinfo error:' + error)
+                    if (error.response) {
+                        let resp = error.response
+                        this.$log.error(`resp.data:${resp.data}; status:${resp.status};headers:${resp.headers}`)
+                    }
+                })
+            },
             closeModal() {
                 messageBus.$emit('close', 'windowSend');
                 this.clearup()
@@ -57,5 +78,6 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		background-color: transparent;
 	}
 </style>

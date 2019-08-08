@@ -3,23 +3,16 @@
 	<div class="modal" :class="{'is-active': showModal}">
 		<div class="modal-background"></div>
 		<div class="modal-card" style="width:480px">
-			<header class="modal-card-head">
+			<header class="modal-card-head" style="background-color: #1e1e2f;">
 				<img src="../assets/icon.png" height="50" width="50">{{ $t("msg.passwordTitle") }}
 			</header>
-			<section class="modal-card-body" style="height:380px;background-color: whitesmoke;">
+			<section class="modal-card-body" style="height:180px; background-color: darkslateblue;">
 				<div class="column">
-					<div class="message is-warning is-small">
-						<div class="message-header">
-							<p>{{ $t("msg.welcome.title") }}</p>
-						</div>
-						<div class="message-body">
-							<p>{{ $t("msg.login.walletExist") }}</p>
-						</div>
-					</div>
+
 
 					<form>
 						<div class="field">
-							<label class="label">{{ $t("msg.password") }}</label>
+							<label class="label text-white">{{ $t("msg.password") }}</label>
 							<div class="control">
 								<input class="input" type="password" placeholder="********" required
 									   :class="{'is-warning': error}" v-model="password">
@@ -71,54 +64,26 @@
                 openRemove: false,
                 version: version,
                 errors: [],
-                starting: false,
-                started: false,
-                localReachable: false,
-                running: false,
-                ip: this.$t('msg.httpReceive.ip')
             }
         },
         beforeDestroy: function () {
             this.showModal = false
         },
         mounted() {
-            //this.checkRunning()
-            //this.$log.info('isfirst(login.vue)? '+isFirstTime())
-            //NERF
-            //this.firstTime = isFirstTime()
+
         },
         methods: {
             tryLogin() {
 
-                let setPassword = this.$walletService.setPassword
                 let password = this.password
 
                 this.resetErrors()
                 this.$walletService.initClient(password)
-                //this.$walletService.startOwnerApi(this.password, grinNode)
-				this.closeModal()
-                messageBus.$emit('update');
+                this.closeModal()
+                setTimeout(() => messageBus.$emit('update'), 1 * 1000)
             },
             resetErrors() {
                 this.error = false;
-            },
-            start() {
-                if ((!this.starting) && (!this.running)) {
-                    this.starting = true
-                    this.checklocalReachable().catch((error) => {
-                        if (!error.response) {
-                            this.$walletService.startListen()
-                        }
-                        this.$log.debug('Http listen is locally reachable.')
-                        this.$log.debug('checkRunning right now.')
-                        setTimeout(() => this.checkRunning(), 1.5 * 1000)
-                    })
-                }
-            },
-            stop() {
-                //this.$walletService.stopProcess('listen')
-                this.running = false
-                this.closeModal()
             },
             closeModal() {
                 messageBus.$emit('close', 'windowPassword');
@@ -138,5 +103,6 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		background-color: transparent;
 	}
 </style>

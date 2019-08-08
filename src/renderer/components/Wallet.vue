@@ -80,6 +80,19 @@
                 },
             }
         },
+        created() {
+            try {
+                messageBus.$on('update', () => {
+                    this.$log.info("Update detected! ")
+                    this.getSummaryinfo()
+                })
+			}catch(e){
+
+            }
+        },
+        mounted() {
+            this.getSummaryinfo()
+        },
         methods:{
             getSummaryinfo: function () {
                 this.$walletService.getSummaryInfo(10)
