@@ -1,21 +1,21 @@
 <template>
 	<div class="modal" :class="{'is-active': showModal}">
 		<div class="modal-background"></div>
-		<div class="modal-card" style="width:480px;height:280px">
-			<header class="modal-card-head">
+		<div class="modal-card" style="width:480px;height:380px;">
+			<header class="modal-card-head" style="background-color: #1e1e2f;">
 				<img src="../assets/icon.png" height="50" width="50"> <h1> {{ $t("msg.welcome.title") }}</h1>
 
 			</header>
-				<section class="modal-card-body" style="height:280px;">
+				<section class="modal-card-body" style="height:580px; background-color: darkslateblue;">
 
 					<div v-if=isLauguageSelected>
 						<h2>{{ $t("msg.welcome.welcomeNoWallet") }}</h2>
 
 						<div class="column">
-							<a class="button " @click="openCreateNew">
+							<a class="button is-success is-large" @click="openCreateNew">
 								{{ $t("msg.new_.create") }}</a>
 						</div>
-						<div class="column"><a class="button" @click="restoreSeed">
+						<div class="column"><a class="button is-info is-large" @click="restoreSeed">
 							{{ $t("msg.new_.restore") }}</a>
 						</div>
 

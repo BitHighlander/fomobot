@@ -1,14 +1,14 @@
 <template>
 	<div class="modal" :class="{'is-active': showModal}">
 		<div class="modal-background"></div>
-		<div class="modal-card" style="width:480px">
-			<header class="modal-card-head">
+		<div class="modal-card" style="height:340px; width:380px">
+			<header class="modal-card-head" style="background-color: #1e1e2f;">
 				{{ $t("msg.create.title") }}
 
 			</header>
-			<section class="modal-card-body" style="height:380px;background-color: whitesmoke;">
+			<section class="modal-card-body" style="height:380px;background-color: darkslateblue;">
 
-				<div class="columns is-mobile is-centered">
+				<div class="columns is-mobile is-centered ">
 					<div v-if="walletCreated" class="column is-10" >
 
 						<h1 class="title">{{ $t('msg.create.seedPhrase') }}</h1>
@@ -33,31 +33,23 @@
 					</div>
 
 					<div v-else>
-						<h2 class="title" style="" >{{ $t("msg.title") }}
+						<h2 class="title text-white" style="" >{{ $t("msg.title") }}
 							<span style="font-size:0.75rem">v{{version}}</span>
 						</h2>
-						<div class="message is-warning is-small">
-							<div class="message-header">
-								<p>{{ $t("msg.welcome.title") }}</p>
-							</div>
-							<div class="message-body">
-								<p>{{ $t("msg.create.toNewMsg") }}</p>
-							</div>
-						</div>
 
 						<form>
 							<!--<div class="field has-text-centered">
 							  <img src="../assets/icon.png">
 							</div>-->
 							<div class="field">
-								<label class="label">{{ $t('msg.password') }}</label>
+								<label class="label text-white">{{ $t('msg.password') }}</label>
 								<div class="control">
 									<input class="input" type="password" placeholder="********" required
 										   :class="{'is-warning': error}" v-model="password">
 								</div>
 							</div>
 							<div class="field">
-								<label class="label">{{ $t('msg.passwordAgain') }}</label>
+								<label class="label text-white">{{ $t('msg.passwordAgain') }}</label>
 								<div class="control">
 									<input class="input" type="password" placeholder="********" required
 										   :class="{'is-warning': error}" v-model="password2">
