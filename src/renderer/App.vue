@@ -6,26 +6,28 @@
 				<div class="column is-12">
 					<div class="tabs help-tabs">
 						<ul>
-							<li :class="[ lang === 'crontab' ? 'is-active' : '']"><a @click="lang='crontab'">Wallet</a></li>
-							<li :class="[ lang === 'php' ? 'is-active' : '']"><a @click="lang='php'">Balances</a></li>
-							<li :class="[ lang === 'bash' ? 'is-active' : '']"><a @click="lang='bash'">Train</a></li>
-							<li :class="[ lang === 'python' ? 'is-active' : '']"><a @click="lang='python'">Subscribe</a></li>
+							<li :class="[ tabOpen === 'wallet' ? 'is-active' : '']"><a @click="tabOpen='wallet'">Wallet</a></li>
+							<li :class="[ tabOpen === 'exchanges' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='exchanges'">Exchanges</a></li>
+							<li :class="[ tabOpen === 'balances' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='balances'">Balances</a></li>
+							<li :class="[ tabOpen === 'train' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='train'">Train</a></li>
+							<li :class="[ tabOpen === 'subscribe' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='subscribe'">Subscribe</a></li>
 						</ul>
 					</div>
 					<div class="box help-content">
-						<code v-if="lang ==='crontab'">
+						<code v-if="tabOpen ==='wallet'">
 							<Wallet></Wallet>
 						</code>
-						<code v-if="lang ==='php'">
-							file_get_contents({{monitor.url_code}});
+						<code v-if="tabOpen ==='exchanges'">
+							<p text-white>Coming Soon! </p>
 						</code>
-						<code v-if="lang ==='bash'">
-							curl --retry 2 {{monitor.url_code}}
+						<code v-if="tabOpen ==='balances'">
+							<p text-white>Coming Soon! </p>
 						</code>
-						<code v-if="lang ==='python'">
-							# using urllib2:
-							import urllib2
-							urllib2.urlopen("{{monitor.url_code}}")
+						<code v-if="tabOpen ==='train'">
+							<p text-white>Coming Soon! </p>
+						</code>
+						<code v-if="tabOpen ==='subscribe'">
+							<p text-white>Coming Soon! </p>
 						</code>
 					</div>
 				</div>
@@ -116,7 +118,7 @@
                     schedule: '* * * * *',
                     url_code: 'https://cronhub.io/random_uuid',
                 },
-                lang: 'crontab',
+                tabOpen: 'wallet',
                 isWalletLocked: true,
                 openSend: false,
                 openConfiguration: false,
@@ -388,7 +390,7 @@
                 joinEvent.signature = signature
                 socket.emit('join', JSON.stringify(joinEvent))
             },
-            lang() {
+            tabOpen() {
                 this.$i18n.locale = 'en'
             },
             logout() {

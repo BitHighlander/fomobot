@@ -23,7 +23,7 @@ import "@/assets/sass/black-dashboard.scss";
 import "@/assets/css/nucleo-icons.css";
 import "@/assets/demo/demo.css";
 
-//lang
+//tabOpen
 import en from '../lang/en'
 import zh from '../lang/zh'
 import ru from '../lang/ru'
