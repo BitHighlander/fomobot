@@ -17,8 +17,11 @@ const TX = require("ethereumjs-tx").Transaction;
 var bcrypt = require('bcryptjs');
 
 let Web3 = require('web3');
-if(!process.env.INFURA_TOKEN) throw Error("1misconfiguration, cant find infura key!")
-let web3 = new Web3("https://mainnet.infura.io/v3/"+process.env.INFURA_TOKEN);
+// if(!process.env.INFURA_TOKEN) throw Error("1misconfiguration, cant find infura key!")
+// let web3 = new Web3("https://mainnet.infura.io/v3/"+process.env.INFURA_TOKEN);
+if(!process.env.INFURA_TOKEN) console.error(" YOU SUCK AT CODING! BRO")
+let web3 = new Web3("https://mainnet.infura.io/v3/410e6d85bc2e43c89920f271ac8e768d");
+
 
 //locals
 import {getWallet} from './config'
