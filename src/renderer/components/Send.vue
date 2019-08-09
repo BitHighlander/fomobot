@@ -3,7 +3,7 @@
 	<div class="modal" :class="{'is-active': showModal}">
 		<div class="modal-background" @click="closeModal"></div>
 		<div class="modal-card" style="width:480px">
-			<header class="modal-card-head">
+			<header class="modal-card-head " style="background-color: #1e1e2f;">
 				<p class="modal-card-title">{{ $t("msg.seedTitle") }}</p>
 				<button class="delete" aria-label="close" @click="closeModal" ></button>
 			</header>
@@ -12,9 +12,9 @@
 				<br/>
 				<input v-model="amount" placeholder="amount">
 				<br/>
-				<input v-model="address" placeholder="address">
+				<input class="text-white" v-model="address" placeholder="address">
 				<br/>
-				<button class="button is-large" @click="send">
+				<button class="button is-large text-white" @click="send">
 					{{ $t("msg.update") }}
 				</button>
 

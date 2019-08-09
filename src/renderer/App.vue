@@ -324,9 +324,9 @@
                             if (!this.signingPriv) {
                                 this.signingPriv = config.signingPriv
                             }
-                            if (!this.signingPub || !this.signingPriv) {
-                                this.openRegister = true
-                            }
+                            // if (!this.signingPub || !this.signingPriv) {
+                            //     this.openRegister = true
+                            // }
                         } else {
                             this.openPassword = true
                         }
@@ -336,7 +336,9 @@
                         //if wallet
                         if (configStatus.isWallet) {
                             this.$log.info("checkpoint 4b no username found!")
-                            this.openRegister = true
+                            //nerf register
+							this.openPassword = true
+							//this.openRegister = true
                         } else {
                             this.openWelcome = true
                         }

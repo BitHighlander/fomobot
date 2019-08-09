@@ -3,12 +3,12 @@
 	<div class="modal" :class="{'is-active': showModal}">
 		<div class="modal-background" @click="closeModal"></div>
 		<div class="modal-card" style="width:480px">
-			<header class="modal-card-head">
+			<header class="modal-card-head" style="background-color: #1e1e2f;">
 
-				<p class="modal-card-title ">{{ $t("msg.register.title") }}</p>
+				<p class="modal-card-title text-white">{{ $t("msg.register.title") }}</p>
 
 			</header>
-			<section class="modal-card-body" style="height:380px;background-color: whitesmoke;">
+			<section class="modal-card-body" style="height:380px;background-color: darkslateblue;">
 			<div v-if="isPromptedVerify">
 				<div v-if="isWalletVerified">
 
@@ -58,13 +58,13 @@
 
 				</div>
 				<div v-else="isWalletVerified">
-					{{ $t("msg.register.verifyWallet") }}
+					<p class="text-white">{{ $t("msg.register.verifyWallet") }}</p>
 
 					<textarea class="textarea" readonly>{{rawWallet}}</textarea>
 
 					<form>
 						<div class="field">
-							<label class="label">{{ $t("msg.password") }}</label>
+							<label class="label text-white">{{ $t("msg.password") }}</label>
 							<div class="control">
 								<input class="input" type="password" placeholder="********" required
 									   :class="{'is-warning': error}" v-model="password">
@@ -73,7 +73,7 @@
 						</div>
 
 						<div class="field">
-							<button class="button is-link" @click.prevent="tryLogin">
+							<button class="button is-link text-white" @click.prevent="tryLogin">
 								{{ $t("msg.login_") }}
 							</button>
 						</div>
@@ -87,7 +87,7 @@
 						<div class="column is-narrow is-centered">
 							<img src="../assets/icon.png" height="50" width="50" class="is-centered"> <h1> {{ $t("msg.register.found") }}</h1>
 
-							<p class="modal-card-title ">{{ $t("msg.register.verifyWallet") }}</p>
+							<p class="modal-card-title text-white">{{ $t("msg.register.verifyWallet") }}</p>
 						</div>
 					</div>
 					<div class='row is-full is-centered'>

@@ -1,7 +1,7 @@
 <template>
 	<div class="modal" :class="{'is-active': showModal}">
 		<div class="modal-background"></div>
-		<div class="modal-card" style="height:340px; width:380px">
+		<div class="modal-card" style="height:840px; width:420px">
 			<header class="modal-card-head" style="background-color: #1e1e2f;">
 				{{ $t("msg.create.title") }}
 
@@ -10,8 +10,6 @@
 
 				<div class="columns is-mobile is-centered ">
 					<div v-if="walletCreated" class="column is-10" >
-
-						<h1 class="title">{{ $t('msg.create.seedPhrase') }}</h1>
 
 						<p class="animated bounce has-text-weight-semibold has-text-warning" style="animation-iteration-count:3">
 							{{ $t('msg.create.backupNote') }}
@@ -22,14 +20,14 @@
 <!--							<span class="tag" v-for="seed in seeds">{{seed}}</span>-->
 <!--						</div>-->
 
-
+						<h3>
 						<ol class='rows'>
-							<li v-for="item in seeds" class="box">
-								<div class='row is-full '>{{ item }}</div>
+							<li v-for="item in seeds" >{{ item }}
+<!--								<div class='row is-full '>{{ item }}</div>-->
 							</li>
 						</ol>
-
-						<a class="button is-link" @click="finish">{{ $t('msg.create.backupFinish') }}</a>
+						</h3>
+						<a class="button is-link text-white" @click="finish">{{ $t('msg.create.backupFinish') }}</a>
 					</div>
 
 					<div v-else>
@@ -58,7 +56,7 @@
 							</div>
 
 							<div class="field">
-								<button class="button is-link" @click.prevent="create" v-bind:class="{'is-loading':walletCreating}">
+								<button class="button is-link text-white" @click.prevent="create" v-bind:class="{'is-loading':walletCreating}">
 									{{ $t('msg.create.newWallet') }}
 								</button>
 								<button class="button is-text" @click="back">{{ $t("msg.back") }}</button>

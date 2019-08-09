@@ -2,37 +2,80 @@
 
 	<div class="modal" :class="{'is-active': showModal}">
 		<div class="modal-background"></div>
-		<div class="modal-card" style="width:480px">
-			<header class="modal-card-head">
-				{{ $t("msg.restore.title") }}
+		<div class="modal-card" style="width:780px">
+			<header class="modal-card-head"  style="background-color: #1e1e2f;">
+				<p class="text-white">{{ $t("msg.restore.title") }}</p>
 
 			</header>
-			<section class="modal-card-body" style="height:380px;">
+			<section class="modal-card-body" style="height:380px; background-color: darkslateblue;">
 
 				<!--				<remove :showModal="openRemove"></remove>-->
-				<h1 class="title">{{ $t('msg.restore.title') }}</h1>
+				<h1 class="title text-white">{{ $t('msg.restore.title') }}</h1>
 				<div v-if="page==='addSeeds'">
 
-					<b-container class="bv-example-row">
+					<div class="tabs is-center">
 						<b-row>
 							<b-col>
-								<input class="border: none; is shorthand for border-style: none;" v-model="word1" placeholder="edit me" @paste="onPaste">
-								<input v-model="word2" placeholder="edit me" @paste="onPaste">
-								<input v-model="word3" placeholder="edit me" @paste="onPaste">
-								<input v-model="word4" placeholder="edit me" @paste="onPaste">
-								<input v-model="word5" placeholder="edit me" @paste="onPaste">
-								<input v-model="word6" placeholder="edit me" @paste="onPaste">
+								<ul>
+									<li :class="[ tabOpen === 'word1' ? 'is-active' : '']">
+										<a @click="tabOpen='word1'">
+											<input maxlength="5" size="5" class="text-white" style="border: none; background-color: darkslateblue; border-style: none;" v-model="word1" placeholder="" @paste="onPaste">
+										</a>
+									</li>
+									<li :class="[ tabOpen === 'word2' ? 'is-active' : '']"><a
+											@click="tabOpen='word2'">
+										<input maxlength="5" size="5" class="text-white" style="border: none; background-color: darkslateblue; border-style: none;" v-model="word2" placeholder="" >
+									</a></li>
+									<li :class="[ tabOpen === 'word3' ? 'is-active' : '']"><a
+											@click="tabOpen='word3'">
+										<input maxlength="5" size="5" class="text-white" style="border: none; background-color: darkslateblue; border-style: none;" v-model="word3" placeholder="" >
+									</a></li>
+									<li :class="[ tabOpen === 'word4' ? 'is-active' : '']"><a
+											@click="tabOpen='word4'">
+										<input maxlength="5" size="5" class="text-white" style="border: none; background-color: darkslateblue; border-style: none;" v-model="word4" placeholder="" >
+									</a></li>
+									<li :class="[ tabOpen === 'word5' ? 'is-active' : '']"><a
+											@click="tabOpen='word5'">
+										<input maxlength="5" size="5" class="text-white" style="border: none; background-color: darkslateblue; border-style: none;" v-model="word5" placeholder="" >
+									</a></li>
+									<li :class="[ tabOpen === 'word6' ? 'is-active' : '']"><a
+											@click="tabOpen='word6'">
+										<input maxlength="5" size="5" class="text-white" style="border: none; background-color: darkslateblue; border-style: none;" v-model="word6" placeholder="" >
+									</a></li>
+								</ul>
 							</b-col>
 							<b-col>
-								<input v-model="word7" placeholder="edit me" @paste="onPaste">
-								<input v-model="word8" placeholder="edit me" @paste="onPaste">
-								<input v-model="word9" placeholder="edit me" @paste="onPaste">
-								<input v-model="word10" placeholder="edit me" @paste="onPaste">
-								<input v-model="word11" placeholder="edit me" @paste="onPaste">
-								<input v-model="word12" placeholder="edit me" @paste="onPaste">
+								<ul>
+									<li :class="[ tabOpen === 'word7' ? 'is-active' : '']">
+										<a @click="tabOpen='word7'">
+											<input maxlength="5" size="5" class="text-white" style="border: none; background-color: darkslateblue; border-style: none;" v-model="word7" placeholder="" >
+										</a>
+									</li>
+									<li :class="[ tabOpen === 'word8' ? 'is-active' : '']"><a
+											@click="tabOpen='word8'">
+										<input maxlength="5" size="5" class="text-white" style="border: none; background-color: darkslateblue; border-style: none;" v-model="word8" placeholder="" >
+									</a></li>
+									<li :class="[ tabOpen === 'word9' ? 'is-active' : '']"><a
+											@click="tabOpen='word9'">
+										<input maxlength="5" size="5" class="text-white" style="border: none; background-color: darkslateblue; border-style: none;" v-model="word9" placeholder="" >
+									</a></li>
+									<li :class="[ tabOpen === 'word10' ? 'is-active' : '']"><a
+											@click="tabOpen='word10'">
+										<input maxlength="5" size="5" class="text-white" style="border: none; background-color: darkslateblue; border-style: none;" v-model="word10" placeholder="" >
+									</a></li>
+									<li :class="[ tabOpen === 'word11' ? 'is-active' : '']"><a
+											@click="tabOpen='word11'">
+										<input maxlength="5" size="5" class="text-white" style="border: none; background-color: darkslateblue; border-style: none;" v-model="word11" placeholder="" >
+									</a></li>
+									<li :class="[ tabOpen === 'word12' ? 'is-active' : '']"><a
+											@click="tabOpen='word12'">
+										<input maxlength="5" size="5" class="text-white" style="border: none; background-color: darkslateblue; border-style: none;" v-model="word12" placeholder="" >
+									</a></li>
+								</ul>
 							</b-col>
 						</b-row>
-					</b-container>
+					</div>
+
 					<button class="button is-link  is-outlined" @click="page='addPassword'">
 						{{ $t('msg.restore.add') }}
 					</button>
@@ -126,6 +169,7 @@
         },
         data() {
             return {
+                tabOpen: 'word1',
                 currentSeed: '',
                 currentSeedInvalid: false,
                 enoughSeeds: true,
@@ -171,6 +215,9 @@
                 val = val.split(" ")
                 this.$log.debug("val2: ",val)
                 this.word1 = val[0]
+            },
+            word12: function (val) {
+
             }
         },
         beforeDestroy: function(){
@@ -195,7 +242,7 @@
 
 
 				this.closeModal()
-
+                messageBus.$emit('open','windowPassword')
 			},
             onPaste (evt) {
                 this.$log.debug('on paste', evt)
@@ -205,20 +252,20 @@
                 this.$log.debug('seedWords', seedWords)
 
 				for(let i = 0; i < seedWords.length; i++){
-				    this.seeds.push(seedWords[i])
+				    this.seeds.push(seedWords[i].trim().replace(/\W/g, ''))
 				}
 
-                this.word2 = seedWords[1]
-                this.word3 = seedWords[2]
-                this.word4 = seedWords[3]
-                this.word5 = seedWords[4]
-                this.word6 = seedWords[5]
-                this.word7 = seedWords[6]
-                this.word8 = seedWords[7]
-                this.word9 = seedWords[8]
-                this.word10 = seedWords[9]
-                this.word11 = seedWords[10]
-                this.word12 = seedWords[11]
+                this.word2 = seedWords[1].trim().replace(/\W/g, '')
+                this.word3 = seedWords[2].trim().replace(/\W/g, '')
+                this.word4 = seedWords[3].trim().replace(/\W/g, '')
+                this.word5 = seedWords[4].trim().replace(/\W/g, '')
+                this.word6 = seedWords[5].trim().replace(/\W/g, '')
+                this.word7 = seedWords[6].trim().replace(/\W/g, '')
+                this.word8 = seedWords[7].trim().replace(/\W/g, '')
+                this.word9 = seedWords[8].trim().replace(/\W/g, '')
+                this.word10 = seedWords[9].trim().replace(/\W/g, '')
+                this.word11 = seedWords[10].trim().replace(/\W/g, '')
+                this.word12 = seedWords[11].trim().replace(/\W/g, '')
                 //this.word1 = seedWords[0]
 
                 this.enoughSeeds = true
@@ -284,6 +331,31 @@
     }
 </script>
 <style>
+
+	.hz-label-150 div.field-label {
+		min-width: 150px;
+	}
+
+	.hz-label-200 div.field-label {
+		min-width: 200px;
+	}
+
+	.hz-label-250 div.field-label {
+		min-width: 250px;
+	}
+
+	.hz-label-300 div.field-label {
+		min-width: 300px;
+	}
+
+	.hz-label-150 div.field.is-horizontal,
+	.hz-label-200 div.field.is-horizontal,
+	.hz-label-250 div.field.is-horizontal,
+	.hz-label-300 div.field.is-horizontal
+	{
+		margin-bottom: 0.75rem;
+	}
+
 	#odd-fix ol li {
 		display: inline-block;
 		width: 100%;

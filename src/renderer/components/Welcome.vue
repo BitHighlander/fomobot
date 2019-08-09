@@ -129,7 +129,9 @@
                             this.closeModal()
 						}else{
                             //if wallet
-                            messageBus.$emit('open', 'windowRegister');
+                            messageBus.$emit('open', 'windowPassword');
+							//nerf register
+							//messageBus.$emit('open', 'windowRegister');
                             this.closeModal()
 						}
 					} else {
