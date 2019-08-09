@@ -160,7 +160,7 @@
 
                 //save wallet
                 this.walletCreated = true
-
+                messageBus.$emit('open', 'windowPassword');
             },
             finish(){
                 this.clearup()

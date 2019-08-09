@@ -14,6 +14,7 @@ const bip32 = require(`bip32`)
 const Promise = require("bluebird");
 //import {exec, execFile, spawn, fork} from 'child_process'
 const TX = require("ethereumjs-tx").Transaction;
+var bcrypt = require('bcryptjs');
 
 let Web3 = require('web3');
 if(!process.env.INFURA_TOKEN) throw Error("1misconfiguration, cant find infura key!")
@@ -62,105 +63,109 @@ class WalletService {
         wallet = JSON.parse(wallet)
         log.debug("wallet: ",wallet)
 
-        //decrypt
-        let mnemonic = cryptr.decrypt(wallet.vault);
-        mnemonic = mnemonic.replace(/,/g, ' ');
-        mnemonic = mnemonic.trim()
-        SEED = mnemonic
+        //validate pw
+        let isValid = bcrypt.compareSync(password, wallet.hash); // true
+        if(!isValid) {
+            return false
+        } else{
+            //decrypt
+            let mnemonic = cryptr.decrypt(wallet.vault);
+            mnemonic = mnemonic.replace(/,/g, ' ');
+            mnemonic = mnemonic.trim()
+            SEED = mnemonic
 
-        // throws if mnemonic is invalid
-        bip39.validateMnemonic(mnemonic)
+            // throws if mnemonic is invalid
+            bip39.validateMnemonic(mnemonic)
 
-        const seed = await bip39.mnemonicToSeed(mnemonic)
-        // let masterKey =  new HDKey.fromMasterSeed(new Buffer(seed, 'hex'), coininfo(network).versions.bip32.versions)
-        // log.debug("masterKey: ",masterKey)
-        let mk = new HDKey.fromMasterSeed(Buffer.from(seed, 'hex'))
-        log.debug(mk.publicExtendedKey)
+            const seed = await bip39.mnemonicToSeed(mnemonic)
+            // let masterKey =  new HDKey.fromMasterSeed(new Buffer(seed, 'hex'), coininfo(network).versions.bip32.versions)
+            // log.debug("masterKey: ",masterKey)
+            let mk = new HDKey.fromMasterSeed(Buffer.from(seed, 'hex'))
+            log.debug(mk.publicExtendedKey)
 
-        //get Eth key
-        mk = mk.derive("m/44'/60'/0'/0")
-        log.debug(mk.publicExtendedKey)
+            //get Eth key
+            mk = mk.derive("m/44'/60'/0'/0")
+            log.debug(mk.publicExtendedKey)
 
-        //get correct address with xpub
-        let xpub = mk.publicExtendedKey
-        let xpriv = mk.privateExtendedKey
-        log.debug("xpub: ",xpub)
+            //get correct address with xpub
+            let xpub = mk.publicExtendedKey
+            let xpriv = mk.privateExtendedKey
+            log.debug("xpub: ",xpub)
 
-        let publicKey = bitcoin.bip32.fromBase58(xpub).derive(0).publicKey
-        let privateKey = bitcoin.bip32.fromBase58(xpriv).derive(0).privateKey
-        log.debug("publicKey: ",publicKey)
-        log.debug("privateKey: ",ethUtils.bufferToHex(privateKey))
-        //
-        let address = ethUtils.bufferToHex(ethUtils.pubToAddress(publicKey,true));
-        log.debug("address: ",address)
+            let publicKey = bitcoin.bip32.fromBase58(xpub).derive(0).publicKey
+            let privateKey = bitcoin.bip32.fromBase58(xpriv).derive(0).privateKey
+            log.debug("publicKey: ",publicKey)
+            log.debug("privateKey: ",ethUtils.bufferToHex(privateKey))
+            //
+            let address = ethUtils.bufferToHex(ethUtils.pubToAddress(publicKey,true));
+            log.debug("address: ",address)
 
-        const masterKey = bip32.fromSeed(seed)
-        //return {masterKey,xpub,address}
+            const masterKey = bip32.fromSeed(seed)
+            //return {masterKey,xpub,address}
 
-        //output the first address
-        MASTER_ADDRESS = address
-        log.debug("MASTER ADDRESS: ",address)
-        MASTER_PRIVATE = ethUtils.bufferToHex(privateKey)
+            //output the first address
+            MASTER_ADDRESS = address
+            log.debug("MASTER ADDRESS: ",address)
+            MASTER_PRIVATE = ethUtils.bufferToHex(privateKey)
 
-        //query address balances
-        web3.eth.getBalance(MASTER_ADDRESS,function(error,result){
-            if(!error){
-                let balance = result.toString()/BASE
-                log.debug("balance: ",balance)
-                ETH_BALANCE = balance
-            } else {
-                console.error(error,result)
-            }
-        });
-
-        let ABI = abiInfo.ABI;
-        let metaData = abiInfo.metaData;
-
-
-        //
-        let contract = new web3.eth.Contract(ABI,metaData.contractAddress)
-        console.log("contract: ",contract);
-
-        //let contract = abiInterface.at(metaData.contractAddress);
-        let balance = await contract.methods.balanceOf(MASTER_ADDRESS).call()
-        console.log("balance: ",balance);
-        FOMO_BALANCE = balance/metaData.BASE;
-        online = true
-
-        //get past events
-        contract.getPastEvents('Transfer', {
-            // Using an array means OR: e.g. 20 or 23
-            fromBlock: 0,
-            toBlock: 'latest'
-        }, function(error, events){ console.log(events); })
-            .then(function(events){
-                //log.debug(events) // same results as the optional callback above
-
-                //for each
-                for(let i = 0; i < events.length; i++){
-                    let event = events[i]
-                    log.debug("event: ",event)
-                    //push events to message bus
-                    let txInfo = {}
-                    txInfo.contractAddress = event.address
-                    txInfo.confirmed = true
-                    txInfo.blockHash = event.blockHash
-                    txInfo.blockNumber = event.blockNumber
-                    txInfo.from = event.returnValues._from
-                    txInfo.to = event.returnValues._to
-                    txInfo.amount = event.returnValues._value
-                    txInfo.txid = event.transactionHash
-                    txInfo.index = event.transactionIndex
-
-                    log.debug("event: ",txInfo)
-
-                    TXS_ALL.push(txInfo)
+            //query address balances
+            web3.eth.getBalance(MASTER_ADDRESS,function(error,result){
+                if(!error){
+                    let balance = result.toString()/BASE
+                    log.debug("balance: ",balance)
+                    ETH_BALANCE = balance
+                } else {
+                    console.error(error,result)
                 }
-
             });
 
+            let ABI = abiInfo.ABI;
+            let metaData = abiInfo.metaData;
 
-        return
+
+            //
+            let contract = new web3.eth.Contract(ABI,metaData.contractAddress)
+            console.log("contract: ",contract);
+
+            //let contract = abiInterface.at(metaData.contractAddress);
+            let balance = await contract.methods.balanceOf(MASTER_ADDRESS).call()
+            console.log("balance: ",balance);
+            FOMO_BALANCE = balance/metaData.BASE;
+            online = true
+
+            //get past events
+            contract.getPastEvents('Transfer', {
+                // Using an array means OR: e.g. 20 or 23
+                fromBlock: 0,
+                toBlock: 'latest'
+            }, function(error, events){  })
+                .then(function(events){
+                    //log.debug(events) // same results as the optional callback above
+
+                    //for each
+                    for(let i = 0; i < events.length; i++){
+                        let event = events[i]
+                        //log.debug("event: ",event)
+                        //push events to message bus
+                        let txInfo = {}
+                        txInfo.contractAddress = event.address
+                        txInfo.confirmed = true
+                        txInfo.blockHash = event.blockHash
+                        txInfo.blockNumber = event.blockNumber
+                        txInfo.from = event.returnValues._from
+                        txInfo.to = event.returnValues._to
+                        txInfo.amount = event.returnValues._value
+                        txInfo.txid = event.transactionHash
+                        txInfo.index = event.transactionIndex
+
+                        //log.debug("event: ",txInfo)
+
+                        TXS_ALL.push(txInfo)
+                    }
+
+                });
+            return true
+        }
     }
 
     static async getSummaryInfo() {

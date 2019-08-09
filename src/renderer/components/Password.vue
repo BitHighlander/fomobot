@@ -73,14 +73,22 @@
 
         },
         methods: {
-            tryLogin() {
+            async tryLogin() {
 
                 let password = this.password
 
                 this.resetErrors()
-                this.$walletService.initClient(password)
-                this.closeModal()
-                setTimeout(() => messageBus.$emit('update'), 1 * 1000)
+
+                let isValid = await this.$walletService.initClient(password)
+                this.$log.info('isValid: ',isValid)
+
+				if(isValid){
+                    this.closeModal()
+                    setTimeout(() => messageBus.$emit('update'), 1 * 1000)
+				}else{
+				    this.error = true
+					this.errors['Invalid Password!']
+				}
             },
             resetErrors() {
                 this.error = false;
