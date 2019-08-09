@@ -124,7 +124,7 @@ export function innitConfig(languageSelected){
 
 
 //innit Wallet
-export function initWallet(encryptedSeed){
+export function initWallet(encryptedSeed,passwordHash){
     let tag = TAG + " | initWallet | "
     try{
 
