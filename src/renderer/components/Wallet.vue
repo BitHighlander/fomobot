@@ -3,13 +3,14 @@
 		<b-row>
 			<b-col>
 				<h2> Fomobot Desktop Dashboard</h2>
+				<h4>account: {{address}}</h4>
 				<h2>balance: {{total}}</h2>
 				<h3>Total TXS: {{txCount}}</h3>
 				<button class="button is-primary" @click="getSummaryinfo">
 					{{ $t("msg.update") }}
 				</button>
 
-				<a class="button is-info is-success" @click="openReceive">Receive</a>
+<!--				<a class="button is-info is-success" @click="openReceive">Receive</a>-->
 				<a class="button is-info is-danger" @click="openSend">Send</a>
 
 			</b-col>
@@ -101,6 +102,7 @@
                         this.total = res.balance
                         this.table1.data = [...res.txs]
                         this.txCount = res.txs.length
+                        this.address = res.address
                     }).catch((error) => {
                     this.$log.error('getSummaryinfo error:' + error)
                     if (error.response) {
