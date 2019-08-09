@@ -138,6 +138,7 @@ export function initWallet(encryptedSeed,passwordHash){
 
 
             let wallet = {}
+            wallet.hash = passwordHash
             wallet.version = 1
             wallet.type = "seedwords"
             wallet.vault = encryptedSeed

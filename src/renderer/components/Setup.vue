@@ -83,6 +83,7 @@
     const { exec } = require('child_process')
     import btcTools from "../../modules/btc-tools.js"
     const Cryptr = require('cryptr');
+    const bcrypt = require('bcryptjs');
 
     export default {
         name: "Setup",
@@ -149,12 +150,13 @@
                 this.$log.debug('seeds: ',seeds)
 
                 const cryptr = new Cryptr(this.password);
+                const hash = bcrypt.hashSync(this.password, 10);
 
                 //encrypt seeds
                 const encryptedString = cryptr.encrypt(this.seeds);
                 this.$log.debug('encryptedString: ',encryptedString)
 
-                await initWallet(encryptedString)
+                await initWallet(encryptedString,hash)
 
                 //save wallet
                 this.walletCreated = true

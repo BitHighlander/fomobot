@@ -158,6 +158,7 @@
     import { messageBus } from '@/messagebus'
     import {version,initWallet} from '../../modules/config'
     const Cryptr = require('cryptr');
+    const bcrypt = require('bcryptjs');
 
     export default {
         name: "RestoreSeed",
@@ -233,12 +234,13 @@
 
 
                 const cryptr = new Cryptr(this.password);
+                const hash = bcrypt.hashSync(this.password, 10);
 
                 //encrypt seeds
                 const encryptedString = cryptr.encrypt(this.seeds);
                 this.$log.debug('encryptedString: ',encryptedString)
 
-                await initWallet(encryptedString)
+                await initWallet(encryptedString,hash)
 
 
 				this.closeModal()
