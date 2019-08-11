@@ -3,7 +3,13 @@
 		<b-row>
 			<b-col>
 				<h2> Fomobot Desktop Dashboard</h2>
-				<h4>account: {{address}}</h4>
+				<h4>account: {{address}}
+				<button type="button"
+						v-clipboard:copy="address"
+						v-clipboard:success="onCopy"
+						v-clipboard:error="onError">Copy!</button>
+				</h4>
+
 				<h2>balance: {{total}}</h2>
 				<h3>Total TXS: {{txCount}}</h3>
 				<button class="button is-primary" @click="getSummaryinfo">
@@ -66,9 +72,10 @@
     const tableData = [];
 
     export default {
-        name: "Send",
+        name: "Wallet",
         data() {
             return {
+                message: 'Copy These Text',
                 amount: 0,
                 address: '',
                 spendable: 0,
@@ -91,6 +98,12 @@
             this.getSummaryinfo()
         },
         methods:{
+            onCopy: function (e) {
+                alert('You just copied: ' + e.text)
+            },
+            onError: function (e) {
+                alert('Failed to copy texts')
+            },
             getSummaryinfo: function () {
                 this.$walletService.getSummaryInfo(10)
                     .then((res) => {

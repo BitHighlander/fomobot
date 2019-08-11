@@ -11,6 +11,7 @@ import walletService from '../modules/wallet'
 import SortedTablePlugin from "vue-sorted-table";
 //import fomoService from '../modules/fomo'
 import dbService from '@/db'
+import VueClipboard from 'vue-clipboard2'
 import BootstrapVue from 'bootstrap-vue'
 
 //Vue.use(BootstrapVue)
@@ -31,7 +32,7 @@ import es from '../lang/es'
 //require
 let VueTruncate = require('vue-truncate-filter')
 
-
+Vue.use(VueClipboard)
 Vue.walletService = Vue.prototype.$walletService = walletService
 //Vue.walletService = Vue.prototype.fomoService = fomoService
 Vue.dbService = Vue.prototype.$dbService = dbService
