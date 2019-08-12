@@ -4,18 +4,21 @@
 		<div class="modal-background" @click="closeModal"></div>
 		<div class="modal-card" style="width:480px">
 			<header class="modal-card-head " style="background-color: #1e1e2f;">
-				<p class="modal-card-title">{{ $t("msg.seedTitle") }}</p>
+				<p class="modal-card-title text-white">{{ $t("msg.sendTitle") }}</p>
 				<button class="delete" aria-label="close" @click="closeModal" ></button>
 			</header>
 			<section class="modal-card-body" style="height:380px;background-color: darkslateblue;">
 
 				<br/>
-				<input v-model="amount" placeholder="amount">
+				<h2>Amount: </h2><input v-model="amount" placeholder="amount">
 				<br/>
-				<input class="text-white" v-model="address" placeholder="address">
+				<h2>Address: </h2><input v-model="address" placeholder="address">
 				<br/>
-				<button class="button is-large text-white" @click="send">
-					{{ $t("msg.update") }}
+				<br/>
+				<br/>
+				<br/>
+				<button class="button is-medium is-success text-white" @click="send">
+					{{ $t("msg.send") }}
 				</button>
 
 
@@ -57,7 +60,10 @@
                 this.$walletService.send(this.address, this.amount)
                     .then((res) => {
                         this.$log.info("res: ", res)
-                        this.total = res.balance
+
+						//alert on txid
+						alert("Transaction sent! txid: "+res.transactionHash)
+
                     }).catch((error) => {
                     this.$log.error('getSummaryinfo error:' + error)
                     if (error.response) {

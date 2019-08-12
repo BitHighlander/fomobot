@@ -29,6 +29,7 @@ import en from '../lang/en'
 import zh from '../lang/zh'
 import ru from '../lang/ru'
 import es from '../lang/es'
+
 //require
 let VueTruncate = require('vue-truncate-filter')
 

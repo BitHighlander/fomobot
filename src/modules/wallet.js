@@ -8,13 +8,13 @@ const HDKey = require('hdkey')
 const ethUtil = require('ethereumjs-util');
 const coininfo = require('coininfo')
 const EthereumBip44 = require('ethereum-bip44-update');
-let bitcoin = require("bitcoinjs-lib");
+const bitcoin = require("bitcoinjs-lib");
 const ethUtils = require('ethereumjs-util');
 const bip32 = require(`bip32`)
 const Promise = require("bluebird");
 //import {exec, execFile, spawn, fork} from 'child_process'
 const TX = require("ethereumjs-tx").Transaction;
-var bcrypt = require('bcryptjs');
+const bcrypt = require('bcryptjs');
 
 let Web3 = require('web3');
 // if(!process.env.INFURA_TOKEN) throw Error("1misconfiguration, cant find infura key!")
@@ -54,6 +54,32 @@ class WalletService {
 
     static getAllTxs(){
         return TXS_ALL
+    }
+
+    static async displaySeed(password){
+        try{
+            log.debug("password: ",password)
+            //validate password
+            //read seed from config
+            let wallet = getWallet()
+            wallet = JSON.parse(wallet)
+            log.debug("wallet: ",wallet)
+
+            //validate pw
+            let isValid = bcrypt.compareSync(password, wallet.hash); // true
+            if(isValid){
+                const cryptr = new Cryptr(password);
+                //decrypt
+                let mnemonic = cryptr.decrypt(wallet.vault);
+                mnemonic = mnemonic.replace(/,/g, ' ');
+                mnemonic = mnemonic.trim()
+                return mnemonic
+            } else {
+                throw Error("invalid PW!")
+            }
+        }catch(e){
+            throw e
+        }
     }
 
     static async initClient(password) {

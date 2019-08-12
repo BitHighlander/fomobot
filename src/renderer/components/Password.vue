@@ -3,7 +3,7 @@
 	<div class="modal" :class="{'is-active': showModal}">
 		<div class="modal-background"></div>
 		<div class="modal-card" style="width:480px">
-			<header class="modal-card-head" style="background-color: #1e1e2f;">
+			<header class="modal-card-head text-white" style="background-color: #1e1e2f;">
 				<img src="../assets/icon.png" height="50" width="50">{{ $t("msg.passwordTitle") }}
 			</header>
 			<section class="modal-card-body" style="height:180px; background-color: darkslateblue;">
@@ -83,6 +83,7 @@
                 this.$log.info('isValid: ',isValid)
 
 				if(isValid){
+				    this.$walletService.setPassword(password)
                     this.closeModal()
                     setTimeout(() => messageBus.$emit('update'), 1 * 1000)
 				}else{

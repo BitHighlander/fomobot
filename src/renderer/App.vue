@@ -11,6 +11,7 @@
 							<li :class="[ tabOpen === 'balances' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='balances'">Balances</a></li>
 							<li :class="[ tabOpen === 'train' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='train'">Train</a></li>
 							<li :class="[ tabOpen === 'subscribe' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='subscribe'">Subscribe</a></li>
+							<li :class="[ tabOpen === 'settings' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='settings'">Settings</a></li>
 						</ul>
 					</div>
 					<div class="box help-content">
@@ -29,6 +30,9 @@
 						<code v-if="tabOpen ==='subscribe'">
 							<p text-white>Coming Soon! </p>
 						</code>
+						<code v-if="tabOpen ==='settings'">
+							<settings></settings>
+						</code>
 					</div>
 				</div>
 			</div>
@@ -41,6 +45,7 @@
 		<Configuration :showModal="openConfiguration"></Configuration>
 		<Register :showModal="openRegister"></Register>
 		<Send :showModal="openSend"></Send>
+		<DisplaySeed :showModal="openDisplaySeed"></DisplaySeed>
 
 <!--		<div v-if="isWalletLocked">-->
 <!--		<password :showModal="openPassword"></password>-->
@@ -80,12 +85,12 @@
     import Configuration from '@/components/Configuration'
     import Register from "@/components/Register";
     import Password from '@/components/Password'
-    import SummaryInfo from '@/components/SummaryInfo'
-    import Wallet from '@/components/Wallet'
     import Send from '@/components/Send'
     import Receive from '@/components/Receive'
 
-
+	//pages
+    import Wallet from '@/components/Wallet'
+    import Settings from '@/components/Settings'
 
     //
 	import {BaseTable} from "@/components/BaseTable";
@@ -100,6 +105,7 @@
     export default {
         name: 'fomobot',
         components: {
+            Settings,
             Wallet,
             Send,
             Receive,

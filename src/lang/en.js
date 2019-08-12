@@ -17,11 +17,12 @@ const messages = {
 
     send: 'Send',
     receive: 'Receive',
-
+    viewSeed: 'View Your Wallets Seed!',
     //modal
     passwordTitle:"Enter your wallets password",
     registerTitle:"Create new Username!",
     seedTitle:"your Wallets Seed!",
+    sendTitle:"Send Fomopoints!",
 
     cancel:'Cancel',
     save: 'Save',
