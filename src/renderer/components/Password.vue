@@ -8,8 +8,6 @@
 			</header>
 			<section class="modal-card-body" style="height:180px; background-color: darkslateblue;">
 				<div class="column">
-
-
 					<form>
 						<div class="field">
 							<label class="label text-white">{{ $t("msg.password") }}</label>

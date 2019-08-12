@@ -14,78 +14,101 @@
 				<div v-if="page==='addSeeds'">
 
 					<div>
-						<div class="tabs wrap is-centered" style="max-width:100%;border-width:thick ">
-							<ul >
+						<div class="tabs wrap is-centered text-center" style="max-width:100%;border-width:thick ">
+							<ul>
 								<li :class="[ tabOpen === 'word1' ? 'is-active' : '']">
 									<a @click="tabOpen='word1' " class="is-large">
-										<input style="border:none;border-style: none;width: 70px;" class="" v-model="word1" placeholder=""
-											   @paste="onPaste">
+										<input class="text-white "
+											   style="border:none;border-style: none;width: 70px;background-color: darkslateblue;"
+											   v-model="word1" placeholder=""
+											   @paste="onPaste" >
 									</a>1
 								</li>
 								<li :class="[ tabOpen === 'word2' ? 'is-active' : '']"><a
 										@click="tabOpen='word2'">
-									<input style="border: none; border-style: none;width: 70px" v-model="word2" placeholder="">
+									<input class="text-white "
+										   style="border: none; border-style: none;width: 70px; background-color: darkslateblue;"
+										   v-model="word2" placeholder="" >
 								</a>2
 								</li>
 								<li :class="[ tabOpen === 'word3' ? 'is-active' : '']"><a
 										@click="tabOpen='word3'">
-									<input style="border: none; border-style: none;width: 70px" v-model="word3" placeholder="">
+									<input class="text-white "
+										   style="border: none; border-style: none;width: 70px; background-color: darkslateblue;"
+										   v-model="word3" placeholder="" >
 								</a>3
 								</li>
 								<li :class="[ tabOpen === 'word4' ? 'is-active' : '']"><a
 										@click="tabOpen='word4'">
-									<input style="border: none; border-style: none;width: 70px" v-model="word4" placeholder="">
+									<input class="text-white "
+										   style="border: none; border-style: none;width: 70px; background-color: darkslateblue;"
+										   v-model="word4" placeholder="" >
 								</a>4
 								</li>
 								<li :class="[ tabOpen === 'word5' ? 'is-active' : '']"><a
 										@click="tabOpen='word5'">
-									<input style="border: none; border-style: none;width: 70px" v-model="word5" placeholder="">
+									<input class="text-white "
+										   style="border: none; border-style: none;width: 70px; background-color: darkslateblue;"
+										   v-model="word5" placeholder="" >
 								</a>5
 								</li>
 								<li :class="[ tabOpen === 'word6' ? 'is-active' : '']"><a
 										@click="tabOpen='word6'">
-									<input style="border: none; border-style: none;width: 70px" v-model="word6" placeholder="">
+									<input class="text-white "
+										   style="border: none; border-style: none;width: 70px; background-color: darkslateblue;"
+										   v-model="word6" placeholder="" >
 								</a>6
 								</li>
 							</ul>
 						</div>
-						<div class="tabs is-centered">
-							<ul >
+						<div class="tabs is-centered text-center">
+							<ul>
 
 								<li :class="[ tabOpen === 'word7' ? 'is-active' : '']">
 									<a @click="tabOpen='word7'">
-										<input style="border: none; border-style: none;width: 70px" v-model="word7" placeholder="">
+										<input class="text-white "
+											   style="border: none; border-style: none;width: 70px; background-color: darkslateblue;"
+											   v-model="word7" placeholder="" >
 									</a>7
 								</li>
 								<li :class="[ tabOpen === 'word8' ? 'is-active' : '']"><a
 										@click="tabOpen='word8'">
-									<input style="border: none; border-style: none;width: 70px" v-model="word8" placeholder="">
+									<input class="text-white "
+										   style="border: none; border-style: none;width: 70px; background-color: darkslateblue;"
+										   v-model="word8" placeholder="" >
 								</a>8
 								</li>
 								<li :class="[ tabOpen === 'word9' ? 'is-active' : '']"><a
 										@click="tabOpen='word9'">
-									<input style="border: none; border-style: none;width: 70px" v-model="word9" placeholder="">
+									<input class="text-white "
+										   style="border: none; border-style: none;width: 70px; background-color: darkslateblue;"
+										   v-model="word9" placeholder="" >
 								</a>9
 								</li>
 								<li :class="[ tabOpen === 'word10' ? 'is-active' : '']"><a
 										@click="tabOpen='word10'">
-									<input style="border: none; border-style: none;width: 70px" v-model="word10" placeholder="">
+									<input class="text-white "
+										   style="border: none; border-style: none;width: 70px; background-color: darkslateblue;"
+										   v-model="word10" placeholder="" >
 								</a>10
 								</li>
 								<li :class="[ tabOpen === 'word11' ? 'is-active' : '']"><a
 										@click="tabOpen='word11'">
-									<input style="border: none; border-style: none;width: 70px" v-model="word11" placeholder="">
+									<input class="text-white "
+										   style="border: none; border-style: none;width: 70px; background-color: darkslateblue;"
+										   v-model="word11" placeholder="" >
 								</a>11
 								</li>
 								<li :class="[ tabOpen === 'word12' ? 'is-active' : '']"><a
 										@click="tabOpen='word12'">
-									<input style="border: none; border-style: none;width: 70px" v-model="word12" placeholder="">
+									<input class="text-white "
+										   style="border: none; border-style: none;width: 70px; background-color: darkslateblue;"
+										   v-model="word12" placeholder="" >
 								</a>12
 								</li>
 							</ul>
 						</div>
 					</div>
-
 					<button class="button is-link  is-outlined" @click="page='addPassword'">
 						{{ $t('msg.restore.add') }}
 					</button>
