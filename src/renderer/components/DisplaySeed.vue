@@ -5,7 +5,7 @@
 		<div class="modal-card" style="width:680px;">
 			<header class="modal-card-head" style="background-color: #1e1e2f;">
 				<p class="modal-card-title text-white">{{ $t("msg.seedTitle") }}</p>
-				<button class="delete" aria-label="close" @click="closeModal" ></button>
+				<button class="delete" aria-label="close" @click="closeModal"></button>
 			</header>
 			<section class="modal-card-body" style="height:380px;background-color: darkslateblue;">
 
@@ -14,73 +14,113 @@
 						<ul>
 							<li :class="[ tabOpen === 'word1' ? 'is-active' : '']">
 								<a @click="tabOpen='word1' " class="is-large">
-									<input class="text-white is-disabled" style="border:none;border-style: none;width: 70px;background-color: darkslateblue;" v-model="word1" placeholder=""
+									<input class="text-white is-disabled"
+										   style="border:none;border-style: none;width: 70px;background-color: darkslateblue;"
+										   v-model="word1" placeholder=""
 										   @paste="onPaste" disabled>
 								</a>1
 							</li>
 							<li :class="[ tabOpen === 'word2' ? 'is-active' : '']"><a
 									@click="tabOpen='word2'">
-								<input class="text-white is-disabled" style="border: none; border-style: none;width: 70px; background-color: darkslateblue;" v-model="word2" placeholder="" disabled>
+								<input class="text-white is-disabled"
+									   style="border: none; border-style: none;width: 70px; background-color: darkslateblue;"
+									   v-model="word2" placeholder="" disabled>
 							</a>2
 							</li>
 							<li :class="[ tabOpen === 'word3' ? 'is-active' : '']"><a
 									@click="tabOpen='word3'">
-								<input class="text-white is-disabled" style="border: none; border-style: none;width: 70px; background-color: darkslateblue;" v-model="word3" placeholder="" disabled>
+								<input class="text-white is-disabled"
+									   style="border: none; border-style: none;width: 70px; background-color: darkslateblue;"
+									   v-model="word3" placeholder="" disabled>
 							</a>3
 							</li>
 							<li :class="[ tabOpen === 'word4' ? 'is-active' : '']"><a
 									@click="tabOpen='word4'">
-								<input class="text-white is-disabled" style="border: none; border-style: none;width: 70px; background-color: darkslateblue;" v-model="word4" placeholder="" disabled>
+								<input class="text-white is-disabled"
+									   style="border: none; border-style: none;width: 70px; background-color: darkslateblue;"
+									   v-model="word4" placeholder="" disabled>
 							</a>4
 							</li>
 							<li :class="[ tabOpen === 'word5' ? 'is-active' : '']"><a
 									@click="tabOpen='word5'">
-								<input class="text-white is-disabled" style="border: none; border-style: none;width: 70px; background-color: darkslateblue;" v-model="word5" placeholder="" disabled>
+								<input class="text-white is-disabled"
+									   style="border: none; border-style: none;width: 70px; background-color: darkslateblue;"
+									   v-model="word5" placeholder="" disabled>
 							</a>5
 							</li>
 							<li :class="[ tabOpen === 'word6' ? 'is-active' : '']"><a
 									@click="tabOpen='word6'">
-								<input class="text-white is-disabled" style="border: none; border-style: none;width: 70px; background-color: darkslateblue;" v-model="word6" placeholder="" disabled>
+								<input class="text-white is-disabled"
+									   style="border: none; border-style: none;width: 70px; background-color: darkslateblue;"
+									   v-model="word6" placeholder="" disabled>
 							</a>6
 							</li>
 						</ul>
 					</div>
 					<div class="tabs is-centered text-center">
-						<ul >
+						<ul>
 
 							<li :class="[ tabOpen === 'word7' ? 'is-active' : '']">
 								<a @click="tabOpen='word7'">
-									<input class="text-white is-disabled" style="border: none; border-style: none;width: 70px; background-color: darkslateblue;" v-model="word7" placeholder="" disabled>
+									<input class="text-white is-disabled"
+										   style="border: none; border-style: none;width: 70px; background-color: darkslateblue;"
+										   v-model="word7" placeholder="" disabled>
 								</a>7
 							</li>
 							<li :class="[ tabOpen === 'word8' ? 'is-active' : '']"><a
 									@click="tabOpen='word8'">
-								<input class="text-white is-disabled" style="border: none; border-style: none;width: 70px; background-color: darkslateblue;" v-model="word8" placeholder="" disabled>
+								<input class="text-white is-disabled"
+									   style="border: none; border-style: none;width: 70px; background-color: darkslateblue;"
+									   v-model="word8" placeholder="" disabled>
 							</a>8
 							</li>
 							<li :class="[ tabOpen === 'word9' ? 'is-active' : '']"><a
 									@click="tabOpen='word9'">
-								<input class="text-white is-disabled" style="border: none; border-style: none;width: 70px; background-color: darkslateblue;" v-model="word9" placeholder="" disabled>
+								<input class="text-white is-disabled"
+									   style="border: none; border-style: none;width: 70px; background-color: darkslateblue;"
+									   v-model="word9" placeholder="" disabled>
 							</a>9
 							</li>
 							<li :class="[ tabOpen === 'word10' ? 'is-active' : '']"><a
 									@click="tabOpen='word10'">
-								<input class="text-white is-disabled" style="border: none; border-style: none;width: 70px; background-color: darkslateblue;" v-model="word10" placeholder="" disabled>
+								<input class="text-white is-disabled"
+									   style="border: none; border-style: none;width: 70px; background-color: darkslateblue;"
+									   v-model="word10" placeholder="" disabled>
 							</a>10
 							</li>
 							<li :class="[ tabOpen === 'word11' ? 'is-active' : '']"><a
 									@click="tabOpen='word11'">
-								<input class="text-white is-disabled" style="border: none; border-style: none;width: 70px; background-color: darkslateblue;" v-model="word11" placeholder="" disabled>
+								<input class="text-white is-disabled"
+									   style="border: none; border-style: none;width: 70px; background-color: darkslateblue;"
+									   v-model="word11" placeholder="" disabled>
 							</a>11
 							</li>
 							<li :class="[ tabOpen === 'word12' ? 'is-active' : '']"><a
 									@click="tabOpen='word12'">
-								<input class="text-white is-disabled" style="border: none; border-style: none;width: 70px; background-color: darkslateblue;" v-model="word12" placeholder="" disabled>
+								<input class="text-white is-disabled"
+									   style="border: none; border-style: none;width: 70px; background-color: darkslateblue;"
+									   v-model="word12" placeholder="" disabled>
 							</a>12
 							</li>
 						</ul>
 					</div>
 				</div>
+
+				<a class="button is-success">
+					<span class="icon">
+      				<i class="fab fa-github"></i>
+    				</span>
+					<span>Remote Backup</span>
+				</a>
+				<a class="button is-warning "
+				   v-clipboard:copy="seeds"
+				   v-clipboard:success="onCopy"
+				   v-clipboard:error="onError">
+					<span class="icon">
+      				<i class="fa fa-github"></i>
+    				</span>
+					copy to Clipboard
+				</a>
 			</section>
 		</div>
 	</div>
@@ -88,7 +128,7 @@
 </template>
 <script>
 
-    import { messageBus } from '@/messagebus'
+    import {messageBus} from '@/messagebus'
 
     const fs = require('fs');
 
@@ -102,9 +142,9 @@
         },
         data() {
             return {
-                seeds:[],
+                seeds: '',
                 password: '',
-				error:'',
+                error: '',
                 tabOpen: 'word1',
                 word1: '',
                 word2: '',
@@ -120,7 +160,7 @@
                 word12: '',
             }
         },
-        beforeDestroy: function(){
+        beforeDestroy: function () {
             this.showModal = false
         },
         mounted() {
@@ -130,14 +170,15 @@
             })
         },
         methods: {
-            async getSeed(){
+            async getSeed() {
                 this.$log.info('checkpoint get seed!')
-                this.$log.info('password: ',this.password)
+                this.$log.info('password: ', this.password)
 
-				let password = this.$walletService.getPassword()
+                let password = this.$walletService.getPassword()
                 let seedWords = await this.$walletService.displaySeed(password)
-
+                this.seeds = seedWords
                 seedWords = seedWords.split(" ")
+
                 console.log('seedWords', seedWords)
 
 
@@ -162,7 +203,13 @@
             closeModal() {
                 messageBus.$emit('close', 'windowDisplaySeed');
                 this.clearup()
-            }
+            },
+            onCopy: function (e) {
+                alert('Unencrypted Seed phrase copied! ')
+            },
+            onError: function (e) {
+                alert('Failed to copy texts')
+            },
         }
     }
 </script>
@@ -173,7 +220,7 @@
 		*display: inline;
 	}
 
-	.center{
+	.center {
 		display: flex;
 		justify-content: center;
 		align-items: center;

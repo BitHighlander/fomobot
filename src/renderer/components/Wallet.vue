@@ -12,12 +12,12 @@
 
 				<h2>balance: {{total}}</h2>
 				<h3>Total TXS: {{txCount}}</h3>
-				<button class="button is-primary" @click="getSummaryinfo">
+				<button class="button is-info" @click="getSummaryinfo">
 					{{ $t("msg.update") }}
 				</button>
 
 <!--				<a class="button is-info is-success" @click="openReceive">Receive</a>-->
-				<a class="button is-info is-danger" @click="openSend">Send</a>
+				<a class="button is-info is-success" @click="openSend">Send</a>
 
 			</b-col>
 			<b-col>
@@ -89,10 +89,10 @@
             }
         },
         created() {
-                messageBus.$on('update', () => {
-                    this.$log.info("Update detected! ")
-                    this.getSummaryinfo()
-                })
+			messageBus.$on('update', () => {
+				this.$log.info("Update detected! ")
+				this.getSummaryinfo()
+			})
         },
         mounted() {
             this.getSummaryinfo()
