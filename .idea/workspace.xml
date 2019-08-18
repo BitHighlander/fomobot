@@ -1,189 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="222539ec-8fd8-4098-b8a4-b0833b44921b" name="Default Changelist" comment="begin tx work">
-      <change afterPath="$PROJECT_DIR$/src/modules/conf.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/_stub/_codemap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/_stub/exchange.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/_stub/products.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/binance/exchange.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/binance/products.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/binance/update-products.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/bitfinex/exchange.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/bitfinex/products.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/bitfinex/update-products.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/bitstamp/exchange.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/bitstamp/products.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/bittrex/exchange.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/bittrex/products.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/bittrex/update-products.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/cexio/exchange.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/cexio/products.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/cexio/update-products.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/gdax/exchange.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/gdax/products.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/gdax/test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/gdax/update-products.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/gemini/exchange.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/gemini/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/gemini/products.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/gemini/update-products.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/hitbtc/exchange.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/hitbtc/products.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/hitbtc/update-products.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/kraken/exchange.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/kraken/products.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/kraken/update-products.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/poloniex/exchange.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/poloniex/products.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/poloniex/update-products.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/quadriga/exchange.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/quadriga/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/quadriga/products.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/sim/exchange.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/therock/exchange.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/therock/products.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/therock/update-products.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/wexnz/exchange.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/wexnz/products.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/exchanges/wexnz/update-products.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/notifiers/discord.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/notifiers/ifttt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/notifiers/prowl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/notifiers/pushbullet.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/notifiers/pushover.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/notifiers/slack.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/notifiers/telegram.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/notifiers/textbelt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/notifiers/xmpp.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/output/_codemap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/output/api.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/bollinger/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/cci_srsi/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/crossover_vwap/example_sims/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/crossover_vwap/example_sims/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/crossover_vwap/example_sims/vwapmax0.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/crossover_vwap/example_sims/vwapmax10.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/crossover_vwap/example_sims/vwapmax100.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/crossover_vwap/example_sims/vwapmax1000.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/crossover_vwap/example_sims/vwapmax10000.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/crossover_vwap/example_sims/vwapmax20000.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/crossover_vwap/example_sims/vwapmax500.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/crossover_vwap/example_sims/vwapmax5000.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/crossover_vwap/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/dema/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/ehlers_ft/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/ehlers_mama/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/ehlers_mama/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/ehlers_trend/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/ehlers_trend/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/forex_analytics/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/ichimoku/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/ichimoku_score/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/ichimoku_score/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/kc/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/macd/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/momentum/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/multi/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/neural/Capture.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/neural/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/neural/conf-example.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/neural/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/noop/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/pivot/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/renko/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/rsi/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/sar/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/speed/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/srsi_macd/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/stddev/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/ta_ema/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/ta_macd/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/ta_macd_ext/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/ta_ppo/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/ta_srsi_bollinger/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/ta_stoch_bollinger/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/ta_trix/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/ta_ultosc/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/ti_bollinger/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/ti_hma/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/ti_stoch/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/ti_stoch_bollinger/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/trend_bollinger/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/trend_ema/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/trendline/Capture.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/trendline/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/trendline/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/trust_distrust/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/vpt/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/extensions/strategies/wavetrend/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/fomobot.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/_data-structures/Queue.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/adx.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/backtester.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/bollinger.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/cci.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/cmf.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/ema.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/engine.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/format.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/heikinAshi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/helpers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/highest.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/kc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/lowest.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/lrc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/momentum.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/normalize-selector.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/notify.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/objectify-selector.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/output.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/phenotype.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/rsi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/sar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/services/collection-service.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/services/consume-and-process-service.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/services/exchange-service.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/services/resume-marker-service.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/services/trades-service.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/slow_stochastic.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/sma.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/srsi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/stddev.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/ta_bollinger.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/ta_ema.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/ta_macd.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/ta_macd_ext.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/ta_ppo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/ta_stoch.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/ta_stochrsi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/ta_trix.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/ta_ultosc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/ta_volume.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/ta_willr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/tcf.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/ti_bollinger.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/ti_hma.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/ti_macd.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/ti_rsi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/ti_stoch.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/ti_stochrsi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/vma.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/vwap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lib/wto.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/train.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/components/Train.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="222539ec-8fd8-4098-b8a4-b0833b44921b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/icons/256x256.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/icons/icon.icns" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/icons/icon.ico" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-module.js" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-module.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -260,8 +80,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="191" column="14" selection-start-line="191" selection-start-column="5" selection-end-line="191" selection-end-column="17" />
+            <state relative-caret-position="30">
+              <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -459,10 +279,10 @@
         <option value="$PROJECT_DIR$/src/modules/fomobot.js" />
         <option value="$PROJECT_DIR$/src/main/index.js" />
         <option value="$PROJECT_DIR$/src/renderer/App.vue" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/modules/extensions/strategies/forex_analytics/strategy.js" />
         <option value="$PROJECT_DIR$/src/modules/train.js" />
         <option value="$PROJECT_DIR$/src/renderer/main.js" />
+        <option value="$PROJECT_DIR$/package.json" />
       </list>
     </option>
   </component>
@@ -495,6 +315,11 @@
               <item name="fomobot" type="b2602c69:ProjectViewProjectNode" />
               <item name="fomobot" type="462c0819:PsiDirectoryNode" />
               <item name=".electron-vue" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fomobot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fomobot" type="462c0819:PsiDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="fomobot" type="b2602c69:ProjectViewProjectNode" />
@@ -565,7 +390,14 @@
     <configuration name="test-module.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="test-module.js" working-dir="$PROJECT_DIR$/tests">
       <method v="2" />
     </configuration>
-    <configuration name="train.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="train.js" working-dir="$PROJECT_DIR$/src/modules">
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
       <method v="2" />
     </configuration>
     <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
@@ -600,11 +432,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.build" />
         <item itemvalue="npm.dev" />
         <item itemvalue="npm.node version" />
         <item itemvalue="Node.js.test-module.js" />
         <item itemvalue="npm.yarn" />
-        <item itemvalue="Node.js.train.js" />
       </list>
     </recent_temporary>
   </component>
@@ -628,14 +460,7 @@
       <workItem from="1564869713367" duration="71861000" />
       <workItem from="1565750953775" duration="73000" />
       <workItem from="1566077495399" duration="3394000" />
-      <workItem from="1566080920665" duration="15319000" />
-    </task>
-    <task id="LOCAL-00003" summary="try dis">
-      <created>1564200487754</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1564200487754</updated>
+      <workItem from="1566080920665" duration="16303000" />
     </task>
     <task id="LOCAL-00004" summary="linux first">
       <created>1564200750635</created>
@@ -973,23 +798,30 @@
       <option name="project" value="LOCAL" />
       <updated>1565580997738</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="FOMO TRAINING ITSELF!!! ITS ALIVE!!!">
+      <created>1566164684066</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1566164684067</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="134500000" />
+    <option name="totallyTimeSpent" value="135484000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="3069" y="40" width="1080" height="2185" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7430939" visible="true" weight="0.3065279" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7430939" visible="true" weight="0.3065279" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" sideWeight="0.2569061" side_tool="true" visible="true" weight="0.3065279" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="0" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32922825" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49964714" visible="true" weight="0.46972656" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49964714" visible="true" weight="0.46972656" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -1035,7 +867,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="no more errors?" />
     <MESSAGE value="debug setup" />
     <MESSAGE value="end of night" />
     <MESSAGE value="writes seed to vault" />
@@ -1060,7 +891,8 @@
     <MESSAGE value="display seed working!" />
     <MESSAGE value="backup options" />
     <MESSAGE value="begin tx work" />
-    <option name="LAST_COMMIT_MESSAGE" value="begin tx work" />
+    <MESSAGE value="FOMO TRAINING ITSELF!!! ITS ALIVE!!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="FOMO TRAINING ITSELF!!! ITS ALIVE!!!" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/renderer/assets/sass/black-dashboard/custom/_images.scss">
@@ -1475,8 +1307,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="191" column="14" selection-start-line="191" selection-start-column="5" selection-end-line="191" selection-end-column="17" />
+        <state relative-caret-position="30">
+          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
         </state>
       </provider>
     </entry>
