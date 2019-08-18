@@ -1,4 +1,6 @@
+
 import { app, BrowserWindow } from 'electron'
+let train = require("../modules/train")
 
 /**
  * Set `__static` path to static files in production
@@ -25,7 +27,7 @@ function createWindow () {
 
   mainWindow.loadURL(winURL)
   mainWindow.openDevTools({mode: 'detach'})
-
+  train.train()
   mainWindow.on('closed', () => {
     mainWindow = null
   })

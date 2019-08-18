@@ -8,6 +8,7 @@ import log from '../modules/logger'
 import App from './App'
 import store from './store'
 import walletService from '../modules/wallet'
+import botService from '../modules/fomobot'
 import SortedTablePlugin from "vue-sorted-table";
 //import fomoService from '../modules/fomo'
 import dbService from '@/db'
@@ -31,9 +32,11 @@ import ru from '../lang/ru'
 import es from '../lang/es'
 
 //require
+let analytics = require('forex-analytics-fomo')
 let VueTruncate = require('vue-truncate-filter')
 
 Vue.use(VueClipboard)
+Vue.botService = Vue.prototype.$botService = botService
 Vue.walletService = Vue.prototype.$walletService = walletService
 //Vue.walletService = Vue.prototype.fomoService = fomoService
 Vue.dbService = Vue.prototype.$dbService = dbService

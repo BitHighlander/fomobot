@@ -25,7 +25,7 @@
 							<p text-white>Coming Soon! </p>
 						</code>
 						<code v-if="tabOpen ==='train'">
-							<p text-white>Coming Soon! </p>
+							<Train></Train>
 						</code>
 						<code v-if="tabOpen ==='subscribe'">
 							<p text-white>Coming Soon! </p>
@@ -87,6 +87,7 @@
     import Password from '@/components/Password'
     import Send from '@/components/Send'
     import Receive from '@/components/Receive'
+    import Train from '@/components/Train'
 
 	//pages
     import Wallet from '@/components/Wallet'
@@ -105,6 +106,7 @@
     export default {
         name: 'fomobot',
         components: {
+            Train,
             Settings,
             Wallet,
             Send,

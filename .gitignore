@@ -1,4 +1,5 @@
 .env
+.idea/workplace.xml
 .idea
 .idea/*
 .DS_Store
