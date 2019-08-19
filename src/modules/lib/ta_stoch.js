@@ -1,14 +1,14 @@
-var talib = require('talib')
+var talib = require('talib-fomo')
 
-module.exports = function stoch(s, key, k_periods, sk_periods, k_ma_type, d_periods, d_ma_type, optMarket) 
+module.exports = function stoch(s, key, k_periods, sk_periods, k_ma_type, d_periods, d_ma_type, optMarket)
 {
   return new Promise(function(resolve, reject) {
-  
+
 
     let tmpMarket = optMarket
     if (!tmpMarket)
     {
-      
+
       tmpMarket = s.lookback.slice(0, 1000)
       tmpMarket.reverse()
       //add current period
@@ -33,12 +33,12 @@ module.exports = function stoch(s, key, k_periods, sk_periods, k_ma_type, d_peri
         endIdx: tmpMarketClose.length - 1,
         high:  tmpMarketHigh,
         low: tmpMarketLow,
-        close: tmpMarketClose,            
+        close: tmpMarketClose,
         optInFastK_Period:k_periods, // K 5 default
         optInSlowK_Period:sk_periods, //Slow K 3 default
         optInSlowK_MAType:optInSlowKMAType, //Slow K maType default 0
         optInSlowD_Period:d_periods, // D 3 default
-        optInSlowD_MAType:optInSlowDMAType // type of Fast D default 0 
+        optInSlowD_MAType:optInSlowDMAType // type of Fast D default 0
 
       }, function (err, result) {
         if (err) {
@@ -47,7 +47,7 @@ module.exports = function stoch(s, key, k_periods, sk_periods, k_ma_type, d_peri
           return
         }
 
-        
+
         resolve({
           k: result.result.outSlowK,
           d: result.result.outSlowD
@@ -56,7 +56,7 @@ module.exports = function stoch(s, key, k_periods, sk_periods, k_ma_type, d_peri
 
     }
     else
-    { 
+    {
       resolve()
     }
   })
@@ -70,7 +70,7 @@ module.exports = function stoch(s, key, k_periods, sk_periods, k_ma_type, d_peri
      */
 function getMaTypeFromString(maType) {
   // no constant in lib?
-    
+
   switch (maType.toUpperCase()) {
   case 'SMA':
     return 0

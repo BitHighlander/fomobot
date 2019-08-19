@@ -1,6 +1,6 @@
 // tablib: WILLR - Williams' %R https://mrjbq7.github.io/ta-lib/func_groups/momentum_indicators.html
 
-var talib = require('talib')
+var talib = require('talib-fomo')
 
 module.exports = function ppo(s, min_periods, timeperiod) {
   return new Promise(function(resolve, reject) {

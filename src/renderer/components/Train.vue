@@ -1,10 +1,14 @@
 <template>
 	<div>
 		<h2>Logs: {{logs}}</h2>
+		<button class="button is-medium is-success text-white" @click="openSeed">
+			{{ $t("msg.viewSeed") }}
+		</button>
 	</div>
 </template>
 
 <script>
+    const {ipcRenderer} = require('electron')
     import { messageBus } from '@/messagebus'
     const tableColumns = ["blockNumber", "amount", "to", "from","txid"];
     const tableData = [];
@@ -28,17 +32,8 @@
         methods:{
 
             startTraining: function () {
-                this.$botService.initClient()
-                    .then((res) => {
-                        this.$log.debug(res)
-						this.logs = res
-                    }).catch((error) => {
-						this.$log.error('initClient error:' + error)
-						if (error.response) {
-							let resp = error.response
-							this.$log.error(`resp.data:${resp.data}; status:${resp.status};headers:${resp.headers}`)
-						}
-                })
+                this.$log.info("Start training!! ")
+                ipcRenderer.send("bot","train")
             },
         }
     }

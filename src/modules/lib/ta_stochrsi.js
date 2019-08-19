@@ -1,9 +1,9 @@
-var talib = require('talib')
+var talib = require('talib-fomo')
 
-module.exports = function srsi(s, key, rsi_periods, k_periods, d_periods, d_ma_type, optMarket) 
+module.exports = function srsi(s, key, rsi_periods, k_periods, d_periods, d_ma_type, optMarket)
 {
   return new Promise(function(resolve, reject) {
-  
+
 
 
     // Returns the parameters needed to execute left comment for latter reference
@@ -25,7 +25,7 @@ module.exports = function srsi(s, key, rsi_periods, k_periods, d_periods, d_ma_t
 
     //dont calculate until we have enough data
     if (tmpMarket.length > rsi_periods) {
-       
+
       //doublecheck length.
       if (tmpMarket.length >= rsi_periods) {
         // extract int from string input for ma_type
@@ -38,7 +38,7 @@ module.exports = function srsi(s, key, rsi_periods, k_periods, d_periods, d_ma_t
           optInTimePeriod: rsi_periods,  //RSI 14 default
           optInFastK_Period:k_periods, // K 5 default
           optInFastD_Period:d_periods, // D 3 default
-          optInFastD_MAType:optInMAType // type of Fast D default 0 
+          optInFastD_MAType:optInMAType // type of Fast D default 0
 
         }, function (err, result) {
           if (err) {
@@ -51,7 +51,7 @@ module.exports = function srsi(s, key, rsi_periods, k_periods, d_periods, d_ma_t
             outFastK: result.result.outFastK,
             outFastD: result.result.outFastD
           })
-  
+
 
         })
       }
@@ -75,7 +75,7 @@ module.exports = function srsi(s, key, rsi_periods, k_periods, d_periods, d_ma_t
      */
 function getMaTypeFromString(maType) {
   // no constant in lib?
-    
+
   switch (maType.toUpperCase()) {
   case 'SMA':
     return 0

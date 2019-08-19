@@ -10,11 +10,11 @@ const messages = {
     search: 'Search',
     clearup: 'Clearup',
     jump: 'Jump',
+    train: 'Train Bot!',
     update:'Refresh',
     confirmed: 'Confirmed',
     unconfirmed: 'Unconfirmed',
     locked: 'Locked',
-
     send: 'Send',
     receive: 'Receive',
     viewSeed: 'View Your Wallets Seed!',
@@ -23,11 +23,9 @@ const messages = {
     registerTitle:"Create new Username!",
     seedTitle:"your Wallets Seed!",
     sendTitle:"Send Fomopoints!",
-
     cancel:'Cancel',
     save: 'Save',
     continue:"Continue",
-
     back: 'Back',
     msg: 'Message',
     more: 'More',

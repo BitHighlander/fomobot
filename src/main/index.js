@@ -1,6 +1,8 @@
 
 import { app, BrowserWindow } from 'electron'
+const {ipcMain} = require('electron')
 let train = require("../modules/train")
+import log from '../modules/logger'
 
 /**
  * Set `__static` path to static files in production
@@ -27,7 +29,6 @@ function createWindow () {
 
   mainWindow.loadURL(winURL)
   mainWindow.openDevTools({mode: 'detach'})
-  train.train()
   mainWindow.on('closed', () => {
     mainWindow = null
   })
@@ -66,3 +67,84 @@ app.on('ready', () => {
   if (process.env.NODE_ENV === 'production') autoUpdater.checkForUpdates()
 })
  */
+
+function createMenu() {
+  const application = {
+    label: "Application",
+    submenu: [
+      {
+        label: "About Application",
+        selector: "orderFrontStandardAboutPanel:"
+      },
+      {
+        type: "separator"
+      },
+      {
+        label: "Undo",
+        accelerator: "CmdOrCtrl+Z",
+        selector: "undo:"
+      },
+      {
+        label: "Redo",
+        accelerator: "Shift+CmdOrCtrl+Z",
+        selector: "redo:"
+      },
+      {
+        label: "Cut",
+        accelerator: "CmdOrCtrl+X",
+        selector: "cut:"
+      },
+      {
+        label: "Copy",
+        accelerator: "CmdOrCtrl+C",
+        selector: "copy:"
+      },
+      {
+        label: "Paste",
+        accelerator: "CmdOrCtrl+V",
+        selector: "paste:"
+      },
+      {
+        type: "separator"
+      },
+      {
+        label: "Quit",
+        accelerator: "Command+Q",
+        click: () => {
+          app.quit()
+        }
+      }
+    ]
+  }
+
+  const template = [
+    application,
+  ]
+
+  Menu.setApplicationMenu(Menu.buildFromTemplate(template))
+}
+
+/*
+    Bot tools
+
+    Training
+    Trading
+
+
+ */
+
+ipcMain.on('quit', (event) => {
+  app.quit()
+})
+
+ipcMain.on('bot', (event) => {
+  try{
+    log.debug("event: ",event)
+    train.train()
+
+
+
+  }catch(e){
+    log.error(e)
+  }
+})

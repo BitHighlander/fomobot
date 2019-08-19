@@ -32,7 +32,7 @@ import ru from '../lang/ru'
 import es from '../lang/es'
 
 //require
-let analytics = require('forex-analytics-fomo')
+let nalytics = require('forex-analytics-fomo')
 let VueTruncate = require('vue-truncate-filter')
 
 Vue.use(VueClipboard)

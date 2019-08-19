@@ -1,4 +1,4 @@
-var talib = require('talib')
+var talib = require('talib-fomo')
 
 module.exports = function trix(s, timeperiod) {
   return new Promise(function(resolve, reject) {

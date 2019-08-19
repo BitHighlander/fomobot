@@ -1,4 +1,4 @@
-var talib = require('talib')
+var talib = require('talib-fomo')
 
 module.exports = function ta_ema (s, length) {
   return new Promise(function(resolve, reject) {

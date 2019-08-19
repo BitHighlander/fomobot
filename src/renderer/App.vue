@@ -63,6 +63,7 @@
 </template>
 
 <script>
+
     import {messageBus} from '@/messagebus'
     import checkUpdate from '../modules/updateChecker'
     import {

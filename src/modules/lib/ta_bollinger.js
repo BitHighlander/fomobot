@@ -1,6 +1,6 @@
-var talib = require('talib')
+var talib = require('talib-fomo')
 
-module.exports = function ta_bollinger(s, key, rsi_periods, DevUp, DevDn, d_ma_type) 
+module.exports = function ta_bollinger(s, key, rsi_periods, DevUp, DevDn, d_ma_type)
 {
   return new Promise(function(resolve, reject) {
 
@@ -11,7 +11,7 @@ module.exports = function ta_bollinger(s, key, rsi_periods, DevUp, DevDn, d_ma_t
       tmpMarket.reverse()
       //add current period
       tmpMarket.push(s.period.close)
-    
+
       //doublecheck length.
       if (tmpMarket.length >= rsi_periods) {
         // extract int from string input for ma_type
@@ -24,7 +24,7 @@ module.exports = function ta_bollinger(s, key, rsi_periods, DevUp, DevDn, d_ma_t
           optInTimePeriod: rsi_periods,  //RSI 14 default
           optInNbDevUp: DevUp, // "Deviation multiplier for upper band" Real Default 2
           optInNbDevDn: DevDn, //"Deviation multiplier for lower band" Real Default 2
-          optInMAType:optInMAType // "Type of Moving Average" default 0 
+          optInMAType:optInMAType // "Type of Moving Average" default 0
 
         }, function (err, result) {
           if (err) {
@@ -48,7 +48,7 @@ module.exports = function ta_bollinger(s, key, rsi_periods, DevUp, DevDn, d_ma_t
     else{
       reject('MarketLenth not populated enough')
     }
-    
+
   })
 }
 
@@ -60,7 +60,7 @@ module.exports = function ta_bollinger(s, key, rsi_periods, DevUp, DevDn, d_ma_t
      */
 function getMaTypeFromString(maType) {
   // no constant in lib?
-    
+
   switch (maType.toUpperCase()) {
   case 'SMA':
     return 0

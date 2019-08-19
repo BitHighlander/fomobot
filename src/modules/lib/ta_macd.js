@@ -1,4 +1,4 @@
-var talib = require('talib')
+var talib = require('talib-fomo')
 
 module.exports = function macd (s, slow_period, fast_period, signal_period) {
   return new Promise(function(resolve, reject) {
