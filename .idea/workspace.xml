@@ -2,26 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="222539ec-8fd8-4098-b8a4-b0833b44921b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/electron/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/web/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lang/en.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lang/en.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/lib/ta_bollinger.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/lib/ta_bollinger.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/lib/ta_ema.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/lib/ta_ema.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/lib/ta_macd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/lib/ta_macd.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/lib/ta_macd_ext.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/lib/ta_macd_ext.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/lib/ta_ppo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/lib/ta_ppo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/lib/ta_stoch.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/lib/ta_stoch.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/lib/ta_stochrsi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/lib/ta_stochrsi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/lib/ta_trix.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/lib/ta_trix.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/lib/ta_ultosc.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/lib/ta_ultosc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/lib/ta_volume.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/lib/ta_volume.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/lib/ta_willr.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/lib/ta_willr.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/train.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/train.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/renderer/components/Train.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/components/Train.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/main.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -40,8 +24,28 @@
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/lang/en.js">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="180">
-                    <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+                  <state relative-caret-position="195">
+                    <caret line="13" column="21" lean-forward="true" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+    <window id="8">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/modules/train.js">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="4593">
+                    <caret line="317" lean-forward="true" selection-start-line="317" selection-end-line="317" />
+                    <folding>
+                      <element signature="e#142#168#0" expanded="true" />
+                    </folding>
                   </state>
                 </provider>
               </entry>
@@ -70,15 +74,35 @@
         </state>
       </content>
     </window>
-    <window id="6">
+    <window id="10">
       <content type="file-editors">
         <state>
           <leaf>
             <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/src/main/index.js">
+              <entry file="file://$PROJECT_DIR$/src/renderer/components/Train.vue">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="1195">
-                    <caret line="143" selection-start-line="143" selection-end-line="143" />
+                  <state relative-caret-position="405">
+                    <caret line="27" column="37" selection-start-line="27" selection-start-column="37" selection-end-line="27" selection-end-column="37" />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+    <window id="9">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/modules/wallet.js">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="991">
+                    <caret line="188" lean-forward="true" selection-start-line="188" selection-end-line="188" />
+                    <folding>
+                      <element signature="e#984#1018#0" expanded="true" />
+                    </folding>
                   </state>
                 </provider>
               </entry>
@@ -90,11 +114,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
+            <state relative-caret-position="492">
               <caret line="231" column="24" selection-start-line="231" selection-start-column="24" selection-end-line="231" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/modules/logger.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#0#30#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -102,26 +137,21 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.electron-vue/build.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-651" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modules/train.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="22" column="41" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="49" />
-              <folding>
-                <element signature="n#!!block;n#fa_getTrainOptions#0" />
-              </folding>
+            <state relative-caret-position="345">
+              <caret line="23" column="12" lean-forward="true" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modules/lib/backtester.js">
+        <entry file="file://$PROJECT_DIR$/src/exchanges/bitmex.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/modules/extensions/exchanges/bitfinex/exchange.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-450" />
+            <state relative-caret-position="-1215" />
           </provider>
         </entry>
       </file>
@@ -140,20 +170,40 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modules/lib/ta_ema.js">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="36" column="22" selection-start-line="36" selection-start-column="22" selection-end-line="36" selection-end-column="22" />
+            <state relative-caret-position="1014">
+              <caret line="143" column="34" lean-forward="true" selection-start-line="143" selection-start-column="34" selection-end-line="143" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/renderer/components/Train.vue">
+        <entry file="file://$PROJECT_DIR$/src/modules/config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+            <state relative-caret-position="540">
+              <caret line="105" lean-forward="true" selection-start-line="105" selection-end-line="105" />
+              <folding>
+                <element signature="e#75#99#0" expanded="true" />
+                <element signature="e#376#667#0" />
+                <element signature="e#499#542#0" />
+                <element signature="e#574#613#0" />
+                <element signature="e#622#661#0" />
+                <element signature="e#1197#1273#0" />
+                <element signature="e#1279#1352#0" />
+                <element signature="e#1358#1434#0" />
+                <element signature="e#1440#1516#0" />
+                <element signature="e#2491#2593#0" />
+                <element signature="e#2635#2735#0" />
+                <element signature="e#2779#2880#0" />
+                <element signature="n#!!block;n#getWallet#0" />
+                <element signature="n#!!block;n#getConfig#0" />
+                <element signature="n#!!block;n#setConfig#0" />
+                <element signature="n#!!block;n#updateConfig#0" />
+                <element signature="n#!!block;n#getLocale#0" />
+                <element signature="n#!!block;n#setLocale#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -179,16 +229,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>total</find>
-      <find>initWallet</find>
-      <find>login my</find>
-      <find>seedWords</find>
-      <find>tabOpen</find>
-      <find>event</find>
-      <find>send</find>
-      <find>seed</find>
-      <find>getSum</find>
-      <find>70</find>
       <find>get</find>
       <find>disabled</find>
       <find>conso</find>
@@ -204,11 +244,21 @@
       <find>noop/strategy</find>
       <find>forex.analytics</find>
       <find>node</find>
-      <find>require</find>
       <find>ipcRenderer</find>
       <find>electron</find>
-      <find>talib</find>
       <find>var talib = require('talib')</find>
+      <find>createStrategy</find>
+      <find>path.resolve(__dirname,</find>
+      <find>fomoPath</find>
+      <find>writeTempModel</find>
+      <find>talib</find>
+      <find>require</find>
+      <find>event</find>
+      <find>console.log</find>
+      <find>ipcMain</find>
+      <find>return</find>
+      <find>trainingDone</find>
+      <find>createCandlesticks</find>
     </findStrings>
     <replaceStrings>
       <replace>fomoConfig</replace>
@@ -227,6 +277,7 @@
       <replace>log.debug(tag,</replace>
       <replace>console.log(tag,</replace>
       <replace>var talib = require('talib-fomo')</replace>
+      <replace>path.join(fomoPath,</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src</dir>
@@ -258,7 +309,6 @@
         <option value="$PROJECT_DIR$/src/renderer/components/Receive.vue" />
         <option value="$PROJECT_DIR$/src/renderer/components/Register.vue" />
         <option value="$PROJECT_DIR$/src/renderer/components/Welcome.vue" />
-        <option value="$PROJECT_DIR$/src/modules/config.js" />
         <option value="$PROJECT_DIR$/src/renderer/components/Setup.vue" />
         <option value="$PROJECT_DIR$/src/renderer/components/Send.vue" />
         <option value="$PROJECT_DIR$/src/renderer/components/SendPost.vue" />
@@ -276,20 +326,21 @@
         <option value="$PROJECT_DIR$/src/modules/lib/engine.js" />
         <option value="$PROJECT_DIR$/src/modules/fomobot.js" />
         <option value="$PROJECT_DIR$/src/modules/extensions/strategies/forex_analytics/strategy.js" />
-        <option value="$PROJECT_DIR$/src/modules/train.js" />
         <option value="$PROJECT_DIR$/src/renderer/main.js" />
         <option value="$PROJECT_DIR$/src/renderer/App.vue" />
-        <option value="$PROJECT_DIR$/src/renderer/components/Train.vue" />
         <option value="$PROJECT_DIR$/src/lang/en.js" />
         <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/src/modules/config.js" />
+        <option value="$PROJECT_DIR$/src/renderer/components/Train.vue" />
         <option value="$PROJECT_DIR$/src/main/index.js" />
+        <option value="$PROJECT_DIR$/src/modules/train.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2945" />
-    <option name="y" value="91" />
-    <option name="width" value="1373" />
+    <option name="x" value="2993" />
+    <option name="y" value="121" />
+    <option name="width" value="1323" />
     <option name="height" value="2185" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -309,16 +360,6 @@
             <path>
               <item name="fomobot" type="b2602c69:ProjectViewProjectNode" />
               <item name="fomobot" type="462c0819:PsiDirectoryNode" />
-              <item name=".circleci" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fomobot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fomobot" type="462c0819:PsiDirectoryNode" />
-              <item name=".electron-vue" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fomobot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fomobot" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -326,6 +367,25 @@
               <item name="fomobot" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fomobot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fomobot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fomobot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fomobot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="renderer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fomobot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fomobot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="renderer" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="fomobot" type="b2602c69:ProjectViewProjectNode" />
@@ -375,7 +435,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.build">
     <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -428,8 +488,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.build" />
         <item itemvalue="npm.dev" />
+        <item itemvalue="npm.build" />
         <item itemvalue="npm.npm" />
         <item itemvalue="npm.yarn" />
         <item itemvalue="npm.node version" />
@@ -456,14 +516,7 @@
       <workItem from="1564869713367" duration="71861000" />
       <workItem from="1565750953775" duration="73000" />
       <workItem from="1566077495399" duration="3394000" />
-      <workItem from="1566080920665" duration="22336000" />
-    </task>
-    <task id="LOCAL-00005" summary="I really got to do this every push?">
-      <created>1564200884468</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1564200884468</updated>
+      <workItem from="1566080920665" duration="32848000" />
     </task>
     <task id="LOCAL-00006" summary="yolo">
       <created>1564201850289</created>
@@ -801,23 +854,31 @@
       <option name="project" value="LOCAL" />
       <updated>1566165372617</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="more working this time">
+      <created>1566178822406</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1566178822406</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="141517000" />
+    <option name="totallyTimeSpent" value="152029000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2945" y="91" width="1373" height="2185" extended-state="0" />
+    <frame x="2993" y="81" width="1323" height="2185" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6135496" visible="true" weight="0.24" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7430083" visible="true" weight="0.24923077" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="npm" order="2" sideWeight="0.38645038" side_tool="true" visible="true" weight="0.24" />
+      <window_info id="npm" order="2" sideWeight="0.25699168" side_tool="true" visible="true" weight="0.24923077" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="0" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32922825" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49964714" visible="true" weight="0.48828125" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49964714" visible="true" weight="0.3540039" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -863,7 +924,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="end of night" />
     <MESSAGE value="writes seed to vault" />
     <MESSAGE value="startup working!" />
     <MESSAGE value="wallet working bro" />
@@ -888,40 +948,10 @@
     <MESSAGE value="begin tx work" />
     <MESSAGE value="FOMO TRAINING ITSELF!!! ITS ALIVE!!!" />
     <MESSAGE value="bump version" />
-    <option name="LAST_COMMIT_MESSAGE" value="bump version" />
+    <MESSAGE value="more working this time" />
+    <option name="LAST_COMMIT_MESSAGE" value="more working this time" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/renderer/components/Welcome.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="30" lean-forward="true" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#header#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#section#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/components/Receive.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/components/Register.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="179" column="16" lean-forward="true" selection-start-line="179" selection-start-column="16" selection-end-line="179" selection-end-column="45" />
-          <folding>
-            <element signature="n#style#0;n#header#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#section#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="e#3394#3446#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.circleci/config.yml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -942,36 +972,6 @@
             <element signature="n#style#0;n#section#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#h2#0;n#div#1;n#div#0;n#section#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1350">
-          <caret line="141" column="30" selection-start-line="141" selection-start-column="30" selection-end-line="141" selection-end-column="30" />
-          <folding>
-            <element signature="n#!!block;n#getPlatform#0" />
-            <element signature="e#376#667#0" />
-            <element signature="e#499#542#0" />
-            <element signature="e#574#613#0" />
-            <element signature="e#622#661#0" />
-            <element signature="e#1073#1163#0" />
-            <element signature="e#1191#1518#0" />
-            <element signature="e#1197#1273#0" />
-            <element signature="e#1279#1352#0" />
-            <element signature="e#1358#1434#0" />
-            <element signature="e#1440#1516#0" />
-            <element signature="e#2491#2593#0" />
-            <element signature="e#2635#2735#0" />
-            <element signature="e#2779#2880#0" />
-            <element signature="n#!!block;n#checkConfigs#0" />
-            <element signature="n#!!block;n#getWallet#0" />
-            <element signature="n#!!block;n#getConfig#0" />
-            <element signature="n#!!block;n#setConfig#0" />
-            <element signature="n#!!block;n#updateConfig#0" />
-            <element signature="n#!!block;n#getLocale#0" />
-            <element signature="n#!!block;n#setLocale#0" />
           </folding>
         </state>
       </provider>
@@ -1091,16 +1091,6 @@
     <entry file="file://$PROJECT_DIR$/src/modules/conf.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/wallet.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1760">
-          <caret line="269" selection-start-line="269" selection-end-line="269" selection-end-column="28" />
-          <folding>
-            <element signature="e#984#1018#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -1187,16 +1177,6 @@
     <entry file="file://$PROJECT_DIR$/node_modules/forex-analytics-fomo/build/Release/.deps/Release/obj.target/analytics/src/nodes/TreeNode.o.d">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/train.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="22" column="41" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="49" />
-          <folding>
-            <element signature="n#!!block;n#fa_getTrainOptions#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/forex-analytics-fomo/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1240,24 +1220,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="4" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-            <element signature="e#459#487#0" expanded="true" />
-            <element signature="e#714#758#0" expanded="true" />
-            <element signature="e#843#870#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.electron-vue/build.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-651" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/renderer/App.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5865">
@@ -1280,31 +1242,115 @@
     <entry file="file://$PROJECT_DIR$/package-lock.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/components/Train.vue">
+    <entry file="file://$PROJECT_DIR$/src/exchanges/bitmex.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/extensions/exchanges/bitfinex/exchange.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
+        <state relative-caret-position="-1215" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lang/en.js">
+    <entry file="file://$PROJECT_DIR$/.electron-vue/build.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1195">
-          <caret line="143" selection-start-line="143" selection-end-line="143" />
+        <state relative-caret-position="345">
+          <caret line="23" column="12" lean-forward="true" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
+        <state relative-caret-position="492">
           <caret line="231" column="24" selection-start-line="231" selection-start-column="24" selection-end-line="231" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/logger.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/wallet.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="991">
+          <caret line="188" lean-forward="true" selection-start-line="188" selection-end-line="188" />
+          <folding>
+            <element signature="e#984#1018#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="105" lean-forward="true" selection-start-line="105" selection-end-line="105" />
+          <folding>
+            <element signature="e#75#99#0" expanded="true" />
+            <element signature="e#376#667#0" />
+            <element signature="e#499#542#0" />
+            <element signature="e#574#613#0" />
+            <element signature="e#622#661#0" />
+            <element signature="e#1197#1273#0" />
+            <element signature="e#1279#1352#0" />
+            <element signature="e#1358#1434#0" />
+            <element signature="e#1440#1516#0" />
+            <element signature="e#2491#2593#0" />
+            <element signature="e#2635#2735#0" />
+            <element signature="e#2779#2880#0" />
+            <element signature="n#!!block;n#getWallet#0" />
+            <element signature="n#!!block;n#getConfig#0" />
+            <element signature="n#!!block;n#setConfig#0" />
+            <element signature="n#!!block;n#updateConfig#0" />
+            <element signature="n#!!block;n#getLocale#0" />
+            <element signature="n#!!block;n#setLocale#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/renderer/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="34" column="4" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#459#487#0" expanded="true" />
+            <element signature="e#714#758#0" expanded="true" />
+            <element signature="e#843#870#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/renderer/components/Train.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="37" selection-start-line="27" selection-start-column="37" selection-end-line="27" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1014">
+          <caret line="143" column="34" lean-forward="true" selection-start-line="143" selection-start-column="34" selection-end-line="143" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/train.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4593">
+          <caret line="317" lean-forward="true" selection-start-line="317" selection-end-line="317" />
+          <folding>
+            <element signature="e#142#168#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lang/en.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="21" lean-forward="true" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
         </state>
       </provider>
     </entry>

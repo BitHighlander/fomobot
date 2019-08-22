@@ -78,6 +78,9 @@ export const seedDir = path.join(APP.getPath('home'), '.fomobro', 'wallet_data')
 export const fomoPath = path.join(APP.getPath('home'), '.fomobro')
 export const logDir = path.join(fomoPath, 'log')
 
+//ai dirs
+export const fomoTrain = path.join(APP.getPath('home'), '.fomobro')
+
 export const releaseUrl = 'https://api.github.com/repos/BitHighlander/fomobot/releases/latest'
 export const downloadUrl = 'https://github.com/BitHighlander/fomobot/releases/latest'
 

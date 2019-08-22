@@ -21,6 +21,13 @@
             }
         },
         created() {
+
+            ipcRenderer.on('bot', (work,data2) => {
+                this.$log.info("IPC MESSAGE! ")
+                this.$log.info("work: ",work)
+                this.$log.info("data2: ",data2)
+            })
+
             // messageBus.$on('update', () => {
             //     this.$log.info("Update detected! ")
             //     this.getSummaryinfo()

@@ -1,7 +1,8 @@
 
 import { app, BrowserWindow } from 'electron'
 const {ipcMain} = require('electron')
-let train = require("../modules/train")
+import train from "../modules/train"
+//let train = require("../modules/train")
 import log from '../modules/logger'
 
 /**
@@ -137,12 +138,13 @@ ipcMain.on('quit', (event) => {
   app.quit()
 })
 
-ipcMain.on('bot', (event) => {
+ipcMain.on('bot', async (event) => {
   try{
     log.debug("event: ",event)
-    train.train()
+    let work = await train.train()
+    log.debug("work: ",work)
 
-
+    event.sender.send("bot",work)
 
   }catch(e){
     log.error(e)
