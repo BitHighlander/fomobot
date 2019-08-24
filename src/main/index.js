@@ -141,7 +141,7 @@ ipcMain.on('quit', (event) => {
 ipcMain.on('bot', async (event) => {
   try{
     log.debug("event: ",event)
-    let work = await train.train()
+    let work = await train.train(event)
     log.debug("work: ",work)
 
     event.sender.send("bot",work)

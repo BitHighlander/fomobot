@@ -32,9 +32,6 @@ var tb = require('timebucket')
     , collectionService = require('./lib/services/collection-service')
 
 
-
-
-
 var EventEmitter = require('events')
 
 var fa_defaultIndicators = [
@@ -121,7 +118,7 @@ let dbClient
 
 
 
-let train = function(){
+let train = function(ipcEvent){
     try{
         require('mongodb').MongoClient.connect(connectionString, { useNewUrlParser: true }, function (err, client) {
             let tag = TAG + " | AfterMongo | "
@@ -133,18 +130,18 @@ let train = function(){
                 return
             }
 
-            console.log(client)
+            //console.log(client)
             var db = client.db('zenbot4')
 
             var eventBus = new EventEmitter()
-
+            ipcEvent.sender.send('bot',"message","starting training!")
 
             let cmd = {}
             let conf = require('./conf.js')
             conf.eventBus = eventBus
             conf.db = {}
             conf.db.mongo = db
-            console.log(tag,conf.db)
+            //console.log(tag,conf.db)
 
             var s = {options: minimist(process.argv)}
             var so = s.options
@@ -197,6 +194,8 @@ let train = function(){
             //Selector (Market?)  gdax.BTC-USD
             so.selector = objectifySelector( conf.selector)
             so.mode = 'train'
+
+            conf.ipcEvent = ipcEvent
 
             var engine = engineFactory(s, conf)
 
@@ -301,17 +300,24 @@ let train = function(){
                 let tag = TAG + " | trainingDone  | "
                 log.debug(tag, "checkpoint")
                 var tempModelFile = writeTempModel(strategy)
-                console.log(tag,'\nModel temporarily written to ' + tempModelFile)
+                //console.log(tag,'\nModel temporarily written to ' + tempModelFile)
+                ipcEvent.sender.send('bot',"message",'Model temporarily written to ' + tempModelFile)
+
 
                 if (typeof(so.end_training) === 'undefined') {
                     so.end_training = lastPeriod.time * 1000
                 }
 
-                console.log(tag,
-                    '\nRunning simulation on training data from '
+
+                ipcEvent.sender.send('bot',"message",'\nRunning simulation on training data from '
                     + moment(so.start_training).format('YYYY-MM-DD HH:mm:ss ZZ') + ' to '
-                    + moment(so.end_training).format('YYYY-MM-DD HH:mm:ss ZZ') + '.\n'
-                )
+                    + moment(so.end_training).format('YYYY-MM-DD HH:mm:ss ZZ') + '.\n')
+
+                // console.log(tag,
+                //     '\nRunning simulation on training data from '
+                //     + moment(so.start_training).format('YYYY-MM-DD HH:mm:ss ZZ') + ' to '
+                //     + moment(so.end_training).format('YYYY-MM-DD HH:mm:ss ZZ') + '.\n'
+                // )
 
                 var zenbot_cmd = process.platform === 'win32' ? 'zenbot.bat' : 'zenbot.sh' // Use 'win32' for 64 bit windows too
                 log.debug(tag,"zenbot_cmd: ",zenbot_cmd)
@@ -332,61 +338,6 @@ let train = function(){
                 log.debug(tag,"workToDo: ",workToDo)
 
                 return workToDo
-                // var trainingSimulation = spawn(path.join(fomoPath, '..', zenbot_cmd), trainingArgs, { stdio: 'inherit' })
-                //
-                // trainingSimulation.on('exit', function (code, signal) {
-                //     if (code) {
-                //         console.log(tag,'Child process exited with code ' + code + ' and signal ' + signal)
-                //         process.exit(code)
-                //     }
-                //
-                //     var trainingResult = parseSimulation(path.join(fomoPath, '..', tempModelFile) + '-simTrainingResult.html')
-                //
-                //     if (so.days_test > 0) {
-                //         var endTest = moment(so.end_training).add(so.days_test, 'days')
-                //
-                //         console.log(tag,'\nRunning simulation on test data from '
-                //             + moment(so.end_training).format('YYYY-MM-DD HH:mm:ss ZZ') + ' to '
-                //             + moment(endTest).format('YYYY-MM-DD HH:mm:ss ZZ') + ' (' + so.days_test + ' days).\n'
-                //         )
-                //
-                //         var testArgs = [
-                //             'sim',
-                //             so.selector.normalized,
-                //             '--strategy', 'forex_analytics',
-                //             '--disable_options',
-                //             '--modelfile', path.join(fomoPath, '..', tempModelFile),
-                //             '--start', moment(so.end_training).format('YYYYMMDDHHmm'),
-                //             '--end', moment(endTest).format('YYYYMMDDHHmm'),
-                //             '--period', so.period_length,
-                //             '--filename', path.join(fomoPath, '..', tempModelFile) + '-simTestResult.html',
-                //         ]
-                //         var testSimulation = spawn(path.join(fomoPath, '..', zenbot_cmd), testArgs, { stdio: 'inherit' })
-                //
-                //         testSimulation.on('exit', function (code, signal) {
-                //             if (code) {
-                //                 console.log(tag,'Child process exited with code ' + code + ' and signal ' + signal)
-                //             }
-                //
-                //             var testResult = parseSimulation(path.join(fomoPath, '..', tempModelFile) + '-simTestResult.html')
-                //
-                //             var finalModelFile = writeFinalModel(strategy, so.end_training, trainingResult, testResult)
-                //             fs.rename(path.join(fomoPath, '..', tempModelFile) + '-simTrainingResult.html', path.join(fomoPath, '..', finalModelFile) + '-simTrainingResult.html')
-                //             fs.rename(path.join(fomoPath, '..', tempModelFile) + '-simTestResult.html', path.join(fomoPath, '..', finalModelFile) + '-simTestResult.html')
-                //             fs.unlink(path.join(fomoPath, '..', tempModelFile))
-                //             console.log(tag,'\nFinal model with results written to ' + finalModelFile)
-                //
-                //             process.exit(0)
-                //         })
-                //     } else {
-                //         var finalModelFile = writeFinalModel(strategy, so.end_training, trainingResult, undefined)
-                //         fs.rename(path.join(fomoPath, '..', tempModelFile) + '-simTrainingResult.html', path.join(fomoPath, '..', finalModelFile) + '-simTrainingResult.html')
-                //         fs.unlink(path.join(fomoPath, '..', tempModelFile))
-                //         console.log(tag,'\nFinal model with results written to ' + finalModelFile)
-                //
-                //         process.exit(0)
-                //     }
-                // })
             }
 
             function createStrategy (candlesticks) {

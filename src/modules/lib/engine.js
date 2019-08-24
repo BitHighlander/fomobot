@@ -1,3 +1,11 @@
+/*
+    ENGINE
+
+ */
+let TAG = " | engine | "
+
+let tag = TAG+" | lazyfixme | "
+
 let tb = require('timebucket')
   , moment = require('moment')
   , z = require('zero-fill')
@@ -24,19 +32,19 @@ module.exports = function (s, conf) {
 
   let so = s.options
   if(_.isUndefined(s.exchange)){
-    console.log("checkpoint1")
+    console.log(tag,"checkpoint1")
     if (so.mode !== 'live') {
-      console.log("checkpoint1a")
+      console.log(tag,"checkpoint1a")
       //s.exchange = require(path.resolve(__dirname, '../extensions/exchanges/sim/exchange'))(conf, s)
       s.exchange = require("../extensions/exchanges/sim/exchange")(conf, s)
-      console.log("Bitch nigga: ",s.exchange)
+      console.log(tag,"exchange: ",s.exchange)
     }
     else {
-      console.log("checkpoint1b")
+      console.log(tag,"checkpoint1b")
       s.exchange = require(path.resolve(__dirname, `../extensions/exchanges/${so.selector.exchange_id}/exchange`))(conf)
     }
   } else if (so.mode === 'paper') {
-    console.log("checkpoint2")
+    console.log(tag,"checkpoint2")
     s.exchange = require(path.resolve(__dirname, '../extensions/exchanges/sim/exchange'))(conf, s)
   }
 
@@ -188,7 +196,7 @@ module.exports = function (s, conf) {
         if (last_trade.type === 'buy') {
           if (do_sell_stop && s.sell_stop && s.period.close < s.sell_stop) {
             stop_signal = 'sell'
-            console.log(('\nsell stop triggered at ' + formatPercent(s.last_trade_worth) + ' trade worth\n').red)
+            console.log(tag,('\nsell stop triggered at ' + formatPercent(s.last_trade_worth) + ' trade worth\n').red)
             s.stopTriggered = true
           }
           else if (so.profit_stop_enable_pct && s.last_trade_worth >= (so.profit_stop_enable_pct / 100)) {
@@ -197,13 +205,13 @@ module.exports = function (s, conf) {
           }
           if (s.profit_stop && s.period.close < s.profit_stop && s.last_trade_worth > 0) {
             stop_signal = 'sell'
-            console.log(('\nprofit stop triggered at ' + formatPercent(s.last_trade_worth) + ' trade worth\n').green)
+            console.log(tag,('\nprofit stop triggered at ' + formatPercent(s.last_trade_worth) + ' trade worth\n').green)
           }
         }
         else {
           if (s.buy_stop && s.period.close > s.buy_stop) {
             stop_signal = 'buy'
-            console.log(('\nbuy stop triggered at ' + formatPercent(s.last_trade_worth) + ' trade worth\n').red)
+            console.log(tag,('\nbuy stop triggered at ' + formatPercent(s.last_trade_worth) + ' trade worth\n').red)
           }
         }
       }
@@ -311,7 +319,7 @@ module.exports = function (s, conf) {
       order.time = new Date(api_order.created_at).getTime()
       order.local_time = now()
       order.status = api_order.status
-      //console.log('\ncreated ' + order.status + ' ' + type + ' order: ' + formatAsset(order.size) + ' at ' + formatCurrency(order.price) + ' (total ' + formatCurrency(n(order.price).multiply(order.size)) + ')\n')
+      //console.log(tag,'\ncreated ' + order.status + ' ' + type + ' order: ' + formatAsset(order.size) + ' at ' + formatCurrency(order.price) + ' (total ' + formatCurrency(n(order.price).multiply(order.size)) + ')\n')
 
       setTimeout(function() { checkOrder(order, type, cb) }, so.order_poll_time)
     })
@@ -345,7 +353,7 @@ module.exports = function (s, conf) {
   // 9. if filled, record order stats
   function executeSignal (signal, _cb, size, is_reorder, is_taker, reverseCalled) {
     if(so.reverse && !reverseCalled && !size && !is_reorder) {
-      console.log(('\nREVERSE SIGNAL MODE ON!\n').red)
+      console.log(tag,('\nREVERSE SIGNAL MODE ON!\n').red)
       return executeSignal(signal == 'buy' ? 'sell' : 'buy', _cb, size, is_reorder, is_taker, true)
     }
     let price, expected_fee, buy_pct, sell_pct, trades
@@ -430,7 +438,7 @@ module.exports = function (s, conf) {
         debug.msg('preparing buy order over ' + formatAsset(size, s.asset) + ' of ' + formatCurrency(tradeable_balance, s.currency) + ' (' + buy_pct + '%) tradeable balance with a expected fee of ' + formatCurrency(expected_fee, s.currency) + ' (' + fee + '%)')
 
         if(s.buy_quarentine_time && moment.duration(moment(now()).diff(s.buy_quarentine_time)).asMinutes() < so.quarentine_time){
-          console.log(('\nbuy cancel quarentine time: '+moment(s.buy_quarentine_time).format('YYYY-MM-DD HH:mm:ss')).red)
+          console.log(tag,('\nbuy cancel quarentine time: '+moment(s.buy_quarentine_time).format('YYYY-MM-DD HH:mm:ss')).red)
           return cb(null, null)
         }
 
@@ -484,7 +492,7 @@ module.exports = function (s, conf) {
         let latest_high_buy = _.chain(trades).dropRightWhile(['type','sell']).takeRightWhile(['type','buy']).sortBy(['price']).reverse().head().value() // return highest price
         let sell_loss = latest_high_buy ? (Number(price) - latest_high_buy.price) / latest_high_buy.price * -100 : null
         if (latest_high_buy && so.sell_cancel_pct != null && Math.abs(sell_loss) < so.sell_cancel_pct) {
-          console.log(('\nsell_cancel_pct: refusing to sell at ' + formatCurrency(latest_high_buy.price, s.currency) + '-' + formatCurrency(price, s.currency) + ', sell loss of ' + formatPercent(sell_loss/100) + ' - ' + formatPercent(so.sell_cancel_pct/100)+'\n').red)
+          console.log(tag,('\nsell_cancel_pct: refusing to sell at ' + formatCurrency(latest_high_buy.price, s.currency) + '-' + formatCurrency(price, s.currency) + ', sell loss of ' + formatPercent(sell_loss/100) + ' - ' + formatPercent(so.sell_cancel_pct/100)+'\n').red)
           return cb(null, null)
         }
         if (so.max_sell_loss_pct != null && sell_loss > so.max_sell_loss_pct) {
@@ -615,7 +623,7 @@ module.exports = function (s, conf) {
           `total ${total_price}\n` +
           `${slippage} slippage (orig. price ${orig_price})\n` +
           `execution: ${execution_time}\n`
-      console.log((order_complete).cyan)
+      console.log(tag," | Engine | ",(order_complete).cyan)
       pushMessage(`${trade_type} ${s.exchange.name.toUpperCase()}`, order_complete)
     }
 
@@ -646,6 +654,8 @@ module.exports = function (s, conf) {
   }
 
   function writeReport (is_progress, blink_off) {
+    let tag = TAG+ " | writeReport | "
+    let output = ""
     if ((so.mode === 'sim' || so.mode === 'train') && !so.verbose) {
       if(so.silent) return
       is_progress = true
@@ -667,19 +677,19 @@ module.exports = function (s, conf) {
     }
     readline.clearLine(process.stdout)
     readline.cursorTo(process.stdout, 0)
-    process.stdout.write(moment(is_progress ? s.period.latest_trade_time : tb(s.period.time).resize(so.period_length).add(1).toMilliseconds()).format('YYYY-MM-DD HH:mm:ss')[is_progress && !blink_off ? 'bgBlue' : 'grey'])
-    process.stdout.write('  ' + formatCurrency(s.period.close, s.currency, true, true, true) + ' ' + s.product_id.grey)
+    output = output+moment(is_progress ? s.period.latest_trade_time : tb(s.period.time).resize(so.period_length).add(1).toMilliseconds()).format('YYYY-MM-DD HH:mm:ss')[is_progress && !blink_off ? 'bgBlue' : 'grey']
+    output = output+'  ' + formatCurrency(s.period.close, s.currency, true, true, true) + ' ' + s.product_id.grey
     if (s.lookback[0]) {
       let diff = (s.period.close - s.lookback[0].close) / s.lookback[0].close
-      process.stdout.write(z(8, formatPercent(diff), ' ')[diff >= 0 ? 'green' : 'red'])
+      output = output+z(8, formatPercent(diff), ' ')[diff >= 0 ? 'green' : 'red']
     }
     else {
-      process.stdout.write(z(9, '', ' '))
+      output = output+z(9, '', ' ')
     }
     let volume_display = s.period.volume > 99999 ? abbreviate(s.period.volume, 2) : n(s.period.volume).format('0')
     volume_display = z(8, volume_display, ' ')
     if (volume_display.indexOf('.') === -1) volume_display = ' ' + volume_display
-    process.stdout.write(volume_display[is_progress && blink_off ? 'cyan' : 'grey'])
+    output = output+volume_display[is_progress && blink_off ? 'cyan' : 'grey']
     rsi(s, 'rsi', so.rsi_periods)
     if (typeof s.period.rsi === 'number') {
       let half = 5
@@ -701,60 +711,61 @@ module.exports = function (s, conf) {
         bar += rsi.red
         bar += ' '.repeat(half - 3)
       }
-      process.stdout.write(' ' + bar)
+      output = output+' ' + bar
     }
     else {
-      process.stdout.write(' '.repeat(11))
+      output = output+' '.repeat(11)
     }
     if (s.strategy.onReport) {
       let cols = s.strategy.onReport.call(s.ctx, s)
       cols.forEach(function (col) {
-        process.stdout.write(col)
+        output = output+col
       })
     }
     if (s.buy_order) {
-      process.stdout.write(z(9, 'buying', ' ').green)
+      output = output+z(9, 'buying', ' ').green
     }
     else if (s.sell_order) {
-      process.stdout.write(z(9, 'selling', ' ').red)
+      output = output+z(9, 'selling', ' ').red
     }
     else if (s.action) {
-      process.stdout.write(z(9, s.action, ' ')[s.action === 'bought' ? 'green' : 'red'])
+      output = output+z(9, s.action, ' ')[s.action === 'bought' ? 'green' : 'red']
     }
     else if (s.signal) {
-      process.stdout.write(z(9, s.signal || '', ' ')[s.signal ? s.signal === 'buy' ? 'green' : 'red' : 'grey'])
+      output = output+z(9, s.signal || '', ' ')[s.signal ? s.signal === 'buy' ? 'green' : 'red' : 'grey']
     }
     else if (s.last_trade_worth && !s.buy_order && !s.sell_order) {
-      process.stdout.write(z(8, formatPercent(s.last_trade_worth), ' ')[s.last_trade_worth > 0 ? 'green' : 'red'])
+      output = output+z(8, formatPercent(s.last_trade_worth), ' ')[s.last_trade_worth > 0 ? 'green' : 'red']
     }
     else {
-      process.stdout.write(z(9, '', ' '))
+      output = output+z(9, '', ' ')
     }
     let orig_capital = s.orig_capital || s.start_capital
     let orig_price = s.orig_price || s.start_price
     if (orig_capital) {
       let asset_col = n(s.balance.asset).format(s.asset === 'BTC' ? '0.00000' : '0.00000000') + ' ' + s.asset
       asset_col_width = Math.max(asset_col.length + 1, asset_col_width)
-      process.stdout.write(z(asset_col_width, asset_col, ' ').white)
+      output = output+z(asset_col_width, asset_col, ' ').white
       let deposit_col = n(s.balance.deposit).format(isFiat() ? '0.00' : '0.00000000') + ' ' + s.currency
       deposit_col_width = Math.max(deposit_col.length + 1, deposit_col_width)
-      process.stdout.write(z(deposit_col_width, deposit_col, ' ').yellow)
+      output = output+z(deposit_col_width, deposit_col, ' ').yellow
       if (so.deposit) {
         let currency_col = n(s.balance.currency).format(isFiat() ? '0.00' : '0.00000000') + ' ' + s.currency
         currency_col_width = Math.max(currency_col.length + 1, currency_col_width)
-        process.stdout.write(z(currency_col_width, currency_col, ' ').green)
+        output = output+z(currency_col_width, currency_col, ' ').green
         let circulating = s.balance.currency > 0 ? n(s.balance.deposit).divide(s.balance.currency) : n(0)
-        process.stdout.write(z(8, n(circulating).format('0.00%'), ' ').grey)
+        output = output+z(8, n(circulating).format('0.00%'), ' ').grey
       }
       let consolidated = n(s.net_currency).add(n(s.balance.asset).multiply(s.period.close))
       let profit = n(consolidated).divide(orig_capital).subtract(1).value()
-      process.stdout.write(z(8, formatPercent(profit), ' ')[profit >= 0 ? 'green' : 'red'])
+      output = output+z(8, formatPercent(profit), ' ')[profit >= 0 ? 'green' : 'red']
       let buy_hold = n(orig_capital).divide(orig_price).multiply(s.period.close)
       let over_buy_hold_pct = n(consolidated).divide(buy_hold).subtract(1).value()
-      process.stdout.write(z(8, formatPercent(over_buy_hold_pct), ' ')[over_buy_hold_pct >= 0 ? 'green' : 'red'])
+      output = output+z(8, formatPercent(over_buy_hold_pct), ' ')[over_buy_hold_pct >= 0 ? 'green' : 'red']
     }
+    conf.ipcEvent.sender.send('bot',"message",output)
     if (!is_progress) {
-      process.stdout.write('\n')
+      conf.ipcEvent.sender.send('bot',"message",output)
     }
   }
 
@@ -972,7 +983,7 @@ module.exports = function (s, conf) {
 
   return {
     writeHeader: function () {
-      process.stdout.write([
+      console.log(tag,[
         z(19, 'DATE', ' ').grey,
         z(17, 'PRICE', ' ').grey,
         z(9, 'DIFF', ' ').grey,

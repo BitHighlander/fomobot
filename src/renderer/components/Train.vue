@@ -1,9 +1,22 @@
 <template>
 	<div>
 		<h2>Logs: {{logs}}</h2>
-		<button class="button is-medium is-success text-white" @click="openSeed">
-			{{ $t("msg.viewSeed") }}
+		<button class="button is-medium is-success text-white" @click="startTraining">
+			{{ $t("msg.train") }}
 		</button>
+
+		<br/>
+		<h2>Bot profiles made: </h2>
+
+		<br/>
+		<h2>Fitness Tests: </h2>
+
+		<br/>
+		<h2>Backtest: </h2>
+
+		<br/>
+		<h2>Paper trade: </h2>
+
 	</div>
 </template>
 
@@ -22,10 +35,11 @@
         },
         created() {
 
-            ipcRenderer.on('bot', (work,data2) => {
+            ipcRenderer.on('bot', (work,data2,data3) => {
                 this.$log.info("IPC MESSAGE! ")
-                this.$log.info("work: ",work)
+                //this.$log.info("work: ",work)
                 this.$log.info("data2: ",data2)
+                this.$log.info("data3: ",data3)
             })
 
             // messageBus.$on('update', () => {
@@ -34,13 +48,23 @@
             // })
         },
         mounted() {
-            this.startTraining()
+            //this.startTraining()
         },
         methods:{
 
             startTraining: function () {
                 this.$log.info("Start training!! ")
                 ipcRenderer.send("bot","train")
+            },
+            getBots: function () {
+                //read bot dir
+
+
+            },
+            backtestBot: function () {
+                //
+
+
             },
         }
     }
