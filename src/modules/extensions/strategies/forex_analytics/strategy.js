@@ -18,12 +18,13 @@ module.exports =  {
         console.error('No modelfile specified. Please train a model and specify the resulting file.')
         process.exit(1)
       }
-      var modelfile
-      if (path.isAbsolute(s.options.modelfile)) {
-        modelfile = s.options.modelfile
-      } else {
-        modelfile = path.resolve(__dirname, '../../../', s.options.modelfile)
-      }
+      var modelfile = s.options.modelfile
+      console.log("*********************: ",modelfile)
+      // if (true) {
+      //   modelfile = s.options.modelfile
+      // } else {
+      //   modelfile = path.resolve(__dirname, '../../../', s.options.modelfile)
+      // }
 
       if (fs.existsSync(modelfile)) {
         model = require(modelfile)
