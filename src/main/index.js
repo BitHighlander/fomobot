@@ -139,14 +139,36 @@ ipcMain.on('quit', (event) => {
   app.quit()
 })
 
-ipcMain.on('bot', async (event) => {
+ipcMain.on('bot', async (event,type,payload) => {
   try{
     log.debug("event: ",event)
-    //let work = await train.train(event)
-    let work = await simulate.simulate(event)
+    log.debug("type: ",type)
+    log.debug("payload: ",payload)
+
+    let work
+    switch (type) {
+      case "train":
+        //work = await train.train(event)
+
+        //TODO save results
+
+        break;
+      case "simulate":
+        //work = await simulate.simulate(event)
+
+        break;
+      default:
+        log.error("Unknown event! ",type)
+        break
+    }
     log.debug("work: ",work)
 
-    event.sender.send("bot",work)
+    //let work = await train.train(event)
+    //let work = await simulate.simulate(event)
+    //log.debug("work: ",work)
+
+    //TODO update results!
+    //event.sender.send("bot",work)
 
   }catch(e){
     log.error(e)

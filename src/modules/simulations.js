@@ -408,25 +408,28 @@ let simulate = function(ipcEvent){
                     })
                     var code = 'var data = ' + JSON.stringify(data) + ';\n'
                     code += 'var trades = ' + JSON.stringify(s.my_trades) + ';\n'
-                    var tpl = fs.readFileSync(path.resolve(__dirname, '.', 'templates', 'sim_result.html.tpl'), {encoding: 'utf8'})
-                    var out = tpl
-                        .replace('{{code}}', code)
-                        .replace('{{trend_ema_period}}', so.trend_ema || 36)
-                        .replace('{{output}}', html_output)
-                        .replace(/\{\{symbol\}\}/g, so.selector.normalized + ' - fomobot')
-                    var out_target = so.filename || 'simulations/sim_result_' + so.selector.normalized + '_' + new Date().toISOString().replace(/T/, '_').replace(/\..+/, '').replace(/-/g, '').replace(/:/g, '').replace(/20/, '') + '_UTC.html'
-                    fs.writeFileSync(out_target, out)
-                    console.log('wrote', out_target)
+                    console.log("code: ",code)
+
+                    // var tpl = fs.readFileSync(path.resolve(__dirname, '.', 'templates', 'sim_result.html.tpl'), {encoding: 'utf8'})
+                    // var out = tpl
+                    //     .replace('{{code}}', code)
+                    //     .replace('{{trend_ema_period}}', so.trend_ema || 36)
+                    //     .replace('{{output}}', html_output)
+                    //     .replace(/\{\{symbol\}\}/g, so.selector.normalized + ' - fomobot')
+                    //var out_target = so.filename || 'simulations/sim_result_' + so.selector.normalized + '_' + new Date().toISOString().replace(/T/, '_').replace(/\..+/, '').replace(/-/g, '').replace(/:/g, '').replace(/20/, '') + '_UTC.html'
+                    //console.log("out_target: ",out_target)
+                    //fs.writeFileSync(out_target, out)
+                    //console.log('wrote', out_target)
                 }
 
                 console.log("final",options_output)
                 simResults.insertOne(options_output)
                     .then(() => {
-                        process.exit(0)
+                        //process.exit(0)
                     })
                     .catch((err) => {
                         console.error(err)
-                        process.exit(0)
+                        //process.exit(0)
                     })
             }
 

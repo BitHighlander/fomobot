@@ -13,7 +13,9 @@
 
 		<br/>
 		<h2>Backtest: </h2>
-
+		<button class="button is-medium is-success text-white" @click="startBacktest">
+			{{ $t("msg.backtest") }}
+		</button>
 		<br/>
 		<h2>Paper trade: </h2>
 
@@ -51,10 +53,23 @@
             //this.startTraining()
         },
         methods:{
-
             startTraining: function () {
                 this.$log.info("Start training!! ")
-                ipcRenderer.send("bot","train")
+				let settings = {
+                    foo:"bar"
+				}
+                ipcRenderer.send("bot","train",settings)
+            },
+            startBacktest: function () {
+                this.$log.info("Start training!! ")
+                let settings = {
+                    foo:"bar"
+                }
+				ipcRenderer.send("bot","simulate",settings)
+            },
+            startPapertrading: function () {
+                // this.$log.info("Start training!! ")
+                // ipcRenderer.send("bot","train")
             },
             getBots: function () {
                 //read bot dir
