@@ -19,7 +19,7 @@
 							<Wallet></Wallet>
 						</code>
 						<code v-if="tabOpen ==='exchanges'">
-							<p text-white>Coming Soon! </p>
+							<exchanges></exchanges>
 						</code>
 						<code v-if="tabOpen ==='balances'">
 							<p text-white>Coming Soon! </p>
@@ -46,6 +46,7 @@
 		<Register :showModal="openRegister"></Register>
 		<Send :showModal="openSend"></Send>
 		<DisplaySeed :showModal="openDisplaySeed"></DisplaySeed>
+		<SetupExchange :showModal="openSetupExchange"></SetupExchange>
 
 <!--		<div v-if="isWalletLocked">-->
 <!--		<password :showModal="openPassword"></password>-->
@@ -89,16 +90,19 @@
     import Send from '@/components/Send'
     import Receive from '@/components/Receive'
     import Train from '@/components/Train'
+    import SetupExchange from '@/components/SetupExchange'
 
 	//pages
     import Wallet from '@/components/Wallet'
     import Settings from '@/components/Settings'
+    import Exchanges from '@/components/Exchanges'
 
     //
 	import {BaseTable} from "@/components/BaseTable";
 
     //nav
     import Nav from '@/components/Setup'
+    import Exhcnages from "./components/Exchanges";
     //pages
 
     //require
@@ -107,6 +111,8 @@
     export default {
         name: 'fomobot',
         components: {
+            SetupExchange,
+            Exchanges,
             Train,
             Settings,
             Wallet,
@@ -129,7 +135,8 @@
                 },
                 tabOpen: 'wallet',
                 isWalletLocked: true,
-                openSend: false,
+                openSetupExchange: false,
+				openSend: false,
                 openConfiguration: false,
                 openDisplaySeed: false,
                 openRestoreSeed: false,
@@ -188,6 +195,9 @@
 
                 //open
                 messageBus.$on('open', (window) => {
+                    if (window == 'windowSetupExchange') {
+                        this.openSetupExchange = true
+                    }
                     if (window == 'windowSend') {
                         this.openSend = true
                     }
@@ -246,6 +256,9 @@
 
                 //close
                 messageBus.$on('close', (window) => {
+                    if (window == 'windowSetupExchange') {
+                        this.openSetupExchange = false
+                    }
                     if (window == 'windowSend') {
                         this.openSend = false
                     }

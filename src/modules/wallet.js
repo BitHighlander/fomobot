@@ -183,13 +183,21 @@ class WalletService {
                         txInfo.blockNumber = event.blockNumber
                         txInfo.from = event.returnValues._from
                         txInfo.to = event.returnValues._to
-                        txInfo.amount = event.returnValues._value
+                        txInfo.amount = event.returnValues._value / 100000000
                         txInfo.txid = event.transactionHash
                         txInfo.index = event.transactionIndex
 
-                        //log.debug("event: ",txInfo)
 
-                        TXS_ALL.push(txInfo)
+                        txInfo.to = txInfo.to.toLowerCase()
+                        txInfo.from = txInfo.from.toLowerCase()
+                        MASTER_ADDRESS = MASTER_ADDRESS.toLowerCase()
+
+                        log.debug("event: ",txInfo)
+                        if(txInfo.to == MASTER_ADDRESS || txInfo.from == MASTER_ADDRESS){
+                            //
+                            TXS_ALL.push(txInfo)
+                        }
+                        //TXS_ALL.push(txInfo)
                     }
 
                 });

@@ -109,6 +109,7 @@
 			this.getState()
         },
         methods: {
+
             getState(){
                 this.$log.info("Checkpoint 1 getState ")
                 //get config state

@@ -48,11 +48,11 @@
 								</thead>
 								<tbody slot="body" slot-scope="sort">
 								<tr v-for="value in sort.values" :key="value.blockNumber">
-									<td>{{ value.blockNumber }}</td>
+									<td @click="openLink('https://etherscan.io/block/'+value.blockNumber)">{{ value.blockNumber }}</td>
 									<td>{{ value.amount }}</td>
-									<td>{{ value.to }}</td>
-									<td>{{ value.from }}</td>
-									<td>{{ value.txid }}</td>
+									<td @click="openLink('https://etherscan.io/token/0xadd4a0dd63e08f5874762e647ad8cd4dc26c9724?a='+value.to)">{{ value.to }}</td>
+									<td @click="openLink('https://etherscan.io/token/0xadd4a0dd63e08f5874762e647ad8cd4dc26c9724?a='+value.from)">{{ value.from }}</td>
+									<td @click="openLink('https://etherscan.io/tx/'+value.txid)">{{ value.txid }}</td>
 								</tr>
 								</tbody>
 							</SortedTable>
@@ -67,6 +67,7 @@
 </template>
 
 <script>
+    const { shell } = require('electron')
     import { messageBus } from '@/messagebus'
     const tableColumns = ["blockNumber", "amount", "to", "from","txid"];
     const tableData = [];
@@ -98,6 +99,10 @@
             this.getSummaryinfo()
         },
         methods:{
+            openLink: function (link) {
+                this.$log.info("link: ", link)
+                shell.openExternal(link)
+            },
             onCopy: function (e) {
                 alert('You just copied: ' + e.text)
             },
