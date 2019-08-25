@@ -2,7 +2,91 @@ var fs = require('fs')
   , path = require('path')
   , analytics = require('forex-analytics-fomo')
 
-var model
+const model =
+    {
+        "selector": "gdax.BTC-USD",
+        "period": "30m",
+        "start_training": "2019-08-20T04:15:37.741Z",
+        "end_training": "2019-08-20T04:15:37.741Z",
+        "options": {
+            "populationCount": 100,
+            "generationCount": 100,
+            "selectionAmount": 10,
+            "leafValueMutationProbability": 0.5,
+            "leafSignMutationProbability": 0.3,
+            "logicalNodeMutationProbability": 0.3,
+            "leafIndicatorMutationProbability": 0.2,
+            "crossoverProbability": 0.03,
+            "indicators": [
+                "CCI",
+                "MACD",
+                "RSI",
+                "SAR",
+                "Stochastic"
+            ]
+        },
+        "strategy": {
+            "buy": {
+                "operator": "Or",
+                "left": {
+                    "operator": "Or",
+                    "left": {
+                        "indicator": "CCI",
+                        "sign": "<",
+                        "value": -93711.67464251304
+                    },
+                    "right": {
+                        "indicator": "CCI",
+                        "sign": "<",
+                        "value": -21441.993168439483
+                    }
+                },
+                "right": {
+                    "operator": "Or",
+                    "left": {
+                        "indicator": "Stochastic",
+                        "sign": "<",
+                        "value": 5464.584615093618
+                    },
+                    "right": {
+                        "indicator": "Stochastic",
+                        "sign": "<",
+                        "value": 6026.270878231326
+                    }
+                }
+            },
+            "sell": {
+                "operator": "Or",
+                "left": {
+                    "operator": "And",
+                    "left": {
+                        "indicator": "RSI",
+                        "sign": "<",
+                        "value": 75219.24482755884
+                    },
+                    "right": {
+                        "indicator": "Stochastic",
+                        "sign": "<",
+                        "value": -12193.714316716534
+                    }
+                },
+                "right": {
+                    "operator": "And",
+                    "left": {
+                        "indicator": "Stochastic",
+                        "sign": ">",
+                        "value": 9165.41650595989
+                    },
+                    "right": {
+                        "indicator": "Stochastic",
+                        "sign": ">",
+                        "value": 7174.849049732109
+                    }
+                }
+            }
+        }
+    }
+
 module.exports =  {
   name: 'forex_analytics',
   description: 'Apply the trained forex analytics model.',
@@ -18,20 +102,26 @@ module.exports =  {
         console.error('No modelfile specified. Please train a model and specify the resulting file.')
         process.exit(1)
       }
-      var modelfile = s.options.modelfile
-      console.log("*********************: ",modelfile)
+      console.log("********************* options: ",s.options)
+      //var modelfile = s.options.modelfile
+      //var modelfile = path.resolve(__dirname, '../../', "temp.f31a7cc608612a8e910a666a94ae391023dd18d132d2d95ea39526fd0d5a7686-20190820_041537+0000.json")
       // if (true) {
       //   modelfile = s.options.modelfile
       // } else {
       //   modelfile = path.resolve(__dirname, '../../../', s.options.modelfile)
       // }
 
-      if (fs.existsSync(modelfile)) {
-        model = require(modelfile)
-      } else {
-        console.error('Modelfile ' + modelfile + ' does not exist.')
-        process.exit(1)
-      }
+      // if (fs.existsSync(modelfile)) {
+      //   model = require(modelfile)
+      //   console.log("model: ",model)
+      // } else {
+      //   console.error('Modelfile ' + modelfile + ' does not exist.')
+      //   process.exit(1)
+      // }
+      //TODO why the fuck
+
+
+
 
       if (s.options.period !== model.period) {
         console.error(('Error: Period in model training was ' + model.period + ', now you specified ' + s.options.period + '.').red)

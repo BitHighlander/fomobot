@@ -8,6 +8,8 @@
 
  */
 const TAG = " | SIM | "
+let {modelfile} = require("./config")
+
 var tb = require('timebucket')
 const n = require('numbro')
 const collectionService = require('./lib/services/collection-service')
@@ -18,7 +20,6 @@ var colors = require('colors')
 let fs = require('fs')
 let path = require('path')
 
-let config = require("config")
 
 let s =
     {
@@ -26,11 +27,13 @@ let s =
             {
                 strategy: 'forex_analytics',
                 disable_options: true,
-                modelfile:'',
-                filename: '',
+                modelfile:
+                    '/home/highlander/WebstormProjects/zenbot/models/temp.4be28aced9275fbb8008139f62b0cc46ebfb4dc292339fcad80442029bfdfea3-20190820_041537+0000.json',
                 start: 1566274500000,
-                end: 1566273600000,
+                end: "",
                 period: '30m',
+                filename:
+                    '/home/highlander/WebstormProjects/zenbot/models/temp.4be28aced9275fbb8008139f62b0cc46ebfb4dc292339fcad80442029bfdfea3-20190820_041537+0000.json-simTrainingResult.html',
                 quarentine_time: 10,
                 sell_stop_pct: 0,
                 buy_stop_pct: 0,
@@ -48,7 +51,7 @@ let s =
                 order_type: 'maker',
                 days: 10,
                 currency_capital: 1000,
-                asset_capital: 0,
+                asset_capital: 10,
                 rsi_periods: 14,
                 avg_slippage_pct: 0.045,
                 stats: false,
@@ -98,18 +101,18 @@ let s =
         my_prev_trades: [],
         vol_since_last_blink: 0,
         last_day: 19,
-        period:
-            { period_id: '30m870152',
-                size: '30m',
-                time: 1566273600000,
-                open: 10785,
-                high: 10810,
-                low: 10780,
-                close: 10805.16,
-                volume: 111.33547330999994,
-                close_time: 1566275399999,
-                latest_trade_time: 1566274537741,
-                last_try_trade: 1566273602354 },
+        // period:
+        //     { period_id: '30m870152',
+        //         size: '30m',
+        //         time: 1566273600000,
+        //         open: 10785,
+        //         high: 10810,
+        //         low: 10780,
+        //         close: 10805.16,
+        //         volume: 111.33547330999994,
+        //         close_time: 1566275399999,
+        //         latest_trade_time: 1566274537741,
+        //         last_try_trade: 1566273602354 },
         in_preroll: false,
         last_period_id: undefined,
         acted_on_stop: false,
@@ -126,22 +129,22 @@ let s =
     }
 
 
-let market = "gdax.BTC-USD"
-
-var so = {
-    days: 10,
-    selector: {exchange_id: market},
-    start: 1566095530583,
-    end: 1566273599756,
-    period_length: "30m",
-    strategy: "forex_analytics",
-    modelfile: "",
-    filename: ""
-}
-
-s.options = so
-s.period = "30m"
-s.my_trades = []
+// let market = "gdax.BTC-USD"
+//
+// var so = {
+//     days: 10,
+//     selector: {exchange_id: market},
+//     start: 1566274500000,
+//     end: 1566273600000,
+//     period_length: "30m",
+//     strategy: "forex_analytics",
+//     modelfile: modelfile,
+//     filename: ""
+// }
+//
+// s.options = so
+// s.period = "30m"
+// s.my_trades = []
 
 var conf = require('./conf')
 
@@ -200,9 +203,53 @@ let simulate = function(ipcEvent){
                 return
             }
 
+            let so = {
+                strategy: 'forex_analytics',
+                disable_options: true,
+                modelfile:
+                    '/home/highlander/.fomobro/temp.571132ce3df3aeea6415aafce5b5e326c9b374cec182af5cf7c2c23982b6af0c-20190820_041537+0000.json',
+                start: 1565481600000,
+                end: NaN,
+                period: '30m',
+                filename:
+                    'home/highlander/.fomobro/temp.571132ce3df3aeea6415aafce5b5e326c9b374cec182af5cf7c2c23982b6af0c-20190820_041537+0000.json-simTrainingResult.html',
+                quarentine_time: 10,
+                sell_stop_pct: 0,
+                buy_stop_pct: 0,
+                profit_stop_enable_pct: 0,
+                profit_stop_pct: 1,
+                max_slippage_pct: 5,
+                buy_pct: 99,
+                sell_pct: 99,
+                order_adjust_time: 5000,
+                max_sell_loss_pct: 99,
+                max_buy_loss_pct: 99,
+                order_poll_time: 5000,
+                markdown_buy_pct: 0,
+                markup_sell_pct: 0,
+                order_type: 'maker',
+                days: NaN,
+                currency_capital: 1000,
+                asset_capital: 10,
+                rsi_periods: 14,
+                avg_slippage_pct: 0.045,
+                stats: false,
+                show_options: false,
+                verbose: false,
+                selector:
+                    { exchange_id: 'gdax',
+                        product_id: 'BTC-USD',
+                        asset: 'BTC',
+                        currency: 'USD',
+                        normalized: 'gdax.BTC-USD' },
+                mode: 'sim',
+                period_length: '30m',
+                min_periods: 100
+            }
+
             //
             console.log(tag, "checkpoint")
-
+            console.log(tag, "modelfile: ",s.options.modelfile)
             var db = client.db('zenbot4')
             var eventBus = new EventEmitter()
             let conf = require('./conf.js')
@@ -241,14 +288,14 @@ let simulate = function(ipcEvent){
             // so.stats = !!cmd.enable_stats
             // so.show_options = !cmd.disable_options
             // so.verbose = !!cmd.verbose
-            so.selector = market
-            so.mode = 'sim'
+            //so.selector = market
+            //so.mode = 'sim'
 
             var engine = engineFactory(s, conf)
             if (!so.min_periods) so.min_periods = 1
             var cursor, reversing, reverse_point
             var query_start = so.start ? tb(so.start).resize(so.period_length).subtract(so.min_periods + 2).toMilliseconds() : null
-
+            console.log(tag, "modelfile: ",s.options.modelfile)
             console.log(tag, "checkpoint3")
 
             function exitSim() {
@@ -386,11 +433,18 @@ let simulate = function(ipcEvent){
             function getNext() {
                 let tag = TAG + " | getNext | "
                 console.log(tag, "checkpoint")
+                console.log("so: ",so)
 
+
+                console.log("so.selector.normalized: ",so.selector.normalized)
+                //console.log("time: ",time)
+                console.log("so.end: ",so.end)
+                console.log("query_start: ",query_start)
+                //query_start = 1565298000000
 
                 var opts = {
                     query: {
-                        selector: so.selector
+                        selector: so.selector.normalized
                     },
                     sort: {time: 1},
                     limit: 1000
@@ -414,6 +468,8 @@ let simulate = function(ipcEvent){
                     if (!opts.query.time) opts.query.time = {}
                     opts.query.time['$gte'] = query_start
                 }
+
+                console.log(tag, "opts.query: ",opts.query)
                 var collectionCursor = tradesCollection.find(opts.query).sort(opts.sort).stream()
                 var numTrades = 0
                 var lastTrade
@@ -424,6 +480,9 @@ let simulate = function(ipcEvent){
 
                     lastTrade = trade
                     numTrades++
+
+                    if(numTrades % 10000 === 0)console.log("numTrades:",numTrades )
+
                     if (so.symmetrical && reversing) {
                         trade.orig_time = trade.time
                         trade.time = reverse_point + (reverse_point - trade.time)
@@ -432,6 +491,7 @@ let simulate = function(ipcEvent){
                     //console.log(tag, "trade: ", trade)
 
                 })
+                //setTimeout(engine.update,1000)
 
                 collectionCursor.on('end', function () {
                     if (numTrades === 0) {
@@ -440,9 +500,13 @@ let simulate = function(ipcEvent){
                             reverse_point = cursor
                             return getNext()
                         }
+
+
+                        console.log(tag, "checkpoint! CAlling exit")
+
                         engine.exit(exitSim)
                         //exitSim()
-                        //return
+                        return
                     } else {
                         if (reversing) {
                             cursor = lastTrade.orig_time

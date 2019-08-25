@@ -106,12 +106,14 @@ module.exports = function (s, conf) {
   s.my_trades = []
   s.my_prev_trades = []
   s.vol_since_last_blink = 0
+
   if (so.mode !== 'sim' && conf.output.api.on) {
     s.boot_time = (new Date).getTime()
     s.tz_offset = new Date().getTimezoneOffset()
     s.last_trade_id = 0
     s.trades = []
   }
+
   if (so.strategy) {
     //s.strategy = require(path.resolve(__dirname, `../extensions/strategies/${so.strategy}/strategy`))
     s.strategy = require(`../extensions/strategies/${so.strategy}/strategy`)
@@ -996,6 +998,8 @@ module.exports = function (s, conf) {
     },
     update: onTrades,
     exit: function (cb) {
+      let tag = TAG + " | exit | "
+      console.log(tag, "checkpoint")
       if(tradeProcessingQueue.length()){
         tradeProcessingQueue.drain = () => {
           if(s.strategy.onExit) {
