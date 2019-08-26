@@ -25,14 +25,20 @@
 				<br/>
 				<h2>Private: </h2><input v-model="private" placeholder="private">
 
+				<button class="button is-medium is-success text-white" @click="onSubmit">
+					{{ $t("msg.send") }}
+				</button>
 			</section>
 		</div>
 	</div>
 
 </template>
 <script>
+    import { BitmexAPI } from "bitmex-node";
     const { shell } = require('electron')
     import { messageBus } from '@/messagebus'
+    const Cryptr = require('cryptr');
+    import {updateConfig} from '../../modules/config'
 
     const fs = require('fs');
 
@@ -41,13 +47,15 @@
         props: {
             showModal: {
                 type: Boolean,
-                default: false
             }
         },
         data() {
             return {
-                amount: 0,
-                address: '',
+                success:false,
+                public: "",
+                private: "",
+                error:false,
+                errorMessage:''
             }
         },
         beforeDestroy: function(){
@@ -61,12 +69,63 @@
                 this.$log.info("link: ", link)
                 shell.openExternal(link)
             },
-            send: function () {
+            onSubmit: async function () {
+				try{
+                    //if undefined
+                    if(!this.private) {
+                        this.error = true
+                        this.errorMessage = "Missing Private key!"
+                    }
+                    if(!this.public) {
+                        this.error = true
+                        this.errorMessage = "Missing Public key!"
+                    }
 
+                    //attempt submit
+                    const bitmex = new BitmexAPI({
+                        "apiKeyID": this.public,
+                        "apiKeySecret": this.private,
+                        "testnet":true
+                        // "proxy": "https://cors-anywhere.herokuapp.com/"
+                    })
+
+                    //test
+                    this.$log.info("bitmex: ", bitmex)
+
+                    // let funding = await bitmex.Funding.get()
+                    // this.$log.info("funding: ", funding)
+
+                    let wallet = await bitmex.User.getWallet()
+                    this.$log.info("wallet: ", wallet)
+
+					//get password
+                    let password = await this.$walletService.getPassword()
+                    this.$log.info("password: ", password)
+
+					//encrypt keys
+                    const cryptr = new Cryptr(password);
+
+                    //encrpy
+					let encryptedPriv = cryptr.encrypt(this.private);
+
+                    //save to config
+                    updateConfig({
+						bitmexTest:true,
+						bitMexTestPub:this.public,
+                        bitMexTestPriv:encryptedPriv,
+					})
+					//if(wallet && wallet.)
+
+				}catch(e){
+                    this.public = ""
+                    this.private = ""
+                    this.error = true
+                    this.errorMessage = "Invalid Api Keys!"
+				}
             },
             closeModal() {
-                messageBus.$emit('close', 'windowSend');
-                this.clearup()
+                messageBus.$emit('close', 'windowSetusExchange');
+                //this.clearup()
             }
         }
     }

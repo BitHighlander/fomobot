@@ -84,6 +84,7 @@
 				    this.$walletService.setPassword(password)
                     this.closeModal()
                     setTimeout(() => messageBus.$emit('update'), 1 * 1000)
+
 				}else{
 				    this.error = true
 					this.errors['Invalid Password!']

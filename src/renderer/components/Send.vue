@@ -74,7 +74,7 @@
             },
             closeModal() {
                 messageBus.$emit('close', 'windowSend');
-                this.clearup()
+                //this.clearup()
             }
         }
     }

@@ -10,7 +10,7 @@ import store from './store'
 import walletService from '../modules/wallet'
 import botService from '../modules/fomobot'
 import SortedTablePlugin from "vue-sorted-table";
-//import fomoService from '../modules/fomo'
+import fomoService from '../modules/fomo'
 import dbService from '@/db'
 import VueClipboard from 'vue-clipboard2'
 import BootstrapVue from 'bootstrap-vue'
@@ -38,7 +38,7 @@ let VueTruncate = require('vue-truncate-filter')
 Vue.use(VueClipboard)
 Vue.botService = Vue.prototype.$botService = botService
 Vue.walletService = Vue.prototype.$walletService = walletService
-//Vue.walletService = Vue.prototype.fomoService = fomoService
+Vue.fomoService = Vue.prototype.fomoService = fomoService
 Vue.dbService = Vue.prototype.$dbService = dbService
 Vue.use(VueI18n)
 Vue.log = Vue.prototype.$log = log

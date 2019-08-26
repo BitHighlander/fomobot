@@ -16,6 +16,7 @@ const messages = {
     confirmed: 'Confirmed',
     unconfirmed: 'Unconfirmed',
     locked: 'Locked',
+    refresh: 'Refresh Wallet',
     send: 'Send',
     receive: 'Receive',
     viewSeed: 'View Your Wallets Seed!',

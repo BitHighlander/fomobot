@@ -1,7 +1,9 @@
 <template>
+	<div>
 	<button class="button is-medium is-success text-white" @click="openSeed">
 		{{ $t("msg.viewSeed") }}
 	</button>
+	</div>
 </template>
 
 <script>
@@ -35,6 +37,10 @@
                 this.$log.info("windowDisplaySeed: ")
                 messageBus.$emit('getSeed')
                 messageBus.$emit('open', 'windowDisplaySeed');
+            },
+            onRefresh: function () {
+                this.$log.info("refresh: ")
+                messageBus.$emit('update')
             },
         }
     }

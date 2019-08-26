@@ -22,7 +22,7 @@
 							<exchanges></exchanges>
 						</code>
 						<code v-if="tabOpen ==='balances'">
-							<p text-white>Coming Soon! </p>
+							<Balances></Balances>
 						</code>
 						<code v-if="tabOpen ==='train'">
 							<Train></Train>
@@ -96,7 +96,7 @@
     import Wallet from '@/components/Wallet'
     import Settings from '@/components/Settings'
     import Exchanges from '@/components/Exchanges'
-
+    import Balances from '@/components/Balances'
     //
 	import {BaseTable} from "@/components/BaseTable";
 
@@ -108,9 +108,11 @@
     //require
     const {ipcRenderer} = require('electron')
 
+
     export default {
         name: 'fomobot',
         components: {
+            Balances,
             SetupExchange,
             Exchanges,
             Train,
@@ -129,6 +131,7 @@
         },
         data() {
             return {
+                bitmex:"",
                 monitor: {
                     schedule: '* * * * *',
                     url_code: 'https://cronhub.io/random_uuid',
@@ -192,6 +195,9 @@
             try {
 
                 //Modals
+				messageBus.$on('update',(window) =>{
+                    //this.getBalances()
+				})
 
                 //open
                 messageBus.$on('open', (window) => {
@@ -346,6 +352,7 @@
                             if (!this.signingPriv) {
                                 this.signingPriv = config.signingPriv
                             }
+
                             // if (!this.signingPub || !this.signingPriv) {
                             //     this.openRegister = true
                             // }
@@ -361,6 +368,9 @@
                             //nerf register
 							this.openPassword = true
 							//this.openRegister = true
+
+							//
+
                         } else {
                             this.openWelcome = true
                         }

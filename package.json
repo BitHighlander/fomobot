@@ -72,6 +72,7 @@
     "bitcoinjs-lib": "^5.1.2",
     "bitcoinjs-message": "2.0.0",
     "bitfinex-api-node": "^2.0.0",
+    "bitmex-node": "^1.9.0",
     "bitstamp": "^1.0.4",
     "bl": "^3.0.0",
     "bollinger-bands": "^3.0.1",
