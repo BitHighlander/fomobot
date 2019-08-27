@@ -6,7 +6,7 @@
 			</b-col>
 			<b-col>
 
-				<button class="button is-medium is-success text-white" @click="onRefresh">
+				<button class="button is-medium is-success text-white" @click="getBalances">
 					{{ $t("msg.refresh") }}
 				</button>
 
@@ -19,12 +19,20 @@
 <script>
     const { shell } = require('electron')
     import { messageBus } from '@/messagebus'
+    const Cryptr = require('cryptr');
+    import { BitmexAPI } from "bitmex-node";
+
+    import {
+        getConfig
+    } from '../../modules/config'
 
     export default {
         name: "Balances",
         data() {
             return {
-                balance:0
+                balance:0,
+                bitmexTestPub:"",
+                bitMexTestPriv:""
             }
         },
         created() {
@@ -38,25 +46,29 @@
                 try{
                     this.$log.info("Get Bitmex Balances!!!")
                     let config = getConfig()
-                    this.bitmexTestPub = config.bitmexTestPub
+                    this.bitMexTestPub = config.bitMexTestPub
                     let password = this.$walletService.getPassword()
+                    this.$log.info("password: ", password)
                     //decrypt priv
                     let encryptedPriv = config.bitMexTestPriv
                     const cryptr = new Cryptr(password);
                     this.bitMexTestPriv = cryptr.decrypt(encryptedPriv)
 
+                    this.$log.info("bitmexTestPub: ", this.bitMexTestPub)
+                    this.$log.info("bitMexTestPriv: ", this.bitMexTestPriv)
+
                     const bitmex = new BitmexAPI({
-                        "apiKeyID": this.bitmexTestPub,
+                        "apiKeyID": this.bitMexTestPub,
                         "apiKeySecret": this.bitMexTestPriv,
                         "testnet":true
                         // "proxy": "https://cors-anywhere.herokuapp.com/"
                     })
                     this.bitmex = bitmex
 
-
-
                     let wallet = await bitmex.User.getWallet()
                     this.$log.info("wallet: ", wallet)
+
+                    this.balance = wallet.amount/100000000
 
                 }catch(e){
                     this.$log.error("e: ", e)
@@ -73,8 +85,8 @@
                 alert('Failed to copy texts')
             },
             getSummaryinfo: async function () {
-                let summary = this.$fomoService.getSummaryInfo(10)
-                this.$log.info("summary: ",summary)
+                //let summary = this.$fomoService.getSummaryInfo(10)
+                //this.$log.info("summary: ",summary)
 
             },
             openSend: function () {

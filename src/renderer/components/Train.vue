@@ -19,6 +19,10 @@
 		<br/>
 		<h2>Paper trade: </h2>
 
+		<h2>Live trade: </h2>
+		<button class="button is-medium is-success text-white" @click="startTrading">
+			{{ $t("msg.trade") }}
+		</button>
 	</div>
 </template>
 
@@ -67,7 +71,18 @@
                 }
 				ipcRenderer.send("bot","simulate",settings)
             },
-            startPapertrading: function () {
+            startTrading: function () {
+                this.$log.info("Start trading!! ")
+                let settings = {
+                    foo:"bar"
+                }
+
+                //TODO warning?
+				//Will I loose all your monies?
+
+                ipcRenderer.send("bot","trade",settings)
+            },
+            startPaperTrading: function () {
                 // this.$log.info("Start training!! ")
                 // ipcRenderer.send("bot","train")
             },

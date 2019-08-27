@@ -39,6 +39,7 @@
     const fs = require('fs');
     const publicIp = require('public-ip');
     const externalip = require('externalip')
+    const Cryptr = require('cryptr');
 
     function isValidIP(str) {
         const octet = '(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]?|0)';

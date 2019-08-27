@@ -11,6 +11,7 @@ const messages = {
     clearup: 'Clearup',
     jump: 'Jump',
     train: 'Train a Bot!',
+    trade: 'LIVE trade!',
     backtest: 'Backtest Bot!',
     update:'Refresh',
     confirmed: 'Confirmed',
@@ -18,6 +19,7 @@ const messages = {
     locked: 'Locked',
     refresh: 'Refresh Wallet',
     send: 'Send',
+    setup: 'Setup Exchange!',
     receive: 'Receive',
     viewSeed: 'View Your Wallets Seed!',
     //modal

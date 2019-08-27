@@ -4,7 +4,7 @@
 		<div class="modal-background" @click="closeModal"></div>
 		<div class="modal-card" style="width:480px">
 			<header class="modal-card-head " style="background-color: #1e1e2f;">
-				<p class="modal-card-title text-white">{{ $t("msg.sendTitle") }}</p>
+				<p class="modal-card-title text-white">{{ $t("msg.setup") }}</p>
 				<button class="delete" aria-label="close" @click="closeModal" ></button>
 			</header>
 			<section class="modal-card-body" style="height:380px;background-color: darkslateblue;">
@@ -14,7 +14,7 @@
 					Open signup
 				</button>
 
-				<button class="button is-info" @click="getSummaryinfo">
+				<button class="button is-info" @click="openLink('https://testnet.bitmex.com/login')">
 					View Instructions
 				</button>
 
@@ -68,6 +68,10 @@
             openLink: function (link) {
                 this.$log.info("link: ", link)
                 shell.openExternal(link)
+            },
+            closeModal() {
+                messageBus.$emit('close', 'windowSetupExchange');
+
             },
             onSubmit: async function () {
 				try{
@@ -123,10 +127,6 @@
                     this.errorMessage = "Invalid Api Keys!"
 				}
             },
-            closeModal() {
-                messageBus.$emit('close', 'windowSetusExchange');
-                //this.clearup()
-            }
         }
     }
 </script>

@@ -77,7 +77,8 @@
         apiSecretPath,
         checkConfigs
     } from '../modules/config'
-    //modules
+
+	//modules
 
     //modals
     import Setup from '@/components/Setup'
