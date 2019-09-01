@@ -13,7 +13,15 @@ import SortedTablePlugin from "vue-sorted-table";
 import fomoService from '../modules/fomo'
 import dbService from '@/db'
 import VueClipboard from 'vue-clipboard2'
+import Echarts from 'vue-echarts';
 import BootstrapVue from 'bootstrap-vue'
+
+//charts
+import 'echarts/lib/chart/bar';
+// If you want to use ECharts extensions, just import the extension package and it will work
+// Taking ECharts-GL as an example:
+// You only need to install the package with `npm install --save echarts-gl` and import it as follows
+import 'echarts-gl'
 
 //Vue.use(BootstrapVue)
 //css assets
@@ -35,6 +43,8 @@ import es from '../lang/es'
 let nalytics = require('forex-analytics-fomo')
 let VueTruncate = require('vue-truncate-filter')
 
+//Super
+Vue.component('chart', Echarts);
 Vue.use(VueClipboard)
 Vue.botService = Vue.prototype.$botService = botService
 Vue.walletService = Vue.prototype.$walletService = walletService

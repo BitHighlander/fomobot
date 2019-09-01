@@ -60,6 +60,8 @@
 <!--		<div v-else="isWalletLocked">-->
 <!--			<Send :showModal="openSend"></Send>-->
 <!--		</div>-->
+
+
 	</div>
 </template>
 
@@ -98,7 +100,8 @@
     import Settings from '@/components/Settings'
     import Exchanges from '@/components/Exchanges'
     import Balances from '@/components/Balances'
-    //
+
+	//
 	import {BaseTable} from "@/components/BaseTable";
 
     //nav
