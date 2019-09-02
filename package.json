@@ -18,7 +18,9 @@
     "pack": "npm run pack:main && npm run pack:renderer",
     "pack:main": "cross-env NODE_ENV=production webpack --progress --colors --config .electron-vue/webpack.main.config.js",
     "pack:renderer": "cross-env NODE_ENV=production webpack --progress --colors --config .electron-vue/webpack.renderer.config.js",
-    "test": "jest",
+    "test-karma": "karma start tests/unit/karma.conf.js",
+    "tests": "node ./node_modules/jest/bin/jest.js",
+    "test:unit": "vue-cli-service test",
     "release": "electron-builder --publish always --mac --win --linux",
     "postinstall": ""
   },
@@ -213,6 +215,10 @@
     "zero-fill": "^2.2.3"
   },
   "devDependencies": {
+    "@vue/cli-plugin-unit-jest": "^3.11.0",
+    "@vue/cli-service": "^3.11.0",
+    "@vue/test-utils": "1.0.0-beta.29",
+    "vue-template-compiler": "^2.5.16",
     "ajv": "^6.5.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
@@ -270,7 +276,6 @@
     "vue-html-loader": "^1.2.4",
     "vue-loader": "^15.2.4",
     "vue-style-loader": "^4.1.0",
-    "vue-template-compiler": "^2.5.16",
     "webpack": "^4.15.1",
     "webpack-cli": "^3.0.8",
     "webpack-dev-server": "^3.1.4",

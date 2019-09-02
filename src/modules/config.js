@@ -30,7 +30,25 @@ export const platform = getPlatform()
 
 const IS_PROD = process.env.NODE_ENV === 'production';
 const root = process.cwd();
-const APP = process.type === 'renderer' ? remote.app : app
+let APP = process.type === 'renderer' ? remote.app : app
+
+//Mock electron for tests
+if(process.env.NODE_ENV === 'test'){
+    let getPath = function(){
+        return "./"
+        //return window.location.pathname.split('/')
+    }
+    let getLocale = function(){
+        return "en"
+    }
+    APP = {
+        isPackaged:false,
+        getPath,
+        getLocale
+    }
+
+    console.log("path: ",APP.getPath())
+}
 
 const binariesPath =
     IS_PROD || APP.isPackaged

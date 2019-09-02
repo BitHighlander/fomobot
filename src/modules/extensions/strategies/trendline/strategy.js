@@ -19,8 +19,8 @@ module.exports = {
     this.option('lastpoints2', 'Number of trades for short trend average', Number, 10)
     this.option('avgpoints2', 'Number of trades for long trend average', Number, 100)
     this.option('min_periods', 'Basically avgpoints + a BUNCH of more preroll periods for anything less than 5s period', Number, 15000)
-    this.option('markup_sell_pct', 'test', Number, 0)
-    this.option('markdown_buy_pct', 'test', Number, 0)
+    this.option('markup_sell_pct', 'example.js', Number, 0)
+    this.option('markdown_buy_pct', 'example.js', Number, 0)
   },
 
   calculate: function () {

@@ -39,7 +39,7 @@ let SEED
 let password_
 let TXS_ALL = []
 
-let token = "MEESH";
+let token = "FOMO";
 let abiInfo = require("../coins/"+token.toUpperCase()+".abi.js");
 
 class WalletService {

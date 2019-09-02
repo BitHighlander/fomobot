@@ -19,8 +19,9 @@ require('dotenv').config({path: '../../.env'});
 
 const config = require("../config.js")
 
-const log = require('dumb-lumberjack')()
+//const log = require('loggerdog-client')()
 //let { btc } = require('../modules/daemons-manager')
+let log = {debug:console.log,info:console.log}
 
 const pause = function(length){
     return new Promise(function(resolve, reject) {
@@ -53,7 +54,7 @@ describe(' - Signing module - ', () => {
 
     })
 
-    test(' Signs valid with MAINNET keys ', async () => {
+    test.skip(' Signs valid with MAINNET keys ', async () => {
 
         let result = await client.sign(addressTEST,testMessage,privKeyTEST)
         log.debug("result: ",result)

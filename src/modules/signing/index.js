@@ -3,7 +3,9 @@ const bitcoin = require('bitcoinjs-lib') // v3.x.x
 const bitcoinMessage = require('bitcoinjs-message')
 
 const config = require('./config.js')
-const log = require('dumb-lumberjack')()
+//const log = require('dumb-lumberjack')()
+let log = {debug:console.log,info:console.log}
+
 const TAG = " | Signing module | "
 module.exports = {
     sign: function (address,msg,privKey) {

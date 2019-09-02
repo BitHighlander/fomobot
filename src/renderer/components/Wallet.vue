@@ -50,8 +50,8 @@
 								<tr v-for="value in sort.values" :key="value.blockNumber">
 									<td @click="openLink('https://etherscan.io/block/'+value.blockNumber)">{{ value.blockNumber }}</td>
 									<td>{{ value.amount }}</td>
-									<td @click="openLink('https://etherscan.io/token/0xadd4a0dd63e08f5874762e647ad8cd4dc26c9724?a='+value.to)">{{ value.to }}</td>
-									<td @click="openLink('https://etherscan.io/token/0xadd4a0dd63e08f5874762e647ad8cd4dc26c9724?a='+value.from)">{{ value.from }}</td>
+									<td @click="openLink('https://etherscan.io/token/0x3f72bba888da894e73523daa9735596725c15518?a='+value.to)">{{ value.to }}</td>
+									<td @click="openLink('https://etherscan.io/token/0x3f72bba888da894e73523daa9735596725c15518?a='+value.from)">{{ value.from }}</td>
 									<td @click="openLink('https://etherscan.io/tx/'+value.txid)">{{ value.txid }}</td>
 								</tr>
 								</tbody>

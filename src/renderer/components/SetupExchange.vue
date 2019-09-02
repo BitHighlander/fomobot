@@ -93,7 +93,7 @@
                         // "proxy": "https://cors-anywhere.herokuapp.com/"
                     })
 
-                    //test
+                    //tests
                     this.$log.info("bitmex: ", bitmex)
 
                     // let funding = await bitmex.Funding.get()
