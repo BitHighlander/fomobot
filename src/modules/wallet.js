@@ -169,21 +169,21 @@ class WalletService {
                 toBlock: 'latest'
             }, function(error, events){  })
                 .then(function(events){
-                    //log.debug(events) // same results as the optional callback above
+                    log.debug(events) // same results as the optional callback above
 
                     //for each
                     for(let i = 0; i < events.length; i++){
                         let event = events[i]
-                        //log.debug("event: ",event)
+                        log.info("event: ",event)
                         //push events to message bus
                         let txInfo = {}
                         txInfo.contractAddress = event.address
                         txInfo.confirmed = true
                         txInfo.blockHash = event.blockHash
                         txInfo.blockNumber = event.blockNumber
-                        txInfo.from = event.returnValues._from
-                        txInfo.to = event.returnValues._to
-                        txInfo.amount = event.returnValues._value / 100000000
+                        txInfo.from = event.returnValues.from
+                        txInfo.to = event.returnValues.to
+                        txInfo.amount = event.returnValues.value / 100000000
                         txInfo.txid = event.transactionHash
                         txInfo.index = event.transactionIndex
 
