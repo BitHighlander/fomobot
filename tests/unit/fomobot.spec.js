@@ -1,13 +1,37 @@
+/*
+    FOMOBOT test
+
+
+ */
+
 
 import bot from "../../src/modules/fomobot.js"
-//import bot from "../../src/"
+
+let TAG = " | fomo-api-test | ";
+
+let account;
+let apiKey;
+
+describe('Fomo workflow', () => {
+    it('should always have a test', () => {
+        expect(true).toEqual(true)
+    })
+
+    it(' test can generate API keys ', async () => {
+
+        let newSeed = await wallet.onGetNewSeed();
+        log.debug(TAG, "newSeed: ", newSeed);
 
 
-//import Vue from 'vue'
-//import LandingPage from '@/components/LandingPage'
+        let newWallet = await wallet.onBuildWallet(newSeed.seed);
+        log.debug(TAG, "newWallet: ", newWallet.account);
+        log.debug(TAG, "apiKey: ", newWallet.apiKey);
 
-describe('first test', () => {
-  it('should render correct contents', () => {
-      expect(true).toEqual(true)
-  })
+        account = newWallet.account;
+        apiKey = newWallet.apiKey;
+
+        expect(true).toEqual(true)
+    });
+
+
 })
