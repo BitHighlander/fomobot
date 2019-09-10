@@ -7,9 +7,14 @@
 					<div class="tabs help-tabs">
 						<ul>
 							<li :class="[ tabOpen === 'wallet' ? 'is-active' : '']"><a @click="tabOpen='wallet'">Wallet</a></li>
+							<li :class="[ tabOpen === 'bot' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='bot'">bot</a></li>
 							<li :class="[ tabOpen === 'exchanges' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='exchanges'">Exchanges</a></li>
 							<li :class="[ tabOpen === 'balances' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='balances'">Balances</a></li>
+							<li :class="[ tabOpen === 'backfill' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='backfill'">Backfill</a></li>
 							<li :class="[ tabOpen === 'train' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='train'">Train</a></li>
+							<li :class="[ tabOpen === 'trade' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='trade'">Trade</a></li>
+							<li :class="[ tabOpen === 'trollbox' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='trollbox'">trollbox</a></li>
+							<li :class="[ tabOpen === 'reports' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='trade'">Trade</a></li>
 							<li :class="[ tabOpen === 'subscribe' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='subscribe'">Subscribe</a></li>
 							<li :class="[ tabOpen === 'settings' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='settings'">Settings</a></li>
 						</ul>
@@ -18,14 +23,29 @@
 						<code v-if="tabOpen ==='wallet'">
 							<Wallet></Wallet>
 						</code>
+						<code v-if="tabOpen ==='bot'">
+							<bot></bot>
+						</code>
 						<code v-if="tabOpen ==='exchanges'">
 							<exchanges></exchanges>
 						</code>
 						<code v-if="tabOpen ==='balances'">
 							<Balances></Balances>
 						</code>
+						<code v-if="tabOpen ==='backfill'">
+							<Backfill></Backfill>
+						</code>
 						<code v-if="tabOpen ==='train'">
 							<Train></Train>
+						</code>
+						<code v-if="tabOpen ==='trade'">
+							<trade></trade>
+						</code>
+						<code v-if="tabOpen ==='trade'">
+							<trade></trade>
+						</code>
+						<code v-if="tabOpen ==='reports'">
+							<trollbox></trollbox>
 						</code>
 						<code v-if="tabOpen ==='subscribe'">
 							<p text-white>Coming Soon! </p>
@@ -100,14 +120,16 @@
     import Settings from '@/components/Settings'
     import Exchanges from '@/components/Exchanges'
     import Balances from '@/components/Balances'
+    import Bot from '@/components/Bot'
+    import Trollbox from '@/components/Trollbox'
+    import Trade from '@/components/Trade'
+    import Backfill from '@/components/Backfill'
 
 	//
 	import {BaseTable} from "@/components/BaseTable";
 
     //nav
-    import Nav from '@/components/Setup'
-    import Exhcnages from "./components/Exchanges";
-    //pages
+    // import Nav from '@/components/Setup'
 
     //require
     const {ipcRenderer} = require('electron')
@@ -116,6 +138,10 @@
     export default {
         name: 'fomobot',
         components: {
+            Backfill,
+			Trade,
+			Trollbox,
+			Bot,
             Balances,
             SetupExchange,
             Exchanges,
