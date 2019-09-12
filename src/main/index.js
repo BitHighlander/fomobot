@@ -147,6 +147,18 @@ ipcMain.on('bot', async (event,type,payload) => {
 
     let work
     switch (type) {
+      case "trade":
+        //work = await train.train(event)
+
+        //TODO save results
+
+        break;
+      case "backfill":
+        //work = await train.train(event)
+
+        //TODO save results
+
+        break;
       case "train":
         //work = await train.train(event)
 

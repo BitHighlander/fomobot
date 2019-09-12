@@ -473,8 +473,8 @@ let train = function(ipcEvent){
 //console.log(tag,'Generating training candlesticks from database...')
 //getTrades()
 
-export default {
-//    init,
-    train
-}
-//module.exports = ({train})
+// export default {
+// //    init,
+//     train
+// }
+module.exports = ({train})

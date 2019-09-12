@@ -1,4 +1,5 @@
 <template>
+	<div class="box help-content">
 	<b-container class="bv-example-row">
 		<b-row>
 			<b-col>
@@ -64,6 +65,7 @@
 
 		</b-row>
 	</b-container>
+	</div>
 </template>
 
 <script>

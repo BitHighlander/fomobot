@@ -7,31 +7,90 @@
 
 import bot from "../../src/modules/fomobot.js"
 
-let TAG = " | fomo-api-test | ";
-
-let account;
-let apiKey;
+let TAG = " | fomobot-core-test | ";
 
 describe('Fomo workflow', () => {
     it('should always have a test', () => {
         expect(true).toEqual(true)
     })
 
-    it(' test can generate API keys ', async () => {
+    let historicalTradeCount = 0
 
-        let newSeed = await wallet.onGetNewSeed();
-        log.debug(TAG, "newSeed: ", newSeed);
+    it(' gets count of trades ', async () => {
 
-
-        let newWallet = await wallet.onBuildWallet(newSeed.seed);
-        log.debug(TAG, "newWallet: ", newWallet.account);
-        log.debug(TAG, "apiKey: ", newWallet.apiKey);
-
-        account = newWallet.account;
-        apiKey = newWallet.apiKey;
+        historicalTradeCount = await bot.getTransactionCount()
+        console.log("historicalTradeCount: ",historicalTradeCount)
 
         expect(true).toEqual(true)
+
     });
 
+    it(' if less get more backfill', async () => {
+
+
+
+
+
+        expect(true).toEqual(true)
+
+    });
+
+    it(' list modals available ', async () => {
+
+        //read modal dir
+        let modalDirList =
+
+        expect(true).toEqual(true)
+
+    });
+
+    it(' train modals ', async () => {
+
+
+        expect(true).toEqual(true)
+
+    });
+
+    it(' backtest modals ', async () => {
+
+
+        expect(true).toEqual(true)
+
+    });
+
+    it(' purge generation of modals ', async () => {
+
+
+        expect(true).toEqual(true)
+
+    });
+
+    it(' load modal to trade bot ', async () => {
+
+
+        expect(true).toEqual(true)
+
+    });
+
+    it(' start trade bot ', async () => {
+
+
+        expect(true).toEqual(true)
+
+    });
+
+    it(' bot detects buy event submits order ', async () => {
+
+
+        expect(true).toEqual(true)
+
+    });
+
+    it(' bot fulfills buy order ', async () => {
+
+
+        expect(true).toEqual(true)
+
+    });
 
 })

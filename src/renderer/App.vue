@@ -14,46 +14,47 @@
 							<li :class="[ tabOpen === 'train' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='train'">Train</a></li>
 							<li :class="[ tabOpen === 'trade' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='trade'">Trade</a></li>
 							<li :class="[ tabOpen === 'trollbox' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='trollbox'">trollbox</a></li>
-							<li :class="[ tabOpen === 'reports' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='trade'">Trade</a></li>
 							<li :class="[ tabOpen === 'subscribe' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='subscribe'">Subscribe</a></li>
 							<li :class="[ tabOpen === 'settings' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='settings'">Settings</a></li>
 						</ul>
 					</div>
-					<div class="box help-content">
-						<code v-if="tabOpen ==='wallet'">
-							<Wallet></Wallet>
-						</code>
-						<code v-if="tabOpen ==='bot'">
-							<bot></bot>
-						</code>
-						<code v-if="tabOpen ==='exchanges'">
-							<exchanges></exchanges>
-						</code>
-						<code v-if="tabOpen ==='balances'">
-							<Balances></Balances>
-						</code>
-						<code v-if="tabOpen ==='backfill'">
-							<Backfill></Backfill>
-						</code>
-						<code v-if="tabOpen ==='train'">
-							<Train></Train>
-						</code>
-						<code v-if="tabOpen ==='trade'">
-							<trade></trade>
-						</code>
-						<code v-if="tabOpen ==='trade'">
-							<trade></trade>
-						</code>
-						<code v-if="tabOpen ==='reports'">
-							<trollbox></trollbox>
-						</code>
-						<code v-if="tabOpen ==='subscribe'">
-							<p text-white>Coming Soon! </p>
-						</code>
-						<code v-if="tabOpen ==='settings'">
-							<settings></settings>
-						</code>
-					</div>
+					<code v-if="tabOpen ==='wallet'">
+						<Wallet></Wallet>
+					</code>
+					<code v-if="tabOpen ==='bot'">
+						<bot></bot>
+					</code>
+					<code v-if="tabOpen ==='exchanges'">
+						<exchanges></exchanges>
+					</code>
+					<code v-if="tabOpen ==='balances'">
+						<Balances></Balances>
+					</code>
+					<code v-if="tabOpen ==='backfill'">
+						<Backfill></Backfill>
+					</code>
+					<code v-if="tabOpen ==='train'">
+						<Train></Train>
+					</code>
+					<code v-if="tabOpen ==='trade'">
+						<trade></trade>
+					</code>
+					<code v-if="tabOpen ==='trollbox'">
+						<trollbox></trollbox>
+					</code>
+					<code v-if="tabOpen ==='reports'">
+						<trollbox></trollbox>
+					</code>
+					<code v-if="tabOpen ==='subscribe'">
+						<p text-white>Coming Soon! </p>
+					</code>
+					<code v-if="tabOpen ==='settings'">
+						<settings></settings>
+					</code>
+
+<!--					<div class="box help-content">-->
+<!--					</div>-->
+
 				</div>
 			</div>
 		</div>

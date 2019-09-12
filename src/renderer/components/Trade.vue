@@ -1,5 +1,93 @@
 <template>
+
 	<div>
+
+		<!-- .row -->
+		<div class="row">
+			<div class="col-lg-6 col-sm-6 col-12">
+				<div class="white-box box help-content">
+					<h3 class="box-title">Current Market</h3>
+					<div class="row">
+						<div class="col-lg-4 col-12">
+							<ul class="list-inline two-part">
+								<li class="text-left" style="display:inline"><i class="ti-arrow-up"></i> <span class="text-info">Price</span></li>
+								<li class="text-left" style="display:inline"><i class="ti-arrow-up text-info"></i> <span>10309.97</span> <small>BTC</small></li>
+							</ul>
+						</div>
+
+						<div class="col-lg-4 col-12">
+							<ul class="list-inline two-part">
+								<li class="text-left" style="display:inline"><i class="ti-arrow-up"></i> <span class="text-success">ASK</span></li>
+								<li class="text-left" style="display:inline"><i class="ti-arrow-up text-success"></i> <span>10309.98</span> <small>BTC</small></li>
+							</ul>
+						</div>
+						<div class="col-lg-4 col-12">
+							<ul class="list-inline two-part">
+								<li class="text-left" style="display:inline"><i class="ti-arrow-up"></i> <span class="text-danger">BID</span></li>
+								<li class="text-left" style="display:inline"><i class="ti-arrow-up text-danger"></i> <span>10309.97</span> <small>BTC</small></li>
+							</ul>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-6 col-sm-6 col-12">
+				<div class="white-box box help-content">
+					<h3 class="box-title">Capital</h3>
+					<div class="row">
+						<div class="col-lg-6 col-12">
+							<ul class="list-inline two-part">
+								<li class="text-left" style="display:inline"><i class="ti-arrow-up text-purple"></i> <span class="text-purple">Asset</span></li>
+								<li class="text-left" style="display:inline"><i class="ti-arrow-up text-purple"></i> <span>0.00</span> <small>BTC</small></li>
+							</ul>
+						</div>
+
+						<div class="col-lg-6 col-12">
+							<ul class="list-inline two-part">
+								<li class="text-left" style="display:inline"><i class="ti-arrow-up text-purple"></i> <span class="text-purple">Currency</span></li>
+								<li class="text-left" style="display:inline"><i class="ti-arrow-up text-purple"></i> <span>1000.00</span> <small>USD</small></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+
+			<div class="col-lg-3 col-sm-6 col-12">
+				<div class="white-box box help-content">
+					<h3 class="box-title">Last balance (1.00% vs buy hold)</h3>
+					<ul class="list-inline one-part">
+						<li class="text-right text-success"><i class="ti-arrow-up"></i> <span class="counter">1009.81974045</span> <small>USD</small></li>
+						<li class="text-right text-success""><i class="ti-arrow-up"></i> <span>0.98%</span> <small>of profit</small></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-3 col-sm-6 col-12">
+				<div class="white-box box help-content">
+					<h3 class="box-title">Buy hold</h3>
+					<ul class="list-inline one-part">
+						<li class="text-right text-info"><i class="ti-arrow-up"></i> <span class="counter">999.89816720</span> <small>USD</small></li>
+						<li class="text-right text-danger""><i class="ti-arrow-up"></i> <span>-0.02%</span> <small>of profit</small></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-3 col-sm-6 col-12">
+				<div class="white-box box help-content">
+					<h3 class="box-title">Trades per day</h3>
+					<ul class="list-inline one-part">
+						<li class="text-right"><i class="ti-arrow-up text-purple"></i> <span class="counter text-purple">0.00</span></li>
+						<li class="text-right"><i class="ti-arrow-up text-purple"></i> <span class="text-purple">0 trades over 1 day</span></li>
+					</ul>
+				</div>
+			</div>
+
+
+		</div>
+
+
+
 
 		<div class="row">
 			<div class="col-12">
@@ -49,7 +137,8 @@
 						<h5 class="card-category">{{$t('dashboard.totalShipments')}}</h5>
 						<h3 class="card-title"><i class="tim-icons icon-bell-55 text-primary "></i> 763,215</h3>
 					</template>
-					<div class="chart-area">
+
+					<div class="chart-area box help-content">
 						<line-chart style="height: 100%"
 									chart-id="purple-line-chart"
 									:chart-data="purpleLineChart.chartData"
@@ -66,7 +155,7 @@
 						<h5 class="card-category">{{$t('dashboard.dailySales')}}</h5>
 						<h3 class="card-title"><i class="tim-icons icon-delivery-fast text-info "></i> 3,500€</h3>
 					</template>
-					<div class="chart-area">
+					<div class="chart-area box help-content">
 						<bar-chart style="height: 100%"
 								   chart-id="blue-bar-chart"
 								   :chart-data="blueBarChart.chartData"
@@ -82,7 +171,7 @@
 						<h5 class="card-category">{{$t('dashboard.completedTasks')}}</h5>
 						<h3 class="card-title"><i class="tim-icons icon-send text-success "></i> 12,100K</h3>
 					</template>
-					<div class="chart-area">
+					<div class="chart-area box help-content">
 						<line-chart style="height: 100%"
 									chart-id="green-line-chart"
 									:chart-data="greenLineChart.chartData"

@@ -1,5 +1,7 @@
 
 let train = require("../src/modules/train")
 
-console.log(train)
+//let bot = require("../src/modules/fomobot")
+
+//console.log(train)
 train.train()

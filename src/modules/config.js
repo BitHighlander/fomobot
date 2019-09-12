@@ -1,10 +1,10 @@
 let TAG = " | Config | "
 const VERSION = 1.0
-var fs = require('fs-extra');
 import path from 'path';
 import { app, remote } from 'electron';
 import os from 'os'
 const mkdirp = require('mkdirp');
+let fs = require('fs-extra');
 
 let appRootDir = require('app-root-dir').get().replace('app.asar', '').replace(/(\s+)/g, '\\$1');
 export const rootDir = require('app-root-dir').get()
@@ -94,6 +94,7 @@ export const configPath = path.join(APP.getPath('home'), '.fomobro','fomobro.jso
 export const seedPath = path.join(APP.getPath('home'), '.fomobro', 'wallet_data/wallet.seed')
 export const seedDir = path.join(APP.getPath('home'), '.fomobro', 'wallet_data')
 export const fomoPath = path.join(APP.getPath('home'), '.fomobro')
+export const modelDir = path.join(APP.getPath('home'), '.fomobro','models')
 export const modelfile = path.join(APP.getPath('home'), '.fomobro','temp.f31a7cc608612a8e910a666a94ae391023dd18d132d2d95ea39526fd0d5a7686-20190820_041537+0000.json')
 export const logDir = path.join(fomoPath, 'log')
 
