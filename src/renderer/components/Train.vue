@@ -29,6 +29,7 @@
 <script>
     const {ipcRenderer} = require('electron')
     import { messageBus } from '@/messagebus'
+    import {getConfig,getModels} from '../../modules/config'
     const tableColumns = ["blockNumber", "amount", "to", "from","txid"];
     const tableData = [];
 
@@ -39,7 +40,7 @@
 				logs:""
             }
         },
-        created() {
+        async created() {
 
             ipcRenderer.on('bot', (work,data2,data3) => {
                 this.$log.info("IPC MESSAGE! ")
@@ -47,6 +48,10 @@
                 this.$log.info("data2: ",data2)
                 this.$log.info("data3: ",data3)
             })
+
+            let models = await getModels()
+            this.$log.info("models: ",models)
+			this.models = models
 
             // messageBus.$on('update', () => {
             //     this.$log.info("Update detected! ")

@@ -104,6 +104,28 @@ export const fomoTrain = path.join(APP.getPath('home'), '.fomobro')
 export const releaseUrl = 'https://api.github.com/repos/BitHighlander/fomobot/releases/latest'
 export const downloadUrl = 'https://github.com/BitHighlander/fomobot/releases/latest'
 
+//get all modals in dir
+export function getModels(){
+    let tag = TAG + " | getModels | "
+    try{
+
+        let dir = fs.readdir(modelDir)
+
+        return dir
+    }catch (e) {
+        console.error(tag,"e: ",e)
+        return {}
+    }
+}
+
+
+//save modal
+
+//read modal
+
+
+
+
 //innit
 export function innitConfig(languageSelected){
     let tag = TAG + " | importConfig | "
