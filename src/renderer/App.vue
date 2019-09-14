@@ -128,7 +128,6 @@
 
 	//
 	import {BaseTable} from "@/components/BaseTable";
-
     //nav
     // import Nav from '@/components/Setup'
 

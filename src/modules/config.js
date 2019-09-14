@@ -105,13 +105,29 @@ export const releaseUrl = 'https://api.github.com/repos/BitHighlander/fomobot/re
 export const downloadUrl = 'https://github.com/BitHighlander/fomobot/releases/latest'
 
 //get all modals in dir
-export function getModels(){
+export async function getModels(){
     let tag = TAG + " | getModels | "
     try{
 
-        let dir = fs.readdir(modelDir)
+        let dir = await fs.readdir(modelDir)
+        console.log(tag,"dir: ",dir)
 
-        return dir
+
+        let bots = []
+        for( let i = 0; i < dir.length; i++){
+
+            let model = dir[i]
+            console.log(tag,"model: ",model)
+
+            //
+            let bot = {}
+            bot.name = model
+            bot.icon = "https://robohash.org/"+model
+            bots.push(bot)
+        }
+
+
+        return bots
     }catch (e) {
         console.error(tag,"e: ",e)
         return {}

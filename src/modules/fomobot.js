@@ -93,6 +93,9 @@ class BotService {
 
     static async getBackfillChart() {
 
+        // let allTrades = await tradesDB.aggregate({$sample: { size: 300 }},{$sort:{time:-1}})
+        // console.log("allTrades: ",allTrades.length)
+
         let allTrades = await tradesDB.find({selector:"bitmex.BTC-USD"})
         console.log("allTrades: ",allTrades.length)
 
