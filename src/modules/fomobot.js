@@ -427,6 +427,17 @@ class BotService {
         return trade_chart
     }
 
+    static async start(strategy) {
+        let tag = TAG + " | start bot | "
+        try{
+            if(!strategy) strategy = "bollinger"
+
+
+        }catch(e){
+
+        }
+    }
+
     static async getSummaryInfo() {
         let output = {
             online:IS_INIT,

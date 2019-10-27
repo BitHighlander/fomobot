@@ -2,13 +2,918 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="222539ec-8fd8-4098-b8a4-b0833b44921b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/renderer/components/Cards/Card.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/components/Cards/StatsCard.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lerna.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/accounting/__tests__/accounting.unit.spec.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/accounting/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/accounting/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/accounting/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/accounting/test-module.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/default-mongo/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/default-mongo/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/default-mongo/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/default-mongo/test/test-module.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/default-redis/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/default-redis/.sample-env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/default-redis/__tests__/test-module.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/default-redis/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/default-redis/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/default-redis/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomo-binance/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomo-binance/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomo-binance/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomo-bitmex/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomo-coincap/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomo-coincap/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomo-coincap/test/test-module.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomo-service/.npmrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomo-service/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomo-service/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomo-service/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/__tests__/test-module.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/boot.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/_stub/_codemap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/_stub/exchange.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/_stub/products.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/binance/exchange.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/binance/products.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/binance/update-products.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/bitfinex/exchange.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/bitfinex/products.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/bitfinex/update-products.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/bitmex/exchange.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/bitmex/products.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/bitmex/test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/bitmex/update-products.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/bitstamp/exchange.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/bitstamp/products.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/bittrex/exchange.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/bittrex/products.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/bittrex/update-products.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/cexio/exchange.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/cexio/products.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/cexio/update-products.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/gdax/exchange.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/gdax/products.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/gdax/test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/gdax/update-products.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/gemini/exchange.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/gemini/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/gemini/products.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/gemini/update-products.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/hitbtc/exchange.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/hitbtc/products.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/hitbtc/update-products.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/kraken/exchange.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/kraken/products.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/kraken/update-products.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/poloniex/exchange.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/poloniex/products.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/poloniex/update-products.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/quadriga/exchange.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/quadriga/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/quadriga/products.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/sim/exchange.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/therock/exchange.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/therock/products.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/therock/update-products.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/wexnz/exchange.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/wexnz/products.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/wexnz/update-products.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/notifiers/discord.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/notifiers/ifttt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/notifiers/prowl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/notifiers/pushbullet.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/notifiers/pushover.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/notifiers/slack.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/notifiers/telegram.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/notifiers/textbelt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/notifiers/xmpp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/output/_codemap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/output/api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/bollinger/strategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/cci_srsi/strategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/crossover_vwap/example_sims/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/crossover_vwap/example_sims/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/crossover_vwap/example_sims/vwapmax0.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/crossover_vwap/example_sims/vwapmax10.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/crossover_vwap/example_sims/vwapmax100.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/crossover_vwap/example_sims/vwapmax1000.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/crossover_vwap/example_sims/vwapmax10000.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/crossover_vwap/example_sims/vwapmax20000.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/crossover_vwap/example_sims/vwapmax500.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/crossover_vwap/example_sims/vwapmax5000.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/crossover_vwap/strategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/dema/strategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/ehlers_ft/strategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/ehlers_mama/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/ehlers_mama/strategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/ehlers_trend/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/ehlers_trend/strategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/forex_analytics/strategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/ichimoku/strategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/ichimoku_score/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/ichimoku_score/strategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/kc/strategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/macd/strategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/momentum/strategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/multi/strategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/neural/Capture.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/neural/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/neural/conf-example.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/neural/strategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/noop/strategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/pivot/strategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/renko/strategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/rsi/strategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/sar/strategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/speed/strategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/srsi_macd/strategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/stddev/strategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/ta_ema/strategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/ta_macd/strategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/ta_macd_ext/strategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/ta_ppo/strategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/ta_srsi_bollinger/strategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/ta_stoch_bollinger/strategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/ta_trix/strategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/ta_ultosc/strategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/ti_bollinger/strategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/ti_hma/strategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/ti_stoch/strategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/ti_stoch_bollinger/strategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/trend_bollinger/strategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/trend_ema/strategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/trendline/Capture.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/trendline/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/trendline/strategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/trust_distrust/strategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/vpt/strategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/extensions/strategies/wavetrend/strategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/_data-structures/Queue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/adx.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/backtester.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/bollinger.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/cci.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/cmf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/debug.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/ema.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/engine.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/format.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/heikinAshi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/helpers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/highest.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/kc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/lowest.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/lrc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/momentum.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/normalize-selector.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/notify.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/objectify-selector.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/output.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/phenotype.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/rsi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/sar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/services/collection-service.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/services/consume-and-process-service.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/services/exchange-service.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/services/resume-marker-service.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/services/trades-service.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/slow_stochastic.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/sma.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/srsi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/stddev.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/ta_bollinger.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/ta_ema.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/ta_macd.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/ta_macd_ext.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/ta_ppo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/ta_stoch.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/ta_stochrsi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/ta_trix.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/ta_ultosc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/ta_volume.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/ta_willr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/tcf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/ti_bollinger.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/ti_hma.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/ti_macd.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/ti_rsi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/ti_stoch.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/ti_stochrsi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/vma.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/vwap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/lib/wto.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/fomobot/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/LICENSE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/binding.gyp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/examples/data/DAT_MT_EURUSD_M1_2015.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/examples/data/DAT_MT_EURUSD_M1_201601.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/examples/example.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/include/BinaryTreeChromosome.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/include/BinaryTreeFitness.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/include/BinaryTreeGeneticAlgo.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/include/TradingSimulator.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/include/TradingSystem.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/include/indicators/BaseIndicator.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/include/indicators/Indicator.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/include/indicators/factories/IndicatorFactory.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/include/models/Candlestick.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/include/nodes/IndicatorTreeNode.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/include/nodes/OperatorTreeNode.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/include/nodes/TreeNode.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/include/stdafx.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/include/utils/HeapSort.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/LICENSE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/build.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/clean.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/include/Makefile.am" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/include/ta_abstract.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/include/ta_common.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/include/ta_config.h.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/include/ta_defs.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/include/ta_func.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/include/ta_libc.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/lib/HOLDER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/make/csr/linux/g++/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/make/csr/linux/g++/ta_abstract/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/make/csr/linux/g++/ta_common/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/make/csr/linux/g++/ta_func/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/make/csr/linux/g++/ta_libc/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/make/csr/windows/msbuild/ta_abstract/ta_abstract.vcproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/make/csr/windows/msbuild/ta_abstract/ta_abstract.vcxproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/make/csr/windows/msbuild/ta_abstract/ta_abstract.vcxproj.filters" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/make/csr/windows/msbuild/ta_common/ta_common.vcproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/make/csr/windows/msbuild/ta_common/ta_common.vcxproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/make/csr/windows/msbuild/ta_common/ta_common.vcxproj.filters" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/make/csr/windows/msbuild/ta_func/ta_func.vcproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/make/csr/windows/msbuild/ta_func/ta_func.vcxproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/make/csr/windows/msbuild/ta_func/ta_func.vcxproj.filters" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/make/csr/windows/msbuild/ta_lib.sln" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/make/csr/windows/msbuild/ta_libc/ta_libc.vcxproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/Makefile.am" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/Makefile.am" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/excel_glue.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/frames/ta_frame.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/frames/ta_frame.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/ta_abstract.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/ta_def_ui.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/ta_def_ui.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/ta_frame_priv.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/ta_func_api.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/ta_group_idx.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/ta_java_defs.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/tables/table_a.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/tables/table_b.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/tables/table_c.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/tables/table_d.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/tables/table_e.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/tables/table_f.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/tables/table_g.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/tables/table_h.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/tables/table_i.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/tables/table_j.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/tables/table_k.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/tables/table_l.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/tables/table_m.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/tables/table_n.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/tables/table_o.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/tables/table_p.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/tables/table_q.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/tables/table_r.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/tables/table_s.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/tables/table_t.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/tables/table_u.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/tables/table_v.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/tables/table_w.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/tables/table_x.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/tables/table_y.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/tables/table_z.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/templates/CoreAnnotated.java.template" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/templates/Makefile.am.template" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/templates/excel_glue.c.template" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/templates/ta_frame.c.template" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/templates/ta_frame.h.template" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/templates/ta_func.h.template" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/templates/ta_func.swg.template" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/templates/ta_func_api.c.template" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/templates/ta_group_idx.c.template" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/templates/ta_java_defs.h.template" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/templates/ta_retcode.c.template" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_abstract/templates/ta_x.c.template" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_common/Makefile.am" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_common/ta_global.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_common/ta_global.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_common/ta_magic_nb.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_common/ta_memory.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_common/ta_pragma.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_common/ta_retcode.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_common/ta_retcode.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_common/ta_version.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/Makefile.am" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_ACCBANDS.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_ACOS.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_AD.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_ADD.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_ADOSC.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_ADX.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_ADXR.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_APO.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_AROON.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_AROONOSC.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_ASIN.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_ATAN.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_ATR.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_AVGDEV.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_AVGPRICE.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_BBANDS.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_BETA.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_BOP.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CCI.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDL2CROWS.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDL3BLACKCROWS.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDL3INSIDE.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDL3LINESTRIKE.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDL3OUTSIDE.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDL3STARSINSOUTH.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDL3WHITESOLDIERS.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLABANDONEDBABY.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLADVANCEBLOCK.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLBELTHOLD.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLBREAKAWAY.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLCLOSINGMARUBOZU.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLCONCEALBABYSWALL.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLCOUNTERATTACK.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLDARKCLOUDCOVER.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLDOJI.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLDOJISTAR.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLDRAGONFLYDOJI.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLENGULFING.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLEVENINGDOJISTAR.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLEVENINGSTAR.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLGAPSIDESIDEWHITE.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLGRAVESTONEDOJI.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLHAMMER.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLHANGINGMAN.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLHARAMI.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLHARAMICROSS.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLHIGHWAVE.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLHIKKAKE.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLHIKKAKEMOD.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLHOMINGPIGEON.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLIDENTICAL3CROWS.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLINNECK.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLINVERTEDHAMMER.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLKICKING.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLKICKINGBYLENGTH.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLLADDERBOTTOM.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLLONGLEGGEDDOJI.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLLONGLINE.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLMARUBOZU.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLMATCHINGLOW.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLMATHOLD.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLMORNINGDOJISTAR.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLMORNINGSTAR.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLONNECK.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLPIERCING.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLRICKSHAWMAN.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLRISEFALL3METHODS.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLSEPARATINGLINES.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLSHOOTINGSTAR.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLSHORTLINE.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLSPINNINGTOP.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLSTALLEDPATTERN.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLSTICKSANDWICH.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLTAKURI.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLTASUKIGAP.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLTHRUSTING.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLTRISTAR.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLUNIQUE3RIVER.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLUPSIDEGAP2CROWS.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CDLXSIDEGAP3METHODS.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CEIL.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CMO.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_CORREL.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_COS.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_COSH.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_DEMA.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_DIV.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_DX.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_EMA.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_EXP.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_FLOOR.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_HT_DCPERIOD.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_HT_DCPHASE.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_HT_PHASOR.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_HT_SINE.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_HT_TRENDLINE.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_HT_TRENDMODE.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_IMI.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_KAMA.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_LINEARREG.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_LINEARREG_ANGLE.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_LINEARREG_INTERCEPT.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_LINEARREG_SLOPE.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_LN.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_LOG10.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_MA.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_MACD.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_MACDEXT.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_MACDFIX.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_MAMA.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_MAVP.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_MAX.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_MAXINDEX.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_MEDPRICE.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_MFI.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_MIDPOINT.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_MIDPRICE.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_MIN.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_MININDEX.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_MINMAX.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_MINMAXINDEX.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_MINUS_DI.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_MINUS_DM.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_MOM.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_MULT.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_NATR.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_NVI.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_OBV.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_PLUS_DI.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_PLUS_DM.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_PPO.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_PVI.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_ROC.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_ROCP.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_ROCR.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_ROCR100.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_RSI.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_SAR.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_SAREXT.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_SIN.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_SINH.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_SMA.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_SQRT.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_STDDEV.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_STOCH.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_STOCHF.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_STOCHRSI.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_SUB.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_SUM.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_T3.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_TAN.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_TANH.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_TEMA.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_TRANGE.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_TRIMA.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_TRIX.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_TSF.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_TYPPRICE.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_ULTOSC.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_VAR.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_WCLPRICE.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_WILLR.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_WMA.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_utility.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/ta_func/ta_utility.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/Makefile.am" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/gen_code/Makefile.am" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/gen_code/gen_code.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/gen_code/java/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/gen_code/java/PrettyCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/gen_code/mcpp.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/ta_regtest/Makefile.am" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/ta_regtest/ReadMe.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/ta_regtest/ta_error_number.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/ta_regtest/ta_gDataClose.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/ta_regtest/ta_gDataHigh.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/ta_regtest/ta_gDataLow.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/ta_regtest/ta_gDataOpen.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/ta_regtest/ta_regtest.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/ta_regtest/ta_test_func.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/ta_regtest/ta_test_func/test_1in_1out.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/ta_regtest/ta_test_func/test_1in_2out.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/ta_regtest/ta_test_func/test_adx.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/ta_regtest/ta_test_func/test_avgdev.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/ta_regtest/ta_test_func/test_bbands.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/ta_regtest/ta_test_func/test_candlestick.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/ta_regtest/ta_test_func/test_imi.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/ta_regtest/ta_test_func/test_ma.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/ta_regtest/ta_test_func/test_macd.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/ta_regtest/ta_test_func/test_minmax.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/ta_regtest/ta_test_func/test_mom.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/ta_regtest/ta_test_func/test_per_ema.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/ta_regtest/ta_test_func/test_per_hl.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/ta_regtest/ta_test_func/test_per_hlc.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/ta_regtest/ta_test_func/test_per_hlcv.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/ta_regtest/ta_test_func/test_per_ohlc.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/ta_regtest/ta_test_func/test_po.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/ta_regtest/ta_test_func/test_rsi.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/ta_regtest/ta_test_func/test_sar.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/ta_regtest/ta_test_func/test_stddev.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/ta_regtest/ta_test_func/test_stoch.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/ta_regtest/ta_test_func/test_trange.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/ta_regtest/ta_test_priv.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/ta_regtest/test_abstract.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/ta_regtest/test_data.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/ta_regtest/test_internals.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/src/tools/ta_regtest/test_util.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/temp/HOLDER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/lib/ta-lib/temp/csr/HOLDER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/mocha.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/src/BinaryTreeChromosome.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/src/BinaryTreeFitness.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/src/BinaryTreeGeneticAlgo.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/src/TradingSimulator.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/src/TradingSystem.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/src/export.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/src/functions/convertOHLC.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/src/functions/findStrategy.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/src/functions/getIndicatorData.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/src/functions/getMarketStatus.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/src/functions/getTrades.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/src/indicators/ATR.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/src/indicators/BOP.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/src/indicators/BaseIndicator.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/src/indicators/CCI.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/src/indicators/MACD.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/src/indicators/Momentum.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/src/indicators/RSI.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/src/indicators/SAR.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/src/indicators/SMA.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/src/indicators/Stochastic.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/src/indicators/factories/IndicatorFactory.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/src/models/Candlestick.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/src/nodes/IndicatorTreeNode.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/src/nodes/OperatorTreeNode.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/src/nodes/TreeNode.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/src/stdafx.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/src/utils/HeapSort.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/tests/analytics/convertOHLC.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/tests/analytics/findStrategy.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/tests/analytics/getIndicatorData.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/tests/analytics/getMarketStatus.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/tests/analytics/getTrades.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/forex-analytics-fomo/tests/candlesticks.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/influx/__tests__/test-module.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/influx/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/loggerdog-client/__tests__/test-module.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/loggerdog-client/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/loggerdog-client/modules/datadog.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/loggerdog-client/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/loggerdog-client/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/.npmignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/COPYING" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/HISTORY" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/Readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/binding.gyp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/examples/adx.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/examples/adx_explain.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/examples/cdlhammer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/examples/functions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/examples/marketdata.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/examples/sma.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/build.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/clean.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/include/Makefile.am" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/include/ta_abstract.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/include/ta_common.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/include/ta_config.h.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/include/ta_defs.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/include/ta_func.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/include/ta_libc.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/lib/HOLDER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/lib/libta_abstract_csr.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/lib/libta_common_csr.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/lib/libta_func_csr.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/lib/libta_libc_csr.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/make/csr/linux/g++/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/make/csr/linux/g++/ta_abstract/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/make/csr/linux/g++/ta_common/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/make/csr/linux/g++/ta_func/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/make/csr/linux/g++/ta_libc/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/make/csr/windows/msbuild/.vs/ta_lib/v14/.suo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/make/csr/windows/msbuild/ta_abstract/ta_abstract.vcproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/make/csr/windows/msbuild/ta_abstract/ta_abstract.vcxproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/make/csr/windows/msbuild/ta_abstract/ta_abstract.vcxproj.filters" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/make/csr/windows/msbuild/ta_abstract/ta_abstract.vcxproj.user" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/make/csr/windows/msbuild/ta_common/ta_common.vcproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/make/csr/windows/msbuild/ta_common/ta_common.vcxproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/make/csr/windows/msbuild/ta_common/ta_common.vcxproj.filters" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/make/csr/windows/msbuild/ta_common/ta_common.vcxproj.user" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/make/csr/windows/msbuild/ta_func/ta_func.vcproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/make/csr/windows/msbuild/ta_func/ta_func.vcxproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/make/csr/windows/msbuild/ta_func/ta_func.vcxproj.filters" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/make/csr/windows/msbuild/ta_func/ta_func.vcxproj.user" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/make/csr/windows/msbuild/ta_lib.sdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/make/csr/windows/msbuild/ta_lib.sln" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/make/csr/windows/msbuild/ta_libc/ta_libc.vcxproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/make/csr/windows/msbuild/ta_libc/ta_libc.vcxproj.user" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/Makefile.am" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/Makefile.am" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/excel_glue.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/frames/ta_frame.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/frames/ta_frame.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/ta_abstract.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/ta_def_ui.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/ta_def_ui.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/ta_frame_priv.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/ta_func_api.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/ta_group_idx.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/ta_java_defs.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/tables/table_a.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/tables/table_b.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/tables/table_c.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/tables/table_d.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/tables/table_e.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/tables/table_f.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/tables/table_g.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/tables/table_h.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/tables/table_i.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/tables/table_j.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/tables/table_k.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/tables/table_l.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/tables/table_m.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/tables/table_n.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/tables/table_o.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/tables/table_p.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/tables/table_q.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/tables/table_r.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/tables/table_s.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/tables/table_t.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/tables/table_u.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/tables/table_v.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/tables/table_w.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/tables/table_x.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/tables/table_y.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/tables/table_z.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/templates/CoreAnnotated.java.template" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/templates/Makefile.am.template" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/templates/excel_glue.c.template" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/templates/ta_frame.c.template" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/templates/ta_frame.h.template" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/templates/ta_func.h.template" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/templates/ta_func.swg.template" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/templates/ta_func_api.c.template" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/templates/ta_group_idx.c.template" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/templates/ta_java_defs.h.template" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/templates/ta_retcode.c.template" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_abstract/templates/ta_x.c.template" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_common/Makefile.am" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_common/ta_global.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_common/ta_global.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_common/ta_magic_nb.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_common/ta_memory.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_common/ta_pragma.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_common/ta_retcode.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_common/ta_retcode.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_common/ta_version.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/Makefile.am" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_ACCBANDS.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_ACOS.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_AD.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_ADD.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_ADOSC.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_ADX.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_ADXR.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_APO.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_AROON.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_AROONOSC.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_ASIN.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_ATAN.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_ATR.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_AVGDEV.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_AVGPRICE.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_BBANDS.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_BETA.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_BOP.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CCI.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDL2CROWS.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDL3BLACKCROWS.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDL3INSIDE.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDL3LINESTRIKE.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDL3OUTSIDE.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDL3STARSINSOUTH.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDL3WHITESOLDIERS.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLABANDONEDBABY.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLADVANCEBLOCK.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLBELTHOLD.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLBREAKAWAY.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLCLOSINGMARUBOZU.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLCONCEALBABYSWALL.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLCOUNTERATTACK.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLDARKCLOUDCOVER.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLDOJI.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLDOJISTAR.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLDRAGONFLYDOJI.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLENGULFING.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLEVENINGDOJISTAR.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLEVENINGSTAR.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLGAPSIDESIDEWHITE.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLGRAVESTONEDOJI.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLHAMMER.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLHANGINGMAN.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLHARAMI.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLHARAMICROSS.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLHIGHWAVE.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLHIKKAKE.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLHIKKAKEMOD.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLHOMINGPIGEON.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLIDENTICAL3CROWS.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLINNECK.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLINVERTEDHAMMER.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLKICKING.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLKICKINGBYLENGTH.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLLADDERBOTTOM.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLLONGLEGGEDDOJI.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLLONGLINE.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLMARUBOZU.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLMATCHINGLOW.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLMATHOLD.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLMORNINGDOJISTAR.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLMORNINGSTAR.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLONNECK.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLPIERCING.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLRICKSHAWMAN.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLRISEFALL3METHODS.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLSEPARATINGLINES.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLSHOOTINGSTAR.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLSHORTLINE.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLSPINNINGTOP.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLSTALLEDPATTERN.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLSTICKSANDWICH.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLTAKURI.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLTASUKIGAP.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLTHRUSTING.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLTRISTAR.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLUNIQUE3RIVER.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLUPSIDEGAP2CROWS.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CDLXSIDEGAP3METHODS.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CEIL.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CMO.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_CORREL.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_COS.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_COSH.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_DEMA.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_DIV.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_DX.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_EMA.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_EXP.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_FLOOR.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_HT_DCPERIOD.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_HT_DCPHASE.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_HT_PHASOR.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_HT_SINE.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_HT_TRENDLINE.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_HT_TRENDMODE.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_IMI.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_KAMA.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_LINEARREG.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_LINEARREG_ANGLE.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_LINEARREG_INTERCEPT.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_LINEARREG_SLOPE.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_LN.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_LOG10.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_MA.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_MACD.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_MACDEXT.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_MACDFIX.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_MAMA.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_MAVP.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_MAX.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_MAXINDEX.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_MEDPRICE.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_MFI.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_MIDPOINT.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_MIDPRICE.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_MIN.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_MININDEX.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_MINMAX.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_MINMAXINDEX.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_MINUS_DI.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_MINUS_DM.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_MOM.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_MULT.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_NATR.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_NVI.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_OBV.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_PLUS_DI.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_PLUS_DM.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_PPO.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_PVI.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_ROC.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_ROCP.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_ROCR.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_ROCR100.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_RSI.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_SAR.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_SAREXT.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_SIN.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_SINH.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_SMA.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_SQRT.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_STDDEV.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_STOCH.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_STOCHF.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_STOCHRSI.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_SUB.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_SUM.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_T3.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_TAN.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_TANH.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_TEMA.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_TRANGE.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_TRIMA.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_TRIX.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_TSF.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_TYPPRICE.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_ULTOSC.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_VAR.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_WCLPRICE.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_WILLR.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_WMA.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_utility.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/ta_func/ta_utility.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/Makefile.am" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/gen_code/Makefile.am" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/gen_code/gen_code.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/gen_code/java/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/gen_code/java/PrettyCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/gen_code/mcpp.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/ta_regtest/Makefile.am" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/ta_regtest/ReadMe.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/ta_regtest/ta_error_number.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/ta_regtest/ta_gDataClose.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/ta_regtest/ta_gDataHigh.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/ta_regtest/ta_gDataLow.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/ta_regtest/ta_gDataOpen.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/ta_regtest/ta_regtest.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/ta_regtest/ta_test_func.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/ta_regtest/ta_test_func/test_1in_1out.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/ta_regtest/ta_test_func/test_1in_2out.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/ta_regtest/ta_test_func/test_adx.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/ta_regtest/ta_test_func/test_avgdev.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/ta_regtest/ta_test_func/test_bbands.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/ta_regtest/ta_test_func/test_candlestick.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/ta_regtest/ta_test_func/test_imi.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/ta_regtest/ta_test_func/test_ma.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/ta_regtest/ta_test_func/test_macd.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/ta_regtest/ta_test_func/test_minmax.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/ta_regtest/ta_test_func/test_mom.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/ta_regtest/ta_test_func/test_per_ema.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/ta_regtest/ta_test_func/test_per_hl.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/ta_regtest/ta_test_func/test_per_hlc.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/ta_regtest/ta_test_func/test_per_hlcv.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/ta_regtest/ta_test_func/test_per_ohlc.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/ta_regtest/ta_test_func/test_po.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/ta_regtest/ta_test_func/test_rsi.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/ta_regtest/ta_test_func/test_sar.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/ta_regtest/ta_test_func/test_stddev.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/ta_regtest/ta_test_func/test_stoch.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/ta_regtest/ta_test_func/test_trange.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/ta_regtest/ta_test_priv.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/ta_regtest/test_abstract.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/ta_regtest/test_data.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/ta_regtest/test_internals.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/src/tools/ta_regtest/test_util.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/temp/HOLDER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/lib/temp/csr/HOLDER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/talib-fomo/src/talib.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/bin/linux/influx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/bin/linux/influxd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/exchanges/bitmex/bitmex.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/backfill.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/renderer/components/EditBot.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exchanges/binance.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchanges/binance/binance.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exchanges/bitmex.js" beforeDir="false" afterPath="$PROJECT_DIR$/modules/fomo-bitmex/__tests__/test-module.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/fomobot.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/fomobot.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/lib/engine.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/lib/engine.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/simulations.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/simulations.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/train.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/train.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/renderer/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/Backfill.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/components/Backfill.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/Balances.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/components/Balances.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/Trade.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/components/Trade.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/renderer/components/Train.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/components/Train.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/Wallet.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/components/Wallet.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/main.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,93 +925,15 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-            <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/src/renderer/App.vue">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="735">
-                    <caret line="139" column="21" selection-start-line="139" selection-start-column="21" selection-end-line="139" selection-end-column="21" />
-                    <folding>
-                      <element signature="e#3377#3416#0" expanded="true" />
-                      <element signature="e#3708#3746#0" expanded="true" />
-                      <element signature="e#4266#4306#0" expanded="true" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/src/renderer/components/Trade.vue">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="1185">
-                    <caret line="79" column="79" selection-start-line="79" selection-start-column="79" selection-end-line="79" selection-end-column="79" />
-                    <folding>
-                      <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                      <element signature="n#style#0;n#li#1;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                      <element signature="n#style#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                      <element signature="n#style#0;n#li#1;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                      <element signature="n#style#0;n#li#0;n#ul#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                      <element signature="n#style#0;n#li#1;n#ul#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                      <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                      <element signature="n#style#0;n#li#1;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                      <element signature="n#style#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                      <element signature="n#style#0;n#li#1;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
     <window id="2">
       <content type="file-editors">
         <state>
-          <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <leaf>
             <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/src/renderer/components/Train.vue">
+              <entry file="file://$PROJECT_DIR$/modules/fomobot/__tests__/test-module.js">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="360">
-                    <caret line="24" selection-start-line="24" selection-end-line="24" />
-                    <folding>
-                      <element signature="e#1225#1266#0" expanded="true" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/src/renderer/components/Backfill.vue">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="5340">
-                    <caret line="356" column="41" selection-start-line="356" selection-start-column="41" selection-end-line="356" selection-end-column="41" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-    <window id="3">
-      <content type="file-editors">
-        <state>
-          <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-            <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/src/modules/fomobot.js">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="147">
-                    <caret line="95" selection-start-line="95" selection-end-line="96" selection-end-column="54" />
-                    <folding>
-                      <element signature="n#!!doc" expanded="true" />
-                      <element signature="e#170#210#0" expanded="true" />
-                      <element signature="e#3035#4837#0" />
-                      <element signature="e#7588#7592#0" />
-                    </folding>
+                  <state relative-caret-position="315">
+                    <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
                   </state>
                 </provider>
               </entry>
@@ -119,57 +946,28 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modules/config.js">
+        <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es2015.core.d.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="82" column="6" selection-start-line="82" selection-start-column="6" selection-end-line="82" selection-end-column="6" />
-              <folding>
-                <element signature="e#5993#6087#0" />
-                <element signature="e#6116#6224#0" />
-                <element signature="e#6260#6328#0" />
-                <element signature="e#6367#6497#0" />
-                <element signature="e#6621#6836#0" />
-                <element signature="e#6871#6910#0" />
-              </folding>
+            <state relative-caret-position="406">
+              <caret line="440" column="4" selection-start-line="440" selection-start-column="4" selection-end-line="440" selection-end-column="4" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modules/fomo.js">
+        <entry file="file://$PROJECT_DIR$/modules/fomobot/boot.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1288">
-              <caret line="325" column="2" selection-start-line="325" selection-start-column="2" selection-end-line="325" selection-end-column="126" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/renderer/components/Cards/Card.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="37" column="41" lean-forward="true" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
+            <state relative-caret-position="45">
+              <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/renderer/components/Welcome.vue">
+        <entry file="file://$PROJECT_DIR$/modules/fomobot/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="945">
-              <caret line="78" column="18" selection-start-line="78" selection-start-column="8" selection-end-line="78" selection-end-column="18" />
-              <folding>
-                <element signature="e#2348#2469#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modules/simulations.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="915">
-              <caret line="69" column="32" selection-start-line="69" selection-start-column="32" selection-end-line="69" selection-end-column="32" />
+            <state relative-caret-position="805">
+              <caret line="126" column="111" selection-start-line="126" selection-start-column="111" selection-end-line="126" selection-end-column="111" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -178,52 +976,60 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modules/lib/engine.js">
+        <entry file="file://$PROJECT_DIR$/modules/fomo-binance/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="46" column="34" selection-start-line="46" selection-start-column="34" selection-end-line="46" selection-end-column="34" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+            <state relative-caret-position="1125">
+              <caret line="105" selection-start-line="105" selection-end-line="278" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/renderer/components/Exchanges.vue">
+        <entry file="file://$PROJECT_DIR$/modules/fomo-bitmex/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" selection-start-line="24" selection-end-line="38" selection-end-column="20" />
+            <state relative-caret-position="1095">
+              <caret line="73" column="28" selection-start-line="73" selection-start-column="28" selection-end-line="73" selection-end-column="28" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modules/extensions/strategies/forex_analytics/strategy.js">
+        <entry file="file://$PROJECT_DIR$/modules/fomo-service/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1155">
-              <caret line="77" column="49" selection-start-line="77" selection-start-column="49" selection-end-line="77" selection-end-column="49" />
+            <state relative-caret-position="-300">
+              <caret line="13" column="9" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/unit/wallet.spec.js">
+        <entry file="file://$PROJECT_DIR$/modules/fomobot/lib/engine.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+            <state relative-caret-position="463">
+              <caret line="492" column="32" selection-start-line="492" selection-start-column="32" selection-end-line="492" selection-end-column="32" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/unit/train.spec.js">
+        <entry file="file://$PROJECT_DIR$/modules/fomobot/.env">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/fomobot/extensions/strategies/ta_ultosc/strategy.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="54" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
+            <state relative-caret-position="1635">
+              <caret line="109" column="6" selection-start-line="109" selection-start-column="6" selection-end-line="109" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node_modules/colors/index.d.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="590">
+              <caret line="100" column="8" selection-start-line="100" selection-start-column="8" selection-end-line="100" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -235,41 +1041,42 @@
       <list>
         <option value="Vue Single File Component" />
         <option value="JavaScript File" />
+        <option value="package.json" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>.json</find>
-      <find>start</find>
-      <find>.strat</find>
-      <find>IPC M</find>
-      <find>model</find>
-      <find>icon.p</find>
-      <find>IPC</find>
-      <find>.enc</find>
-      <find>updateConfig</find>
-      <find>loadConfig</find>
-      <find>Cryptr</find>
-      <find>getBalances</find>
-      <find>clearup</find>
-      <find>MASTER_ADDRESS</find>
-      <find>getSummaryinfo</find>
-      <find>crypt</find>
-      <find>windowSetupExchange</find>
-      <find>_wrapper</find>
-      <find>closeModal</find>
-      <find>summa</find>
-      <find>node_modules</find>
-      <find>TODO</find>
-      <find>0xadd4a0dd63e08f5874762e647ad8cd4dc26c9724</find>
-      <find>get_balance_token</find>
-      <find>path</find>
-      <find>BitmexAPI</find>
       <find>TaskList</find>
       <find>isRTL</find>
       <find>analytics-info</find>
       <find>session</find>
+      <find>card</find>
+      <find>Model temporarily written to</find>
+      <find>/temp.</find>
+      <find>messageBus</find>
+      <find>filename</find>
+      <find>simTrainingResult</find>
+      <find>ODO not the nicest place</find>
+      <find>sess</find>
+      <find>rsi_periods</find>
+      <find>s.exchange.getTrades</find>
+      <find>.getTrades</find>
+      <find>exchange.getTrades</find>
+      <find>getTrades</find>
+      <find>onTrade</find>
+      <find>.train</find>
+      <find>backfill</find>
+      <find>monk</find>
+      <find>tradesDB</find>
+      <find>fomo</find>
+      <find>../../</find>
+      <find>ipcRenderer</find>
+      <find>electron-store</find>
+      <find>@bithighlander/</find>
+      <find>notify</find>
+      <find>../../../</find>
+      <find>repeat</find>
     </findStrings>
     <replaceStrings>
       <replace>fomoConfig</replace>
@@ -293,6 +1100,12 @@
       <replace>0x3f72bba888da894e73523daa9735596725c15518</replace>
       <replace>false</replace>
       <replace>box help-content</replace>
+      <replace>console.log</replace>
+      <replace>../../modules/</replace>
+      <replace>../</replace>
+      <replace>@fomobot/</replace>
+      <replace>./../</replace>
+      <replace>./../../</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src/renderer/components</dir>
@@ -313,26 +1126,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/renderer/components/Register.vue" />
-        <option value="$PROJECT_DIR$/src/renderer/components/Setup.vue" />
-        <option value="$PROJECT_DIR$/src/renderer/components/SendPost.vue" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/src/renderer/components/DisplaySeed.vue" />
-        <option value="$PROJECT_DIR$/src/renderer/components/RestoreSeed.vue" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/modules/boot.js" />
-        <option value="$PROJECT_DIR$/src/modules/extensions/exchanges/sim/exchange.js" />
-        <option value="$PROJECT_DIR$/src/modules/signing/simulate.js" />
-        <option value="$PROJECT_DIR$/src/modules/lib/engine.js" />
-        <option value="$PROJECT_DIR$/src/modules/extensions/strategies/forex_analytics/strategy.js" />
-        <option value="$PROJECT_DIR$/src/modules/simulations.js" />
-        <option value="$PROJECT_DIR$/src/renderer/components/Welcome.vue" />
-        <option value="$PROJECT_DIR$/src/renderer/components/Send.vue" />
-        <option value="$PROJECT_DIR$/src/renderer/components/Settings.vue" />
-        <option value="$PROJECT_DIR$/src/renderer/components/Password.vue" />
-        <option value="$PROJECT_DIR$/src/renderer/components/SetupExchange.vue" />
-        <option value="$PROJECT_DIR$/src/renderer/components/Balances.vue" />
-        <option value="$PROJECT_DIR$/src/lang/en.js" />
         <option value="$PROJECT_DIR$/.electron-vue/webpack.web.config.js" />
         <option value="$PROJECT_DIR$/src/coins/FOMO.abi.js" />
         <option value="$PROJECT_DIR$/src/coins/MEESH.abi.js" />
@@ -346,32 +1139,52 @@
         <option value="$PROJECT_DIR$/src/exchanges/binance.js" />
         <option value="$PROJECT_DIR$/src/renderer/components/Bot.vue" />
         <option value="$PROJECT_DIR$/src/renderer/Trollbox.vue" />
-        <option value="$PROJECT_DIR$/src/renderer/main.js" />
         <option value="$PROJECT_DIR$/src/renderer/components/Dashboard/TaskList.vue" />
         <option value="$PROJECT_DIR$/src/renderer/components/Dashboard/UserTable.vue" />
-        <option value="$PROJECT_DIR$/src/renderer/components/Wallet.vue" />
-        <option value="$PROJECT_DIR$/src/renderer/components/Trade.vue" />
-        <option value="$PROJECT_DIR$/src/main/index.js" />
         <option value="$PROJECT_DIR$/tests/unit/wallet.spec.js" />
         <option value="$PROJECT_DIR$/tests/unit/fomobot.spec.js" />
         <option value="$PROJECT_DIR$/tests/unit/train.spec.js" />
         <option value="$PROJECT_DIR$/tests/test-module.js" />
-        <option value="$PROJECT_DIR$/src/modules/train.js" />
         <option value="$PROJECT_DIR$/src/renderer/components/Exchanges.vue" />
         <option value="$PROJECT_DIR$/node_modules/vue-echarts/components/ECharts.vue" />
-        <option value="$PROJECT_DIR$/src/renderer/components/Backfill.vue" />
+        <option value="$PROJECT_DIR$/src/renderer/main.js" />
+        <option value="$PROJECT_DIR$/src/renderer/components/Wallet.vue" />
+        <option value="$PROJECT_DIR$/src/renderer/components/EditBot.vue" />
+        <option value="$PROJECT_DIR$/src/modules/train.js" />
         <option value="$PROJECT_DIR$/src/modules/config.js" />
-        <option value="$PROJECT_DIR$/src/modules/fomobot.js" />
-        <option value="$PROJECT_DIR$/src/renderer/App.vue" />
+        <option value="$PROJECT_DIR$/src/renderer/components/Trade.vue" />
+        <option value="$PROJECT_DIR$/src/modules/simulations.js" />
+        <option value="$PROJECT_DIR$/src/renderer/components/Backfill.vue" />
+        <option value="$PROJECT_DIR$/src/modules/backfill.js" />
+        <option value="$PROJECT_DIR$/src/services/app.js" />
+        <option value="$PROJECT_DIR$/src/modules/lib/engine.js" />
+        <option value="$PROJECT_DIR$/modules/influx/index.js" />
+        <option value="$PROJECT_DIR$/src/main/index.js" />
+        <option value="$PROJECT_DIR$/modules/influx/__tests__/test-module.js" />
         <option value="$PROJECT_DIR$/src/renderer/components/Train.vue" />
+        <option value="$PROJECT_DIR$/modules/fomo-bitmex/index.js" />
+        <option value="$PROJECT_DIR$/src/renderer/App.vue" />
+        <option value="$PROJECT_DIR$/src/renderer/components/Balances.vue" />
+        <option value="$PROJECT_DIR$/lerna.json" />
+        <option value="$PROJECT_DIR$/src/modules/fomobot.js" />
+        <option value="$PROJECT_DIR$/modules/fomo-bitmex/__tests__/test-module.js" />
+        <option value="$PROJECT_DIR$/modules/loggerdog-client/package.json" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/modules/fomobot/debug.js" />
+        <option value="$PROJECT_DIR$/modules/fomobot/package.json" />
+        <option value="$PROJECT_DIR$/modules/fomobot/engine.js" />
+        <option value="$PROJECT_DIR$/modules/fomobot/extensions/strategies/ta_ultosc/strategy.js" />
+        <option value="$PROJECT_DIR$/modules/fomo-service/index.js" />
+        <option value="$PROJECT_DIR$/modules/fomobot/index.js" />
+        <option value="$PROJECT_DIR$/modules/fomobot/__tests__/test-module.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2880" />
-    <option name="y" value="182" />
-    <option name="width" value="1419" />
-    <option name="height" value="2217" />
+    <option name="x" value="23" />
+    <option name="y" value="333" />
+    <option name="width" value="1417" />
+    <option name="height" value="2021" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -379,7 +1192,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -390,76 +1202,76 @@
             <path>
               <item name="fomobot" type="b2602c69:ProjectViewProjectNode" />
               <item name="fomobot" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fomobot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fomobot" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="fomo-binance" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fomobot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fomobot" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="fomo-bitmex" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fomobot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fomobot" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="fomo-service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fomobot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fomobot" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="fomobot" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fomobot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fomobot" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="fomobot" type="462c0819:PsiDirectoryNode" />
+              <item name="__tests__" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="fomobot" type="b2602c69:ProjectViewProjectNode" />
               <item name="fomobot" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fomobot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fomobot" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="renderer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fomobot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fomobot" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="renderer" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fomobot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fomobot" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="renderer" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fomobot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fomobot" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fomobot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fomobot" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-              <item name="unit" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/renderer/components" />
-    <property name="nodejs_interpreter_path" value="$USER_HOME$/.nvm/versions/node/v8.16.1/bin/node" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/modules/fomobot" />
+    <property name="nodejs_interpreter_path" value="$USER_HOME$/.nvm/versions/node/v10.16.0/bin/node" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="settings.nodejs" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/renderer/components" />
-      <recent name="$PROJECT_DIR$/src/renderer/components/Dashboard" />
-      <recent name="$PROJECT_DIR$/src/modules/extensions/exchanges" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/renderer/test" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/exchanges/bitmex" />
+      <recent name="$PROJECT_DIR$/src/exchanges/binance" />
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/renderer/components" />
       <recent name="$PROJECT_DIR$/tests/unit" />
-      <recent name="$PROJECT_DIR$/src/modules" />
-      <recent name="$PROJECT_DIR$/src/renderer/assets" />
-      <recent name="$PROJECT_DIR$/src/renderer" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/modules/fomobot" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/resources/bin/linux" />
+      <recent name="$PROJECT_DIR$/modules/talib-fomo" />
+      <recent name="$PROJECT_DIR$/modules/forex-analytics-fomo" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -475,17 +1287,10 @@
     </option>
   </component>
   <component name="RunManager" selected="Node.js.test-module.js">
-    <configuration name="test-module.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="test-module.js" working-dir="$PROJECT_DIR$/tests">
+    <configuration name="index.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="index.js" working-dir="$PROJECT_DIR$/modules/fomo-bitmex">
       <method v="2" />
     </configuration>
-    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="build" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
+    <configuration name="test-module.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="test-module.js" working-dir="$PROJECT_DIR$/modules/fomobot/__tests__">
       <method v="2" />
     </configuration>
     <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
@@ -498,21 +1303,21 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="test:unit" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+    <configuration name="node version" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
-        <script value="test:unit" />
+        <script value="node version" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="tests" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+    <configuration name="npm" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
-        <script value="tests" />
+        <script value="npm" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -520,11 +1325,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.dev" />
-        <item itemvalue="npm.tests" />
         <item itemvalue="Node.js.test-module.js" />
-        <item itemvalue="npm.build" />
-        <item itemvalue="npm.test:unit" />
+        <item itemvalue="npm.node version" />
+        <item itemvalue="npm.dev" />
+        <item itemvalue="Node.js.index.js" />
+        <item itemvalue="npm.npm" />
       </list>
     </recent_temporary>
   </component>
@@ -563,14 +1368,24 @@
       <workItem from="1567897783744" duration="9656000" />
       <workItem from="1568088044622" duration="11990000" />
       <workItem from="1568179612348" duration="10421000" />
-      <workItem from="1568493419884" duration="2665000" />
-    </task>
-    <task id="LOCAL-00021" summary="magic really really">
-      <created>1564205181251</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1564205181251</updated>
+      <workItem from="1568493419884" duration="18679000" />
+      <workItem from="1569040837718" duration="12643000" />
+      <workItem from="1569186567954" duration="163000" />
+      <workItem from="1569552279475" duration="5279000" />
+      <workItem from="1569694919344" duration="10000" />
+      <workItem from="1569701796759" duration="1018000" />
+      <workItem from="1569724884469" duration="1235000" />
+      <workItem from="1569728830937" duration="2314000" />
+      <workItem from="1569789482623" duration="778000" />
+      <workItem from="1569806805783" duration="1152000" />
+      <workItem from="1569977396502" duration="3645000" />
+      <workItem from="1569982163190" duration="1266000" />
+      <workItem from="1570038703092" duration="13192000" />
+      <workItem from="1570401609910" duration="3607000" />
+      <workItem from="1570591453780" duration="78000" />
+      <workItem from="1570683879232" duration="2033000" />
+      <workItem from="1571708799278" duration="2729000" />
+      <workItem from="1572063295468" duration="18216000" />
     </task>
     <task id="LOCAL-00022" summary="lots o code">
       <created>1564548977519</created>
@@ -908,29 +1723,37 @@
       <option name="project" value="LOCAL" />
       <updated>1568259109609</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="pre-bootstrap">
+      <created>1568497804022</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1568497804022</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="243665000" />
+    <option name="totallyTimeSpent" value="329037000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2880" y="182" width="1419" height="2217" extended-state="0" />
+    <frame x="23" y="333" width="1417" height="2021" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.71991086" visible="true" weight="0.22492836" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6398892" visible="true" weight="0.22525108" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="npm" order="2" sideWeight="0.28008914" side_tool="true" visible="true" weight="0.22492836" />
+      <window_info id="npm" order="2" sideWeight="0.3601108" side_tool="true" visible="true" weight="0.22525108" />
       <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="TypeScript" />
       <window_info anchor="bottom" id="Messages" order="0" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32819247" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49964714" visible="true" weight="0.35288462" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49964714" visible="true" weight="0.42515925" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32910663" />
       <window_info anchor="bottom" id="GraphQL" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50035286" side_tool="true" weight="0.53130215" />
       <window_info anchor="bottom" id="Terminal" order="12" />
@@ -970,7 +1793,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="bump" />
     <MESSAGE value="pw hashing" />
     <MESSAGE value="pw hashing working" />
     <MESSAGE value="infura hack" />
@@ -995,319 +1817,106 @@
     <MESSAGE value="begin UI sprint" />
     <MESSAGE value="backfill page lookin good" />
     <MESSAGE value="beging bot inventory" />
-    <option name="LAST_COMMIT_MESSAGE" value="beging bot inventory" />
+    <MESSAGE value="pre-bootstrap" />
+    <option name="LAST_COMMIT_MESSAGE" value="pre-bootstrap" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/@jest/core/build/SearchSource.js">
+    <entry file="file://$PROJECT_DIR$/src/modules/lib/engine.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5430">
-          <caret line="362" column="13" selection-start-line="362" selection-start-column="13" selection-end-line="362" selection-end-column="13" />
+        <state relative-caret-position="12090">
+          <caret line="809" column="14" selection-start-line="809" selection-start-column="14" selection-end-line="809" selection-end-column="14" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/renderer/components/Train.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1485">
+          <caret line="100" column="31" selection-start-line="100" selection-start-column="28" selection-end-line="100" selection-end-column="31" />
+          <folding>
+            <element signature="e#1653#1694#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.circleci/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/talib-fomo/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/talib-fomo/examples/functions.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/renderer/components/EditBot.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#header#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#section#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#562#614#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/mongo/index.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/electron-store/readme.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="315">
+            <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/talib-fomo/examples/cdlhammer.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/talib-fomo/examples/adx_explain.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/talib-fomo/examples/adx.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.circleci/config.yml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jest.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/wallet.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
-          <folding>
-            <element signature="e#984#1018#0" expanded="true" />
-            <element signature="n#!!block;n#getAllTxs#0;n#WalletService#0" />
-            <element signature="n#!!block;n#displaySeed#0;n#WalletService#0" />
-            <element signature="n#!!block;n#getSummaryInfo#0;n#WalletService#0" />
-            <element signature="n#!!block;n#subscribeToPayments#0;n#WalletService#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/components/Register.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1620">
-          <caret line="108" selection-start-line="108" selection-end-line="108" />
-          <folding>
-            <element signature="e#3500#3552#0" expanded="true" />
-            <element signature="e#3662#3765#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/components/Configuration.vue">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/components/Setup.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/components/SetupExchange.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="49" column="13" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#header#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#section#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/components/SummaryInfo.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/components/Balances.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="22" column="22" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/exchanges/bitfinex.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/exchanges/bitmex.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/extensions/exchanges/bitmex/test.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/exchanges/kraken.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/exchanges/bittrex.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/exchanges/poloniex.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/exchanges/binance.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/components/Bot.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/components/Charts/utils.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/components/Dashboard/config.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/components/templates/Cards/Card.vue">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/components/Dashboard/TaskList.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/components/Dashboard/UserTable.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/components/Trollbox.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/mongodb/lib/topologies/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3255">
-          <caret line="217" column="30" selection-start-line="217" selection-start-column="30" selection-end-line="217" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/mongodb/lib/core/connection/connection.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7980">
-          <caret line="532" column="14" selection-start-line="532" selection-start-column="14" selection-end-line="532" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.babelrc">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/components/Wallet.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="48" lean-forward="true" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
-          <folding>
-            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#SortedTable#0;n#div#0;n#card#0;n#div#0;n#b-col#1;n#b-row#0;n#b-container#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#SortedTable#0;n#div#0;n#card#0;n#div#0;n#b-col#1;n#b-row#0;n#b-container#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#SortedTable#0;n#div#0;n#card#0;n#div#0;n#b-col#1;n#b-row#0;n#b-container#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#SortedTable#0;n#div#0;n#card#0;n#div#0;n#b-col#1;n#b-row#0;n#b-container#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#4;n#tr#0;n#thead#0;n#SortedTable#0;n#div#0;n#card#0;n#div#0;n#b-col#1;n#b-row#0;n#b-container#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="144" column="23" selection-start-line="144" selection-start-column="23" selection-end-line="144" selection-end-column="23" />
-          <folding>
-            <element signature="e#85#121#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/unit/fomobot.spec.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test-module.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/vue-echarts/components/ECharts.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="47" column="14" lean-forward="true" selection-start-line="47" selection-start-column="14" selection-end-line="47" selection-end-column="14" />
-          <folding>
-            <element signature="e#120#161#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="46" column="26" selection-start-line="46" selection-start-column="26" selection-end-line="46" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-            <element signature="e#1040#1084#0" expanded="true" />
-            <element signature="e#1169#1196#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/train.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1350">
-          <caret line="99" selection-start-line="99" selection-end-line="99" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#143#169#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/components/DisplaySeed.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="67" selection-start-line="6" selection-start-column="67" selection-end-line="6" selection-end-column="67" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/simulations.js">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="915">
-          <caret line="69" column="32" selection-start-line="69" selection-start-column="32" selection-end-line="69" selection-end-column="32" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+          <caret line="61" column="28" selection-start-line="61" selection-start-column="28" selection-end-line="62" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/lib/engine.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="46" column="34" selection-start-line="46" selection-start-column="34" selection-end-line="46" selection-end-column="34" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/modules/influx/index.js">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/components/Exchanges.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" selection-start-line="24" selection-end-line="38" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/extensions/strategies/forex_analytics/strategy.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1155">
-          <caret line="77" column="49" selection-start-line="77" selection-start-column="49" selection-end-line="77" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/unit/wallet.spec.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/unit/train.spec.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="54" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/exchanges/bitmex/bitmex.js">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/renderer/components/Backfill.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5340">
-          <caret line="356" column="41" selection-start-line="356" selection-start-column="41" selection-end-line="356" selection-end-column="41" />
+        <state relative-caret-position="1035">
+          <caret line="69" column="51" selection-start-line="69" selection-start-column="51" selection-end-line="69" selection-end-column="51" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/renderer/components/Trade.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1185">
-          <caret line="79" column="79" selection-start-line="79" selection-start-column="79" selection-end-line="79" selection-end-column="79" />
+        <state relative-caret-position="2010">
+          <caret line="134" column="11" selection-start-line="134" selection-start-column="11" selection-end-line="134" selection-end-column="11" />
           <folding>
             <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#li#1;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -1319,81 +1928,244 @@
             <element signature="n#style#0;n#li#1;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#li#1;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#5439#5493#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/config.js">
+    <entry file="file://$PROJECT_DIR$/src/renderer/components/SummaryInfo.vue">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/renderer/App.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="82" column="6" selection-start-line="82" selection-start-column="6" selection-end-line="82" selection-end-column="6" />
+        <state relative-caret-position="-1005">
+          <caret line="170" column="34" selection-start-line="170" selection-start-column="34" selection-end-line="170" selection-end-column="34" />
           <folding>
-            <element signature="e#5993#6087#0" />
-            <element signature="e#6116#6224#0" />
-            <element signature="e#6260#6328#0" />
-            <element signature="e#6367#6497#0" />
-            <element signature="e#6621#6836#0" />
-            <element signature="e#6871#6910#0" />
+            <element signature="e#3424#3463#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/renderer/components/Balances.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="870">
+          <caret line="58" column="27" lean-forward="true" selection-start-line="58" selection-start-column="27" selection-end-line="58" selection-end-column="27" />
+          <folding>
+            <element signature="e#457#497#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lerna.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/fomobot.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="95" selection-start-line="95" selection-end-line="96" selection-end-column="54" />
+        <state relative-caret-position="990">
+          <caret line="432" column="48" selection-start-line="432" selection-start-column="48" selection-end-line="432" selection-end-column="48" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#170#210#0" expanded="true" />
-            <element signature="e#3035#4837#0" />
-            <element signature="e#7588#7592#0" />
+            <element signature="n#!!block;n#getBackfillChart#0;n#BotService#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/fomo.js">
+    <entry file="file://$PROJECT_DIR$/src/main/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1288">
-          <caret line="325" column="2" selection-start-line="325" selection-start-column="2" selection-end-line="325" selection-end-column="126" />
+        <state relative-caret-position="1001">
+          <caret line="126" column="20" selection-start-line="126" selection-start-column="20" selection-end-line="126" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/App.vue">
+    <entry file="file://$PROJECT_DIR$/modules/default-redis/__tests__/test-module.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="139" column="21" selection-start-line="139" selection-start-column="21" selection-end-line="139" selection-end-column="21" />
+        <state relative-caret-position="75">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/influx/__tests__/test-module.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/fomo-bitmex/__tests__/test-module.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="10" selection-end-line="7" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/fomobot/conf.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/loggerdog-client/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
           <folding>
-            <element signature="e#3377#3416#0" expanded="true" />
-            <element signature="e#3708#3746#0" expanded="true" />
-            <element signature="e#4266#4306#0" expanded="true" />
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/components/Cards/Card.vue">
+    <entry file="file://$PROJECT_DIR$/modules/loggerdog-client/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="37" column="41" lean-forward="true" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
+        <state relative-caret-position="15">
+          <caret line="1" column="20" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/components/Train.vue">
+    <entry file="file://$PROJECT_DIR$/src/modules/client.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        <state>
           <folding>
-            <element signature="e#1225#1266#0" expanded="true" />
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/components/Welcome.vue">
+    <entry file="file://$PROJECT_DIR$/src/modules/btc-tools.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="78" column="18" selection-start-line="78" selection-start-column="8" selection-end-line="78" selection-end-column="18" />
+        <state relative-caret-position="825">
+          <caret line="58" selection-start-line="58" selection-end-line="58" />
           <folding>
-            <element signature="e#2348#2469#0" expanded="true" />
+            <element signature="n#!!doc" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/wallet.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/fomobot/rsi.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/fomobot/format.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/fomobot/debug.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="30" selection-start-column="30" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/fomobot/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/fomobot/extensions/output/api.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/fomobot/ta_bollinger.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-186" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/fomobot/phenotype.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/colors/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="590">
+          <caret line="100" column="8" selection-start-line="100" selection-start-column="8" selection-end-line="100" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/fomobot/engine.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="643">
+          <caret line="742" column="51" selection-start-line="742" selection-start-column="51" selection-end-line="742" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es2015.core.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="440" column="4" selection-start-line="440" selection-start-column="4" selection-end-line="440" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/fomobot/boot.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/fomobot/extensions/strategies/ta_ultosc/strategy.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1635">
+          <caret line="109" column="6" selection-start-line="109" selection-start-column="6" selection-end-line="109" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/fomobot/lib/engine.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="463">
+          <caret line="492" column="32" selection-start-line="492" selection-start-column="32" selection-end-line="492" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/fomobot/.env">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/fomo-binance/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1125">
+          <caret line="105" selection-start-line="105" selection-end-line="278" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/fomo-bitmex/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1095">
+          <caret line="73" column="28" selection-start-line="73" selection-start-column="28" selection-end-line="73" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/fomo-service/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-300">
+          <caret line="13" column="9" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/fomobot/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="805">
+          <caret line="126" column="111" selection-start-line="126" selection-start-column="111" selection-end-line="126" selection-end-column="111" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/fomobot/__tests__/test-module.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
         </state>
       </provider>
     </entry>

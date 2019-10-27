@@ -71,6 +71,8 @@
 <script>
     const { shell } = require('electron')
     import { messageBus } from '@/messagebus'
+    import 'bootstrap/dist/css/bootstrap.css'
+    import 'bootstrap-vue/dist/bootstrap-vue.css'
     const tableColumns = ["blockNumber", "amount", "to", "from","txid"];
     const tableData = [];
 

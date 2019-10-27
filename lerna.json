@@ -1,0 +1,8 @@
+{
+    "packages": [
+        "modules-native/*",
+        "modules/*"
+    ],
+    "useWorkspaces": true,
+    "version": "0.1"
+}

@@ -1,0 +1,21 @@
+{
+  "name": "@fomobot/loggerdog-client",
+  "version": "3.0.45",
+  "description": "A datadog HTTP logger",
+  "main": "index.js",
+  "dependencies": {
+    "cli-color": "^1.4.0",
+    "dotenv": "^8.1.0",
+    "os": "^0.1.1",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4"
+  },
+  "scripts": {
+    "test": "echo lol"
+  },
+  "keywords": [
+    "datadog"
+  ],
+  "author": "Highlander",
+  "license": "MIT"
+}

@@ -95,6 +95,7 @@ export const seedPath = path.join(APP.getPath('home'), '.fomobro', 'wallet_data/
 export const seedDir = path.join(APP.getPath('home'), '.fomobro', 'wallet_data')
 export const fomoPath = path.join(APP.getPath('home'), '.fomobro')
 export const modelDir = path.join(APP.getPath('home'), '.fomobro','models')
+export const backtestDir = path.join(APP.getPath('home'), '.fomobro','backtest')
 export const modelfile = path.join(APP.getPath('home'), '.fomobro','temp.f31a7cc608612a8e910a666a94ae391023dd18d132d2d95ea39526fd0d5a7686-20190820_041537+0000.json')
 export const logDir = path.join(fomoPath, 'log')
 
@@ -103,6 +104,37 @@ export const fomoTrain = path.join(APP.getPath('home'), '.fomobro')
 
 export const releaseUrl = 'https://api.github.com/repos/BitHighlander/fomobot/releases/latest'
 export const downloadUrl = 'https://github.com/BitHighlander/fomobot/releases/latest'
+
+//get all modals in dir
+export async function deleteModel(name){
+    let tag = TAG + " | deleteModel | "
+    try{
+        let filepath = modelDir + "/" + name
+        let result = fs.unlinkSync(filepath)
+
+
+        return result
+    }catch (e) {
+        console.error(tag,"e: ",e)
+        return {}
+    }
+}
+
+//get modal
+export async function getModel(name){
+    let tag = TAG + " | getModel | "
+    try{
+
+        let rawBot = await fs.readFileSync(modelDir+"/"+name)
+        rawBot = rawBot.toString()
+        console.log(tag,"rawBot: ",rawBot)
+        return rawBot
+    }catch (e) {
+        console.error(tag,"e: ",e)
+        return {}
+    }
+}
+
 
 //get all modals in dir
 export async function getModels(){
@@ -134,6 +166,35 @@ export async function getModels(){
     }
 }
 
+//get all modals in dir
+export async function getSimResults(){
+    let tag = TAG + " | getModels | "
+    try{
+
+        let dir = await fs.readdir(backtestDir)
+        console.log(tag,"dir: ",dir)
+
+
+        let bots = []
+        for( let i = 0; i < dir.length; i++){
+
+            let model = dir[i]
+            console.log(tag,"model: ",model)
+
+            //
+            let bot = {}
+            bot.name = model
+            bot.icon = "https://robohash.org/"+model
+            bots.push(bot)
+        }
+
+
+        return bots
+    }catch (e) {
+        console.error(tag,"e: ",e)
+        return {}
+    }
+}
 
 //save modal
 

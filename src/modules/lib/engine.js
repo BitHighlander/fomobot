@@ -288,7 +288,7 @@ module.exports = function (s, conf) {
 
     order.product_id = s.product_id
     order.post_only = conf.post_only
-    debug.msg('placing ' + type + ' order...')
+    console.log('placing ' + type + ' order...')
     let order_copy = JSON.parse(JSON.stringify(order))
     s.exchange[type](order_copy, function (err, api_order) {
       if (err) return cb(err)
@@ -296,24 +296,24 @@ module.exports = function (s, conf) {
       if (api_order.status === 'rejected') {
         if (api_order.reject_reason === 'post only') {
           // trigger immediate price adjustment and re-order
-          debug.msg('post-only ' + type + ' failed, re-ordering')
+          console.log('post-only ' + type + ' failed, re-ordering')
           return cb(null, null)
         }
         else if (api_order.reject_reason === 'balance') {
           // treat as a no-op.
-          debug.msg('not enough balance for ' + type + ', aborting')
+          console.log('not enough balance for ' + type + ', aborting')
           return cb(null, false)
         }
         else if (api_order.reject_reason === 'price') {
           // treat as a no-op.
-          debug.msg('invalid price for ' + type + ', aborting')
+          console.log('invalid price for ' + type + ', aborting')
           return cb(null, false)
         }
         err = new Error('\norder rejected')
         err.order = api_order
         return cb(err)
       }
-      debug.msg(type + ' order placed at ' + formatCurrency(order.price, s.currency))
+      console.log(type + ' order placed at ' + formatCurrency(order.price, s.currency))
       order.order_id = api_order.id
       if (!order.time) {
         order.orig_time = new Date(api_order.created_at).getTime()
@@ -389,7 +389,7 @@ module.exports = function (s, conf) {
     syncBalance(function (err, { quote }) {
       let reorder_pct, fee, trade_balance, tradeable_balance, expected_fee
       if (err) {
-        debug.msg('error getting balance')
+        console.log('error getting balance')
         err.desc = 'could not execute ' + signal + ': error fetching quote'
         return cb(err)
       }
@@ -399,7 +399,7 @@ module.exports = function (s, conf) {
         } else {
           reorder_pct = n(size).divide(s.balance.asset).multiply(100)
         }
-        debug.msg('price changed, resizing order, ' + reorder_pct + '% remain')
+        console.log('price changed, resizing order, ' + reorder_pct + '% remain')
         size = null
       }
       if (s.my_prev_trades.length) {
@@ -437,7 +437,7 @@ module.exports = function (s, conf) {
         if (s.product.max_size && Number(size) > Number(s.product.max_size)) {
           size = s.product.max_size
         }
-        debug.msg('preparing buy order over ' + formatAsset(size, s.asset) + ' of ' + formatCurrency(tradeable_balance, s.currency) + ' (' + buy_pct + '%) tradeable balance with a expected fee of ' + formatCurrency(expected_fee, s.currency) + ' (' + fee + '%)')
+        console.log('preparing buy order over ' + formatAsset(size, s.asset) + ' of ' + formatCurrency(tradeable_balance, s.currency) + ' (' + buy_pct + '%) tradeable balance with a expected fee of ' + formatCurrency(expected_fee, s.currency) + ' (' + fee + '%)')
 
         if(s.buy_quarentine_time && moment.duration(moment(now()).diff(s.buy_quarentine_time)).asMinutes() < so.quarentine_time){
           console.log(tag,('\nbuy cancel quarentine time: '+moment(s.buy_quarentine_time).format('YYYY-MM-DD HH:mm:ss')).red)
@@ -461,7 +461,7 @@ module.exports = function (s, conf) {
           }
         }
         if (n(s.balance.deposit).subtract(s.balance.currency_hold || 0).value() < n(price).multiply(size).value() && s.balance.currency_hold > 0) {
-          debug.msg('buy delayed: ' + formatPercent(n(s.balance.currency_hold || 0).divide(s.balance.deposit).value()) + ' of funds (' + formatCurrency(s.balance.currency_hold, s.currency) + ') on hold')
+          console.log('buy delayed: ' + formatPercent(n(s.balance.currency_hold || 0).divide(s.balance.deposit).value()) + ' of funds (' + formatCurrency(s.balance.currency_hold, s.currency) + ') on hold')
           return setTimeout(function () {
             if (s.last_signal === signal) {
               executeSignal(signal, cb, size, true)
@@ -513,7 +513,7 @@ module.exports = function (s, conf) {
         }
 
         if (n(s.balance.asset).subtract(s.balance.asset_hold || 0).value() < n(size).value()) {
-          debug.msg('sell delayed: ' + formatPercent(n(s.balance.asset_hold || 0).divide(s.balance.asset).value()) + ' of funds (' + formatAsset(s.balance.asset_hold, s.asset) + ') on hold')
+          console.log('sell delayed: ' + formatPercent(n(s.balance.asset_hold || 0).divide(s.balance.asset).value()) + ' of funds (' + formatAsset(s.balance.asset_hold, s.asset) + ') on hold')
           return setTimeout(function () {
             if (s.last_signal === signal) {
               executeSignal(signal, cb, size, true)
@@ -543,19 +543,19 @@ module.exports = function (s, conf) {
         if (!order) {
           if (order === false) {
             // not enough balance, or signal switched.
-            debug.msg('not enough balance, or signal switched, cancel ' + signal)
+            console.log('not enough balance, or signal switched, cancel ' + signal)
             return cb(null, null)
           }
           if (s.last_signal !== signal) {
             // order timed out but a new signal is taking its place
-            debug.msg('signal switched, cancel ' + signal)
+            console.log('signal switched, cancel ' + signal)
             return cb(null, null)
           }
           // order timed out and needs adjusting
-          debug.msg(signal + ' order timed out, adjusting price')
+          console.log(signal + ' order timed out, adjusting price')
           let remaining_size = s[signal + '_order'] ? s[signal + '_order'].remaining_size : size
           if (remaining_size !== size) {
-            debug.msg('remaining size: ' + remaining_size)
+            console.log('remaining size: ' + remaining_size)
           }
           return executeSignal(signal, _cb, remaining_size, true)
         }
@@ -692,7 +692,11 @@ module.exports = function (s, conf) {
     volume_display = z(8, volume_display, ' ')
     if (volume_display.indexOf('.') === -1) volume_display = ' ' + volume_display
     output = output+volume_display[is_progress && blink_off ? 'cyan' : 'grey']
+
+    console.log("rsi_periods: ",so.rsi_periods)
+
     rsi(s, 'rsi', so.rsi_periods)
+
     if (typeof s.period.rsi === 'number') {
       let half = 5
       let bar = ''
@@ -765,10 +769,10 @@ module.exports = function (s, conf) {
       let over_buy_hold_pct = n(consolidated).divide(buy_hold).subtract(1).value()
       output = output+z(8, formatPercent(over_buy_hold_pct), ' ')[over_buy_hold_pct >= 0 ? 'green' : 'red']
     }
-    conf.ipcEvent.sender.send('bot',"message",output)
-    if (!is_progress) {
-      conf.ipcEvent.sender.send('bot',"message",output)
-    }
+    // conf.ipcEvent.sender.send('bot',"message",output)
+    // if (!is_progress) {
+    //   conf.ipcEvent.sender.send('bot',"message",output)
+    // }
   }
 
   function withOnPeriod (trade, period_id, cb) {
@@ -811,7 +815,7 @@ module.exports = function (s, conf) {
             if (api_order.status === 'done') {
               order.time = new Date(api_order.done_at).getTime()
               order.price = api_order.price || order.price // Use actual price if possible. In market order the actual price (api_order.price) could be very different from trade price
-              debug.msg('cancel failed, order done, executing')
+              console.log('cancel failed, order done, executing')
               executeOrder(order, type)
               return syncBalance(function () {
                 cb(null, order)
@@ -830,7 +834,7 @@ module.exports = function (s, conf) {
 
             if (on_hold && s.balance.currency_hold > 0) {
               // wait a bit for settlement
-              debug.msg('funds on hold after cancel, waiting 5s')
+              console.log('funds on hold after cancel, waiting 5s')
               setTimeout(function() { checkHold(do_reorder, cb) }, conf.wait_for_settlement)
             }
             else {
@@ -845,7 +849,7 @@ module.exports = function (s, conf) {
   function checkOrder (order, type, cb) {
     if (!s[type + '_order']) {
       // signal switched, stop checking order
-      debug.msg('signal switched during ' + type + ', aborting')
+      console.log('signal switched during ' + type + ', aborting')
       return cancelOrder(order, type, false, cb)
     }
     s.exchange.getOrder({order_id: order.order_id, product_id: s.product_id}, function (err, api_order) {
@@ -862,11 +866,11 @@ module.exports = function (s, conf) {
         })
       }
       if (order.status === 'rejected' && (order.reject_reason === 'post only' || api_order.reject_reason === 'post only')) {
-        debug.msg('post-only ' + type + ' failed, re-ordering')
+        console.log('post-only ' + type + ' failed, re-ordering')
         return cb(null, null)
       }
       if (order.status === 'rejected' && order.reject_reason === 'balance') {
-        debug.msg('not enough balance for ' + type + ', aborting')
+        console.log('not enough balance for ' + type + ', aborting')
         return cb(null, null)
       }
       if (now() - order.local_time >= so.order_adjust_time) {
@@ -879,11 +883,11 @@ module.exports = function (s, conf) {
           if (type === 'buy') {
             marked_price = nextBuyForQuote(s, quote)
             if (so.exact_buy_orders && n(order.price).value() != marked_price) {
-              debug.msg(marked_price + ' vs! our ' + order.price)
+              console.log(marked_price + ' vs! our ' + order.price)
               cancelOrder(order, type, true, cb)
             }
             else if (n(order.price).value() < marked_price) {
-              debug.msg(marked_price + ' vs our ' + order.price)
+              console.log(marked_price + ' vs our ' + order.price)
               cancelOrder(order, type, true, cb)
             }
             else {
@@ -894,11 +898,11 @@ module.exports = function (s, conf) {
           else {
             marked_price = nextSellForQuote(s, quote)
             if (so.exact_sell_orders && n(order.price).value() != marked_price) {
-              debug.msg(marked_price + ' vs! our ' + order.price)
+              console.log(marked_price + ' vs! our ' + order.price)
               cancelOrder(order, type, true, cb)
             }
             else if (n(order.price).value() > marked_price) {
-              debug.msg(marked_price + ' vs our ' + order.price)
+              console.log(marked_price + ' vs our ' + order.price)
               cancelOrder(order, type, true, cb)
             }
             else {

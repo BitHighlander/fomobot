@@ -1,0 +1,11 @@
+{
+  "name": "@fomobot/default-redis-accounting",
+  "version": "3.0.45",
+  "dependencies": {
+    "big.js": "^5.2.2",
+    "fakeredis": "^2.0.0",
+    "node-uuid": "^1.4.8",
+    "proxyquire": "^2.1.3",
+    "rewire": "^4.0.1"
+  }
+}

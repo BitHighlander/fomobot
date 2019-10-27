@@ -26,8 +26,8 @@ import 'echarts-gl'
 //Vue.use(BootstrapVue)
 //css assets
 // app.js
-// import 'bootstrap/dist/css/bootstrap.css'
-// import 'bootstrap-vue/dist/bootstrap-vue.css'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 import "@/assets/sass/black-dashboard.scss";
 import "@/assets/css/nucleo-icons.css";
@@ -44,6 +44,7 @@ let nalytics = require('forex-analytics-fomo')
 let VueTruncate = require('vue-truncate-filter')
 
 //Super
+Vue.use(BootstrapVue)
 Vue.component('chart', Echarts);
 Vue.use(VueClipboard)
 Vue.botService = Vue.prototype.$botService = botService

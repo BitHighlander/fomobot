@@ -7,9 +7,7 @@
 
 		<br/>
 
-		<button class="button is-medium is-success text-white" @click="deleteSelected">
-			{{ $t("msg.delete") }}
-		</button>
+
 
 
 		<br/>
@@ -21,13 +19,19 @@
 			<div class="row">
 
 				<div v-for="bot in bots">
-					<td>
 
-					</td>
 					<div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
 						<div class="font-icon-detail text-white">
 							profile: {{ bot.name }}
 							<img :src=bot.icon height="5000" width="5000">
+							<button class="button is-medium is-success text-white" @click="deleteBot(bot.name)">
+								{{ $t("msg.delete") }}
+							</button>
+
+							<button class="button is-medium is-success text-white" @click="editBot(bot.name)">
+								{{ $t("msg.edit") }}
+							</button>
+
 						</div>
 					</div>
 
@@ -44,6 +48,23 @@
 		<button class="button is-medium is-success text-white" @click="startBacktest">
 			{{ $t("msg.backtest") }}
 		</button>
+
+		<div v-for="result in results">
+
+			<div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
+				<div class="font-icon-detail text-white">
+					{{result.name}}
+					<button class="button is-medium is-success text-white" @click="openResult(result.name)">
+						{{ $t("msg.open") }}
+					</button>
+
+
+
+				</div>
+			</div>
+
+		</div>
+
 		<br/>
 		<h2>Paper trade: </h2>
 
@@ -55,9 +76,9 @@
 </template>
 
 <script>
-    const {ipcRenderer} = require('electron')
+    const {ipcRenderer,shell} = require('electron')
     import { messageBus } from '@/messagebus'
-    import {getConfig,getModels} from '../../modules/config'
+    import {getConfig,getModels,deleteModel,getModel,getSimResults,backtestDir} from '../../modules/config'
 
 
 
@@ -68,7 +89,9 @@
         name: "Train",
         data() {
             return {
+                status: 'not_accepted',
 				logs:"",
+                results:[],
 				bots:[
 				]
             }
@@ -88,6 +111,12 @@
             this.$log.info("models: ",typeof(models))
 			this.bots = models
 
+			//get results
+            let results = await getSimResults()
+            this.$log.info("results: ",results)
+            this.$log.info("results: ",results.length)
+            this.$log.info("results: ",typeof(results))
+            this.results = results
 
             // messageBus.$on('update', () => {
             //     this.$log.info("Update detected! ")
@@ -98,8 +127,29 @@
             //this.startTraining()
         },
         methods:{
-            deleteSelected: function () {
-				//delete files
+            openResult: async function (name) {
+                let path = "file://"+backtestDir+"/"+name
+                this.$log.info("path: ", path)
+                shell.openExternal(path)
+            },
+            editBot: async function (name) {
+                this.$log.info("editBot bot name: ",name)
+                messageBus.$emit('open', 'windowEditBot');
+                messageBus.$emit('SelectBot', name);
+
+            },
+            deleteBot: async function (name) {
+                this.$log.info("delete bot name: ",name)
+                //delete files
+                let result = await deleteModel(name)
+                this.$log.info("delete bot result: ",result)
+
+                let models = await getModels()
+                this.$log.info("models: ",models)
+                //this.$log.info("models: ",models.length)
+                //this.$log.info("models: ",typeof(models))
+                this.bots = models
+
             },
             startTraining: function () {
                 this.$log.info("Start training!! ")

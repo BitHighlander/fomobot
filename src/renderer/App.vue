@@ -68,6 +68,7 @@
 		<Send :showModal="openSend"></Send>
 		<DisplaySeed :showModal="openDisplaySeed"></DisplaySeed>
 		<SetupExchange :showModal="openSetupExchange"></SetupExchange>
+		<EditBot :showModal="openEditBot"></EditBot>
 
 <!--		<div v-if="isWalletLocked">-->
 <!--		<password :showModal="openPassword"></password>-->
@@ -100,7 +101,6 @@
         apiSecretPath,
         checkConfigs
     } from '../modules/config'
-
 	//modules
 
     //modals
@@ -115,6 +115,7 @@
     import Receive from '@/components/Receive'
     import Train from '@/components/Train'
     import SetupExchange from '@/components/SetupExchange'
+    import EditBot from '@/components/EditBot'
 
 	//pages
     import Wallet from '@/components/Wallet'
@@ -138,6 +139,7 @@
     export default {
         name: 'fomobot',
         components: {
+            EditBot,
             Backfill,
 			Trade,
 			Trollbox,
@@ -166,7 +168,7 @@
                     schedule: '* * * * *',
                     url_code: 'https://cronhub.io/random_uuid',
                 },
-                tabOpen: 'wallet',
+                tabOpen: 'balances',
                 isWalletLocked: true,
                 openSetupExchange: false,
 				openSend: false,
@@ -187,6 +189,7 @@
                 openCheck: false,
                 openLang: false,
                 openGnode: false,
+                openEditBot: false,
             }
         },
         mounted() {
@@ -231,6 +234,9 @@
 
                 //open
                 messageBus.$on('open', (window) => {
+                    if (window == 'windowEditBot') {
+                        this.openEditBot = true
+                    }
                     if (window == 'windowSetupExchange') {
                         this.openSetupExchange = true
                     }
@@ -292,6 +298,9 @@
 
                 //close
                 messageBus.$on('close', (window) => {
+                    if (window == 'windowEditBot') {
+                        this.openEditBot = false
+                    }
                     if (window == 'windowSetupExchange') {
                         this.openSetupExchange = false
                     }

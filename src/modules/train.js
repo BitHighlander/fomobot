@@ -10,7 +10,7 @@
 //import log from './logger'
 
 import log from './logger'
-import {fomoTrain,fomoPath} from './config'
+import {fomoTrain,fomoPath,backtestDir} from './config'
 
 const TAG = " | TRAIN | "
 
@@ -219,7 +219,7 @@ let train = function(ipcEvent){
 
                 var tempModelHash = crypto.createHash('sha256').update(tempModelString).digest('hex')
                 //
-                var tempModelFile = fomoTrain+'/temp.' + tempModelHash + '-' + moment(so.start_training).utc().format('YYYYMMDD_HHmmssZZ') + '.json'
+                var tempModelFile = fomoTrain+'/models/temp.' + tempModelHash + '-' + moment(so.start_training).utc().format('YYYYMMDD_HHmmssZZ') + '.json'
                 //var tempModelFile = './models/temp.' + tempModelHash + '-' + moment(so.start_training).utc().format('YYYYMMDD_HHmmssZZ') + '.json'
 
                 log.debug(tag,"tempModelFile: ",tempModelFile)
@@ -331,7 +331,7 @@ let train = function(ipcEvent){
                     '--start', moment(so.start_training).format('YYYYMMDDHHmm'),
                     '--end', moment(so.end_training).format('YYYYMMDDHHmm'),
                     '--period', so.period_length,
-                    '--filename', path.join(fomoPath, '..', tempModelFile) + '-simTrainingResult.html'
+                    '--filename', path.join(backtestDir, '..', tempModelFile) + '-simTrainingResult.html'
                 ]
 
                 let workToDo = trainingArgs

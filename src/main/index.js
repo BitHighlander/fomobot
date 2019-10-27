@@ -1,9 +1,20 @@
 
 import { app, BrowserWindow } from 'electron'
 const {ipcMain} = require('electron')
-import train from "../modules/train"
-import simulate from "../modules/simulations"
+//import train from "../modules/train"
+// import simulate from "../modules/simulations"
+// import backfill from "../modules/backfill"
+
+//run as node.js
 //let train = require("../modules/train")
+let backfill = require("../modules/backfill")
+
+//TODO Start influxDB
+
+//TODO get db size
+
+//get hdd space
+
 import log from '../modules/logger'
 
 /**
@@ -141,6 +152,8 @@ ipcMain.on('quit', (event) => {
 
 ipcMain.on('bot', async (event,type,payload) => {
   try{
+    log.debug("Checkpoint IPC: ")
+
     log.debug("event: ",event)
     log.debug("type: ",type)
     log.debug("payload: ",payload)
@@ -148,24 +161,28 @@ ipcMain.on('bot', async (event,type,payload) => {
     let work
     switch (type) {
       case "trade":
+        log.info("checkpoint TRADE ***** ")
         //work = await train.train(event)
 
         //TODO save results
 
         break;
       case "backfill":
-        //work = await train.train(event)
-
+        log.info("checkpoint BACKFILL ***** ")
+        work = await backfill.backfill(event)
+        log.info("result work ***** ",work)
         //TODO save results
 
         break;
       case "train":
+        log.info("checkpoint TRAIN ***** ")
         //work = await train.train(event)
 
         //TODO save results
 
         break;
       case "simulate":
+        log.info("checkpoint SIMULATE ***** ")
         //work = await simulate.simulate(event)
 
         break;

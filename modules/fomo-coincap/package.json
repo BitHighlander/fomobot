@@ -1,0 +1,19 @@
+{
+  "name": "fomo-coincap",
+  "version": "0.2.3",
+  "description": "A coincap module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo lol"
+  },
+  "keywords": [
+    "coincap.io"
+  ],
+  "author": "highlander",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "default-logger": "0.0.2",
+    "dotenv": "^8.0.0"
+  }
+}
