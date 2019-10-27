@@ -1,0 +1,2 @@
+for dir in modules/*; do (cd "$dir" && npm publish); done
+for dir in modules-native/*; do (cd "$dir" && npm publish); done

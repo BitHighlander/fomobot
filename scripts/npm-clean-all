@@ -1,0 +1,3 @@
+for dir in services/*; do (cd "$dir" && rm -f -R node_modules); done
+for dir in modules/*; do (cd "$dir" && rm -f -R node_modules); done
+for dir in tools/*; do (cd "$dir" && rm -f -R node_modules); done

@@ -1,6 +1,6 @@
 {
     "packages": [
-        "modules-native/*",
+        "apps/*",
         "modules/*"
     ],
     "useWorkspaces": true,

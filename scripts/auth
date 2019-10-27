@@ -1,0 +1,23 @@
+for d in $(find ./modules -maxdepth 1 -type d)
+do
+  #Do something, the directory is accessible with $d:
+  echo $d
+  echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > $d/.npmrc
+
+done
+
+for d in $(find ./services -maxdepth 1 -type d)
+do
+  #Do something, the directory is accessible with $d:
+  echo $d
+  echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > $d/.npmrc
+
+done
+
+for d in $(find ./tools -maxdepth 1 -type d)
+do
+  #Do something, the directory is accessible with $d:
+  echo $d
+  echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > $d/.npmrc
+
+done

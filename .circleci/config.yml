@@ -5,9 +5,12 @@ jobs:
       xcode: "10.0.0"
     steps:
       - checkout
-      - run: yarn
-      - run: node .electron-vue/build.js
-      - run: yarn release
+      - run:
+          name: Authenticate with registry
+          command: npm run build-auth
+      - run: cd ./apps/fomo-native && npm i
+      - run: cd ./apps/fomo-native && node .electron-vue/build.js
+      - run: cd ./apps/fomo-native && npm run release-release
 
 workflows:
   version: 2

@@ -1,0 +1,1 @@
+for dir in services/*; do (cd "$dir" && npm update); done
