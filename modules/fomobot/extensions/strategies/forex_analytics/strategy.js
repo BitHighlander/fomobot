@@ -5,7 +5,7 @@ let log = require("default-logger")()
 
 var fs = require('fs')
     , path = require('path')
-    , analytics = require('forex-analytics-fomo')
+    //, analytics = require('forex-analytics-fomo')
 
 let model
 

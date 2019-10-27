@@ -7,7 +7,7 @@ const {ipcMain} = require('electron')
 
 //run as node.js
 //let train = require("../modules/train")
-let backfill = require("../modules/backfill")
+//let backfill = require("../modules/backfill")
 
 //TODO Start influxDB
 
@@ -168,9 +168,9 @@ ipcMain.on('bot', async (event,type,payload) => {
 
         break;
       case "backfill":
-        log.info("checkpoint BACKFILL ***** ")
-        work = await backfill.backfill(event)
-        log.info("result work ***** ",work)
+        // log.info("checkpoint BACKFILL ***** ")
+        // work = await backfill.backfill(event)
+        // log.info("result work ***** ",work)
         //TODO save results
 
         break;

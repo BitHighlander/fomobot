@@ -40,7 +40,7 @@ import ru from '../lang/ru'
 import es from '../lang/es'
 
 //require
-let nalytics = require('forex-analytics-fomo')
+//let nalytics = require('forex-analytics-fomo')
 let VueTruncate = require('vue-truncate-filter')
 
 //Super

@@ -24,7 +24,7 @@ var tb = require('timebucket')
     , moment = require('moment')
     // eslint-disable-next-line no-unused-vars
     , colors = require('colors')
-    , analytics = require('forex-analytics-fomo')
+    //, analytics = require('forex-analytics-fomo')
     , ProgressBar = require('progress')
     , crypto = require('crypto')
     , objectifySelector = require('./lib/objectify-selector')

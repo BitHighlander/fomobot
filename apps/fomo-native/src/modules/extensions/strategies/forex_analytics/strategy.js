@@ -1,6 +1,6 @@
 var fs = require('fs')
   , path = require('path')
-  , analytics = require('forex-analytics-fomo')
+  //, analytics = require('forex-analytics-fomo')
 
 const model =
     {

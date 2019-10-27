@@ -13,7 +13,7 @@
     "build:dir": "node apps/fomo-native/.electron-vue/build.js && electron-builder --dir",
     "build:clean": "cross-env BUILD_TARGET=clean node apps/fomo-native/.electron-vue/build.js",
     "build:web": "cross-env BUILD_TARGET=web node apps/fomo-native/.electron-vue/build.js",
-    "dev": "node apps/fomo-native/.electron-vue/dev-runner.js",
+    "dev": "node .electron-vue/dev-runner.js",
     "e2e": "npm run pack && mocha tests/e2e",
     "pack": "npm run pack:main && npm run pack:renderer",
     "pack:main": "cross-env NODE_ENV=production webpack --progress --colors --config apps/fomo-native/.electron-vue/webpack.main.config.js",

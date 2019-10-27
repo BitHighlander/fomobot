@@ -89,7 +89,7 @@ const redis = util.redis
 //mongo
 //let {reportLA,credits,debits,trades} = require('./mongo.js')
 
-let mongo = require('../modules/mongo')
+let mongo = require('./mongo')
 //let views = require('views')
 
 
