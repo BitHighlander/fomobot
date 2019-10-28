@@ -53,8 +53,8 @@
     "deploy": "kubectl --kubeconfig kubeconfig  apply -f ./kube/"
   },
   "dependencies": {
+    "animated-number-vue": "^1.0.0",
+    "vue-css-donut-chart": "^1.1.6"
   },
-  "devDependencies": {
-
-  }
+  "devDependencies": {}
 }

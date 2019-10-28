@@ -15,6 +15,8 @@ import dbService from '@/db'
 import VueClipboard from 'vue-clipboard2'
 import Echarts from 'vue-echarts';
 import BootstrapVue from 'bootstrap-vue'
+import Donut from 'vue-css-donut-chart';
+import 'vue-css-donut-chart/dist/vcdonut.css';
 
 //charts
 import 'echarts/lib/chart/bar';
@@ -47,6 +49,7 @@ let VueTruncate = require('vue-truncate-filter')
 Vue.use(BootstrapVue)
 Vue.component('chart', Echarts);
 Vue.use(VueClipboard)
+Vue.use(Donut);
 Vue.botService = Vue.prototype.$botService = botService
 Vue.walletService = Vue.prototype.$walletService = walletService
 Vue.fomoService = Vue.prototype.fomoService = fomoService

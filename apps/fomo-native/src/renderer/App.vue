@@ -4,6 +4,72 @@
 		<div class="container">
 			<div class="columns">
 				<div class="column is-12">
+					<b-row>
+						<b-col>
+							<b-card
+									title="Balances"
+									img-src=""
+									img-alt="Image"
+									img-top
+									tag="article"
+									style="max-width: 20rem;"
+									class="mb-2"
+							>
+								<b-card-text>
+									<vc-donut
+											:size="280"
+											background="#363636"
+											:sections="sections"
+											has-legend legend-placement="bottom"
+											:total="100"
+									><animated-number :value="totalUSD" :formatValue="formatToPriceUSD" :duration="duration"/>Total (USD)</vc-donut>
+								</b-card-text>
+
+								<b-button href="#" variant="primary">Go somewhere</b-button>
+							</b-card>
+						</b-col>
+						<b-col>
+							<b-card
+									title="Bot Status"
+									img-src=""
+									img-alt="Image"
+									img-top
+									tag="article"
+									style="max-width: 20rem;"
+									class="mb-2"
+							>
+								<b-card-text>
+
+									<h2>Exchange Configured</h2>
+									Bitmex: {{isBitmexLive}}
+
+									<h2></h2>
+
+								</b-card-text>
+
+								<b-button href="#" variant="primary">Go somewhere</b-button>
+							</b-card>
+						</b-col>
+						<b-col>
+							<b-card
+									title="Card Title"
+									img-src=""
+									img-alt="Image"
+									img-top
+									tag="article"
+									style="max-width: 20rem;"
+									class="mb-2"
+							>
+								<b-card-text>
+									Some quick example text to build on the card title and make up the bulk of the card's content.
+								</b-card-text>
+
+								<b-button href="#" variant="primary">Go somewhere</b-button>
+							</b-card>
+						</b-col>
+					</b-row>
+
+
 					<div class="tabs help-tabs">
 						<ul>
 							<li :class="[ tabOpen === 'wallet' ? 'is-active' : '']"><a @click="tabOpen='wallet'">Wallet</a></li>
@@ -129,6 +195,7 @@
 
 	//
 	import {BaseTable} from "@/components/BaseTable";
+    import AnimatedNumber from "animated-number-vue";
     //nav
     // import Nav from '@/components/Setup'
 
@@ -139,6 +206,7 @@
     export default {
         name: 'fomobot',
         components: {
+            AnimatedNumber,
             EditBot,
             Backfill,
 			Trade,
@@ -163,6 +231,8 @@
         },
         data() {
             return {
+                isBitmexLive:false,
+                sections: [],
                 bitmex:"",
                 monitor: {
                     schedule: '* * * * *',
@@ -226,6 +296,13 @@
         },
         created() {
             try {
+
+
+                let pieChart = [
+                    { label: 'In Positions',value: 50 },
+                    { label: 'Available', value: 50 },
+                ]
+                this.sections = pieChart
 
                 //Modals
 				messageBus.$on('update',(window) =>{
@@ -365,6 +442,9 @@
             }
         },
         methods: {
+            formatToPriceUSD(value) {
+                return `<h4>$ ${Number(value).toFixed(2)}</h4>`;
+            },
             loadConfig: function () {
                 let configStatus = checkConfigs()
                 let config = getConfig()
@@ -391,6 +471,15 @@
                             if (!this.signingPriv) {
                                 this.signingPriv = config.signingPriv
                             }
+
+                            //init bot
+                            this.$botService.init(password)
+
+							//test bitmex
+
+							//if online
+
+
 
                             // if (!this.signingPub || !this.signingPriv) {
                             //     this.openRegister = true
@@ -520,4 +609,189 @@
 		color: #1b1e21 !important;
 		background-color: darkslateblue !important;
 	}
+
+	* {
+		font-family: "Avenir", Helvetica, Arial, sans-serif;
+	}
+
+	span {
+		font-size: 28px;
+	}
+
+	button {
+		border: none;
+		margin-left: 20px;
+		padding: 10px;
+		border-radius: 100px;
+	}
+	button:focus {
+		outline: none;
+	}
+
+
+	body {
+		margin: 0px;
+		width: 100%;
+	}
+	.wrap {
+		margin: 0px auto;
+		width: 486px;
+	}
+
+	.text {
+		text-align: center;
+		margin-top: 56px;
+		color: #fff;
+		font-size: 1.0em;
+		font-family: sans-serif;
+		text-transform: uppercase;
+	}
+
+	.animated {
+		animation-duration: 2.5s;
+		animation-fill-mode: both;
+		animation-iteration-count: infinite;
+	}
+
+	@keyframes bounce {
+		0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+		40% {transform: translateY(-30px);}
+		60% {transform: translateY(-15px);}
+	}
+	.bounce {
+		animation-name: bounce;
+	}
+
+	@keyframes flash {
+		0%, 50%, 100% {opacity: 1;}
+		25%, 75% {opacity: 0;}
+	}
+	.flash {
+		animation-name: flash;
+	}
+
+	@keyframes pulse {
+		0% {transform: scale(1);}
+		50% {transform: scale(1.1);}
+		100% {transform: scale(1);}
+	}
+	.pulse {
+		animation-name: pulse;
+		animation-duration: 1s;
+	}
+
+	@keyframes rubberBand {
+		0% {transform: scale(1);}
+		30% {transform: scaleX(1.25) scaleY(0.75);}
+		40% {transform: scaleX(0.75) scaleY(1.25);}
+		60% {transform: scaleX(1.15) scaleY(0.85);}
+		100% {transform: scale(1);}
+	}
+	.rubberBand {
+		animation-name: rubberBand;
+	}
+
+	@keyframes shake {
+		0%, 100% {transform: translateX(0);}
+		10%, 30%, 50%, 70%, 90% {transform: translateX(-10px);}
+		20%, 40%, 60%, 80% {transform: translateX(10px);}
+	}
+	.shake {
+		animation-name: shake;
+	}
+
+	@keyframes swing {
+		20% {transform: rotate(15deg);}
+		40% {transform: rotate(-10deg);}
+		60% {transform: rotate(5deg);}
+		80% {transform: rotate(-5deg);}
+		100% {transform: rotate(0deg);}
+	}
+	.swing {
+		transform-origin: top center;
+		animation-name: swing;
+	}
+
+	@keyframes wobble {
+		0% {transform: translateX(0%);}
+		15% {transform: translateX(-25%) rotate(-5deg);}
+		30% {transform: translateX(20%) rotate(3deg);}
+		45% {transform: translateX(-15%) rotate(-3deg);}
+		60% {transform: translateX(10%) rotate(2deg);}
+		75% {transform: translateX(-5%) rotate(-1deg);}
+		100% {transform: translateX(0%);}
+	}
+	.wobble {
+		animation-name: wobble;
+	}
+
+	@keyframes flip {
+		0% {transform: perspective(400px) translateZ(0) rotateY(0) scale(1);animation-timing-function: ease-out;}
+		40% {transform: perspective(400px) translateZ(150px) rotateY(170deg) scale(1);animation-timing-function: ease-out;}
+		50% {transform: perspective(400px) translateZ(150px) rotateY(190deg) scale(1);animation-timing-function: ease-in;}
+		80% {transform: perspective(400px) translateZ(0) rotateY(360deg) scale(.95);animation-timing-function: ease-in;}
+		100% {transform: perspective(400px) translateZ(0) rotateY(360deg) scale(1);animation-timing-function: ease-in;}
+	}
+	.animated.flip {
+		backface-visibility: visible;
+		animation-name: flip;
+	}
+
+	@keyframes lightSpeedIn {
+		0% {transform: translateX(100%) skewX(-30deg);opacity: 0;}
+		60% {transform: translateX(-20%) skewX(30deg);opacity: 1;}
+		80% {transform: translateX(0%) skewX(-15deg);opacity: 1;}
+		100% {transform: translateX(0%) skewX(0deg);opacity: 1;}
+	}
+	.lightSpeedIn {
+		animation-name: lightSpeedIn;
+		animation-timing-function: ease-out;
+	}
+
+	@keyframes rollIn {
+		0% {opacity: 0;transform: translateX(-100%) rotate(-120deg);}
+		100% {opacity: 1;transform: translateX(0px) rotate(0deg);}
+	}
+	.rollIn {
+		animation-name: rollIn;
+	}
+
+	@keyframes rotateIn {
+		0% {transform-origin: center center;transform: rotate(-200deg);opacity: 0;}
+		100% {transform-origin: center center;transform: rotate(0);opacity: 1;}
+	}
+	.rotateIn {
+		animation-name: rotateIn;
+	}
+
+	@keyframes hinge {
+		0% {transform: rotate(0);transform-origin: top left;animation-timing-function: ease-in-out;}
+		20%, 60% {transform: rotate(80deg);transform-origin: top left;animation-timing-function: ease-in-out;}
+		40% {transform: rotate(60deg);transform-origin: top left;animation-timing-function: ease-in-out;}
+		80% {transform: rotate(60deg) translateY(0);transform-origin: top left;animation-timing-function: ease-in-out;}
+		100% {transform: translateY(700px);}
+	}
+	.hinge {
+		margin: 20px;
+		animation-name: hinge;
+	}
+
+	@media all and (max-width: 680px) {
+		.wrap {
+			width: 100%;
+		}
+		.box {
+			width: 100%;
+			height: 55px;
+			clear: both;
+			margin: 0px auto;
+		}
+		.text {
+			margin-top: 20px;
+		}
+		.hingebox, .flipbox {
+			display: none;
+		}
+	}
+
 </style>

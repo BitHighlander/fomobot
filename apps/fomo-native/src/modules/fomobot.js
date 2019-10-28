@@ -22,11 +22,17 @@ let IS_INIT = false
 
 let EXCHANGES = {}
 let BALANCES = []
+let API_KEY_PUBLIC
+let API_KEY_PRIVATE
 
 class BotService {
 
     static getVersion(){
         return VERSION
+    }
+
+    static getApiKeys(){
+        return {public:API_KEY_PUBLIC,private:API_KEY_PRIVATE}
     }
 
     static async initClient(password) {
