@@ -14,14 +14,14 @@ const pubsubLib = require("redis")
 
 
 // const bitmexSocket = new BitmexSocket({
-//     "apiKeyID": "kWKByIp9ynsprvY_X451ny3W",
-//     "apiKeySecret": "K5kxJo0F-Wg_gefxlmelrxJctRsGzWv5crlzP7bW86Wyui9i",
+//     "apiKeyID": "",
+//     "apiKeySecret": "",
 //     //"proxy": "https://cors-anywhere.herokuapp.com/"
 // });
 
 const bitmex = new BitmexAPI({
-    "apiKeyID": "FGiRBC_lzxicpWlsSA2714Sy",
-    "apiKeySecret": "APSAKyl4BZi1OB0RMuptfTvB7b7E3PlVDDuj_wSGMbujh8-D",
+    "apiKeyID": "",
+    "apiKeySecret": "",
     "testnet":true
     //"proxy": "https://cors-anywhere.herokuapp.com/"
 });

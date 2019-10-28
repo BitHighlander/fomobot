@@ -1,6 +1,6 @@
 {
   "name": "fomobot",
-  "version": "0.0.18",
+  "version": "0.0.0",
   "author": "highlander <bithighlander@gmail.com>",
   "description": "Your Fomo Bro!",
   "license": null,
@@ -56,5 +56,7 @@
     "animated-number-vue": "^1.0.0",
     "vue-css-donut-chart": "^1.1.6"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "lerna": "^3.18.3"
+  }
 }

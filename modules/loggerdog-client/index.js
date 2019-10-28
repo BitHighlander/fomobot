@@ -117,7 +117,7 @@ class Logger {
             }
 
             // if(process.env['REDIS_LOGGING']){
-            //     const {publisher} = require('@fomobot/default-redis')
+            //     const {publisher} = require('@fomobro/default-redis')
             //     publisher.publish("log.info",JSON.stringify({hostname:os.hostname(),context:ctx,tag:args[0],payload:args[1],object:args[2]}))
             // }
 

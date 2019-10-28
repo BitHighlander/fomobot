@@ -1,7 +1,7 @@
 const Big = require('big.js')
 
 // set current balances
-const log = require('@fomobot/loggerdog-client')()
+const log = require('@fomobro/loggerdog-client')()
 
 // allow balance calls to be synchronise
 

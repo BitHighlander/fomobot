@@ -60,7 +60,6 @@
   },
   "dependencies": {
     "@babel/core": "^7.1.2",
-    "@fomobro/default-redis": "^4.3.2",
     "@fomobro/loggerdog-client": "^4.3.2",
     "@slack/client": "^5.0.1",
     "@vue/babel-preset-app": "^3.9.2",

@@ -20,7 +20,7 @@
  * Created by highlander on 3/6/17.
  */
 const TAG = " | REDIS-CONNECTION-MODULE | "
-//const log = require("@fomobot/loggerdog-client")()
+//const log = require("@fomobro/loggerdog-client")()
 
 //mock in tests
 let Redis

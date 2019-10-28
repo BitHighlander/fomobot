@@ -38,7 +38,7 @@
 
 const TAG = " | Fomobot | "
 
-let log = require("@bithighlander/loggerdog-client")()
+let log = require("@fomobro/loggerdog-client")()
 let EventEmitter = require('events')
 const db = require('monk')('localhost/zenbot4')
 const tradesDB = db.get('trades')
