@@ -1,8 +1,7 @@
 {
-    "packages": [
-        "apps/*",
-        "modules/*"
-    ],
-    "useWorkspaces": false,
-    "version": null
+  "packages": [
+    "apps/*",
+    "modules/*"
+  ],
+  "version": "0.0.1"
 }

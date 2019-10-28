@@ -1,6 +1,6 @@
 {
   "name": "@fomobro/fomo-core",
-  "version": null,
+  "version": "0.0.1",
   "scripts": {
     "node version": "node --version",
     "backfill": "node backfill.js",

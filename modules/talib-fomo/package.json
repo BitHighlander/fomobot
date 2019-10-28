@@ -1,5 +1,6 @@
 {
   "name": "@fomobro/talib-fomo",
+  "version": "0.0.1",
   "author": "Mustafa Oransel",
   "contributors": [
     "Alfred Omega",
@@ -9,7 +10,6 @@
     "Marek Magdziak"
   ],
   "description": "Technical Analysis Library",
-  "version": null,
   "homepage": "https://github.com/oransel/node-talib",
   "repository": {
     "type": "git",
