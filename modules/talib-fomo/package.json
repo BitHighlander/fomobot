@@ -1,4 +1,5 @@
 {
+  "name": "@fomobro/talib-fomo",
   "author": "Mustafa Oransel",
   "contributors": [
     "Alfred Omega",
@@ -7,9 +8,8 @@
     "Chris McGee",
     "Marek Magdziak"
   ],
-  "name": "talib-fomo",
   "description": "Technical Analysis Library",
-  "version": "1.0.4",
+  "version": null,
   "homepage": "https://github.com/oransel/node-talib",
   "repository": {
     "type": "git",
@@ -32,8 +32,6 @@
   "dependencies": {
     "nan": "^2.5.0"
   },
-  "devDependencies": {},
-  "optionalDependencies": {},
   "keywords": [
     "talib",
     "stocks",

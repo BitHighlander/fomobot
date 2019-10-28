@@ -3,6 +3,6 @@
         "apps/*",
         "modules/*"
     ],
-    "useWorkspaces": true,
-    "version": "0.1"
+    "useWorkspaces": false,
+    "version": null
 }

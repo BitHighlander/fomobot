@@ -1,6 +1,6 @@
 {
-  "name": "@fomobot/loggerdog-client",
-  "version": "3.0.45",
+  "name": "@fomobro/loggerdog-client",
+  "version": null,
   "description": "A datadog HTTP logger",
   "main": "index.js",
   "dependencies": {

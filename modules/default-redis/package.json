@@ -1,6 +1,6 @@
 {
-  "name": "@fomobot/default-redis",
-  "version": "3.0.45",
+  "name": "@fomobro/default-redis",
+  "version": null,
   "dependencies": {
     "dotenv": "^8.1.0",
     "ioredis": "^4.14.1",

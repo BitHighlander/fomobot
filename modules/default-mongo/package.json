@@ -1,6 +1,6 @@
 {
-  "name": "@fomobot/mongo-default-env",
-  "version": "3.0.45",
+  "name": "@fomobro/mongo-default-env",
+  "version": null,
   "dependencies": {
     "monk": "^7.0.0"
   }

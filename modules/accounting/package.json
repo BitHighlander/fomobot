@@ -1,6 +1,6 @@
 {
-  "name": "@fomobot/default-redis-accounting",
-  "version": "3.0.45",
+  "name": "@fomobro/default-redis-accounting",
+  "version": null,
   "dependencies": {
     "big.js": "^5.2.2",
     "fakeredis": "^2.0.0",
