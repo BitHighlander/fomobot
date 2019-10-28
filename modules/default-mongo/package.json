@@ -1,6 +1,6 @@
 {
   "name": "@fomobro/mongo-default-env",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "dependencies": {
     "monk": "^7.0.0"
   }
