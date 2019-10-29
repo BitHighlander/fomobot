@@ -9,14 +9,17 @@ let VERSION = 0.01
 
 //import {train,init} from "./train"
 //let train = require("./train")
-import { BitmexAPI } from "bitmex-node";
 import log from './logger'
 import {getConfig} from './config'
+import {messageBus} from '@/messagebus'
+
+let {BitmexAPI,BitmexSocket} = require("bitmex-node");
 
 const moment = require('moment');
 const Cryptr = require('cryptr');
 const db = require('monk')('localhost/zenbot4')
 const tradesDB = db.get('trades')
+
 
 let IS_INIT = false
 
@@ -24,6 +27,20 @@ let EXCHANGES = {}
 let BALANCES = []
 let API_KEY_PUBLIC
 let API_KEY_PRIVATE
+
+let IS_PAPER = false
+let IS_TESTNET = true
+
+//let position
+
+let CURRENT_POSITION = {}
+
+
+let IS_BULL = false
+let IS_BEAR = false
+let PCT_IN_POSITION = 0
+let BALANCE_POSITION = 0
+let BALANCE_AVAILABLE = 0
 
 class BotService {
 
@@ -47,7 +64,7 @@ class BotService {
                 let encryptedPriv = config.bitMexTestPriv
                 const cryptr = new Cryptr(password);
                 let priv = cryptr.decrypt(encryptedPriv)
-                let pub = config.bitmexTestPub
+                let pub = config.bitMexTestPub
 
                 log.debug("pub: ",pub)
                 log.debug("priv: ",priv)
@@ -64,8 +81,38 @@ class BotService {
                 })
 
                 //get balances
-                let wallet = await bitmex.User.getWallet()
+                let wallet = await EXCHANGES['bitmex'].User.getWallet()
                 log.debug("wallet: ", wallet)
+
+                let balance = wallet.amount
+                log.info("balance: ",balance)
+                BALANCE_AVAILABLE = balance
+
+
+                let positions = await EXCHANGES['bitmex'].Position.get()
+                BALANCE_POSITION = Math.abs(positions[0].lastValue)
+
+                //percent IN
+                let pctAvaible = balance / Math.abs(positions[0].lastValue)
+                pctAvaible = pctAvaible * 100
+                pctAvaible = pctAvaible - 100
+                PCT_IN_POSITION = pctAvaible
+                log.info("pctInPosition: ",pctAvaible)
+
+                //isBull
+                let isBull = false
+                if(positions[0].lastValue > 0){
+                    isBull = true
+                    IS_BULL = true
+                }
+
+                //isBear
+                let isBear = false
+                if(positions[0].lastValue < 0){
+                    isBear = true
+                    IS_BEAR = true
+                }
+
                 IS_INIT = true
             }
 
@@ -433,20 +480,25 @@ class BotService {
         return trade_chart
     }
 
-    static async start(strategy) {
+    static async startSockets(strategy) {
         let tag = TAG + " | start bot | "
         try{
             if(!strategy) strategy = "bollinger"
 
 
+            return true
         }catch(e){
-
+            log.error(tag,e)
         }
     }
 
     static async getSummaryInfo() {
         let output = {
             online:IS_INIT,
+            BALANCE_AVAILABLE,
+            PCT_IN_POSITION,
+            IS_BULL,
+            IS_BEAR,
             BALANCES,
         }
 

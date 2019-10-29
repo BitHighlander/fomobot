@@ -1,6 +1,8 @@
 
 import { app, BrowserWindow } from 'electron'
 const {ipcMain} = require('electron')
+
+
 //import train from "../modules/train"
 // import simulate from "../modules/simulations"
 // import backfill from "../modules/backfill"
@@ -16,6 +18,10 @@ const {ipcMain} = require('electron')
 //get hdd space
 
 import log from '../modules/logger'
+import {exec} from "child_process";
+
+
+
 
 /**
  * Set `__static` path to static files in production
@@ -35,7 +41,7 @@ function createWindow () {
    * Initial window options
    */
   mainWindow = new BrowserWindow({
-    height: 463,
+    height: 625,
     useContentSize: true,
     width: 1000
   })
@@ -149,6 +155,55 @@ function createMenu() {
 ipcMain.on('quit', (event) => {
   app.quit()
 })
+
+ipcMain.on('start-bitmex-sockets', (event, arg) => {
+  let tag = TAG + " | start-bitmex-sockets | "
+  try{
+    //
+    log.info(tag,"********************* START")
+
+
+    // client.addStream('XBTUSD', 'trade', function (data, symbol, tableName) {
+    //   // Do something with the table data...
+    //   console.log(data, symbol, tableName)
+    //
+    //
+    //   //console.log("data: ",data)
+    //   //console.log("tableName: ",tableName)
+    //   //console.log("data: ",data.length)
+    //
+    //   let clean = []
+    //   for(let i = 0; i < data.length; i++){
+    //     let tradeInfo = data[i]
+    //
+    //     //console.log("tradeInto: ",tradeInfo)
+    //
+    //     //let price
+    //     let price = tradeInfo.price
+    //     let amount = tradeInfo.size
+    //     // console.log("price: ",price)
+    //     // console.log("amount: ",amount)
+    //
+    //     let normalized = {}
+    //     normalized.trade_id = tradeInfo.trdMatchID
+    //     normalized.time = new Date(tradeInfo.timestamp).getTime()
+    //     normalized.unix = new Date(tradeInfo.timestamp).getTime()
+    //     normalized.size = tradeInfo.size
+    //     normalized.side = tradeInfo.side
+    //     normalized.price = tradeInfo.price
+    //     clean.push(normalized)
+    //     event.returnValue = normalized
+    //   }
+    //
+    // });
+
+
+
+  }catch(e){
+    console.error(e)
+  }
+})
+
 
 ipcMain.on('bot', async (event,type,payload) => {
   try{

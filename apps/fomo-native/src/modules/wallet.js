@@ -174,7 +174,7 @@ class WalletService {
                     //for each
                     for(let i = 0; i < events.length; i++){
                         let event = events[i]
-                        log.info("event: ",event)
+                        log.debug("event: ",event)
                         //push events to message bus
                         let txInfo = {}
                         txInfo.contractAddress = event.address

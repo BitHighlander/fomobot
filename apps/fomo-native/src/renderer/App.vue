@@ -16,21 +16,48 @@
 									class="mb-2"
 							>
 								<b-card-text>
-									<vc-donut
-											:size="280"
-											background="#363636"
-											:sections="sections"
-											has-legend legend-placement="bottom"
-											:total="100"
-									><animated-number :value="totalUSD" :formatValue="formatToPriceUSD" :duration="duration"/>Total (USD)</vc-donut>
-								</b-card-text>
+									<div v-if="isNotConfiged">
+										Please finish configuring!
+									</div>
 
-								<b-button href="#" variant="primary">Go somewhere</b-button>
+									<div v-if="isFunded">
+										You must fund your account to trade!
+									</div>
+
+									<div v-if="isReady">
+										Ready to begin!
+									</div>
+
+									<div v-if="isTrading">
+									Trading Status:
+
+										<vc-donut
+												:size="280"
+												background="#363636"
+												:sections="sections"
+												has-legend legend-placement="bottom"
+												:total="100"
+										><animated-number :value="totalUSD" :formatValue="formatToPriceUSD" :duration="duration"/>Total (USD)</vc-donut>
+									</div>
+
+									<div v-if="isTraining">
+										Trading Status:
+
+										<vc-donut
+												:size="280"
+												background="#363636"
+												:sections="sections"
+												has-legend legend-placement="bottom"
+												:total="100"
+										><animated-number :value="totalUSD" :formatValue="formatToPriceUSD" :duration="duration"/>Total (USD)</vc-donut>
+									</div>
+
+								</b-card-text>
 							</b-card>
 						</b-col>
 						<b-col>
 							<b-card
-									title="Bot Status"
+									title="Trade"
 									img-src=""
 									img-alt="Image"
 									img-top
@@ -39,20 +66,22 @@
 									class="mb-2"
 							>
 								<b-card-text>
+									last price: {{lastPrice}}
 
 									<h2>Exchange Configured</h2>
+
 									Bitmex: {{isBitmexLive}}
 
 									<h2></h2>
 
 								</b-card-text>
 
-								<b-button href="#" variant="primary">Go somewhere</b-button>
+								<b-button href="#" variant="primary">Start Trading!</b-button>
 							</b-card>
 						</b-col>
 						<b-col>
 							<b-card
-									title="Card Title"
+									title="Mine"
 									img-src=""
 									img-alt="Image"
 									img-top
@@ -64,62 +93,66 @@
 									Some quick example text to build on the card title and make up the bulk of the card's content.
 								</b-card-text>
 
-								<b-button href="#" variant="primary">Go somewhere</b-button>
+								<b-button href="#" variant="primary">Start Mining!</b-button>
 							</b-card>
 						</b-col>
 					</b-row>
 
 
-					<div class="tabs help-tabs">
-						<ul>
-							<li :class="[ tabOpen === 'wallet' ? 'is-active' : '']"><a @click="tabOpen='wallet'">Wallet</a></li>
-							<li :class="[ tabOpen === 'bot' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='bot'">bot</a></li>
-							<li :class="[ tabOpen === 'exchanges' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='exchanges'">Exchanges</a></li>
-							<li :class="[ tabOpen === 'balances' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='balances'">Balances</a></li>
-							<li :class="[ tabOpen === 'backfill' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='backfill'">Backfill</a></li>
-							<li :class="[ tabOpen === 'train' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='train'">Train</a></li>
-							<li :class="[ tabOpen === 'trade' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='trade'">Trade</a></li>
-							<li :class="[ tabOpen === 'trollbox' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='trollbox'">trollbox</a></li>
-							<li :class="[ tabOpen === 'subscribe' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='subscribe'">Subscribe</a></li>
-							<li :class="[ tabOpen === 'settings' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='settings'">Settings</a></li>
-						</ul>
-					</div>
-					<code v-if="tabOpen ==='wallet'">
-						<Wallet></Wallet>
-					</code>
-					<code v-if="tabOpen ==='bot'">
-						<bot></bot>
-					</code>
-					<code v-if="tabOpen ==='exchanges'">
-						<exchanges></exchanges>
-					</code>
-					<code v-if="tabOpen ==='balances'">
-						<Balances></Balances>
-					</code>
-					<code v-if="tabOpen ==='backfill'">
-						<Backfill></Backfill>
-					</code>
-					<code v-if="tabOpen ==='train'">
-						<Train></Train>
-					</code>
-					<code v-if="tabOpen ==='trade'">
-						<trade></trade>
-					</code>
-					<code v-if="tabOpen ==='trollbox'">
-						<trollbox></trollbox>
-					</code>
-					<code v-if="tabOpen ==='reports'">
-						<trollbox></trollbox>
-					</code>
-					<code v-if="tabOpen ==='subscribe'">
-						<p text-white>Coming Soon! </p>
-					</code>
-					<code v-if="tabOpen ==='settings'">
-						<settings></settings>
-					</code>
+					<div v-if="isAdvancedMode">
 
-<!--					<div class="box help-content">-->
-<!--					</div>-->
+						<div class="tabs help-tabs">
+							<ul>
+								<li :class="[ tabOpen === 'wallet' ? 'is-active' : '']"><a @click="tabOpen='wallet'">Wallet</a></li>
+								<li :class="[ tabOpen === 'bot' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='bot'">bot</a></li>
+								<li :class="[ tabOpen === 'exchanges' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='exchanges'">Exchanges</a></li>
+								<li :class="[ tabOpen === 'balances' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='balances'">Balances</a></li>
+								<li :class="[ tabOpen === 'backfill' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='backfill'">Backfill</a></li>
+								<li :class="[ tabOpen === 'train' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='train'">Train</a></li>
+								<li :class="[ tabOpen === 'trade' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='trade'">Trade</a></li>
+								<li :class="[ tabOpen === 'trollbox' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='trollbox'">trollbox</a></li>
+								<li :class="[ tabOpen === 'subscribe' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='subscribe'">Subscribe</a></li>
+								<li :class="[ tabOpen === 'settings' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='settings'">Settings</a></li>
+							</ul>
+						</div>
+						<code v-if="tabOpen ==='wallet'">
+							<Wallet></Wallet>
+						</code>
+						<code v-if="tabOpen ==='bot'">
+							<bot></bot>
+						</code>
+						<code v-if="tabOpen ==='exchanges'">
+							<exchanges></exchanges>
+						</code>
+						<code v-if="tabOpen ==='balances'">
+							<Balances></Balances>
+						</code>
+						<code v-if="tabOpen ==='backfill'">
+							<Backfill></Backfill>
+						</code>
+						<code v-if="tabOpen ==='train'">
+							<Train></Train>
+						</code>
+						<code v-if="tabOpen ==='trade'">
+							<trade></trade>
+						</code>
+						<code v-if="tabOpen ==='trollbox'">
+							<trollbox></trollbox>
+						</code>
+						<code v-if="tabOpen ==='reports'">
+							<trollbox></trollbox>
+						</code>
+						<code v-if="tabOpen ==='subscribe'">
+							<p text-white>Coming Soon! </p>
+						</code>
+						<code v-if="tabOpen ==='settings'">
+							<settings></settings>
+						</code>
+
+	<!--					<div class="box help-content">-->
+	<!--					</div>-->
+
+					</div>
 
 				</div>
 			</div>
@@ -136,18 +169,6 @@
 		<SetupExchange :showModal="openSetupExchange"></SetupExchange>
 		<EditBot :showModal="openEditBot"></EditBot>
 
-<!--		<div v-if="isWalletLocked">-->
-<!--		<password :showModal="openPassword"></password>-->
-<!--		<welcome :showModal="openWelcome"></welcome>-->
-<!--		<Setup :showModal="openSetup"></Setup>-->
-<!--		<RestoreSeed :showModal="openRestoreSeed"></RestoreSeed>-->
-<!--		<Configuration :showModal="openConfiguration"></Configuration>-->
-<!--		<Register :showModal="openRegister"></Register>-->
-<!--		</div>-->
-
-<!--		<div v-else="isWalletLocked">-->
-<!--			<Send :showModal="openSend"></Send>-->
-<!--		</div>-->
 
 
 	</div>
@@ -231,7 +252,16 @@
         },
         data() {
             return {
+                lastPrice:0,
+                totalUSD:0,
+				totalBalance:0,
+                isFunded:false,
+                isTrading:false,
+				isTraining:false,
+				isReady:false,
+                isAdvancedMode:false,
                 isBitmexLive:false,
+                isNotConfiged:true,
                 sections: [],
                 bitmex:"",
                 monitor: {
@@ -296,6 +326,13 @@
         },
         created() {
             try {
+                ipcRenderer.on('start-bitmex-sockets', (work,data2,data3) => {
+                    this.$log.info("data2: ", data2)
+                    if(data2.price){
+						this.lastPrice = data2.price
+                        //messageBus.$emit('lastPrice',data2)
+                    }
+                })
 
 
                 let pieChart = [
@@ -307,6 +344,7 @@
                 //Modals
 				messageBus.$on('update',(window) =>{
                     //this.getBalances()
+                    this.loadConfig()
 				})
 
                 //open
@@ -445,65 +483,99 @@
             formatToPriceUSD(value) {
                 return `<h4>$ ${Number(value).toFixed(2)}</h4>`;
             },
-            loadConfig: function () {
+            loadConfig: async function () {
                 let configStatus = checkConfigs()
                 let config = getConfig()
                 this.$log.info("config: ", config)
-                if (!configStatus.isConfigured) {
-                    this.$log.info("checkpoint 3 No config found!")
-                    //open settings modal
-                    this.openWelcome = true
-                } else {
-                    this.$log.info("checkpoint 3a config found!")
-                    //isRegistered?
-                    if (configStatus.isRegistered) {
-                        this.$log.info("checkpoint 4a username found!")
-                        //startup
-                        //isPassword
-                        let password = this.$walletService.getPassword()
-                        if (password) {
-                            if (!this.username) {
-                                this.username = config.username
-                            }
-                            if (!this.signingPub) {
-                                this.signingPub = config.signingPub
-                            }
-                            if (!this.signingPriv) {
-                                this.signingPriv = config.signingPriv
-                            }
 
-                            //init bot
-                            this.$botService.init(password)
+                let password = this.$walletService.getPassword()
+				if(password){
+                    this.isNotConfiged = false
 
-							//test bitmex
+				    //init bot
+                    await this.$botService.initClient(password)
+					//startSockets
+                    await this.$botService.startSockets()
 
-							//if online
+					//get bot status
+                    let status = await this.$botService.getSummaryInfo()
+                    this.$log.info("status: ", status)
+
+					if(status.BALANCE_AVAILABLE > 0){
+
+					    this.isFunded = true
+						this.isReady = true
+					}
 
 
 
-                            // if (!this.signingPub || !this.signingPriv) {
-                            //     this.openRegister = true
-                            // }
-                        } else {
-                            this.openPassword = true
-                        }
 
 
-                    } else {
-                        //if wallet
-                        if (configStatus.isWallet) {
-                            this.$log.info("checkpoint 4b no username found!")
-                            //nerf register
-							this.openPassword = true
-							//this.openRegister = true
+				} else {
+                    this.$log.info("Password Not Set! : ")
+				}
 
-							//
 
-                        } else {
-                            this.openWelcome = true
-                        }
-                    }
-                }
+                // if (!configStatus.isConfigured) {
+                //     this.$log.info("checkpoint 3 No config found!")
+                //     //open settings modal
+                //     this.openWelcome = true
+                // } else {
+                //     this.$log.info("checkpoint 3a config found!")
+                //     //isRegistered?
+                //     if (configStatus.isRegistered) {
+                //         this.$log.info("checkpoint 4a username found!")
+                //         //startup
+                //         //isPassword
+                //         let password = this.$walletService.getPassword()
+                //         if (password) {
+                //             if (!this.username) {
+                //                 this.username = config.username
+                //             }
+                //             if (!this.signingPub) {
+                //                 this.signingPub = config.signingPub
+                //             }
+                //             if (!this.signingPriv) {
+                //                 this.signingPriv = config.signingPriv
+                //             }
+				//
+                //             //init bot
+                //             await this.$botService.init(password)
+				//
+				// 			//test bitmex
+				// 			let status = await this.$botService.getSummaryInfo()
+				//
+				//
+				//
+				// 			//if online
+				// 			if(status.online){
+				//
+				// 			}
+				//
+				//
+                //             // if (!this.signingPub || !this.signingPriv) {
+                //             //     this.openRegister = true
+                //             // }
+                //         } else {
+                //             this.openPassword = true
+                //         }
+				//
+				//
+                //     } else {
+                //         //if wallet
+                //         if (configStatus.isWallet) {
+                //             this.$log.info("checkpoint 4b no username found!")
+                //             //nerf register
+				// 			this.openPassword = true
+				// 			//this.openRegister = true
+				//
+				// 			//
+				//
+                //         } else {
+                //             this.openWelcome = true
+                //         }
+                //     }
+                // }
             },
             getUsers: function () {
                 this.$http
@@ -551,9 +623,6 @@
                 this.$log.info("signature: ", signature)
                 joinEvent.signature = signature
                 socket.emit('join', JSON.stringify(joinEvent))
-            },
-            tabOpen() {
-                this.$i18n.locale = 'en'
             },
             logout() {
                 this.$log.debug('logout')
