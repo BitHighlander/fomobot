@@ -1,6 +1,6 @@
 {
   "name": "fomobot",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "highlander <bithighlander@gmail.com>",
   "description": "Your Fomo Bro!",
   "license": null,
@@ -60,6 +60,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.1.2",
+    "@fomobro/bitmex-realtime-api-native": "^1.0.3",
     "@fomobro/loggerdog-client": "^4.3.2",
     "@slack/client": "^5.0.1",
     "@vue/babel-preset-app": "^3.9.2",
