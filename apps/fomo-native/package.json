@@ -1,6 +1,6 @@
 {
   "name": "fomobot",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "highlander <bithighlander@gmail.com>",
   "description": "Your Fomo Bro!",
   "license": null,
@@ -210,6 +210,8 @@
     "vue-jest": "^3.0.4",
     "vue-languages-dropdown": "^1.0.16",
     "vue-moment": "^4.0.0",
+    "vue-native-websocket": "^2.0.13",
+    "vue-radial-menu": "^1.1.1",
     "vue-router": "^3.0.1",
     "vue-sorted-table": "^1.1.1",
     "vue-truncate-filter": "^1.1.7",
