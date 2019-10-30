@@ -13,11 +13,11 @@ const pubsubLib = require("redis")
 // });
 
 
-// const bitmexSocket = new BitmexSocket({
-//     "apiKeyID": "",
-//     "apiKeySecret": "",
-//     //"proxy": "https://cors-anywhere.herokuapp.com/"
-// });
+const bitmexSocket = new BitmexSocket({
+    "apiKeyID": "",
+    "apiKeySecret": "",
+    //"proxy": "https://cors-anywhere.herokuapp.com/"
+});
 
 const bitmex = new BitmexAPI({
     "apiKeyID": "",

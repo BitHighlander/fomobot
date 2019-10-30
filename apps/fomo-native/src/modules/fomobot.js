@@ -14,7 +14,8 @@ import {getConfig} from './config'
 import {messageBus} from '@/messagebus'
 
 let {BitmexAPI,BitmexSocket} = require("bitmex-node");
-
+const BitMEXClient = require('@fomobro/bitmex-realtime-api-native');
+const client = new BitMEXClient();
 const moment = require('moment');
 const Cryptr = require('cryptr');
 const db = require('monk')('localhost/zenbot4')
@@ -86,11 +87,12 @@ class BotService {
 
                 let balance = wallet.amount
                 log.info("balance: ",balance)
-                BALANCE_AVAILABLE = balance
+                BALANCE_AVAILABLE = balance  / 100000000
 
 
                 let positions = await EXCHANGES['bitmex'].Position.get()
-                BALANCE_POSITION = Math.abs(positions[0].lastValue)
+                log.info("positions: ",positions)
+                BALANCE_POSITION = Math.abs(positions[0].lastValue) / 100000000
 
                 //percent IN
                 let pctAvaible = balance / Math.abs(positions[0].lastValue)

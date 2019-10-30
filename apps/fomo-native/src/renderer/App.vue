@@ -28,7 +28,7 @@
 										Ready to begin!
 									</div>
 
-									<div v-if="isTrading">
+									<div v-if="isTrader">
 									Trading Status:
 
 										<vc-donut
@@ -37,7 +37,13 @@
 												:sections="sections"
 												has-legend legend-placement="bottom"
 												:total="100"
-										><animated-number :value="totalUSD" :formatValue="formatToPriceUSD" :duration="duration"/>Total (USD)</vc-donut>
+										>
+											{{totalBalance}}(BTC)
+											<animated-number
+													:value="totalUSD"
+													:formatValue="formatToPriceUSD"
+													:duration="duration"/>
+											Total (USD)</vc-donut>
 									</div>
 
 									<div v-if="isTraining">
@@ -56,45 +62,65 @@
 							</b-card>
 						</b-col>
 						<b-col>
-							<b-card
-									title="Trade"
-									img-src=""
-									img-alt="Image"
-									img-top
-									tag="article"
-									style="max-width: 20rem;"
-									class="mb-2"
-							>
-								<b-card-text>
-									last price: {{lastPrice}}
 
-									<h2>Exchange Configured</h2>
+							<div v-if="isTrader">
+								<b-card
+										title="Trade"
+										img-src=""
+										img-alt="Image"
+										img-top
+										tag="article"
+										style="max-width: 20rem;"
+										class="mb-2 text-white"
+								>
+									<b-card-text>
 
-									Bitmex: {{isBitmexLive}}
+										last price: {{lastPrice}}
 
-									<h2></h2>
 
-								</b-card-text>
+										<h2>Exchange Configured</h2>
 
-								<b-button href="#" variant="primary">Start Trading!</b-button>
-							</b-card>
-						</b-col>
-						<b-col>
-							<b-card
-									title="Mine"
-									img-src=""
-									img-alt="Image"
-									img-top
-									tag="article"
-									style="max-width: 20rem;"
-									class="mb-2"
-							>
-								<b-card-text>
-									Some quick example text to build on the card title and make up the bulk of the card's content.
-								</b-card-text>
 
-								<b-button href="#" variant="primary">Start Mining!</b-button>
-							</b-card>
+
+										Bitmex: {{isBitmexLive}}
+
+										<h2>Select Trading Strategy</h2>
+
+										<b-form-select class="text-white" style="background-color: darkslateblue;" v-model="selected" :options="options"></b-form-select>
+
+										<div class="mt-3 text-white">Selected: <strong>{{ selected }}</strong></div>
+
+
+									</b-card-text>
+
+									<b-button href="#" variant="primary" @click="startTrading">Start Trading!</b-button>
+								</b-card>
+
+							</div>
+
+
+							<div v-if="isMiner">
+								<b-card
+										title="Trade"
+										img-src=""
+										img-alt="Image"
+										img-top
+										tag="article"
+										style="max-width: 20rem;"
+										class="mb-2"
+								>
+									<b-card-text>
+										Current model training
+
+										Submit modal
+
+									</b-card-text>
+
+									<b-button href="#" variant="primary">Start Mining!</b-button>
+								</b-card>
+
+							</div>
+
 						</b-col>
 					</b-row>
 
@@ -168,14 +194,29 @@
 		<DisplaySeed :showModal="openDisplaySeed"></DisplaySeed>
 		<SetupExchange :showModal="openSetupExchange"></SetupExchange>
 		<EditBot :showModal="openEditBot"></EditBot>
+		<MinerTraderSelect :showModal="openEditBot"></MinerTraderSelect>
 
+		<radial-menu
+				style="margin: auto; margin-top: 300px; background-color: white"
+				:itemSize="50"
+				:radius="120"
+				:angle-restriction="180">
+			<radial-menu-item
+					v-for="(item, index) in items"
+					:key="index"
+					style="background-color: white"
+					@click="() => handleClick(item)">
+				<span>{{item}}</span>
+			</radial-menu-item>
+		</radial-menu>
+		<div style="color: rgba(0,0,0,0.6); margin-top: 16px;">{{ lastClicked }}</div>
 
 
 	</div>
 </template>
 
 <script>
-
+    import { RadialMenu,  RadialMenuItem } from 'vue-radial-menu'
     import {messageBus} from '@/messagebus'
     import checkUpdate from '../modules/updateChecker'
     import {
@@ -217,6 +258,7 @@
 	//
 	import {BaseTable} from "@/components/BaseTable";
     import AnimatedNumber from "animated-number-vue";
+    import MinerTraderSelect from "./components/MinerTraderSelect";
     //nav
     // import Nav from '@/components/Setup'
 
@@ -227,6 +269,9 @@
     export default {
         name: 'fomobot',
         components: {
+            MinerTraderSelect,
+            RadialMenu,
+            RadialMenuItem,
             AnimatedNumber,
             EditBot,
             Backfill,
@@ -252,16 +297,35 @@
         },
         data() {
             return {
+                selected:"bollinger",
+                options: [
+                    { value: 'bollinger', text: 'bollinger' },
+                    { value: 'cci_srsi', text: 'cci_srsi' },
+                    { value: 'crossover_vwap', text: 'crossover_vwap' },
+                    { value: 'dema', text: 'dema' },
+                    { value: 'ichimoku_score', text: 'ichimoku_score' },
+                    { value: 'ichimoku', text: 'ichimoku' },
+                    { value: 'speed', text: 'speed' },
+                    { value: 'wavetrend', text: 'wavetrend' },
+                    { value: 'trust_distrust', text: 'trust_distrust' },
+                    { value: 'ta_ultosc', text: 'ta_ultosc' },
+                    { value: 'stddev', text: 'stddev' },
+                ],
+				items: ['Mine', 'Trade', 'Advanced Mode'],
+				lastClicked: 'Trade',
                 lastPrice:0,
                 totalUSD:0,
 				totalBalance:0,
+				duration:1000,
+				isMiner:false,
+				isTrader:true,
                 isFunded:false,
                 isTrading:false,
 				isTraining:false,
 				isReady:false,
                 isAdvancedMode:false,
                 isBitmexLive:false,
-                isNotConfiged:true,
+                isNotConfiged:false,
                 sections: [],
                 bitmex:"",
                 monitor: {
@@ -270,6 +334,7 @@
                 },
                 tabOpen: 'balances',
                 isWalletLocked: true,
+				openMinerTraderSelect:false,
                 openSetupExchange: false,
 				openSend: false,
                 openConfiguration: false,
@@ -349,6 +414,9 @@
 
                 //open
                 messageBus.$on('open', (window) => {
+                    if (window == 'windowMinerTraderSelect') {
+                        this.openMinerTraderSelect = true
+                    }
                     if (window == 'windowEditBot') {
                         this.openEditBot = true
                     }
@@ -413,6 +481,9 @@
 
                 //close
                 messageBus.$on('close', (window) => {
+                    if (window == 'windowMinerTraderSelect') {
+                        this.openMinerTraderSelect = false
+                    }
                     if (window == 'windowEditBot') {
                         this.openEditBot = false
                     }
@@ -480,6 +551,39 @@
             }
         },
         methods: {
+            async startTrading() {
+				try{
+
+
+
+				}catch(e){
+                    this.$log.error(" Failed to start trading! ")
+				}
+            },
+            handleClick (item) {
+                this.lastClicked = item;
+                this.$log.info("item: ", item)
+
+                //
+                switch(item) {
+                    case "Mine":
+                        // code block
+                        break;
+                    case "Mine":
+                        // code block
+                        break;
+                    case "Advanced Mode":
+                        // code block
+						if(this.isAdvancedMode){
+                            this.isAdvancedMode = false
+						}else{
+                            this.isAdvancedMode = true
+						}
+                        break;
+                    default:
+                    // code block
+                }
+            },
             formatToPriceUSD(value) {
                 return `<h4>$ ${Number(value).toFixed(2)}</h4>`;
             },
@@ -502,6 +606,7 @@
                     this.$log.info("status: ", status)
 
 					if(status.BALANCE_AVAILABLE > 0){
+						this.totalBalance = status.BALANCE_AVAILABLE
 
 					    this.isFunded = true
 						this.isReady = true
