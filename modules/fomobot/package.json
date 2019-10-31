@@ -1,6 +1,6 @@
 {
-  "name": "@fomobro/fomo-core",
-  "version": "1.0.5",
+  "name": "@fomobro/fomobot",
+  "version": "1.0.6",
   "scripts": {
     "node version": "node --version",
     "backfill": "node backfill.js",
@@ -9,8 +9,6 @@
   },
   "dependencies": {
     "@babel/core": "^7.1.2",
-    "@fomobro/default-redis": "^4.3.2",
-    "@fomobro/loggerdog-client": "^4.3.2",
     "@slack/client": "^5.0.1",
     "async": "^3.0.1",
     "babel-loader": "^8.0.4",
