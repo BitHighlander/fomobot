@@ -14,8 +14,8 @@ import {getConfig} from './config'
 import {messageBus} from '@/messagebus'
 
 let {BitmexAPI,BitmexSocket} = require("bitmex-node");
-const BitMEXClient = require('@fomobro/bitmex-realtime-api-native');
-const client = new BitMEXClient();
+//const BitMEXClient = require('@fomobro/bitmex-realtime-api-native');
+//const client = new BitMEXClient();
 const moment = require('moment');
 const Cryptr = require('cryptr');
 const db = require('monk')('localhost/zenbot4')
@@ -92,30 +92,34 @@ class BotService {
 
                 let positions = await EXCHANGES['bitmex'].Position.get()
                 log.info("positions: ",positions)
-                BALANCE_POSITION = Math.abs(positions[0].lastValue) / 100000000
 
-                //percent IN
-                let pctAvaible = balance / Math.abs(positions[0].lastValue)
-                pctAvaible = pctAvaible * 100
-                pctAvaible = pctAvaible - 100
-                PCT_IN_POSITION = pctAvaible
-                log.info("pctInPosition: ",pctAvaible)
+                for(let i = 0; i < positions.length; i++){
+                    BALANCE_POSITION = BALANCE_POSITION + Math.abs(positions[0].lastValue) / 100000000
 
-                //isBull
-                let isBull = false
-                if(positions[0].lastValue > 0){
-                    isBull = true
-                    IS_BULL = true
+                    //percent IN
+                    let pctAvaible = balance / Math.abs(BALANCE_POSITION)
+                    pctAvaible = pctAvaible * 100
+                    pctAvaible = pctAvaible - 100
+                    PCT_IN_POSITION = pctAvaible
+                    log.info("pctInPosition: ",pctAvaible)
+
+                    //isBull
+                    let isBull = false
+                    if(positions[0].lastValue > 0){
+                        isBull = true
+                        IS_BULL = true
+                    }
+
+                    //isBear
+                    let isBear = false
+                    if(positions[0].lastValue < 0){
+                        isBear = true
+                        IS_BEAR = true
+                    }
+
+                    IS_INIT = true
                 }
 
-                //isBear
-                let isBear = false
-                if(positions[0].lastValue < 0){
-                    isBear = true
-                    IS_BEAR = true
-                }
-
-                IS_INIT = true
             }
 
             return true

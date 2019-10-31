@@ -1,6 +1,25 @@
+/*
+      FOMOBOT main process
 
+ */
+
+
+let TAG = " | MAIN | "
+import log from '../modules/logger'
+import {exec} from "child_process";
 import { app, BrowserWindow } from 'electron'
+
+//req
 const {ipcMain} = require('electron')
+const io = require('socket.io-client');
+let wait = require('wait-promise');
+let sleep = wait.sleep;
+
+//
+let bot = require("@fomobro/fomobot")
+
+const db = require('monk')('localhost/zenbot4')
+const tradesDB = db.get('trades')
 
 
 //import train from "../modules/train"
@@ -10,18 +29,6 @@ const {ipcMain} = require('electron')
 //run as node.js
 //let train = require("../modules/train")
 //let backfill = require("../modules/backfill")
-
-//TODO Start influxDB
-
-//TODO get db size
-
-//get hdd space
-
-import log from '../modules/logger'
-import {exec} from "child_process";
-
-
-
 
 /**
  * Set `__static` path to static files in production
@@ -156,53 +163,62 @@ ipcMain.on('quit', (event) => {
   app.quit()
 })
 
-ipcMain.on('start-bitmex-sockets', (event, arg) => {
-  let tag = TAG + " | start-bitmex-sockets | "
+//Sub to fomo websocket
+ipcMain.on('sub-fomo-ws', async (event, arg) => {
+  let tag = TAG + " | sub-fomo-ws | "
   try{
-    //
-    log.info(tag,"********************* START")
+    log.info(tag,"event: ",event)
+    event.returnValue = 'pong'
+
+    //let config = getConfig()
+    //log.info(tag,"config: ",config)
+    let config = {}
+    config.WS_FOMO = "ws://127.0.0.1:3010"
 
 
-    // client.addStream('XBTUSD', 'trade', function (data, symbol, tableName) {
-    //   // Do something with the table data...
-    //   console.log(data, symbol, tableName)
     //
-    //
-    //   //console.log("data: ",data)
-    //   //console.log("tableName: ",tableName)
-    //   //console.log("data: ",data.length)
-    //
-    //   let clean = []
-    //   for(let i = 0; i < data.length; i++){
-    //     let tradeInfo = data[i]
-    //
-    //     //console.log("tradeInto: ",tradeInfo)
-    //
-    //     //let price
-    //     let price = tradeInfo.price
-    //     let amount = tradeInfo.size
-    //     // console.log("price: ",price)
-    //     // console.log("amount: ",amount)
-    //
-    //     let normalized = {}
-    //     normalized.trade_id = tradeInfo.trdMatchID
-    //     normalized.time = new Date(tradeInfo.timestamp).getTime()
-    //     normalized.unix = new Date(tradeInfo.timestamp).getTime()
-    //     normalized.size = tradeInfo.size
-    //     normalized.side = tradeInfo.side
-    //     normalized.price = tradeInfo.price
-    //     clean.push(normalized)
-    //     event.returnValue = normalized
-    //   }
-    //
-    // });
+    bot.init("ta_ultosc")
+
+    //wait for it to finish loading
+    await sleep(4000)
+
+    //load last x timeframe
+    let allTrades = await tradesDB.find({selector:"bitmex.BTC-USD"},{limit:10000,sort:{time:-1}})
+    log.info(tag,"total trades: ",allTrades.length)
+
+    //Load trades to engine
+    bot.load(allTrades)
+
+    //if(!config.WS_FOMO) throw Error("Websocket not configured!")
+    var socket = io.connect(config.WS_FOMO, {reconnect: true, rejectUnauthorized: false});
 
 
+    socket.on('events', async function (message) {
+      //console.log('event: ',message);
+      if(typeof(message) === 'string') message = JSON.parse(message)
 
+      switch (message.event) {
+        case "trades":
+          //push to engine
+          log.info(tag,"trade: ",message)
+          bot.load([message.trade])
+
+
+          break;
+        case "transaction":
+          //save to db
+
+          break;
+        default:
+          log.info("unknown event: ",message)
+          break
+      }
+    });
   }catch(e){
-    console.error(e)
+    log.error(tag,e)
   }
 })
+
 
 
 ipcMain.on('bot', async (event,type,payload) => {

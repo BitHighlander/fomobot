@@ -391,13 +391,13 @@
         },
         created() {
             try {
-                ipcRenderer.on('start-bitmex-sockets', (work,data2,data3) => {
-                    this.$log.info("data2: ", data2)
-                    if(data2.price){
-						this.lastPrice = data2.price
-                        //messageBus.$emit('lastPrice',data2)
-                    }
-                })
+                // ipcRenderer.on('start-bitmex-sockets', (work,data2,data3) => {
+                //     this.$log.info("data2: ", data2)
+                //     if(data2.price){
+				// 		this.lastPrice = data2.price
+                //         //messageBus.$emit('lastPrice',data2)
+                //     }
+                // })
 
 
                 let pieChart = [
@@ -554,10 +554,10 @@
             async startTrading() {
 				try{
 
-
+                    ipcRenderer.sendSync('sub-fomo-ws', this.selected)
 
 				}catch(e){
-                    this.$log.error(" Failed to start trading! ")
+                    this.$log.error(" Failed to start trading! ",e)
 				}
             },
             handleClick (item) {
