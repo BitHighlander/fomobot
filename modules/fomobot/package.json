@@ -1,15 +1,14 @@
 {
   "name": "@fomobro/fomobot",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "scripts": {
     "node version": "node --version",
-    "backfill": "node backfill.js",
-    "train": "node train.js",
-    "trade": "node trade.js"
+    "test": "node ./__tests__/test-module"
   },
   "dependencies": {
     "@babel/core": "^7.1.2",
-    "@fomobro/loggerdog-client": "^1.0.8",
+    "@fomobro/loggerdog-client": "^1.0.9",
+    "@fomobro/talib-fomo": "^1.0.9",
     "@slack/client": "^5.0.1",
     "async": "^3.0.1",
     "babel-loader": "^8.0.4",
@@ -87,7 +86,6 @@
     "stats-lite": "2.2.0",
     "style-loader": "^0.23.0",
     "superagent": "^5.0.2",
-    "talib": "^1.0.4",
     "timebucket": "^0.4.0",
     "trend": "0.3.0",
     "tulind": "^0.8.14",
