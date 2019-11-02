@@ -1,14 +1,14 @@
 {
   "name": "@fomobro/fomobot",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "scripts": {
     "node version": "node --version",
     "test": "node ./__tests__/test-module"
   },
   "dependencies": {
     "@babel/core": "^7.1.2",
-    "@fomobro/loggerdog-client": "^1.0.11",
-    "@fomobro/talib-fomo": "^1.0.11",
+    "@fomobro/loggerdog-client": "^1.0.12",
+    "@fomobro/talib-fomo": "^1.0.12",
     "@slack/client": "^5.0.1",
     "async": "^3.0.1",
     "babel-loader": "^8.0.4",

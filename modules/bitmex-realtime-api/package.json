@@ -1,6 +1,6 @@
 {
   "name": "@fomobro/bitmex-realtime-api",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BitMEX/api-connectors.git"

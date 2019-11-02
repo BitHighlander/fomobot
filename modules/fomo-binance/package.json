@@ -1,6 +1,6 @@
 {
   "name": "fomo-binance",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "dependencies": {
     "binance": "^1.3.3",
     "default-logger": "0.0.2",
