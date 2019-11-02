@@ -21,6 +21,7 @@ let bot = require("@fomobro/fomobot")
 const db = require('monk')('localhost/zenbot4')
 const tradesDB = db.get('trades')
 
+console.log("**** NODE VERSION: ",process.version);
 
 //import train from "../modules/train"
 // import simulate from "../modules/simulations"
