@@ -1,6 +1,6 @@
 {
   "name": "@fomobro/fomo-coincap",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "A coincap module",
   "main": "index.js",
   "scripts": {
