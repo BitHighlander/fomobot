@@ -4,12 +4,8 @@
     <list default="true" id="222539ec-8fd8-4098-b8a4-b0833b44921b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/fomo-native/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fomo-native/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/fomo-native/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fomo-native/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/fomo-native/src/main/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fomo-native/src/main/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/fomo-native/src/modules/fomobot.js" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fomo-native/src/modules/fomobot.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/fomo-native/src/renderer/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fomo-native/src/renderer/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/fomo-service/__tests__/sub-ws.js" beforeDir="false" afterPath="$PROJECT_DIR$/modules/fomo-service/__tests__/sub-ws.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/fomobot/lib/engine.js" beforeDir="false" afterPath="$PROJECT_DIR$/modules/fomobot/lib/engine.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,6 +17,39 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DockManager">
+    <window id="2">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/apps/fomo-native/src/renderer/App.vue">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="710">
+                    <caret line="404" column="20" selection-start-line="404" selection-start-column="20" selection-end-line="404" selection-end-column="20" />
+                    <folding>
+                      <element signature="n#style#0;n#b-card#0;n#b-col#0;n#b-row#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                      <element signature="n#style#0;n#b-card#0;n#div#0;n#b-col#1;n#b-row#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                      <element signature="n#style#0;n#b-form-select#0;n#b-card-text#0;n#b-card#0;n#div#0;n#b-col#1;n#b-row#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                      <element signature="n#style#0;n#b-card#0;n#div#1;n#b-col#1;n#b-row#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                      <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+                      <element signature="n#style#0;n#radial-menu#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                      <element signature="n#style#0;n#radial-menu-item#0;n#radial-menu#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                      <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                      <element signature="e#6230#6291#0" expanded="true" />
+                      <element signature="e#6626#6664#0" expanded="true" />
+                      <element signature="e#7231#7271#0" expanded="true" />
+                      <element signature="e#7607#7656#0" expanded="true" />
+                      <element signature="e#12181#14856#0" />
+                      <element signature="e#14935#17631#0" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
     <window id="2">
       <content type="file-editors">
         <state>
@@ -48,12 +77,24 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apps/fomo-native/src/main/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="183" lean-forward="true" selection-start-line="183" selection-end-line="183" />
+            <state relative-caret-position="861">
+              <caret line="203" column="28" selection-start-line="203" selection-start-column="28" selection-end-line="203" selection-end-column="28" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#44#79#0" expanded="true" />
                 <element signature="n#!!block;n#createMenu#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/fomo-native/src/renderer/components/Configuration.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="24" selection-start-line="24" selection-end-line="24" />
+              <folding>
+                <element signature="n#style#0;n#section#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -99,42 +140,12 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/fomo-native/src/renderer/App.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="586" column="19" selection-start-line="586" selection-start-column="19" selection-end-line="586" selection-end-column="19" />
-              <folding>
-                <element signature="n#style#0;n#b-card#0;n#b-col#0;n#b-row#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#b-card#0;n#div#0;n#b-col#1;n#b-row#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#b-form-select#0;n#b-card-text#0;n#b-card#0;n#div#0;n#b-col#1;n#b-row#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#b-card#0;n#div#1;n#b-col#1;n#b-row#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
-                <element signature="n#style#0;n#radial-menu#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#radial-menu-item#0;n#radial-menu#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="e#6230#6291#0" expanded="true" />
-                <element signature="e#6626#6664#0" expanded="true" />
-                <element signature="e#7231#7271#0" expanded="true" />
-                <element signature="e#7607#7656#0" expanded="true" />
-                <element signature="e#12181#14856#0" />
-                <element signature="e#14935#17631#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.env">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
               <caret line="2" column="36" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="36" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/bitmex-realtime-api/lib/getStreams.js">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -168,7 +179,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>fomo-native/apps/fomo-native</find>
       <find>fomo-native</find>
       <find>src</find>
       <find>backfill</find>
@@ -198,6 +208,7 @@
       <find>PIONEER</find>
       <find>publisher</find>
       <find>getConfig</find>
+      <find>fomo</find>
     </findStrings>
     <replaceStrings>
       <replace>maxlength=&quot;5&quot; size=&quot;5&quot; class=&quot;te</replace>
@@ -296,11 +307,11 @@
         <option value="$PROJECT_DIR$/modules/bitmex-realtime-api/package.json" />
         <option value="$PROJECT_DIR$/modules/fomo-service/__tests__/sub-ws.js" />
         <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/apps/fomo-native/src/renderer/App.vue" />
         <option value="$PROJECT_DIR$/apps/fomo-native/package.json" />
         <option value="$PROJECT_DIR$/modules/fomobot/package.json" />
         <option value="$PROJECT_DIR$/modules/fomobot/lib/engine.js" />
         <option value="$PROJECT_DIR$/apps/fomo-native/src/main/index.js" />
+        <option value="$PROJECT_DIR$/apps/fomo-native/src/renderer/App.vue" />
       </list>
     </option>
   </component>
@@ -348,6 +359,23 @@
               <item name="fomo-native" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fomobot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fomobot" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="fomo-native" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="renderer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fomobot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fomobot" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="fomo-native" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="renderer" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="fomobot" type="b2602c69:ProjectViewProjectNode" />
@@ -422,9 +450,6 @@
     <configuration name="test-module.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="test-module.js" working-dir="$PROJECT_DIR$/modules/fomobot/__tests__">
       <method v="2" />
     </configuration>
-    <configuration name="test.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="test.js" working-dir="$PROJECT_DIR$/modules/bitmex-realtime-api/test">
-      <method v="2" />
-    </configuration>
     <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/apps/fomo-native/package.json" />
       <command value="run" />
@@ -445,6 +470,16 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="npm" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/apps/fomo-native/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="npm" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="publish-all-packages" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -458,10 +493,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="npm.dev" />
+        <item itemvalue="npm.npm" />
         <item itemvalue="npm.publish-all-packages" />
         <item itemvalue="npm.lerna-bump-version" />
         <item itemvalue="Node.js.test-module.js" />
-        <item itemvalue="Node.js.test.js" />
       </list>
     </recent_temporary>
   </component>
@@ -521,14 +556,7 @@
       <workItem from="1572208556409" duration="453000" />
       <workItem from="1572220572190" duration="2886000" />
       <workItem from="1572224121827" duration="8335000" />
-      <workItem from="1572398949084" duration="15186000" />
-    </task>
-    <task id="LOCAL-00028" summary="writes seed to vault">
-      <created>1564724789906</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1564724789906</updated>
+      <workItem from="1572398949084" duration="17177000" />
     </task>
     <task id="LOCAL-00029" summary="startup working!">
       <created>1564725320816</created>
@@ -866,23 +894,30 @@
       <option name="project" value="LOCAL" />
       <updated>1572405896974</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="almost there, paths broke in fomobro/fomobot in native">
+      <created>1572495648594</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1572495648595</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="358536000" />
+    <option name="totallyTimeSpent" value="360527000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2903" y="226" width="1417" height="2229" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6444276" visible="true" weight="0.22525108" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.62952447" visible="true" weight="0.22525108" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="npm" order="2" sideWeight="0.3555724" side_tool="true" visible="true" weight="0.22525108" />
+      <window_info id="npm" order="2" sideWeight="0.3704755" side_tool="true" visible="true" weight="0.22525108" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="0" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32819247" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49964714" visible="true" weight="0.36950287" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49964714" visible="true" weight="0.32648185" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -926,7 +961,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="begin tx work" />
     <MESSAGE value="FOMO TRAINING ITSELF!!! ITS ALIVE!!!" />
     <MESSAGE value="more working this time" />
     <MESSAGE value="begin of night" />
@@ -951,16 +985,10 @@
     <MESSAGE value="clean up mono" />
     <MESSAGE value="stupid sockets need import I guess" />
     <MESSAGE value="F it, lets do it live" />
-    <option name="LAST_COMMIT_MESSAGE" value="F it, lets do it live" />
+    <MESSAGE value="almost there, paths broke in fomobro/fomobot in native" />
+    <option name="LAST_COMMIT_MESSAGE" value="almost there, paths broke in fomobro/fomobot in native" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/modules/fomo-binance/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/fomo-coincap/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1211,29 +1239,6 @@
     <entry file="file://$PROJECT_DIR$/modules/bitmex-realtime-api/lib/getStreams.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/fomo-native/src/renderer/App.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="586" column="19" selection-start-line="586" selection-start-column="19" selection-end-line="586" selection-end-column="19" />
-          <folding>
-            <element signature="n#style#0;n#b-card#0;n#b-col#0;n#b-row#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#b-card#0;n#div#0;n#b-col#1;n#b-row#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#b-form-select#0;n#b-card-text#0;n#b-card#0;n#div#0;n#b-col#1;n#b-row#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#b-card#0;n#div#1;n#b-col#1;n#b-row#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#style#0;n#radial-menu#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#radial-menu-item#0;n#radial-menu#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="e#6230#6291#0" expanded="true" />
-            <element signature="e#6626#6664#0" expanded="true" />
-            <element signature="e#7231#7271#0" expanded="true" />
-            <element signature="e#7607#7656#0" expanded="true" />
-            <element signature="e#12181#14856#0" />
-            <element signature="e#14935#17631#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -1248,13 +1253,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/fomo-native/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="64" column="33" selection-start-line="64" selection-start-column="33" selection-end-line="64" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/fomobot/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -1266,16 +1264,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="780">
           <caret line="112" column="3" selection-start-line="112" selection-start-column="3" selection-end-line="112" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/fomobot/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="915">
-          <caret line="73" column="48" selection-start-line="73" selection-start-column="48" selection-end-line="73" selection-end-column="48" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1297,10 +1285,60 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/apps/fomo-native/src/renderer/components/Configuration.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="n#style#0;n#section#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/fomo-native/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="64" column="33" selection-start-line="64" selection-start-column="33" selection-end-line="64" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/fomobot/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="915">
+          <caret line="73" column="48" selection-start-line="73" selection-start-column="48" selection-end-line="73" selection-end-column="48" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/fomo-native/src/renderer/App.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="710">
+          <caret line="404" column="20" selection-start-line="404" selection-start-column="20" selection-end-line="404" selection-end-column="20" />
+          <folding>
+            <element signature="n#style#0;n#b-card#0;n#b-col#0;n#b-row#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#b-card#0;n#div#0;n#b-col#1;n#b-row#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#b-form-select#0;n#b-card-text#0;n#b-card#0;n#div#0;n#b-col#1;n#b-row#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#b-card#0;n#div#1;n#b-col#1;n#b-row#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#style#0;n#radial-menu#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#radial-menu-item#0;n#radial-menu#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#6230#6291#0" expanded="true" />
+            <element signature="e#6626#6664#0" expanded="true" />
+            <element signature="e#7231#7271#0" expanded="true" />
+            <element signature="e#7607#7656#0" expanded="true" />
+            <element signature="e#12181#14856#0" />
+            <element signature="e#14935#17631#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/apps/fomo-native/src/main/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="183" lean-forward="true" selection-start-line="183" selection-end-line="183" />
+        <state relative-caret-position="861">
+          <caret line="203" column="28" selection-start-line="203" selection-start-column="28" selection-end-line="203" selection-end-column="28" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#44#79#0" expanded="true" />

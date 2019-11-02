@@ -16,7 +16,7 @@ let wait = require('wait-promise');
 let sleep = wait.sleep;
 
 //
-let bot = require("@fomobro/fomobot")
+//let bot = require("@fomobro/fomobot")
 
 const db = require('monk')('localhost/zenbot4')
 const tradesDB = db.get('trades')
@@ -167,7 +167,7 @@ ipcMain.on('quit', (event) => {
 ipcMain.on('sub-fomo-ws', async (event, arg) => {
   let tag = TAG + " | sub-fomo-ws | "
   try{
-    log.info(tag,"event: ",event)
+    //log.info(tag,"event: ",event)
     event.returnValue = 'pong'
 
     //let config = getConfig()
@@ -177,32 +177,32 @@ ipcMain.on('sub-fomo-ws', async (event, arg) => {
 
 
     //
-    bot.init("ta_ultosc")
+    //bot.init("ta_ultosc")
 
     //wait for it to finish loading
     await sleep(4000)
 
     //load last x timeframe
-    let allTrades = await tradesDB.find({selector:"bitmex.BTC-USD"},{limit:10000,sort:{time:-1}})
-    log.info(tag,"total trades: ",allTrades.length)
+    //let allTrades = await tradesDB.find({selector:"bitmex.BTC-USD"},{limit:10000,sort:{time:-1}})
+    //log.info(tag,"total trades: ",allTrades.length)
 
     //Load trades to engine
-    bot.load(allTrades)
+    //bot.load(allTrades)
 
     //if(!config.WS_FOMO) throw Error("Websocket not configured!")
     var socket = io.connect(config.WS_FOMO, {reconnect: true, rejectUnauthorized: false});
 
 
-    socket.on('events', async function (message) {
-      //console.log('event: ',message);
+    socket.on('trades', async function (message) {
+      console.log('event: ',message);
       if(typeof(message) === 'string') message = JSON.parse(message)
 
       switch (message.event) {
         case "trades":
           //push to engine
           log.info(tag,"trade: ",message)
-          bot.load([message.trade])
-
+          //bot.load([message.trade])
+          event.sender.send("trades",message)
 
           break;
         case "transaction":

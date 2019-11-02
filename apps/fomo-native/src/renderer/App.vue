@@ -399,6 +399,44 @@
                 //     }
                 // })
 
+                ipcRenderer.on('trades', (work,data2,data3) => {
+
+                    /*
+                    	trade:  {
+                    			  event: 'trades',
+								  global: true,
+								  source: 'bitmex',
+								  time: 1572669006552,
+								  trade:
+								   { price: 9245,
+									 side: 'Buy',
+									 size: 3230,
+									 time: 1572669006450,
+									 trade_id: '4ec837e3-0808-eb57-84e9-8fbf74133f33',
+									 unix: 1572669006450 }
+								 }
+                     */
+
+
+                    //this.$log.debug("IPC MESSAGE! ")
+                    //this.$log.info("work: ",work)
+                    this.$log.debug("data2: ",data2)
+                    // this.$log.debug("data3: ",data3)
+                    //
+                    // this.$log.debug("data2: ",typeof(data2))
+                    // this.$log.debug("data2: ",data2.event)
+                    //TODO only toast on NEW tx's!
+                    if(data2.event === 'trades'){
+
+                        this.lastPrice = data2.trade.price
+                    }
+
+
+                    //sound.playChingle()
+                    messageBus.$emit('block',data2)
+
+                })
+
 
                 let pieChart = [
                     { label: 'In Positions',value: 50 },
