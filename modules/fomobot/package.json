@@ -1,6 +1,6 @@
 {
   "name": "@fomobro/fomobot",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "scripts": {
     "node version": "node --version",
     "backfill": "node backfill.js",
@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.1.2",
-    "@fomobro/loggerdog-client": "^1.0.7",
+    "@fomobro/loggerdog-client": "^1.0.8",
     "@slack/client": "^5.0.1",
     "async": "^3.0.1",
     "babel-loader": "^8.0.4",
