@@ -16,7 +16,7 @@ let wait = require('wait-promise');
 let sleep = wait.sleep;
 
 //
-//let bot = require("@fomobro/fomobot")
+let bot = require("@fomobro/fomobot")
 
 const db = require('monk')('localhost/zenbot4')
 const tradesDB = db.get('trades')
@@ -177,7 +177,7 @@ ipcMain.on('sub-fomo-ws', async (event, arg) => {
 
 
     //
-    //bot.init("ta_ultosc")
+    bot.init("ta_ultosc")
 
     //wait for it to finish loading
     await sleep(4000)

@@ -759,7 +759,7 @@ module.exports = function (s, conf) {
         time:new Date().getTime()
       }
 
-      redis.lpush("fomo:signal",JSON.stringify(signal))
+      //redis.lpush("fomo:signal",JSON.stringify(signal))
 
       process.stdout.write(z(9, s.signal || '', ' ')[s.signal ? s.signal === 'buy' ? 'green' : 'red' : 'grey'])
     }
@@ -1005,7 +1005,7 @@ module.exports = function (s, conf) {
               time:new Date().getTime()
             }
 
-            redis.lpush("fomo:signal",JSON.stringify(signal))
+            //redis.lpush("fomo:signal",JSON.stringify(signal))
             //executeSignal(s.signal)
           }
         }

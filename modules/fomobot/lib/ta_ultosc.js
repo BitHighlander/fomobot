@@ -1,4 +1,4 @@
-var talib = require('talib')
+var talib = require('@fomobro/talib-fomo')
 
 module.exports = function ultosc(s, min_periods, timeperiod1, timeperiod2, timeperiod3) {
   return new Promise(function(resolve, reject) {

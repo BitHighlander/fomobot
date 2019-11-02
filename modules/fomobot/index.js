@@ -124,7 +124,8 @@ let init_bot =  async function (strategy) {
 
         s.options.strategy =  'ta_ultosc' //very active!
 
-        s.strategy = require(path.resolve(__dirname, `./extensions/strategies/${s.options.strategy}/strategy`))
+        //s.strategy = require(path.resolve(__dirname, `./extensions/strategies/${s.options.strategy}/strategy`))
+        s.strategy = require('/home/highlander/WebstormProjects/fomobot/modules/fomobot/extensions/strategies/ta_ultosc/strategy.js')
 
         ENGINE = engineFactory(s, conf)
 
