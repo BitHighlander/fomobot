@@ -420,7 +420,7 @@
 
                     //this.$log.debug("IPC MESSAGE! ")
                     //this.$log.info("work: ",work)
-                    this.$log.debug("data2: ",data2)
+                    //this.$log.debug("data2: ",data2)
                     // this.$log.debug("data3: ",data3)
                     //
                     // this.$log.debug("data2: ",typeof(data2))

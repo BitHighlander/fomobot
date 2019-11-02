@@ -36,7 +36,7 @@ module.exports = function (s, conf) {
   let so = s.options
   if(true){
     if (so.mode !== 'live') {
-      s.exchange = require(path.resolve(__dirname, '../extensions/exchanges/sim/exchange'))(conf, s)
+      s.exchange = require("/home/highlander/WebstormProjects/fomobot/modules/fomobot/extensions/exchanges/sim/exchange.js")(conf, s)
     }
     // else {
     //   s.exchange = require(path.resolve(__dirname, `./extensions/exchanges/gdax/exchange`))(conf)
@@ -112,7 +112,7 @@ module.exports = function (s, conf) {
     s.trades = []
   }
   if (so.strategy) {
-    s.strategy = require(path.resolve(__dirname, `../extensions/strategies/${so.strategy}/strategy`))
+    //s.strategy = so.strategy
     if (s.strategy.getOptions) {
       s.strategy.getOptions.call(s.ctx, s)
     }
