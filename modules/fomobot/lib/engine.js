@@ -760,6 +760,7 @@ module.exports = function (s, conf) {
       }
 
       //redis.lpush("fomo:signal",JSON.stringify(signal))
+      eventBus.emit('events', signal)
 
       process.stdout.write(z(9, s.signal || '', ' ')[s.signal ? s.signal === 'buy' ? 'green' : 'red' : 'grey'])
     }

@@ -17,6 +17,7 @@ import Echarts from 'vue-echarts';
 import BootstrapVue from 'bootstrap-vue'
 import Donut from 'vue-css-donut-chart';
 import 'vue-css-donut-chart/dist/vcdonut.css';
+import Toasted from 'vue-toasted';
 
 //charts
 import 'echarts/lib/chart/bar';
@@ -44,6 +45,16 @@ import es from '../lang/es'
 //require
 //let nalytics = require('forex-analytics-fomo')
 let VueTruncate = require('vue-truncate-filter')
+
+let Options = {
+  // or you can pass an object
+  icon : {
+    name : 'watch',
+    after : true // this will append the icon to the end of content
+  }
+}
+
+Vue.use(Toasted, Options)
 
 //Super
 Vue.use(BootstrapVue)

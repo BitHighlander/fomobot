@@ -3,10 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="222539ec-8fd8-4098-b8a4-b0833b44921b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/fomo-native/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/fomo-native/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fomo-native/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/fomo-native/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fomo-native/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/fomo-native/src/main/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fomo-native/src/main/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/fomobot/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/fomo-native/src/renderer/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fomo-native/src/renderer/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/fomo-native/src/renderer/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fomo-native/src/renderer/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/fomobot/__tests__/test-module.js" beforeDir="false" afterPath="$PROJECT_DIR$/modules/fomobot/__tests__/test-module.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/fomobot/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/modules/fomobot/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/fomobot/lib/engine.js" beforeDir="false" afterPath="$PROJECT_DIR$/modules/fomobot/lib/engine.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,8 +29,8 @@
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/apps/fomo-native/src/renderer/App.vue">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="500">
-                    <caret line="396" column="30" selection-start-line="395" selection-start-column="28" selection-end-line="396" selection-end-column="30" />
+                  <state relative-caret-position="951">
+                    <caret line="457" selection-start-line="457" selection-end-line="460" selection-end-column="22" />
                     <folding>
                       <element signature="n#style#0;n#b-card#0;n#b-col#0;n#b-row#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                       <element signature="n#style#0;n#b-card#0;n#div#0;n#b-col#1;n#b-row#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -51,19 +55,15 @@
         </state>
       </content>
     </window>
-    <window id="2">
+    <window id="3">
       <content type="file-editors">
         <state>
-          <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <leaf>
             <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/apps/fomo-native/src/modules/fomobot.js">
+              <entry file="file://$PROJECT_DIR$/modules/fomobot/__tests__/test-module.js">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="1928">
-                    <caret line="187" column="26" selection-start-line="187" selection-start-column="26" selection-end-line="187" selection-end-column="26" />
-                    <folding>
-                      <element signature="n#!!doc" expanded="true" />
-                      <element signature="e#170#196#0" expanded="true" />
-                    </folding>
+                  <state relative-caret-position="420">
+                    <caret line="28" column="54" selection-start-line="28" selection-start-column="54" selection-end-line="28" selection-end-column="54" />
                   </state>
                 </provider>
               </entry>
@@ -75,35 +75,63 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apps/fomo-native/src/main/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="40" selection-start-line="40" selection-end-line="40" />
+            <state relative-caret-position="997">
+              <caret line="237" lean-forward="true" selection-start-line="237" selection-end-line="237" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
-                <element signature="n#!!block;n#createMenu#0" />
+                <element signature="e#60#95#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/fomobot/package.json">
+        <entry file="file://$PROJECT_DIR$/apps/fomo-native/node_modules/@fomobro/fomobot/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="61" column="13" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
+            <state relative-caret-position="486">
+              <caret line="78" column="18" selection-start-line="78" selection-start-column="18" selection-end-line="78" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/fomo-native/.electron-vue/webpack.main.config.js">
+        <entry file="file://$PROJECT_DIR$/apps/fomo-native/node_modules/@fomobro/fomobot/lib/engine.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1080">
-              <caret line="72" selection-start-line="72" selection-end-line="72" />
+            <state relative-caret-position="836">
+              <caret line="988" selection-start-line="988" selection-end-line="988" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="23" column="35" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/fomo-native/src/renderer/main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="870">
+              <caret line="58" column="7" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="7" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+                <element signature="e#1033#1074#0" expanded="true" />
+                <element signature="e#1251#1278#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/fomo-service/package.json">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -116,36 +144,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/fomo-native/.electron-vue/build.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-177" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/fomo-native/.electron-vue/dev-client.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/modules/fomobot/__tests__/test-module.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+            <state relative-caret-position="570">
+              <caret line="38" column="3" selection-start-line="38" selection-start-column="3" selection-end-line="38" selection-end-column="3" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/fomo-native/.electron-vue/dev-runner.js">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/modules/fomobot/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1250">
+              <caret line="133" column="19" selection-start-line="133" selection-start-column="19" selection-end-line="133" selection-end-column="19" />
+              <folding>
+                <element signature="e#3649#10166#0" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/fomobot/index.js">
+        <entry file="file://$PROJECT_DIR$/modules/fomobot/lib/engine.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-123">
-              <caret line="141" column="21" selection-start-line="141" selection-start-column="21" selection-end-line="141" selection-end-column="21" />
+            <state relative-caret-position="496">
+              <caret line="763" selection-start-line="763" selection-end-line="763" />
             </state>
           </provider>
         </entry>
@@ -163,11 +186,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>@fomobot/</find>
-      <find>&quot;version&quot;:</find>
-      <find>&quot;version&quot;:&quot;0.0.0&quot; null,</find>
-      <find>public</find>
-      <find>log.info</find>
       <find>message</find>
       <find>bus</find>
       <find>messageBus</find>
@@ -180,7 +198,6 @@
       <find>.on(</find>
       <find>BitmexSocket</find>
       <find>socker</find>
-      <find>lastValue</find>
       <find>pioneer</find>
       <find>TAG</find>
       <find>PIONEER</find>
@@ -193,6 +210,12 @@
       <find>req</find>
       <find>electron</find>
       <find>bitmex</find>
+      <find>&lt;&gt;</find>
+      <find>&lt;&gt;&lt;&gt;&lt;</find>
+      <find>eventBus</find>
+      <find>lastValue</find>
+      <find>onTrades</find>
+      <find>signal</find>
     </findStrings>
     <replaceStrings>
       <replace>maxlength=&quot;5&quot; size=&quot;5&quot; class=&quot;te</replace>
@@ -222,8 +245,8 @@
       <replace>@fomobro/</replace>
       <replace>&quot;version&quot;:&quot;0.0.0&quot;</replace>
       <replace>log.debug</replace>
-      <replace>.onmessage(</replace>
       <replace>fomo</replace>
+      <replace>.onmessage(</replace>
       <replace>FOMO</replace>
     </replaceStrings>
     <dirStrings>
@@ -257,12 +280,10 @@
         <option value="$PROJECT_DIR$/modules/fomobot/engine.js" />
         <option value="$PROJECT_DIR$/modules/fomobot/extensions/strategies/ta_ultosc/strategy.js" />
         <option value="$PROJECT_DIR$/modules/fomo-service/index.js" />
-        <option value="$PROJECT_DIR$/modules/fomobot/__tests__/test-module.js" />
         <option value="$PROJECT_DIR$/.circleci/config.yml" />
         <option value="$PROJECT_DIR$/apps/fomo-native/src/modules/extensions/strategies/forex_analytics/strategy.js" />
         <option value="$PROJECT_DIR$/apps/fomo-native/src/modules/train.js" />
         <option value="$PROJECT_DIR$/modules/fomobot/extensions/strategies/forex_analytics/strategy.js" />
-        <option value="$PROJECT_DIR$/apps/fomo-native/src/renderer/main.js" />
         <option value="$PROJECT_DIR$/lerna.json" />
         <option value="$PROJECT_DIR$/modules/fomo-service/package.json" />
         <option value="$PROJECT_DIR$/modules/forex-analytics-fomo/package.json" />
@@ -289,22 +310,24 @@
         <option value="$PROJECT_DIR$/modules/fomo-service/__tests__/sub-ws.js" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/modules/fomobot/lib/ta_ultosc.js" />
-        <option value="$PROJECT_DIR$/apps/fomo-native/src/renderer/App.vue" />
-        <option value="$PROJECT_DIR$/modules/fomobot/index.js" />
-        <option value="$PROJECT_DIR$/modules/fomobot/lib/engine.js" />
-        <option value="$PROJECT_DIR$/apps/fomo-native/node_modules/@fomobro/fomobot/lib/engine.js" />
         <option value="$PROJECT_DIR$/apps/fomo-native/node_modules/@fomobro/fomobot/index.js" />
-        <option value="$PROJECT_DIR$/apps/fomo-native/src/main/index.js" />
         <option value="$PROJECT_DIR$/modules/fomobot/package.json" />
         <option value="$PROJECT_DIR$/apps/fomo-native/package.json" />
+        <option value="$PROJECT_DIR$/modules/fomobot/lib/engine.js" />
+        <option value="$PROJECT_DIR$/modules/fomobot/index.js" />
+        <option value="$PROJECT_DIR$/modules/fomobot/__tests__/test-module.js" />
+        <option value="$PROJECT_DIR$/apps/fomo-native/src/renderer/main.js" />
+        <option value="$PROJECT_DIR$/apps/fomo-native/src/renderer/App.vue" />
+        <option value="$PROJECT_DIR$/apps/fomo-native/node_modules/@fomobro/fomobot/lib/engine.js" />
+        <option value="$PROJECT_DIR$/apps/fomo-native/src/main/index.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2903" />
-    <option name="y" value="413" />
+    <option name="x" value="2882" />
+    <option name="y" value="133" />
     <option name="width" value="1417" />
-    <option name="height" value="1902" />
+    <option name="height" value="2127" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -349,6 +372,12 @@
               <item name="fomobot" type="b2602c69:ProjectViewProjectNode" />
               <item name="fomobot" type="462c0819:PsiDirectoryNode" />
               <item name="modules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fomobot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fomobot" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="fomo-service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="fomobot" type="b2602c69:ProjectViewProjectNode" />
@@ -428,21 +457,11 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="node version (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/apps/fomo-native/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="node version" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="node version" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+    <configuration name="lerna-bump-version" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
-        <script value="node version" />
+        <script value="lerna-bump-version" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -458,13 +477,23 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="publish-all-packages" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="publish-all-packages" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Node.js.test-module.js" />
         <item itemvalue="npm.dev" />
         <item itemvalue="npm.npm" />
-        <item itemvalue="npm.node version (1)" />
-        <item itemvalue="npm.node version" />
+        <item itemvalue="npm.publish-all-packages" />
+        <item itemvalue="npm.lerna-bump-version" />
+        <item itemvalue="Node.js.test-module.js" />
       </list>
     </recent_temporary>
   </component>
@@ -524,14 +553,7 @@
       <workItem from="1572208556409" duration="453000" />
       <workItem from="1572220572190" duration="2886000" />
       <workItem from="1572224121827" duration="8335000" />
-      <workItem from="1572398949084" duration="29795000" />
-    </task>
-    <task id="LOCAL-00032" summary="fighting web3">
-      <created>1564887088694</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1564887088694</updated>
+      <workItem from="1572398949084" duration="39321000" />
     </task>
     <task id="LOCAL-00033" summary="token balance finally!">
       <created>1564887597011</created>
@@ -869,23 +891,31 @@
       <option name="project" value="LOCAL" />
       <updated>1572675691539</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="fixed invalid symbol">
+      <created>1572729792825</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1572729792825</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="373145000" />
+    <option name="totallyTimeSpent" value="382671000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2903" y="413" width="1417" height="1902" extended-state="0" />
+    <frame x="2882" y="133" width="1417" height="1902" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5584416" visible="true" weight="0.22525108" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.727492" visible="true" weight="0.22525108" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="npm" order="2" sideWeight="0.44155845" side_tool="true" visible="true" weight="0.22525108" />
+      <window_info id="npm" order="2" sideWeight="0.27250803" side_tool="true" visible="true" weight="0.22525108" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="0" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32819247" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49964714" visible="true" weight="0.34560907" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49964714" visible="true" weight="0.29518414" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -929,7 +959,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="ipc from main to frontend!" />
     <MESSAGE value="WOOO training working!" />
     <MESSAGE value="begin wallet revamp" />
     <MESSAGE value="begin setup exchange" />
@@ -954,26 +983,10 @@
     <MESSAGE value="sockets working" />
     <MESSAGE value="pre-node-version madness" />
     <MESSAGE value="loaded till invalid symbol" />
-    <option name="LAST_COMMIT_MESSAGE" value="loaded till invalid symbol" />
+    <MESSAGE value="fixed invalid symbol" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed invalid symbol" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/modules/forex-analytics-fomo/package-lock.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/forex-analytics-fomo/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" column="1" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/forex-analytics-fomo/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="16" selection-start-column="16" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/fomo-bitmex/__tests__/test-module.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1115,17 +1128,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/fomo-native/src/modules/fomobot.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1928">
-          <caret line="187" column="26" selection-start-line="187" selection-start-column="26" selection-end-line="187" selection-end-column="26" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#170#196#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/fomo-native/src/renderer/components/Configuration.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -1188,38 +1190,103 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/fomobot/lib/engine.js">
+    <entry file="file://$PROJECT_DIR$/apps/fomo-native/.electron-vue/build.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1003">
-          <caret line="118" column="6" selection-start-line="118" selection-start-column="6" selection-end-line="118" selection-end-column="6" />
+        <state relative-caret-position="-177" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/fomo-native/.electron-vue/dev-runner.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/fomo-native/.electron-vue/webpack.main.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1080">
+          <caret line="72" selection-start-line="72" selection-end-line="72" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/fomo-native/node_modules/@fomobro/fomobot/lib/engine.js">
+    <entry file="file://$PROJECT_DIR$/modules/fomobot/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="114" column="6" selection-start-line="114" selection-start-column="6" selection-end-line="114" selection-end-column="6" />
+        <state relative-caret-position="555">
+          <caret line="61" column="13" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/fomo-native/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="960">
+          <caret line="113" column="27" selection-start-line="113" selection-start-column="27" selection-end-line="113" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/fomo-native/.electron-vue/dev-client.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="38" column="3" selection-start-line="38" selection-start-column="3" selection-end-line="38" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/fomobot/lib/engine.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="763" selection-start-line="763" selection-end-line="763" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/fomobot/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-123">
-          <caret line="141" column="21" selection-start-line="141" selection-start-column="21" selection-end-line="141" selection-end-column="21" />
+        <state relative-caret-position="1250">
+          <caret line="133" column="19" selection-start-line="133" selection-start-column="19" selection-end-line="133" selection-end-column="19" />
+          <folding>
+            <element signature="e#3649#10166#0" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/fomo-native/node_modules/@fomobro/fomobot/index.js">
+    <entry file="file://$PROJECT_DIR$/modules/fomo-service/package.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/fomo-native/src/renderer/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="593">
-          <caret line="76" column="10" selection-start-line="76" selection-start-column="10" selection-end-line="76" selection-end-column="10" />
+        <state relative-caret-position="870">
+          <caret line="58" column="7" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#1033#1074#0" expanded="true" />
+            <element signature="e#1251#1278#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/fomobot/__tests__/test-module.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="54" selection-start-line="28" selection-start-column="54" selection-end-line="28" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="35" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/fomo-native/src/modules/fomobot.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-607">
+          <caret line="90" lean-forward="true" selection-start-line="90" selection-end-line="90" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#170#196#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/fomo-native/src/renderer/App.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="396" column="30" selection-start-line="395" selection-start-column="28" selection-end-line="396" selection-end-column="30" />
+        <state relative-caret-position="951">
+          <caret line="457" selection-start-line="457" selection-end-line="460" selection-end-column="22" />
           <folding>
             <element signature="n#style#0;n#b-card#0;n#b-col#0;n#b-row#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#b-card#0;n#div#0;n#b-col#1;n#b-row#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -1239,53 +1306,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/fomo-native/.electron-vue/build.js">
+    <entry file="file://$PROJECT_DIR$/apps/fomo-native/node_modules/@fomobro/fomobot/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-177" />
+        <state relative-caret-position="486">
+          <caret line="78" column="18" selection-start-line="78" selection-start-column="18" selection-end-line="78" selection-end-column="18" />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/fomo-native/.electron-vue/dev-client.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/fomo-native/.electron-vue/dev-runner.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/fomo-native/.electron-vue/webpack.main.config.js">
+    <entry file="file://$PROJECT_DIR$/apps/fomo-native/node_modules/@fomobro/fomobot/lib/engine.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1080">
-          <caret line="72" selection-start-line="72" selection-end-line="72" />
+        <state relative-caret-position="836">
+          <caret line="988" selection-start-line="988" selection-end-line="988" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/fomo-native/src/main/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
+        <state relative-caret-position="997">
+          <caret line="237" lean-forward="true" selection-start-line="237" selection-end-line="237" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="n#!!block;n#createMenu#0" />
+            <element signature="e#60#95#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/fomobot/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="61" column="13" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/fomo-native/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="113" column="27" selection-start-line="113" selection-start-column="27" selection-end-line="113" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/fomobot/__tests__/test-module.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
         </state>
       </provider>
     </entry>

@@ -50,6 +50,7 @@ var z = require('zero-fill')
     , ultosc = require('./lib/ta_ultosc')
     , Phenotypes = require('./lib/phenotype')
 
+
 let STRATEGY
 let ENGINE
 
@@ -286,7 +287,7 @@ let init_bot =  async function (strategy) {
 
 
 
-
+        return conf.eventBus
     }catch(e){
         console.error(tag,"Error: ",e)
         throw e

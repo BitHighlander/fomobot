@@ -360,6 +360,7 @@
         mounted() {
 
             /*
+
 				Setup stages
 
 				isRightVersion?
@@ -375,8 +376,6 @@
 
 				does config file have a username?
 				  else register
-
-
 
 			 */
 
@@ -431,9 +430,48 @@
                         this.lastPrice = data2.trade.price
                     }
 
+                    if(data2.event === 'signal'){
+
+                        this.$toasted.show('SIGNAL! : ',{
+                            type:'info',
+                            duration:3000
+                        })
+
+                    }
 
                     //sound.playChingle()
                     messageBus.$emit('block',data2)
+
+                })
+
+                ipcRenderer.on('signal', (work,data2,data3) => {
+
+                    /*
+                    	signal:  {
+
+                    	}
+
+                     */
+
+                    this.$log.debug("><><><><><><><><>< signal! ",data2)
+
+                    this.$toasted.show('SIGNAL! : ',{
+                        type:'info',
+                        duration:3000
+                    })
+
+                    // if(data2.event === 'signal'){
+					//
+                    //     this.$toasted.show('SIGNAL! : ',{
+                    //         type:'info',
+                    //         duration:3000
+                    //     })
+					//
+                    // }
+
+
+                    //sound.playChingle()
+                    messageBus.$emit('<><><><><><><><><>< signal',data2)
 
                 })
 

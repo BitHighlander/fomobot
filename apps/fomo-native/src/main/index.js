@@ -178,13 +178,13 @@ ipcMain.on('sub-fomo-ws', async (event, arg) => {
 
 
     //
-    bot.init("ta_ultosc")
+    let engine = await bot.init("ta_ultosc")
 
     //wait for it to finish loading
     await sleep(4000)
 
     //load last x timeframe
-    let allTrades = await tradesDB.find({selector:"bitmex.BTC-USD"},{limit:10000,sort:{time:-1}})
+    let allTrades = await tradesDB.find({selector:"bitmex.BTC-USD"},{limit:200,sort:{time:-1}})
     log.info(tag,"total trades: ",allTrades.length)
 
     //Load trades to engine
@@ -192,6 +192,17 @@ ipcMain.on('sub-fomo-ws', async (event, arg) => {
 
     //if(!config.WS_FOMO) throw Error("Websocket not configured!")
     var socket = io.connect(config.WS_FOMO, {reconnect: true, rejectUnauthorized: false});
+
+    let message = {signal:"buy"}
+    event.sender.send("signal",message)
+
+    engine.on('events', function (message) {
+      //log.info(tag,"signal",message.signal)
+
+      event.sender.send("trades",message)
+
+
+    })
 
 
     socket.on('trades', async function (message) {
@@ -215,6 +226,16 @@ ipcMain.on('sub-fomo-ws', async (event, arg) => {
           break
       }
     });
+
+    socket.on('disconnect',  () => {
+      log.info(tag,"CHECKPOINT DISCONNET ")
+      socket.connect();
+    })
+
+    socket.on('reconnect', function() {
+      log.info(tag,'reconnect fired!');
+    });
+
   }catch(e){
     log.error(tag,e)
   }
