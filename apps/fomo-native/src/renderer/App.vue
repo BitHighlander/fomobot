@@ -65,6 +65,25 @@
 
 							<div v-if="isTrader">
 								<b-card
+										title="TA"
+										img-src=""
+										img-alt="Image"
+										img-top
+										tag="article"
+										style="max-width: 20rem;"
+										class="mb-2 text-white"
+								>
+									<b-card-text>
+
+										last price: {{lastPrice}}
+
+										isBull: {{isBull}}
+										isBear: {{isBear}}
+
+									</b-card-text>
+								</b-card>
+
+								<b-card
 										title="Trade"
 										img-src=""
 										img-alt="Image"
@@ -94,6 +113,29 @@
 									</b-card-text>
 
 									<b-button href="#" variant="primary" @click="startTrading">Start Trading!</b-button>
+									<b-button href="#" variant="primary" @click="buySignal">Go Bull!</b-button>
+									<b-button href="#" variant="primary" @click="sellSignal">go Bear!</b-button>
+								</b-card>
+
+								<b-card
+										title="Positions"
+										img-src=""
+										img-alt="Image"
+										img-top
+										tag="article"
+										style="max-width: 20rem;"
+										class="mb-2 text-white"
+								>
+									<b-card-text>
+
+
+										<div>
+											<b-table striped hover :items="positions"></b-table>
+										</div>
+										<b-button href="#" variant="primary" @click="updatePostition">refresh!</b-button>
+									</b-card-text>
+
+
 								</b-card>
 
 							</div>
@@ -297,6 +339,8 @@
         },
         data() {
             return {
+                positions:[],
+                trades:[],
                 selected:"bollinger",
                 options: [
                     { value: 'bollinger', text: 'bollinger' },
@@ -317,6 +361,8 @@
                 totalUSD:0,
 				totalBalance:0,
 				duration:1000,
+				isBull:false,
+				isBear:false,
 				isMiner:false,
 				isTrader:true,
                 isFunded:false,
@@ -390,13 +436,6 @@
         },
         created() {
             try {
-                // ipcRenderer.on('start-bitmex-sockets', (work,data2,data3) => {
-                //     this.$log.info("data2: ", data2)
-                //     if(data2.price){
-				// 		this.lastPrice = data2.price
-                //         //messageBus.$emit('lastPrice',data2)
-                //     }
-                // })
 
                 ipcRenderer.on('trades', (work,data2,data3) => {
 
@@ -420,13 +459,10 @@
                     //this.$log.debug("IPC MESSAGE! ")
                     //this.$log.info("work: ",work)
                     //this.$log.debug("data2: ",data2)
-                    // this.$log.debug("data3: ",data3)
-                    //
-                    // this.$log.debug("data2: ",typeof(data2))
-                    // this.$log.debug("data2: ",data2.event)
-                    //TODO only toast on NEW tx's!
+                    //this.$log.debug("data3: ",data3)
+                    //this.$log.debug("data2: ",typeof(data2))
+                    //this.$log.debug("data2: ",data2.event)
                     if(data2.event === 'trades'){
-
                         this.lastPrice = data2.trade.price
                     }
 
@@ -455,7 +491,7 @@
 
                     this.$log.debug("><><><><><><><><>< signal! ",data2)
 
-                    this.$toasted.show('SIGNAL! : ',{
+                    this.$toasted.show('SIGNAL! : '+data2.signal,{
                         type:'info',
                         duration:3000
                     })
@@ -472,6 +508,30 @@
 
                     //sound.playChingle()
                     messageBus.$emit('<><><><><><><><><>< signal',data2)
+
+
+					//
+					if(data2.signal === "buy"){
+                        this.$botService.buySignal()
+					}
+
+
+                    if(data2.signal === "sell"){
+                        this.$botService.sellSignal()
+                    }
+
+
+                })
+
+                messageBus.$on('execution',(trade) =>{
+                    //this.getBalances()
+                    this.$log.info(" execution!: ",trade)
+                    //this.trades = this.trades.push(trade)
+
+                    this.$toasted.show('SIGNAL! : '+JSON.stringify(trade),{
+                        type:'info',
+                        duration:3000
+                    })
 
                 })
 
@@ -627,6 +687,23 @@
             }
         },
         methods: {
+            buySignal() {
+                try{
+                    this.$botService.buySignal()
+                    this.updatePostition()
+                }catch(e){
+                    this.$log.error(" Failed to go bull! ",e)
+                }
+            },
+            sellSignal() {
+                try{
+                    this.$log.info("Sell signal! ")
+                    this.$botService.sellSignal()
+					this.updatePostition()
+                }catch(e){
+                    this.$log.error(" Failed to go bull! ",e)
+                }
+            },
             async startTrading() {
 				try{
 
@@ -643,9 +720,12 @@
                 //
                 switch(item) {
                     case "Mine":
+
                         // code block
                         break;
-                    case "Mine":
+                    case "Trade":
+                        this.isTrader
+
                         // code block
                         break;
                     case "Advanced Mode":
@@ -663,38 +743,62 @@
             formatToPriceUSD(value) {
                 return `<h4>$ ${Number(value).toFixed(2)}</h4>`;
             },
+            updatePostition: async function () {
+				try{
+				    //
+                    await this.$botService.updatePosition()
+                    let status = await this.$botService.getSummaryInfo()
+                    this.$log.info("status: ", status)
+
+					this.lastPrice = status.LAST_PRICE
+
+                    if(status.BALANCE_AVAILABLE > 0){
+                        this.totalBalance = status.BALANCE_AVAILABLE
+						this.totalUSD = status.BALANCE_AVAILABLE * status.LAST_PRICE
+                        this.isBear = status.IS_BEAR
+                        this.isBull = status.IS_BULL
+                        this.isFunded = true
+                        this.isReady = true
+                    }
+
+                    //update positions
+					let positions = []
+					for(let i = 0; i < status.POSITIONS.length; i++){
+					    let position = status.POSITIONS[i]
+						let summary = {}
+
+						summary.size = position.openingQty
+                        summary.leverage = position.leverage
+                        summary.entry = position.avgCostPrice
+						summary.liquidation = position.liquidationPrice
+                        summary.pnl = position.unrealisedPnl / 100000000
+                        positions.push(summary)
+                    }
+					this.positions = positions
+				}catch(e){
+                    this.$log.error("e: ", e)
+				}
+            },
             loadConfig: async function () {
                 let configStatus = checkConfigs()
                 let config = getConfig()
                 this.$log.info("config: ", config)
 
                 let password = this.$walletService.getPassword()
-				if(password){
+                if(password){
                     this.isNotConfiged = false
 
-				    //init bot
+                    //init bot
                     await this.$botService.initClient(password)
-					//startSockets
+                    //startSockets
                     await this.$botService.startSockets()
 
-					//get bot status
-                    let status = await this.$botService.getSummaryInfo()
-                    this.$log.info("status: ", status)
-
-					if(status.BALANCE_AVAILABLE > 0){
-						this.totalBalance = status.BALANCE_AVAILABLE
-
-					    this.isFunded = true
-						this.isReady = true
-					}
+					this.updatePostition()
 
 
-
-
-
-				} else {
+                } else {
                     this.$log.info("Password Not Set! : ")
-				}
+                }
 
 
                 // if (!configStatus.isConfigured) {
@@ -719,39 +823,39 @@
                 //             if (!this.signingPriv) {
                 //                 this.signingPriv = config.signingPriv
                 //             }
-				//
+                //
                 //             //init bot
                 //             await this.$botService.init(password)
-				//
-				// 			//test bitmex
-				// 			let status = await this.$botService.getSummaryInfo()
-				//
-				//
-				//
-				// 			//if online
-				// 			if(status.online){
-				//
-				// 			}
-				//
-				//
+                //
+                // 			//test bitmex
+                // 			let status = await this.$botService.getSummaryInfo()
+                //
+                //
+                //
+                // 			//if online
+                // 			if(status.online){
+                //
+                // 			}
+                //
+                //
                 //             // if (!this.signingPub || !this.signingPriv) {
                 //             //     this.openRegister = true
                 //             // }
                 //         } else {
                 //             this.openPassword = true
                 //         }
-				//
-				//
+                //
+                //
                 //     } else {
                 //         //if wallet
                 //         if (configStatus.isWallet) {
                 //             this.$log.info("checkpoint 4b no username found!")
                 //             //nerf register
-				// 			this.openPassword = true
-				// 			//this.openRegister = true
-				//
-				// 			//
-				//
+                // 			this.openPassword = true
+                // 			//this.openRegister = true
+                //
+                // 			//
+                //
                 //         } else {
                 //             this.openWelcome = true
                 //         }

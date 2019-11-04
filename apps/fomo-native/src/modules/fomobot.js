@@ -1,6 +1,101 @@
 /*
-    Fomobot Core Class
+    Fomobot native bot Class
+
         Highlander
+
+
+positions:  [ { account: 199232,
+      avgCostPrice: 9231,
+      avgEntryPrice: 9231,
+      bankruptPrice: 8787.5,
+      breakEvenPrice: 9231.5,
+      commission: 0.00075,
+      crossMargin: true,
+      currency: 'XBt',
+      currentComm: -8398,
+      currentCost: -21666000,
+      currentQty: 2000,
+      currentTimestamp: '2019-11-03T23:53:10.381Z',
+      deleveragePercentile: 1,
+      execBuyCost: 0,
+      execBuyQty: 0,
+      execComm: 0,
+      execCost: 0,
+      execQty: 0,
+      execSellCost: 0,
+      execSellQty: 0,
+      foreignNotional: -2000,
+      grossExecCost: 0,
+      grossOpenCost: 0,
+      grossOpenPremium: 0,
+      homeNotional: 0.21724,
+      indicativeTax: 0,
+      indicativeTaxRate: null,
+      initMargin: 0,
+      initMarginReq: 0.01,
+      isOpen: true,
+      lastPrice: 9206.58,
+      lastValue: -21724000,
+      leverage: 100,
+      liquidationPrice: 8830.5,
+      longBankrupt: 0,
+      maintMargin: 233116,
+      maintMarginReq: 0.005,
+      marginCallPrice: 8830.5,
+      markPrice: 9206.58,
+      markValue: -21724000,
+      openOrderBuyCost: 0,
+      openOrderBuyPremium: 0,
+      openOrderBuyQty: 0,
+      openOrderSellCost: 0,
+      openOrderSellPremium: 0,
+      openOrderSellQty: 0,
+      openingComm: -8398,
+      openingCost: -21666000,
+      openingQty: 2000,
+      openingTimestamp: '2019-11-03T23:00:00.000Z',
+      posAllowance: 0,
+      posComm: 16456,
+      posCost: -21666000,
+      posCost2: -21665945,
+      posCross: 58055,
+      posInit: 216660,
+      posLoss: 55,
+      posMaint: 126368,
+      posMargin: 291116,
+      posState: '',
+      prevClosePrice: 9214.65,
+      prevRealisedPnl: 0,
+      prevUnrealisedPnl: 0,
+      quoteCurrency: 'USD',
+      realisedCost: 0,
+      realisedGrossPnl: 0,
+      realisedPnl: 8398,
+      realisedTax: 0,
+      rebalancedPnl: -8080,
+      riskLimit: 20000000000,
+      riskValue: 21724000,
+      sessionMargin: 0,
+      shortBankrupt: 0,
+      simpleCost: null,
+      simplePnl: null,
+      simplePnlPcnt: null,
+      simpleQty: null,
+      simpleValue: null,
+      symbol: 'XBTUSD',
+      targetExcessMargin: 0,
+      taxBase: 0,
+      taxableMargin: 0,
+      timestamp: '2019-11-03T23:53:10.381Z',
+      underlying: 'XBT',
+      unrealisedCost: -21666000,
+      unrealisedGrossPnl: -58000,
+      unrealisedPnl: -58000,
+      unrealisedPnlPcnt: -0.0027,
+      unrealisedRoePcnt: -0.2677,
+      unrealisedTax: 0,
+      varMargin: 0 } ]
+
 
  */
 
@@ -34,14 +129,17 @@ let IS_TESTNET = true
 
 //let position
 
-let CURRENT_POSITION = {}
+let POSITIONS = []
 
-
+let LAST_PRICE = 0
 let IS_BULL = false
 let IS_BEAR = false
 let PCT_IN_POSITION = 0
 let BALANCE_POSITION = 0
+let POSITION_NATIVE = 0
 let BALANCE_AVAILABLE = 0
+
+let POSITION_PNL = 0
 
 class BotService {
 
@@ -92,9 +190,15 @@ class BotService {
 
                 let positions = await EXCHANGES['bitmex'].Position.get()
                 log.info("positions: ",positions)
+                POSITIONS  = positions
 
+                //calculate globals?
                 for(let i = 0; i < positions.length; i++){
-                    BALANCE_POSITION = BALANCE_POSITION + Math.abs(positions[0].lastValue) / 100000000
+                    let position = positions[i]
+
+                    BALANCE_POSITION = BALANCE_POSITION + Math.abs(position.lastValue) / 100000000
+
+                    POSITION_NATIVE = position.currentQty
 
                     //percent IN
                     let pctAvaible = balance / Math.abs(BALANCE_POSITION)
@@ -103,16 +207,18 @@ class BotService {
                     PCT_IN_POSITION = pctAvaible
                     log.info("pctInPosition: ",pctAvaible)
 
+                    LAST_PRICE =position.lastPrice
+
                     //isBull
                     let isBull = false
-                    if(positions[0].lastValue > 0){
+                    if(positions[0].currentQty > 0){
                         isBull = true
                         IS_BULL = true
                     }
 
                     //isBear
                     let isBear = false
-                    if(positions[0].lastValue < 0){
+                    if(positions[0].currentQty < 0){
                         isBear = true
                         IS_BEAR = true
                     }
@@ -126,6 +232,127 @@ class BotService {
         }catch(e){
             console.error(tag,e)
             throw e
+        }
+    }
+
+    static async updatePosition() {
+        try{
+
+            let wallet = await EXCHANGES['bitmex'].User.getWallet()
+            log.debug("wallet: ", wallet)
+
+            let balance = wallet.amount
+            log.info("balance: ",balance)
+            BALANCE_AVAILABLE = balance  / 100000000
+
+
+            let positions = await EXCHANGES['bitmex'].Position.get()
+            log.info("positions: ",positions)
+
+            for(let i = 0; i < positions.length; i++){
+                let position = positions[i]
+                BALANCE_POSITION = BALANCE_POSITION + Math.abs(position.lastValue) / 100000000
+
+                POSITION_PNL = positions[0].unrealisedGrossPnl
+
+                //percent IN
+                let pctAvaible = balance / Math.abs(BALANCE_POSITION)
+                pctAvaible = pctAvaible * 100
+                pctAvaible = pctAvaible - 100
+                PCT_IN_POSITION = pctAvaible
+                log.info("pctInPosition: ",pctAvaible)
+
+                //isBull
+                let isBull = false
+                if(positions[0].lastValue > 0){
+                    isBull = true
+                    IS_BULL = true
+                }
+
+                //isBear
+                let isBear = false
+                if(positions[0].lastValue < 0){
+                    isBear = true
+                    IS_BEAR = true
+                }
+
+            }
+
+
+        }catch(e){
+            console.error("e: ",e)
+        }
+    }
+
+    static async buySignal() {
+        let tag = TAG+ " | buySignal | "
+        try{
+            await this.updatePosition()
+            //
+            if(IS_BEAR || !IS_BULL){
+                //go bull
+
+                //get position
+
+                //amount = position X 2
+                let amount =  Math.abs(POSITION_NATIVE) * 2
+                if(!amount || amount < 0) amount = 1000
+                log.info(tag,"amount: ",amount)
+
+
+                log.info(tag,"LAST_PRICE: ",LAST_PRICE)
+                let price = LAST_PRICE + (LAST_PRICE * 0.01)
+                price = price.toFixed(0)
+                log.info(tag,"price: ",price)
+
+                let result = await EXCHANGES['bitmex'].Order.new({symbol:"XBTUSD",orderQty:amount,price:price,leverage:"10"})
+                log.info("result: ",result)
+                messageBus.$emit('execution',result)
+
+
+                IS_BULL = true
+                IS_BEAR = false
+            }
+
+
+        }catch(e){
+            console.error("e: ",e)
+        }
+    }
+
+    static async sellSignal() {
+        let tag = TAG+ " | sellSignal | "
+        try{
+            log.info(tag,"Sell signal!")
+            await this.updatePosition()
+            //
+            if(IS_BULL || !IS_BEAR){
+                //go bull
+
+
+                let amount =  Math.abs(POSITION_NATIVE) * 2
+                if(!amount || amount < 0) amount = 1000
+
+                log.info(tag,"amount: ",amount)
+                amount = amount * -1
+
+                log.info(tag,"LAST_PRICE: ",LAST_PRICE)
+                let price = LAST_PRICE - (LAST_PRICE * 0.01)
+                price = price.toFixed(0)
+                log.info(tag,"price: ",price)
+
+                let result = await EXCHANGES['bitmex'].Order.new({symbol:"XBTUSD",orderQty:amount,price:price,leverage:"10"})
+                log.info("result: ",result)
+                messageBus.$emit('execution',result)
+
+
+                IS_BULL = true
+                IS_BEAR = false
+            }
+
+
+        }catch(e){
+            console.error("e: ",e)
         }
     }
 
@@ -501,6 +728,10 @@ class BotService {
     static async getSummaryInfo() {
         let output = {
             online:IS_INIT,
+            LAST_PRICE,
+            POSITIONS,
+            POSITION_PNL,
+            BALANCE_POSITION,
             BALANCE_AVAILABLE,
             PCT_IN_POSITION,
             IS_BULL,

@@ -184,11 +184,11 @@ ipcMain.on('sub-fomo-ws', async (event, arg) => {
     await sleep(4000)
 
     //load last x timeframe
-    let allTrades = await tradesDB.find({selector:"bitmex.BTC-USD"},{limit:200,sort:{time:-1}})
-    log.info(tag,"total trades: ",allTrades.length)
+    //let allTrades = await tradesDB.find({selector:"bitmex.BTC-USD"},{limit:200,sort:{time:-1}})
+    //log.info(tag,"total trades: ",allTrades.length)
 
     //Load trades to engine
-    bot.load(allTrades)
+    //bot.load(allTrades)
 
     //if(!config.WS_FOMO) throw Error("Websocket not configured!")
     var socket = io.connect(config.WS_FOMO, {reconnect: true, rejectUnauthorized: false});
