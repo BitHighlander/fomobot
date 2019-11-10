@@ -67,6 +67,9 @@ module.exports = {
     push: function(trade) {
         return push_trade(trade);
     },
+    // backfill: function() {
+    //     return load_trades();
+    // },
 };
 
 /********************************

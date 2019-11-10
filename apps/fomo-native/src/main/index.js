@@ -212,8 +212,8 @@ ipcMain.on('sub-fomo-ws', async (event, arg) => {
       switch (message.event) {
         case "trades":
           //push to engine
-          //log.info(tag,"trade: ",message)
-          bot.load([message.trade])
+          //log.info(tag,"trade: ",message.trades[0].price)
+          bot.load(message.trades)
           event.sender.send("trades",message)
 
           break;

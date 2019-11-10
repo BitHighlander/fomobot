@@ -59,18 +59,8 @@
             verifyAccepted(){
 
             },
-            async tryLogin(){
-
-
-
-            },
             closeModal() {
                 messageBus.$emit('close', 'windowEditBot');
-            },
-            randomUsername() {
-                let newUser = harryPotterNames.random()
-                newUser = newUser.replace(/ /g, '_');
-                this.username = newUser
             },
             async checkForm(){
 

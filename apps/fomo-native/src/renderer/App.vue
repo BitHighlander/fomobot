@@ -16,6 +16,8 @@
 									class="mb-2"
 							>
 								<b-card-text>
+									<h4>Fomopoints: {{fomopoints}}</h4>
+
 									<div v-if="isNotConfiged">
 										Please finish configuring!
 									</div>
@@ -29,7 +31,7 @@
 									</div>
 
 									<div v-if="isTrader">
-									Trading Status:
+										Trading Status:
 
 										<vc-donut
 												:size="280"
@@ -43,7 +45,8 @@
 													:value="totalUSD"
 													:formatValue="formatToPriceUSD"
 													:duration="duration"/>
-											Total (USD)</vc-donut>
+											Total (USD)
+										</vc-donut>
 									</div>
 
 									<div v-if="isTraining">
@@ -55,7 +58,11 @@
 												:sections="sections"
 												has-legend legend-placement="bottom"
 												:total="100"
-										><animated-number :value="totalUSD" :formatValue="formatToPriceUSD" :duration="duration"/>Total (USD)</vc-donut>
+										>
+											<animated-number :value="totalUSD" :formatValue="formatToPriceUSD"
+															 :duration="duration"/>
+											Total (USD)
+										</vc-donut>
 									</div>
 
 								</b-card-text>
@@ -100,12 +107,12 @@
 										<h2>Exchange Configured</h2>
 
 
-
 										Bitmex: {{isBitmexLive}}
 
 										<h2>Select Trading Strategy</h2>
 
-										<b-form-select class="text-white" style="background-color: darkslateblue;" v-model="selected" :options="options"></b-form-select>
+										<b-form-select class="text-white" style="background-color: darkslateblue;"
+													   v-model="selected" :options="options"></b-form-select>
 
 										<div class="mt-3 text-white">Selected: <strong>{{ selected }}</strong></div>
 
@@ -132,7 +139,8 @@
 										<div>
 											<b-table striped hover :items="positions"></b-table>
 										</div>
-										<b-button href="#" variant="primary" @click="updatePostition">refresh!</b-button>
+										<b-button href="#" variant="primary" @click="updatePostition">refresh!
+										</b-button>
 									</b-card-text>
 
 
@@ -143,7 +151,7 @@
 
 							<div v-if="isMiner">
 								<b-card
-										title="Trade"
+										title="Trained models"
 										img-src=""
 										img-alt="Image"
 										img-top
@@ -152,13 +160,38 @@
 										class="mb-2"
 								>
 									<b-card-text>
-										Current model training
-
-										Submit modal
 
 									</b-card-text>
 
-									<b-button href="#" variant="primary">Start Mining!</b-button>
+
+									<div class="card-body all-icons">
+										<div class="row">
+
+											<div v-for="bot in bots">
+
+												<div class="">
+													<div class="font-icon-detail text-white">
+														profile: {{ bot.name }}
+														<img :src=bot.icon >
+														<button class="button is-medium is-success text-white"
+																@click="deleteBot(bot.name)">
+															{{ $t("msg.delete") }}
+														</button>
+
+														<button class="button is-medium is-success text-white"
+																@click="editBot(bot.name)">
+															{{ $t("msg.edit") }}
+														</button>
+
+													</div>
+												</div>
+
+											</div>
+										</div>
+									</div>
+
+
+									<b-button href="#" variant="primary" @click="startMining()">Start Mining!</b-button>
 								</b-card>
 
 							</div>
@@ -171,16 +204,26 @@
 
 						<div class="tabs help-tabs">
 							<ul>
-								<li :class="[ tabOpen === 'wallet' ? 'is-active' : '']"><a @click="tabOpen='wallet'">Wallet</a></li>
-								<li :class="[ tabOpen === 'bot' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='bot'">bot</a></li>
-								<li :class="[ tabOpen === 'exchanges' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='exchanges'">Exchanges</a></li>
-								<li :class="[ tabOpen === 'balances' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='balances'">Balances</a></li>
-								<li :class="[ tabOpen === 'backfill' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='backfill'">Backfill</a></li>
-								<li :class="[ tabOpen === 'train' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='train'">Train</a></li>
-								<li :class="[ tabOpen === 'trade' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='trade'">Trade</a></li>
-								<li :class="[ tabOpen === 'trollbox' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='trollbox'">trollbox</a></li>
-								<li :class="[ tabOpen === 'subscribe' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='subscribe'">Subscribe</a></li>
-								<li :class="[ tabOpen === 'settings' ? 'is-active' : 'is-disabled']"><a @click="tabOpen='settings'">Settings</a></li>
+								<li :class="[ tabOpen === 'wallet' ? 'is-active' : '']"><a @click="tabOpen='wallet'">Wallet</a>
+								</li>
+								<li :class="[ tabOpen === 'bot' ? 'is-active' : 'is-disabled']"><a
+										@click="tabOpen='bot'">bot</a></li>
+								<li :class="[ tabOpen === 'exchanges' ? 'is-active' : 'is-disabled']"><a
+										@click="tabOpen='exchanges'">Exchanges</a></li>
+								<li :class="[ tabOpen === 'balances' ? 'is-active' : 'is-disabled']"><a
+										@click="tabOpen='balances'">Balances</a></li>
+								<li :class="[ tabOpen === 'backfill' ? 'is-active' : 'is-disabled']"><a
+										@click="tabOpen='backfill'">Backfill</a></li>
+								<li :class="[ tabOpen === 'train' ? 'is-active' : 'is-disabled']"><a
+										@click="tabOpen='train'">Train</a></li>
+								<li :class="[ tabOpen === 'trade' ? 'is-active' : 'is-disabled']"><a
+										@click="tabOpen='trade'">Trade</a></li>
+								<li :class="[ tabOpen === 'trollbox' ? 'is-active' : 'is-disabled']"><a
+										@click="tabOpen='trollbox'">trollbox</a></li>
+								<li :class="[ tabOpen === 'subscribe' ? 'is-active' : 'is-disabled']"><a
+										@click="tabOpen='subscribe'">Subscribe</a></li>
+								<li :class="[ tabOpen === 'settings' ? 'is-active' : 'is-disabled']"><a
+										@click="tabOpen='settings'">Settings</a></li>
 							</ul>
 						</div>
 						<code v-if="tabOpen ==='wallet'">
@@ -217,8 +260,8 @@
 							<settings></settings>
 						</code>
 
-	<!--					<div class="box help-content">-->
-	<!--					</div>-->
+						<!--					<div class="box help-content">-->
+						<!--					</div>-->
 
 					</div>
 
@@ -236,7 +279,7 @@
 		<DisplaySeed :showModal="openDisplaySeed"></DisplaySeed>
 		<SetupExchange :showModal="openSetupExchange"></SetupExchange>
 		<EditBot :showModal="openEditBot"></EditBot>
-		<MinerTraderSelect :showModal="openEditBot"></MinerTraderSelect>
+<!--		<MinerTraderSelect :showModal="openEditBot"></MinerTraderSelect>-->
 
 		<radial-menu
 				style="margin: auto; margin-top: 300px; background-color: white"
@@ -258,7 +301,7 @@
 </template>
 
 <script>
-    import { RadialMenu,  RadialMenuItem } from 'vue-radial-menu'
+    import {RadialMenu, RadialMenuItem} from 'vue-radial-menu'
     import {messageBus} from '@/messagebus'
     import checkUpdate from '../modules/updateChecker'
     import {
@@ -269,9 +312,14 @@
         setConfig,
         updateConfig,
         apiSecretPath,
-        checkConfigs
+        checkConfigs,
+        getModels,
+		deleteModel,
+		getModel,
+		getSimResults,
+		backtestDir
     } from '../modules/config'
-	//modules
+    //modules
 
     //modals
     import Setup from '@/components/Setup'
@@ -287,7 +335,7 @@
     import SetupExchange from '@/components/SetupExchange'
     import EditBot from '@/components/EditBot'
 
-	//pages
+    //pages
     import Wallet from '@/components/Wallet'
     import Settings from '@/components/Settings'
     import Exchanges from '@/components/Exchanges'
@@ -297,8 +345,8 @@
     import Trade from '@/components/Trade'
     import Backfill from '@/components/Backfill'
 
-	//
-	import {BaseTable} from "@/components/BaseTable";
+    //
+    import {BaseTable} from "@/components/BaseTable";
     import AnimatedNumber from "animated-number-vue";
     import MinerTraderSelect from "./components/MinerTraderSelect";
     //nav
@@ -317,9 +365,9 @@
             AnimatedNumber,
             EditBot,
             Backfill,
-			Trade,
-			Trollbox,
-			Bot,
+            Trade,
+            Trollbox,
+            Bot,
             Balances,
             SetupExchange,
             Exchanges,
@@ -339,50 +387,53 @@
         },
         data() {
             return {
-                positions:[],
-                trades:[],
-                selected:"bollinger",
+                fomopoints:"",
+                showModal:"",
+                bots: [],
+                positions: [],
+                trades: [],
+                selected: "bollinger",
                 options: [
-                    { value: 'bollinger', text: 'bollinger' },
-                    { value: 'cci_srsi', text: 'cci_srsi' },
-                    { value: 'crossover_vwap', text: 'crossover_vwap' },
-                    { value: 'dema', text: 'dema' },
-                    { value: 'ichimoku_score', text: 'ichimoku_score' },
-                    { value: 'ichimoku', text: 'ichimoku' },
-                    { value: 'speed', text: 'speed' },
-                    { value: 'wavetrend', text: 'wavetrend' },
-                    { value: 'trust_distrust', text: 'trust_distrust' },
-                    { value: 'ta_ultosc', text: 'ta_ultosc' },
-                    { value: 'stddev', text: 'stddev' },
+                    {value: 'bollinger', text: 'bollinger'},
+                    {value: 'cci_srsi', text: 'cci_srsi'},
+                    {value: 'crossover_vwap', text: 'crossover_vwap'},
+                    {value: 'dema', text: 'dema'},
+                    {value: 'ichimoku_score', text: 'ichimoku_score'},
+                    {value: 'ichimoku', text: 'ichimoku'},
+                    {value: 'speed', text: 'speed'},
+                    {value: 'wavetrend', text: 'wavetrend'},
+                    {value: 'trust_distrust', text: 'trust_distrust'},
+                    {value: 'ta_ultosc', text: 'ta_ultosc'},
+                    {value: 'stddev', text: 'stddev'},
                 ],
-				items: ['Mine', 'Trade', 'Advanced Mode'],
-				lastClicked: 'Trade',
-                lastPrice:0,
-                totalUSD:0,
-				totalBalance:0,
-				duration:1000,
-				isBull:false,
-				isBear:false,
-				isMiner:false,
-				isTrader:true,
-                isFunded:false,
-                isTrading:false,
-				isTraining:false,
-				isReady:false,
-                isAdvancedMode:false,
-                isBitmexLive:false,
-                isNotConfiged:false,
+                items: ['Mine', 'Trade', 'Advanced Mode'],
+                lastClicked: 'Trade',
+                lastPrice: 0,
+                totalUSD: 0,
+                totalBalance: 0,
+                duration: 1000,
+                isBull: false,
+                isBear: false,
+                isMiner: true,
+                isTrader: false,
+                isFunded: false,
+                isTrading: false,
+                isTraining: false,
+                isReady: false,
+                isAdvancedMode: false,
+                isBitmexLive: false,
+                isNotConfiged: false,
                 sections: [],
-                bitmex:"",
+                bitmex: "",
                 monitor: {
                     schedule: '* * * * *',
                     url_code: 'https://cronhub.io/random_uuid',
                 },
                 tabOpen: 'balances',
                 isWalletLocked: true,
-				openMinerTraderSelect:false,
+                openMinerTraderSelect: false,
                 openSetupExchange: false,
-				openSend: false,
+                openSend: false,
                 openConfiguration: false,
                 openDisplaySeed: false,
                 openRestoreSeed: false,
@@ -434,10 +485,34 @@
             this.loadConfig()
 
         },
-        created() {
+        async created() {
             try {
 
-                ipcRenderer.on('trades', (work,data2,data3) => {
+                //miner
+                ipcRenderer.on('bot', (work, data2, data3) => {
+                    this.$log.info("IPC MESSAGE! ")
+                    //this.$log.info("work: ",work)
+                    this.$log.info("data2: ", data2)
+                    this.$log.info("data3: ", data3)
+                })
+
+                let models = await getModels()
+                this.$log.info("models: ", models)
+                this.$log.info("models: ", models.length)
+                this.$log.info("models: ", typeof (models))
+                this.bots = models
+
+                //get results
+                let results = await getSimResults()
+                this.$log.info("results: ", results)
+                this.$log.info("results: ", results.length)
+                this.$log.info("results: ", typeof (results))
+                this.results = results
+
+
+                //Trader
+
+                ipcRenderer.on('trades', (work, data2, data3) => {
 
                     /*
                     	trade:  {
@@ -462,25 +537,25 @@
                     //this.$log.debug("data3: ",data3)
                     //this.$log.debug("data2: ",typeof(data2))
                     //this.$log.debug("data2: ",data2.event)
-                    if(data2.event === 'trades'){
-                        this.lastPrice = data2.trade.price
+                    if (data2.event === 'trades') {
+                        this.lastPrice = data2.trades[0].price
                     }
 
-                    if(data2.event === 'signal'){
+                    if (data2.event === 'signal') {
 
-                        this.$toasted.show('SIGNAL! : ',{
-                            type:'info',
-                            duration:3000
+                        this.$toasted.show('SIGNAL! : ', {
+                            type: 'info',
+                            duration: 3000
                         })
 
                     }
 
                     //sound.playChingle()
-                    messageBus.$emit('block',data2)
+                    messageBus.$emit('block', data2)
 
                 })
 
-                ipcRenderer.on('signal', (work,data2,data3) => {
+                ipcRenderer.on('signal', (work, data2, data3) => {
 
                     /*
                     	signal:  {
@@ -489,64 +564,64 @@
 
                      */
 
-                    this.$log.debug("><><><><><><><><>< signal! ",data2)
+                    this.$log.debug("><><><><><><><><>< signal! ", data2)
 
-                    this.$toasted.show('SIGNAL! : '+data2.signal,{
-                        type:'info',
-                        duration:3000
+                    this.$toasted.show('SIGNAL! : ' + data2.signal, {
+                        type: 'info',
+                        duration: 3000
                     })
 
                     // if(data2.event === 'signal'){
-					//
+                    //
                     //     this.$toasted.show('SIGNAL! : ',{
                     //         type:'info',
                     //         duration:3000
                     //     })
-					//
+                    //
                     // }
 
 
                     //sound.playChingle()
-                    messageBus.$emit('<><><><><><><><><>< signal',data2)
+                    messageBus.$emit('<><><><><><><><><>< signal', data2)
 
 
-					//
-					if(data2.signal === "buy"){
+                    //
+                    if (data2.signal === "buy") {
                         this.$botService.buySignal()
-					}
+                    }
 
 
-                    if(data2.signal === "sell"){
+                    if (data2.signal === "sell") {
                         this.$botService.sellSignal()
                     }
 
 
                 })
 
-                messageBus.$on('execution',(trade) =>{
+                messageBus.$on('execution', (trade) => {
                     //this.getBalances()
-                    this.$log.info(" execution!: ",trade)
+                    this.$log.info(" execution!: ", trade)
                     //this.trades = this.trades.push(trade)
 
-                    this.$toasted.show('SIGNAL! : '+JSON.stringify(trade),{
-                        type:'info',
-                        duration:3000
+                    this.$toasted.show('SIGNAL! : ' + JSON.stringify(trade), {
+                        type: 'info',
+                        duration: 3000
                     })
 
                 })
 
 
                 let pieChart = [
-                    { label: 'In Positions',value: 50 },
-                    { label: 'Available', value: 50 },
+                    {label: 'In Positions', value: 50},
+                    {label: 'Available', value: 50},
                 ]
                 this.sections = pieChart
 
                 //Modals
-				messageBus.$on('update',(window) =>{
+                messageBus.$on('update', (window) => {
                     //this.getBalances()
                     this.loadConfig()
-				})
+                })
 
                 //open
                 messageBus.$on('open', (window) => {
@@ -687,54 +762,114 @@
             }
         },
         methods: {
+            startMining: async function () {
+				try{
+
+				    //push to main start mining
+
+				}catch(e){
+				    this.$log.error(e)
+				}
+            },
+            openResult: async function (name) {
+                let path = "file://"+backtestDir+"/"+name
+                this.$log.info("path: ", path)
+                shell.openExternal(path)
+            },
+            editBot: async function (name) {
+                this.$log.info("editBot bot name: ",name)
+				this.openEditBot = true
+                messageBus.$emit('SelectBot', name);
+
+            },
+            deleteBot: async function (name) {
+                this.$log.info("delete bot name: ",name)
+                //delete files
+                let result = await deleteModel(name)
+                this.$log.info("delete bot result: ",result)
+
+                let models = await getModels()
+                this.$log.info("models: ",models)
+                //this.$log.info("models: ",models.length)
+                //this.$log.info("models: ",typeof(models))
+                this.bots = models
+
+            },
+            startTraining: function () {
+                this.$log.info("Start training!! ")
+                let settings = {
+                    foo:"bar"
+                }
+                ipcRenderer.send("bot","train",settings)
+            },
+            startBacktest: function () {
+                this.$log.info("Start training!! ")
+                let settings = {
+                    foo:"bar"
+                }
+                ipcRenderer.send("bot","simulate",settings)
+            },
+            startTrading: function () {
+                this.$log.info("Start trading!! ")
+                let settings = {
+                    foo:"bar"
+                }
+
+                //TODO warning?
+                //Will I loose all your monies?
+
+                ipcRenderer.send("bot","trade",settings)
+            },
             buySignal() {
-                try{
+                try {
                     this.$botService.buySignal()
                     this.updatePostition()
-                }catch(e){
-                    this.$log.error(" Failed to go bull! ",e)
+                } catch (e) {
+                    this.$log.error(" Failed to go bull! ", e)
                 }
             },
             sellSignal() {
-                try{
+                try {
                     this.$log.info("Sell signal! ")
                     this.$botService.sellSignal()
-					this.updatePostition()
-                }catch(e){
-                    this.$log.error(" Failed to go bull! ",e)
+                    this.updatePostition()
+                } catch (e) {
+                    this.$log.error(" Failed to go bull! ", e)
                 }
             },
             async startTrading() {
-				try{
+                try {
 
                     ipcRenderer.sendSync('sub-fomo-ws', this.selected)
 
-				}catch(e){
-                    this.$log.error(" Failed to start trading! ",e)
-				}
+                } catch (e) {
+                    this.$log.error(" Failed to start trading! ", e)
+                }
             },
-            handleClick (item) {
+            handleClick(item) {
                 this.lastClicked = item;
                 this.$log.info("item: ", item)
 
                 //
-                switch(item) {
+                switch (item) {
                     case "Mine":
-
+                        this.isMiner = true
+                        this.isTrader = false
                         // code block
                         break;
                     case "Trade":
-                        this.isTrader
+                        this.isTrader = true
+                        this.isMiner = false
 
                         // code block
                         break;
                     case "Advanced Mode":
                         // code block
-						if(this.isAdvancedMode){
+                        if (this.isAdvancedMode) {
                             this.isAdvancedMode = false
-						}else{
+                        } else {
                             this.isAdvancedMode = true
-						}
+                        }
                         break;
                     default:
                     // code block
@@ -744,17 +879,17 @@
                 return `<h4>$ ${Number(value).toFixed(2)}</h4>`;
             },
             updatePostition: async function () {
-				try{
-				    //
+                try {
+                    //
                     await this.$botService.updatePosition()
                     let status = await this.$botService.getSummaryInfo()
                     this.$log.info("status: ", status)
 
-					this.lastPrice = status.LAST_PRICE
+                    this.lastPrice = status.LAST_PRICE
 
-                    if(status.BALANCE_AVAILABLE > 0){
+                    if (status.BALANCE_AVAILABLE > 0) {
                         this.totalBalance = status.BALANCE_AVAILABLE
-						this.totalUSD = status.BALANCE_AVAILABLE * status.LAST_PRICE
+                        this.totalUSD = status.BALANCE_AVAILABLE * status.LAST_PRICE
                         this.isBear = status.IS_BEAR
                         this.isBull = status.IS_BULL
                         this.isFunded = true
@@ -762,22 +897,22 @@
                     }
 
                     //update positions
-					let positions = []
-					for(let i = 0; i < status.POSITIONS.length; i++){
-					    let position = status.POSITIONS[i]
-						let summary = {}
+                    let positions = []
+                    for (let i = 0; i < status.POSITIONS.length; i++) {
+                        let position = status.POSITIONS[i]
+                        let summary = {}
 
-						summary.size = position.openingQty
+                        summary.size = position.openingQty
                         summary.leverage = position.leverage
                         summary.entry = position.avgCostPrice
-						summary.liquidation = position.liquidationPrice
+                        summary.liquidation = position.liquidationPrice
                         summary.pnl = position.unrealisedPnl / 100000000
                         positions.push(summary)
                     }
-					this.positions = positions
-				}catch(e){
+                    this.positions = positions
+                } catch (e) {
                     this.$log.error("e: ", e)
-				}
+                }
             },
             loadConfig: async function () {
                 let configStatus = checkConfigs()
@@ -785,7 +920,7 @@
                 this.$log.info("config: ", config)
 
                 let password = this.$walletService.getPassword()
-                if(password){
+                if (password) {
                     this.isNotConfiged = false
 
                     //init bot
@@ -793,7 +928,7 @@
                     //startSockets
                     await this.$botService.startSockets()
 
-					this.updatePostition()
+                    this.updatePostition()
 
 
                 } else {
@@ -950,15 +1085,18 @@
 	.help-content {
 		background-color: darkslateblue !important;
 	}
+
 	.help-tabs {
 		margin-bottom: 10px !important;
 	}
+
 	.tabs li.is-active a {
 		border-bottom-color: #000000;
 		color: #7763A9;
 		border-bottom: 3px solid;
 		font-weight: bold;
 	}
+
 	code, pre {
 		color: #1b1e21 !important;
 		background-color: darkslateblue !important;
@@ -978,6 +1116,7 @@
 		padding: 10px;
 		border-radius: 100px;
 	}
+
 	button:focus {
 		outline: none;
 	}
@@ -987,6 +1126,7 @@
 		margin: 0px;
 		width: 100%;
 	}
+
 	.wrap {
 		margin: 0px auto;
 		width: 486px;
@@ -1008,123 +1148,250 @@
 	}
 
 	@keyframes bounce {
-		0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-		40% {transform: translateY(-30px);}
-		60% {transform: translateY(-15px);}
+		0%, 20%, 50%, 80%, 100% {
+			transform: translateY(0);
+		}
+		40% {
+			transform: translateY(-30px);
+		}
+		60% {
+			transform: translateY(-15px);
+		}
 	}
+
 	.bounce {
 		animation-name: bounce;
 	}
 
 	@keyframes flash {
-		0%, 50%, 100% {opacity: 1;}
-		25%, 75% {opacity: 0;}
+		0%, 50%, 100% {
+			opacity: 1;
+		}
+		25%, 75% {
+			opacity: 0;
+		}
 	}
+
 	.flash {
 		animation-name: flash;
 	}
 
 	@keyframes pulse {
-		0% {transform: scale(1);}
-		50% {transform: scale(1.1);}
-		100% {transform: scale(1);}
+		0% {
+			transform: scale(1);
+		}
+		50% {
+			transform: scale(1.1);
+		}
+		100% {
+			transform: scale(1);
+		}
 	}
+
 	.pulse {
 		animation-name: pulse;
 		animation-duration: 1s;
 	}
 
 	@keyframes rubberBand {
-		0% {transform: scale(1);}
-		30% {transform: scaleX(1.25) scaleY(0.75);}
-		40% {transform: scaleX(0.75) scaleY(1.25);}
-		60% {transform: scaleX(1.15) scaleY(0.85);}
-		100% {transform: scale(1);}
+		0% {
+			transform: scale(1);
+		}
+		30% {
+			transform: scaleX(1.25) scaleY(0.75);
+		}
+		40% {
+			transform: scaleX(0.75) scaleY(1.25);
+		}
+		60% {
+			transform: scaleX(1.15) scaleY(0.85);
+		}
+		100% {
+			transform: scale(1);
+		}
 	}
+
 	.rubberBand {
 		animation-name: rubberBand;
 	}
 
 	@keyframes shake {
-		0%, 100% {transform: translateX(0);}
-		10%, 30%, 50%, 70%, 90% {transform: translateX(-10px);}
-		20%, 40%, 60%, 80% {transform: translateX(10px);}
+		0%, 100% {
+			transform: translateX(0);
+		}
+		10%, 30%, 50%, 70%, 90% {
+			transform: translateX(-10px);
+		}
+		20%, 40%, 60%, 80% {
+			transform: translateX(10px);
+		}
 	}
+
 	.shake {
 		animation-name: shake;
 	}
 
 	@keyframes swing {
-		20% {transform: rotate(15deg);}
-		40% {transform: rotate(-10deg);}
-		60% {transform: rotate(5deg);}
-		80% {transform: rotate(-5deg);}
-		100% {transform: rotate(0deg);}
+		20% {
+			transform: rotate(15deg);
+		}
+		40% {
+			transform: rotate(-10deg);
+		}
+		60% {
+			transform: rotate(5deg);
+		}
+		80% {
+			transform: rotate(-5deg);
+		}
+		100% {
+			transform: rotate(0deg);
+		}
 	}
+
 	.swing {
 		transform-origin: top center;
 		animation-name: swing;
 	}
 
 	@keyframes wobble {
-		0% {transform: translateX(0%);}
-		15% {transform: translateX(-25%) rotate(-5deg);}
-		30% {transform: translateX(20%) rotate(3deg);}
-		45% {transform: translateX(-15%) rotate(-3deg);}
-		60% {transform: translateX(10%) rotate(2deg);}
-		75% {transform: translateX(-5%) rotate(-1deg);}
-		100% {transform: translateX(0%);}
+		0% {
+			transform: translateX(0%);
+		}
+		15% {
+			transform: translateX(-25%) rotate(-5deg);
+		}
+		30% {
+			transform: translateX(20%) rotate(3deg);
+		}
+		45% {
+			transform: translateX(-15%) rotate(-3deg);
+		}
+		60% {
+			transform: translateX(10%) rotate(2deg);
+		}
+		75% {
+			transform: translateX(-5%) rotate(-1deg);
+		}
+		100% {
+			transform: translateX(0%);
+		}
 	}
+
 	.wobble {
 		animation-name: wobble;
 	}
 
 	@keyframes flip {
-		0% {transform: perspective(400px) translateZ(0) rotateY(0) scale(1);animation-timing-function: ease-out;}
-		40% {transform: perspective(400px) translateZ(150px) rotateY(170deg) scale(1);animation-timing-function: ease-out;}
-		50% {transform: perspective(400px) translateZ(150px) rotateY(190deg) scale(1);animation-timing-function: ease-in;}
-		80% {transform: perspective(400px) translateZ(0) rotateY(360deg) scale(.95);animation-timing-function: ease-in;}
-		100% {transform: perspective(400px) translateZ(0) rotateY(360deg) scale(1);animation-timing-function: ease-in;}
+		0% {
+			transform: perspective(400px) translateZ(0) rotateY(0) scale(1);
+			animation-timing-function: ease-out;
+		}
+		40% {
+			transform: perspective(400px) translateZ(150px) rotateY(170deg) scale(1);
+			animation-timing-function: ease-out;
+		}
+		50% {
+			transform: perspective(400px) translateZ(150px) rotateY(190deg) scale(1);
+			animation-timing-function: ease-in;
+		}
+		80% {
+			transform: perspective(400px) translateZ(0) rotateY(360deg) scale(.95);
+			animation-timing-function: ease-in;
+		}
+		100% {
+			transform: perspective(400px) translateZ(0) rotateY(360deg) scale(1);
+			animation-timing-function: ease-in;
+		}
 	}
+
 	.animated.flip {
 		backface-visibility: visible;
 		animation-name: flip;
 	}
 
 	@keyframes lightSpeedIn {
-		0% {transform: translateX(100%) skewX(-30deg);opacity: 0;}
-		60% {transform: translateX(-20%) skewX(30deg);opacity: 1;}
-		80% {transform: translateX(0%) skewX(-15deg);opacity: 1;}
-		100% {transform: translateX(0%) skewX(0deg);opacity: 1;}
+		0% {
+			transform: translateX(100%) skewX(-30deg);
+			opacity: 0;
+		}
+		60% {
+			transform: translateX(-20%) skewX(30deg);
+			opacity: 1;
+		}
+		80% {
+			transform: translateX(0%) skewX(-15deg);
+			opacity: 1;
+		}
+		100% {
+			transform: translateX(0%) skewX(0deg);
+			opacity: 1;
+		}
 	}
+
 	.lightSpeedIn {
 		animation-name: lightSpeedIn;
 		animation-timing-function: ease-out;
 	}
 
 	@keyframes rollIn {
-		0% {opacity: 0;transform: translateX(-100%) rotate(-120deg);}
-		100% {opacity: 1;transform: translateX(0px) rotate(0deg);}
+		0% {
+			opacity: 0;
+			transform: translateX(-100%) rotate(-120deg);
+		}
+		100% {
+			opacity: 1;
+			transform: translateX(0px) rotate(0deg);
+		}
 	}
+
 	.rollIn {
 		animation-name: rollIn;
 	}
 
 	@keyframes rotateIn {
-		0% {transform-origin: center center;transform: rotate(-200deg);opacity: 0;}
-		100% {transform-origin: center center;transform: rotate(0);opacity: 1;}
+		0% {
+			transform-origin: center center;
+			transform: rotate(-200deg);
+			opacity: 0;
+		}
+		100% {
+			transform-origin: center center;
+			transform: rotate(0);
+			opacity: 1;
+		}
 	}
+
 	.rotateIn {
 		animation-name: rotateIn;
 	}
 
 	@keyframes hinge {
-		0% {transform: rotate(0);transform-origin: top left;animation-timing-function: ease-in-out;}
-		20%, 60% {transform: rotate(80deg);transform-origin: top left;animation-timing-function: ease-in-out;}
-		40% {transform: rotate(60deg);transform-origin: top left;animation-timing-function: ease-in-out;}
-		80% {transform: rotate(60deg) translateY(0);transform-origin: top left;animation-timing-function: ease-in-out;}
-		100% {transform: translateY(700px);}
+		0% {
+			transform: rotate(0);
+			transform-origin: top left;
+			animation-timing-function: ease-in-out;
+		}
+		20%, 60% {
+			transform: rotate(80deg);
+			transform-origin: top left;
+			animation-timing-function: ease-in-out;
+		}
+		40% {
+			transform: rotate(60deg);
+			transform-origin: top left;
+			animation-timing-function: ease-in-out;
+		}
+		80% {
+			transform: rotate(60deg) translateY(0);
+			transform-origin: top left;
+			animation-timing-function: ease-in-out;
+		}
+		100% {
+			transform: translateY(700px);
+		}
 	}
+
 	.hinge {
 		margin: 20px;
 		animation-name: hinge;
@@ -1134,15 +1401,18 @@
 		.wrap {
 			width: 100%;
 		}
+
 		.box {
 			width: 100%;
 			height: 55px;
 			clear: both;
 			margin: 0px auto;
 		}
+
 		.text {
 			margin-top: 20px;
 		}
+
 		.hingebox, .flipbox {
 			display: none;
 		}

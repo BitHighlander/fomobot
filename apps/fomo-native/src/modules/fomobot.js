@@ -330,7 +330,7 @@ class BotService {
                 //go bull
 
 
-                let amount =  Math.abs(POSITION_NATIVE) * 2
+                let amount =  Math.abs(POSITION_NATIVE)
                 if(!amount || amount < 0) amount = 1000
 
                 log.info(tag,"amount: ",amount)
@@ -375,7 +375,6 @@ class BotService {
             console.error("e: ",e)
         }
     }
-
 
     static async getBackfillChart() {
 
