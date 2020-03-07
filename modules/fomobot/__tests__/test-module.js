@@ -11,33 +11,40 @@ const tradesDB = db.get('trades')
 let bot = require("../index.js")
 
 
-let run_test = async function(){
-    let tag = " | run-test | "
-    try{
-        let events = await bot.init("ta_ultosc")
-        console.log(events)
-        await sleep(1000)
 
-        //get recent history
-        let allTrades = await tradesDB.find({selector:"bitmex.BTC-USD"},{limit:10000,sort:{time:-1}})
-        //log.info(tag,"total trades: ",allTrades.length)
-
-        //Load trades to engine
-        bot.load(allTrades)
-
-        //
-        events.on('events', async function (message) {
-            log.info(tag,"<><><><><><><><><><><>><> message: ",message)
-        })
+// bot.backfill()
+//     .then(function(resp){
+//         console.log(resp)
+//     })
 
 
-    }catch(e){
-        log.error(e)
-    }
-}
+// let run_test = async function(){
+//     let tag = " | run-test | "
+//     try{
+//         let events = await bot.init("ta_ultosc")
+//         console.log(events)
+//         await sleep(1000)
+//
+//         //get recent history
+//         let allTrades = await tradesDB.find({selector:"bitmex.BTC-USD"},{limit:10000,sort:{time:-1}})
+//         //log.info(tag,"total trades: ",allTrades.length)
+//
+//         //Load trades to engine
+//         bot.load(allTrades)
+//
+//         //
+//         events.on('events', async function (message) {
+//             log.info(tag,"<><><><><><><><><><><>><> message: ",message)
+//         })
+//
+//
+//     }catch(e){
+//         log.error(e)
+//     }
+// }
 
 
-run_test()
+//run_test()
 
 //get trades from db
 

@@ -13,6 +13,7 @@
     "async": "^3.0.1",
     "babel-loader": "^8.0.4",
     "babel-preset-env": "^1.6.1",
+    "bitmex-node": "^1.9.0",
     "bitstamp": "^1.0.4",
     "bl": "^3.0.0",
     "bollinger-bands": "^3.0.1",
