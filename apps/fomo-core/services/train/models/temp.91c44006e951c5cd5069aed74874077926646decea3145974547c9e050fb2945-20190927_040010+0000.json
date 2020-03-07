@@ -1,0 +1,83 @@
+{
+    "selector": "bitmex.BTC-USD",
+    "period": "30m",
+    "start_training": "2019-09-27T04:00:10.058Z",
+    "end_training": "2019-09-27T04:00:10.058Z",
+    "options": {
+        "populationCount": 100,
+        "generationCount": 100,
+        "selectionAmount": 10,
+        "leafValueMutationProbability": 0.5,
+        "leafSignMutationProbability": 0.3,
+        "logicalNodeMutationProbability": 0.3,
+        "leafIndicatorMutationProbability": 0.2,
+        "crossoverProbability": 0.03,
+        "indicators": [
+            "CCI",
+            "MACD",
+            "RSI",
+            "SAR",
+            "Stochastic"
+        ]
+    },
+    "strategy": {
+        "buy": {
+            "operator": "And",
+            "left": {
+                "operator": "Or",
+                "left": {
+                    "indicator": "CCI",
+                    "sign": "<",
+                    "value": -24451.173466845183
+                },
+                "right": {
+                    "indicator": "CCI",
+                    "sign": "<",
+                    "value": -371707.7137960869
+                }
+            },
+            "right": {
+                "operator": "And",
+                "left": {
+                    "indicator": "Stochastic",
+                    "sign": ">",
+                    "value": -11438.117183060209
+                },
+                "right": {
+                    "indicator": "Stochastic",
+                    "sign": ">",
+                    "value": -8520.11265663725
+                }
+            }
+        },
+        "sell": {
+            "operator": "Or",
+            "left": {
+                "operator": "Or",
+                "left": {
+                    "indicator": "MACD",
+                    "sign": "<",
+                    "value": 740454.9976578152
+                },
+                "right": {
+                    "indicator": "SAR",
+                    "sign": ">",
+                    "value": 3815396.2925972035
+                }
+            },
+            "right": {
+                "operator": "Or",
+                "left": {
+                    "indicator": "Stochastic",
+                    "sign": "<",
+                    "value": 12069.547886852986
+                },
+                "right": {
+                    "indicator": "Stochastic",
+                    "sign": "<",
+                    "value": 11932.536588914318
+                }
+            }
+        }
+    }
+}

@@ -1,3 +1,8 @@
+let nedb = require("@fomobro/nedb")
+
+
+
+
 module.exports = function (conf) {
   return {
     getTrades: () => {
