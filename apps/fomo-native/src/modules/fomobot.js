@@ -185,10 +185,15 @@ class BotService {
                 let balance = wallet.amount
                 log.info("initClient() | balance: ",balance)
                 BALANCE_AVAILABLE = balance  / 100000000
-                
+
                 let positions = await EXCHANGES['bitmex'].Position.get()
                 log.info("initClient() | positions: ",positions)
                 POSITIONS  = positions
+
+                // Calculate Last Price (BTC_USD)
+                let trades = await EXCHANGES['bitmex'].Trade.get({ symbol: "XBTUSD", count: "1", reverse: true })
+                console.log("initClient() | trades:", trades)
+                LAST_PRICE = trades[0].price
 
                 //calculate globals?
                 for(let i = 0; i < positions.length; i++){
@@ -205,7 +210,7 @@ class BotService {
                     PCT_IN_POSITION = pctAvaible
                     log.info("initClient() | pctInPosition: ",pctAvaible)
 
-                    LAST_PRICE =position.lastPrice
+                    LAST_PRICE = position.lastPrice
 
                     //isBull
                     let isBull = false
