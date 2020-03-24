@@ -557,13 +557,6 @@
 
                 ipcRenderer.on('signal', (work, data2, data3) => {
 
-                    /*
-                    	signal:  {
-
-                    	}
-
-                     */
-
                     this.$log.debug("><><><><><><><><>< signal! ", data2)
 
                     this.$toasted.show('SIGNAL! : ' + data2.signal, {
@@ -580,22 +573,16 @@
                     //
                     // }
 
-
                     //sound.playChingle()
                     messageBus.$emit('<><><><><><><><><>< signal', data2)
 
-
-                    //
                     if (data2.signal === "buy") {
                         this.$botService.buySignal()
                     }
 
-
                     if (data2.signal === "sell") {
                         this.$botService.sellSignal()
                     }
-
-
                 })
 
                 messageBus.$on('execution', (trade) => {
@@ -609,7 +596,6 @@
                     })
 
                 })
-
 
                 let pieChart = [
                     {label: 'In Positions', value: 50},
@@ -917,85 +903,68 @@
             loadConfig: async function () {
                 let configStatus = checkConfigs()
                 let config = getConfig()
-                this.$log.info("config: ", config)
+                this.$log.info("loadConfig() | config: ", config)
 
                 let password = this.$walletService.getPassword()
                 if (password) {
                     this.isNotConfiged = false
-
-                    //init bot
-                    await this.$botService.initClient(password)
-                    //startSockets
+                    await this.$botService.initClient(password, config)
                     await this.$botService.startSockets()
-
                     this.updatePostition()
-
-
                 } else {
                     this.$log.info("Password Not Set! : ")
                 }
 
+				// TODO: UnComment/Fix This for Startup Config Modals
+                 if (!configStatus.isConfigured) {
+                     this.$log.info("checkpoint 3 No config found!")
+                     this.openWelcome = true
+                 } else {
+                     this.$log.info("checkpoint 3a config found!")
+                     if (configStatus.isRegistered) {
+                         this.$log.info("checkpoint 4a username found!")
+                         let password = this.$walletService.getPassword()
+                         if (password) {
+                             if (!this.username) {
+                                 this.username = config.username
+                             }
+                             if (!this.signingPub) {
+                                 this.signingPub = config.signingPub
+                             }
+                             if (!this.signingPriv) {
+                                 this.signingPriv = config.signingPriv
+                             }
 
-                // if (!configStatus.isConfigured) {
-                //     this.$log.info("checkpoint 3 No config found!")
-                //     //open settings modal
-                //     this.openWelcome = true
-                // } else {
-                //     this.$log.info("checkpoint 3a config found!")
-                //     //isRegistered?
-                //     if (configStatus.isRegistered) {
-                //         this.$log.info("checkpoint 4a username found!")
-                //         //startup
-                //         //isPassword
-                //         let password = this.$walletService.getPassword()
-                //         if (password) {
-                //             if (!this.username) {
-                //                 this.username = config.username
-                //             }
-                //             if (!this.signingPub) {
-                //                 this.signingPub = config.signingPub
-                //             }
-                //             if (!this.signingPriv) {
-                //                 this.signingPriv = config.signingPriv
-                //             }
-                //
-                //             //init bot
-                //             await this.$botService.init(password)
-                //
-                // 			//test bitmex
-                // 			let status = await this.$botService.getSummaryInfo()
-                //
-                //
-                //
-                // 			//if online
-                // 			if(status.online){
-                //
-                // 			}
-                //
-                //
-                //             // if (!this.signingPub || !this.signingPriv) {
-                //             //     this.openRegister = true
-                //             // }
-                //         } else {
-                //             this.openPassword = true
-                //         }
-                //
-                //
-                //     } else {
-                //         //if wallet
-                //         if (configStatus.isWallet) {
-                //             this.$log.info("checkpoint 4b no username found!")
-                //             //nerf register
-                // 			this.openPassword = true
-                // 			//this.openRegister = true
-                //
-                // 			//
-                //
-                //         } else {
-                //             this.openWelcome = true
-                //         }
-                //     }
-                // }
+                             //init bot
+                             await this.$botService.init(password)
+
+							 //test bitmex
+                 			 let status = await this.$botService.getSummaryInfo()
+
+                 			 //if online
+                 			 if(status.online) {}
+
+                             // if (!this.signingPub || !this.signingPriv) {
+                             //     this.openRegister = true
+                             // }
+                         } else {
+                             this.openPassword = true
+                         }
+                     } else {
+                         //if wallet
+                         if (configStatus.isWallet) {
+                             this.$log.info("checkpoint 4b no username found!")
+							 if (!global.FOMO_INITIALIZED_PASSWORD) {
+                                 this.openPassword = true
+                                 global.FOMO_INITIALIZED_PASSWORD = true
+							 }
+
+                 			 //this.openRegister = true
+                         } else {
+                             this.openWelcome = true
+                         }
+                     }
+                 }
             },
             getUsers: function () {
                 this.$http
