@@ -1,9 +1,9 @@
 let TAG = " | engine | "
 
-let log = require("default-logger")()
+let log = require("default-logger")
 
 
-const {subscriber,publisher,redis} = require('@bithighlander/default-redis')
+const {subscriber,publisher,redis} = require('@fomobro/default-redis')
 
 //sub to pubsub
 
@@ -185,7 +185,7 @@ module.exports = function (s, conf) {
     s.period.close = trade.price
     s.period.volume += trade.size
     s.period.latest_trade_time = trade.time
-    log.debug(tag,"s*******: ",s)
+    console.log(tag,"s*******: ",s)
     s.strategy.calculate(s)
     s.vol_since_last_blink += trade.size
     if (s.trades && s.last_trade_id !== trade.trade_id) {
@@ -208,7 +208,7 @@ module.exports = function (s, conf) {
         if (last_trade.type === 'buy') {
           if (do_sell_stop && s.sell_stop && s.period.close < s.sell_stop) {
             stop_signal = 'sell'
-            log.debug(('\nsell stop triggered at ' + formatPercent(s.last_trade_worth) + ' trade worth\n').red)
+            console.log(('\nsell stop triggered at ' + formatPercent(s.last_trade_worth) + ' trade worth\n').red)
             s.stopTriggered = true
           }
           else if (so.profit_stop_enable_pct && s.last_trade_worth >= (so.profit_stop_enable_pct / 100)) {
@@ -217,13 +217,13 @@ module.exports = function (s, conf) {
           }
           if (s.profit_stop && s.period.close < s.profit_stop && s.last_trade_worth > 0) {
             stop_signal = 'sell'
-            log.debug(('\nprofit stop triggered at ' + formatPercent(s.last_trade_worth) + ' trade worth\n').green)
+            console.log(('\nprofit stop triggered at ' + formatPercent(s.last_trade_worth) + ' trade worth\n').green)
           }
         }
         else {
           if (s.buy_stop && s.period.close > s.buy_stop) {
             stop_signal = 'buy'
-            log.debug(('\nbuy stop triggered at ' + formatPercent(s.last_trade_worth) + ' trade worth\n').red)
+            console.log(('\nbuy stop triggered at ' + formatPercent(s.last_trade_worth) + ' trade worth\n').red)
           }
         }
       }
@@ -331,7 +331,7 @@ module.exports = function (s, conf) {
       order.time = new Date(api_order.created_at).getTime()
       order.local_time = now()
       order.status = api_order.status
-      log.debug(tag,'\ncreated ' + order.status + ' ' + type + ' order: ' + formatAsset(order.size) + ' at ' + formatCurrency(order.price) + ' (total ' + formatCurrency(n(order.price).multiply(order.size)) + ')\n')
+      console.log(tag,'\ncreated ' + order.status + ' ' + type + ' order: ' + formatAsset(order.size) + ' at ' + formatCurrency(order.price) + ' (total ' + formatCurrency(n(order.price).multiply(order.size)) + ')\n')
 
       setTimeout(function() { checkOrder(order, type, cb) }, so.order_poll_time)
     })
@@ -943,16 +943,17 @@ module.exports = function (s, conf) {
 
   var tradeProcessingQueue = async.queue(function({trade, is_preroll}, callback){
     let tag = TAG+ ' | tradeProcessingQueue | '
-    log.debug(tag,tag, "checkpoint! ")
+    console.log(tag,tag, "checkpoint! ")
 
     onTrade(trade, is_preroll, callback)
   })
 
   function queueTrade(trade, is_preroll){
     let tag = TAG+ ' | queueTrade | '
-    log.debug(tag,tag, "checkpoint! ")
-    log.debug(tag,tag, "trade: ",trade)
-    log.debug(tag,tag, "is_preroll: ",is_preroll)
+    console.log(tag,tag, "checkpoint! ")
+
+    console.log(tag,tag, "trade: ",trade)
+    console.log(tag,tag, "is_preroll: ",is_preroll)
     tradeProcessingQueue.push({trade, is_preroll})
 
 
@@ -960,7 +961,7 @@ module.exports = function (s, conf) {
 
   function onTrade(trade, is_preroll, cb) {
     let tag = TAG+ ' | onTrade | '
-    log.debug(tag,tag, "checkpoint! ")
+    console.log(tag,tag, "checkpoint! ")
 
 
     //log.info("lookback: ",s.lookback)
@@ -972,10 +973,10 @@ module.exports = function (s, conf) {
 
     //
     if (s.period && trade.time < s.period.time) {
-      log.debug(tag, "checkpoint reject! ")
-      log.debug(tag, "s.period: ",s.period)
-      log.debug(tag, "trade.time: ",trade.time)
-      log.debug(tag, "s.period.time: ",s.period.time)
+      console.log(tag, "checkpoint reject! ")
+      console.log(tag, "s.period: ",s.period)
+      console.log(tag, "trade.time: ",trade.time)
+      console.log(tag, "s.period.time: ",s.period.time)
     }
 
     var day = (new Date(trade.time)).getDate()
@@ -1027,7 +1028,7 @@ module.exports = function (s, conf) {
 
   function onTrades(trades, is_preroll, cb) {
     let tag = TAG + " | onTrades | "
-    log.debug(tag, "checkpoint")
+    console.log(tag, "checkpoint")
 
     if (_.isFunction(is_preroll)) {
       cb = is_preroll
@@ -1062,7 +1063,7 @@ module.exports = function (s, conf) {
     update: onTrades,
     exit: function (cb) {
       let tag = TAG + " | exit | "
-      log.debug(tag, "checkpoint")
+      console.log(tag, "checkpoint")
 
       if(tradeProcessingQueue.length()){
         tradeProcessingQueue.drain = () => {
