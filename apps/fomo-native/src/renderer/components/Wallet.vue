@@ -30,19 +30,19 @@
 							<SortedTable :values="table1.data">
 								<thead>
 								<tr>
-									<th scope="col" style="text-align: left; width: 10rem;">
-										<SortLink name="blockNumber">blockNumber</SortLink>
+									<th scope="col" style="text-align: center; width: 10rem;">
+										<SortLink name="blockNumber">Block #</SortLink>
 									</th>
-									<th scope="col" style="text-align: left; width: 10rem;">
+									<th scope="col" style="text-align: center; width: 10rem;">
 										<SortLink name="amount">amount</SortLink>
 									</th>
-									<th scope="col" style="text-align: left; width: 10rem;">
+									<th scope="col" style="text-align: center; width: 10rem;">
 										<SortLink name="to">to</SortLink>
 									</th>
-									<th scope="col" style="text-align: left; width: 10rem;">
+									<th scope="col" style="text-align: center; width: 10rem;">
 										<SortLink name="from">from</SortLink>
 									</th>
-									<th scope="col" style="text-align: left; width: 10rem;">
+									<th scope="col" style="text-align: center; width: 10rem;">
 										<SortLink name="txid">txid</SortLink>
 									</th>
 								</tr>
