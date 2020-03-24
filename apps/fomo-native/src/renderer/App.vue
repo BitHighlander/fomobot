@@ -31,7 +31,7 @@
                                     </div>
 
                                     <div v-if="isTrader">
-                                        Trading Status:
+                                        Trading Status: {{isTrading ? "Trading" : "Offline"}}
 
                                         <vc-donut
                                                 :size="280"
@@ -81,11 +81,11 @@
                                         class="mb-2 text-white"
                                 >
                                     <b-card-text>
-                                        Last Price: ${{lastPrice}}
+                                        Last Price: ${{this.formatToPriceUSDRaw(lastPrice)}}
                                         <br>
-                                        Is Bull?: {{isBull}}
+                                        Is Bull? {{isBull}}
                                         <br>
-                                        Is Bear?: {{isBear}}
+                                        Is Bear? {{isBear}}
                                         <br>
                                     </b-card-text>
                                 </b-card>
@@ -831,6 +831,9 @@
             formatToPriceUSD(value) {
                 return `<h4>$ ${Number(value).toFixed(2)}</h4>`;
             },
+            formatToPriceUSDRaw(value) {
+                return `${Number(value).toFixed(2)}`;
+            },
             updatePostition: async function () {
                 try {
                     await this.$botService.updatePosition()
@@ -1016,6 +1019,7 @@
             }
         }
     }
+
 </script>
 
 <style>
