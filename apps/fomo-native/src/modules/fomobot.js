@@ -151,16 +151,17 @@ class BotService {
         return {public:API_KEY_PUBLIC,private:API_KEY_PRIVATE}
     }
 
-    static async initClient(password) {
+    static async initClient(password, config) {
         let tag = TAG + " | initClient | "
         try{
             if(!IS_INIT){
-                let config = getConfig()
-                if(!config.bitmexTest) throw Error("Bitmex not configured!")
-                if(!password) throw Error("Password required!")
+                if (!config) {
+                    config = getConfig()
+                }
 
-                //decrypt priv
-                let encryptedPriv = config.bitMexTestPriv
+                //if(!config.bitmexTest) throw Error("Bitmex not configured!")
+                if(!password) throw Error("Password required!");
+                let encryptedPriv = config.bitMexTestPriv;
                 const cryptr = new Cryptr(password);
                 let priv = cryptr.decrypt(encryptedPriv)
                 let pub = config.bitMexTestPub
@@ -168,7 +169,6 @@ class BotService {
                 log.debug("pub: ",pub)
                 log.debug("priv: ",priv)
 
-                //
                 if(!pub) throw Error("missing pub! ")
                 if(!priv) throw Error("missing priv! ")
 
@@ -179,17 +179,15 @@ class BotService {
                     // "proxy": "https://cors-anywhere.herokuapp.com/"
                 })
 
-                //get balances
                 let wallet = await EXCHANGES['bitmex'].User.getWallet()
-                log.debug("wallet: ", wallet)
+                log.debug("initClient() | wallet: ", wallet)
 
                 let balance = wallet.amount
-                log.info("balance: ",balance)
+                log.info("initClient() | balance: ",balance)
                 BALANCE_AVAILABLE = balance  / 100000000
-
-
+                
                 let positions = await EXCHANGES['bitmex'].Position.get()
-                log.info("positions: ",positions)
+                log.info("initClient() | positions: ",positions)
                 POSITIONS  = positions
 
                 //calculate globals?
@@ -205,7 +203,7 @@ class BotService {
                     pctAvaible = pctAvaible * 100
                     pctAvaible = pctAvaible - 100
                     PCT_IN_POSITION = pctAvaible
-                    log.info("pctInPosition: ",pctAvaible)
+                    log.info("initClient() | pctInPosition: ",pctAvaible)
 
                     LAST_PRICE =position.lastPrice
 
@@ -236,18 +234,18 @@ class BotService {
     }
 
     static async updatePosition() {
-        try{
+        try {
+            const client = EXCHANGES['bitmex']
 
-            let wallet = await EXCHANGES['bitmex'].User.getWallet()
-            log.debug("wallet: ", wallet)
+            let wallet = await client.User.getWallet()
+            log.debug("updatePosition() | wallet: ", wallet)
 
             let balance = wallet.amount
-            log.info("balance: ",balance)
+            log.info("updatePosition() | balance: ",balance)
             BALANCE_AVAILABLE = balance  / 100000000
 
-
-            let positions = await EXCHANGES['bitmex'].Position.get()
-            log.info("positions: ",positions)
+            let positions = await client.Position.get()
+            log.info("updatePosition() | positions: ",positions)
 
             for(let i = 0; i < positions.length; i++){
                 let position = positions[i]
@@ -260,7 +258,7 @@ class BotService {
                 pctAvaible = pctAvaible * 100
                 pctAvaible = pctAvaible - 100
                 PCT_IN_POSITION = pctAvaible
-                log.info("pctInPosition: ",pctAvaible)
+                log.info("updatePosition() | pctInPosition: ",pctAvaible)
 
                 //isBull
                 let isBull = false
@@ -275,11 +273,8 @@ class BotService {
                     isBear = true
                     IS_BEAR = true
                 }
-
             }
-
-
-        }catch(e){
+        } catch(e) {
             console.error("e: ",e)
         }
     }
