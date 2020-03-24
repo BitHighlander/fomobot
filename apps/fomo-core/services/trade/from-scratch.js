@@ -88,7 +88,7 @@ let run_bot = async function(modelPath){
         }
 
         //s.options.strategy =  'forex_analytics' //(why the fuck It saying buy and sell at same time!?!?
-        //s.options.strategy =  'bollinger'
+        s.options.strategy =  'bollinger'
         //s.options.strategy =  'cci_srsi'
         //s.options.strategy =  'crossover_vwap'
         //s.options.strategy =  'dema'
@@ -98,7 +98,7 @@ let run_bot = async function(modelPath){
 
         //s.options.strategy =  'wavetrend'
         //s.options.strategy =  'trust_distrust'
-        s.options.strategy =  'ta_ultosc' //very active!
+        //s.options.strategy =  'ta_ultosc' //very active!
         //s.options.strategy =  'stddev'
 
         //broke
