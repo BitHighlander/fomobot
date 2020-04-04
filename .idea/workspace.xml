@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="222539ec-8fd8-4098-b8a4-b0833b44921b" name="Default Changelist" comment="debug building!">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/fomobot/lib/services/collection-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/modules/fomobot/lib/services/collection-service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/fomobot/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/modules/fomobot/package.json" afterDir="false" />
+    <list default="true" id="222539ec-8fd8-4098-b8a4-b0833b44921b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/apps/fomo-native/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fomo-native/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/fomo-native/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fomo-native/package.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -181,14 +180,7 @@
       <workItem from="1580446187206" duration="2428000" />
       <workItem from="1582441184967" duration="14000" />
       <workItem from="1583619990255" duration="529000" />
-      <workItem from="1585971522329" duration="4771000" />
-    </task>
-    <task id="LOCAL-00038" summary="lookin purty">
-      <created>1565238874054</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1565238874054</updated>
+      <workItem from="1585971522329" duration="5969000" />
     </task>
     <task id="LOCAL-00039" summary="finish setup">
       <created>1565240253708</created>
@@ -526,7 +518,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585975332400</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="debug building!">
+      <created>1585976676937</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1585976676937</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -569,8 +568,8 @@
     <MESSAGE value="ready for overnight test" />
     <MESSAGE value="begin miner mode" />
     <MESSAGE value="add fomo-core" />
-    <MESSAGE value="debug building!" />
     <MESSAGE value="remove nedb" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove nedb" />
+    <MESSAGE value="debug building!" />
+    <option name="LAST_COMMIT_MESSAGE" value="debug building!" />
   </component>
 </project>
