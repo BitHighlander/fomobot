@@ -1,303 +1,270 @@
 <template>
-	<div id="app">
+    <div id="app">
 
-		<div class="container">
-			<div class="columns">
-				<div class="column is-12">
-					<b-row>
-						<b-col>
-							<b-card
-									title="Balances"
-									img-src=""
-									img-alt="Image"
-									img-top
-									tag="article"
-									style="max-width: 20rem;"
-									class="mb-2"
-							>
-								<b-card-text>
-									<h4>Fomopoints: {{fomopoints}}</h4>
+        <div class="container">
+            <div class="columns">
+                <div class="column is-12">
+                    <b-row>
+                        <b-col>
+                            <b-card
+                                    title="Balances"
+                                    img-src=""
+                                    img-alt="Image"
+                                    img-top
+                                    tag="article"
+                                    style="max-width: 20rem;"
+                                    class="mb-2"
+                            >
+                                <b-card-text>
+                                    <h4>Fomopoints: {{fomopoints}}</h4>
 
-									<div v-if="isNotConfiged">
-										Please finish configuring!
-									</div>
+                                    <div v-if="isNotConfiged">
+                                        Please finish configuring!
+                                    </div>
 
-									<div v-if="isFunded">
-										You must fund your account to trade!
-									</div>
+                                    <div v-if="isFunded == false">
+                                        You must fund your account to trade!
+                                    </div>
 
-									<div v-if="isReady">
-										Ready to begin!
-									</div>
+                                    <div v-if="isReady">
+                                        Ready to begin!
+                                    </div>
 
-									<div v-if="isTrader">
-										Trading Status:
+                                    <div v-if="isTrader">
+                                        Trading Status: {{isTrading ? "Trading" : "Offline"}}
 
-										<vc-donut
-												:size="280"
-												background="#363636"
-												:sections="sections"
-												has-legend legend-placement="bottom"
-												:total="100"
-										>
-											{{totalBalance}}(BTC)
-											<animated-number
-													:value="totalUSD"
-													:formatValue="formatToPriceUSD"
-													:duration="duration"/>
-											Total (USD)
-										</vc-donut>
-									</div>
+                                        <vc-donut
+                                                :size="280"
+                                                background="#363636"
+                                                :sections="sections"
+                                                has-legend legend-placement="bottom"
+                                                :total="100"
+                                        >
+                                            {{totalBalance}}(BTC)
+                                            <animated-number
+                                                    :value="totalUSD"
+                                                    :formatValue="formatToPriceUSD"
+                                                    :duration="duration"/>
+                                            Total (USD)
+                                        </vc-donut>
+                                    </div>
 
-									<div v-if="isTraining">
-										Trading Status:
+                                    <div v-if="isTraining">
+                                        Trading Status:
 
-										<vc-donut
-												:size="280"
-												background="#363636"
-												:sections="sections"
-												has-legend legend-placement="bottom"
-												:total="100"
-										>
-											<animated-number :value="totalUSD" :formatValue="formatToPriceUSD"
-															 :duration="duration"/>
-											Total (USD)
-										</vc-donut>
-									</div>
+                                        <vc-donut
+                                                :size="280"
+                                                background="#363636"
+                                                :sections="sections"
+                                                has-legend legend-placement="bottom"
+                                                :total="100"
+                                        >
+                                            <animated-number :value="totalUSD" :formatValue="formatToPriceUSD"
+                                                             :duration="duration"/>
+                                            Total (USD)
+                                        </vc-donut>
+                                    </div>
 
-								</b-card-text>
-							</b-card>
-						</b-col>
-						<b-col>
+                                </b-card-text>
+                            </b-card>
+                        </b-col>
+                        <b-col>
 
-							<div v-if="isTrader">
-								<b-card
-										title="TA"
-										img-src=""
-										img-alt="Image"
-										img-top
-										tag="article"
-										style="max-width: 20rem;"
-										class="mb-2 text-white"
-								>
-									<b-card-text>
+                            <div v-if="isTrader">
+                                <b-card
+                                        title="TA"
+                                        img-src=""
+                                        img-alt="Image"
+                                        img-top
+                                        tag="article"
+                                        style="max-width: 20rem;"
+                                        class="mb-2 text-white"
+                                >
+                                    <b-card-text>
+                                        Last Price: ${{this.formatToPriceUSDRaw(lastPrice)}}
+                                        <br>
+                                        Is Bull? {{isBull}}
+                                        <br>
+                                        Is Bear? {{isBear}}
+                                        <br>
+                                    </b-card-text>
+                                </b-card>
 
-										last price: {{lastPrice}}
+                                <b-card
+                                        title="Trade"
+                                        img-src=""
+                                        img-alt="Image"
+                                        img-top
+                                        tag="article"
+                                        style="max-width: 20rem;"
+                                        class="mb-2 text-white"
+                                >
+                                    <b-card-text>
+                                        <h3 style="margin-bottom: 5px; margin-top: 20px;">Exchanges Configured</h3>
+                                        Bitmex: {{isBitmexLive}}
 
-										isBull: {{isBull}}
-										isBear: {{isBear}}
+                                        <h3 style="margin-bottom: 5px; margin-top: 20px;">Select Trading Strategy</h3>
 
-									</b-card-text>
-								</b-card>
+                                        <b-form-select class="text-white" style="background-color: darkslateblue;"
+                                                       v-model="selected" :options="options"></b-form-select>
 
-								<b-card
-										title="Trade"
-										img-src=""
-										img-alt="Image"
-										img-top
-										tag="article"
-										style="max-width: 20rem;"
-										class="mb-2 text-white"
-								>
-									<b-card-text>
+                                        <div class="mt-3 text-white">
+                                            Selected: <b style="font-weight: 900;">{{selected}}</b>
+                                        </div>
+                                    </b-card-text>
+                                    <b-button href="#" variant="primary" @click="startTrading">Start Trading!</b-button>
+                                    <b-button href="#" variant="primary" @click="buySignal">Go Bull!</b-button>
+                                    <b-button href="#" variant="primary" @click="sellSignal">go Bear!</b-button>
+                                </b-card>
 
-										last price: {{lastPrice}}
+                                <b-card
+                                        title="Positions"
+                                        img-src=""
+                                        img-alt="Image"
+                                        img-top
+                                        tag="article"
+                                        style="max-width: 20rem;"
+                                        class="mb-2 text-white"
+                                >
+                                    <b-card-text>
+                                        <div>
+                                            <b-table striped hover :items="positions"></b-table>
+                                        </div>
+                                        <b-button href="#" variant="primary" @click="updatePostition">refresh!
+                                        </b-button>
+                                    </b-card-text>
+                                </b-card>
+                            </div>
 
+                            <div v-if="isMiner">
+                                <b-card
+                                        title="Trained models"
+                                        img-src=""
+                                        img-alt="Image"
+                                        img-top
+                                        tag="article"
+                                        style="max-width: 20rem;"
+                                        class="mb-2"
+                                >
+                                    <b-card-text></b-card-text>
+                                    <div class="card-body all-icons">
+                                        <div class="row">
+                                            <div v-for="bot in bots">
+                                                <div class="">
+                                                    <div class="font-icon-detail text-white">
+                                                        profile: {{ bot.name }}
+                                                        <img :src=bot.icon>
+                                                        <button class="button is-medium is-success text-white"
+                                                                @click="deleteBot(bot.name)">
+                                                            {{ $t("msg.delete") }}
+                                                        </button>
+                                                        <button class="button is-medium is-success text-white"
+                                                                @click="editBot(bot.name)">
+                                                            {{ $t("msg.edit") }}
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <b-button href="#" variant="primary" @click="startMining()">Start Mining!</b-button>
+                                </b-card>
+                            </div>
+                        </b-col>
+                    </b-row>
 
-										<h2>Exchange Configured</h2>
+                    <div v-if="isAdvancedMode">
+                        <div class="tabs help-tabs">
+                            <ul>
+                                <li :class="[ tabOpen === 'wallet' ? 'is-active' : '']"><a @click="tabOpen='wallet'">Wallet</a>
+                                </li>
+                                <li :class="[ tabOpen === 'bot' ? 'is-active' : 'is-disabled']"><a
+                                        @click="tabOpen='bot'">bot</a></li>
+                                <li :class="[ tabOpen === 'exchanges' ? 'is-active' : 'is-disabled']"><a
+                                        @click="tabOpen='exchanges'">Exchanges</a></li>
+                                <li :class="[ tabOpen === 'balances' ? 'is-active' : 'is-disabled']"><a
+                                        @click="tabOpen='balances'">Balances</a></li>
+                                <li :class="[ tabOpen === 'backfill' ? 'is-active' : 'is-disabled']"><a
+                                        @click="tabOpen='backfill'">Backfill</a></li>
+                                <li :class="[ tabOpen === 'train' ? 'is-active' : 'is-disabled']"><a
+                                        @click="tabOpen='train'">Train</a></li>
+                                <li :class="[ tabOpen === 'trade' ? 'is-active' : 'is-disabled']"><a
+                                        @click="tabOpen='trade'">Trade</a></li>
+                                <li :class="[ tabOpen === 'trollbox' ? 'is-active' : 'is-disabled']"><a
+                                        @click="tabOpen='trollbox'">trollbox</a></li>
+                                <li :class="[ tabOpen === 'subscribe' ? 'is-active' : 'is-disabled']"><a
+                                        @click="tabOpen='subscribe'">Subscribe</a></li>
+                                <li :class="[ tabOpen === 'settings' ? 'is-active' : 'is-disabled']"><a
+                                        @click="tabOpen='settings'">Settings</a></li>
+                            </ul>
+                        </div>
+                        <code v-if="tabOpen ==='wallet'">
+                            <Wallet></Wallet>
+                        </code>
+                        <code v-if="tabOpen ==='bot'">
+                            <bot></bot>
+                        </code>
+                        <code v-if="tabOpen ==='exchanges'">
+                            <exchanges></exchanges>
+                        </code>
+                        <code v-if="tabOpen ==='balances'">
+                            <Balances></Balances>
+                        </code>
+                        <code v-if="tabOpen ==='backfill'">
+                            <Backfill></Backfill>
+                        </code>
+                        <code v-if="tabOpen ==='train'">
+                            <Train></Train>
+                        </code>
+                        <code v-if="tabOpen ==='trade'">
+                            <trade></trade>
+                        </code>
+                        <code v-if="tabOpen ==='trollbox'">
+                            <trollbox></trollbox>
+                        </code>
+                        <code v-if="tabOpen ==='reports'">
+                            <trollbox></trollbox>
+                        </code>
+                        <code v-if="tabOpen ==='subscribe'">
+                            <p text-white>Coming Soon! </p>
+                        </code>
+                        <code v-if="tabOpen ==='settings'">
+                            <settings></settings>
+                        </code>
+                        <!--					<div class="box help-content">-->
+                        <!--					</div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <password :showModal="openPassword"></password>
+        <welcome :showModal="openWelcome"></welcome>
+        <Setup :showModal="openSetup"></Setup>
+        <RestoreSeed :showModal="openRestoreSeed"></RestoreSeed>
+        <Configuration :showModal="openConfiguration"></Configuration>
+        <Register :showModal="openRegister"></Register>
+        <Send :showModal="openSend"></Send>
+        <DisplaySeed :showModal="openDisplaySeed"></DisplaySeed>
+        <SetupExchange :showModal="openSetupExchange"></SetupExchange>
+        <EditBot :showModal="openEditBot"></EditBot>
+        <!--		<MinerTraderSelect :showModal="openEditBot"></MinerTraderSelect>-->
 
-										Bitmex: {{isBitmexLive}}
-
-										<h2>Select Trading Strategy</h2>
-
-										<b-form-select class="text-white" style="background-color: darkslateblue;"
-													   v-model="selected" :options="options"></b-form-select>
-
-										<div class="mt-3 text-white">Selected: <strong>{{ selected }}</strong></div>
-
-
-									</b-card-text>
-
-									<b-button href="#" variant="primary" @click="startTrading">Start Trading!</b-button>
-									<b-button href="#" variant="primary" @click="buySignal">Go Bull!</b-button>
-									<b-button href="#" variant="primary" @click="sellSignal">go Bear!</b-button>
-								</b-card>
-
-								<b-card
-										title="Positions"
-										img-src=""
-										img-alt="Image"
-										img-top
-										tag="article"
-										style="max-width: 20rem;"
-										class="mb-2 text-white"
-								>
-									<b-card-text>
-
-
-										<div>
-											<b-table striped hover :items="positions"></b-table>
-										</div>
-										<b-button href="#" variant="primary" @click="updatePostition">refresh!
-										</b-button>
-									</b-card-text>
-
-
-								</b-card>
-
-							</div>
-
-
-							<div v-if="isMiner">
-								<b-card
-										title="Trained models"
-										img-src=""
-										img-alt="Image"
-										img-top
-										tag="article"
-										style="max-width: 20rem;"
-										class="mb-2"
-								>
-									<b-card-text>
-
-									</b-card-text>
-
-
-									<div class="card-body all-icons">
-										<div class="row">
-
-											<div v-for="bot in bots">
-
-												<div class="">
-													<div class="font-icon-detail text-white">
-														profile: {{ bot.name }}
-														<img :src=bot.icon >
-														<button class="button is-medium is-success text-white"
-																@click="deleteBot(bot.name)">
-															{{ $t("msg.delete") }}
-														</button>
-
-														<button class="button is-medium is-success text-white"
-																@click="editBot(bot.name)">
-															{{ $t("msg.edit") }}
-														</button>
-
-													</div>
-												</div>
-
-											</div>
-										</div>
-									</div>
-
-
-									<b-button href="#" variant="primary" @click="startMining()">Start Mining!</b-button>
-								</b-card>
-
-							</div>
-
-						</b-col>
-					</b-row>
-
-
-					<div v-if="isAdvancedMode">
-
-						<div class="tabs help-tabs">
-							<ul>
-								<li :class="[ tabOpen === 'wallet' ? 'is-active' : '']"><a @click="tabOpen='wallet'">Wallet</a>
-								</li>
-								<li :class="[ tabOpen === 'bot' ? 'is-active' : 'is-disabled']"><a
-										@click="tabOpen='bot'">bot</a></li>
-								<li :class="[ tabOpen === 'exchanges' ? 'is-active' : 'is-disabled']"><a
-										@click="tabOpen='exchanges'">Exchanges</a></li>
-								<li :class="[ tabOpen === 'balances' ? 'is-active' : 'is-disabled']"><a
-										@click="tabOpen='balances'">Balances</a></li>
-								<li :class="[ tabOpen === 'backfill' ? 'is-active' : 'is-disabled']"><a
-										@click="tabOpen='backfill'">Backfill</a></li>
-								<li :class="[ tabOpen === 'train' ? 'is-active' : 'is-disabled']"><a
-										@click="tabOpen='train'">Train</a></li>
-								<li :class="[ tabOpen === 'trade' ? 'is-active' : 'is-disabled']"><a
-										@click="tabOpen='trade'">Trade</a></li>
-								<li :class="[ tabOpen === 'trollbox' ? 'is-active' : 'is-disabled']"><a
-										@click="tabOpen='trollbox'">trollbox</a></li>
-								<li :class="[ tabOpen === 'subscribe' ? 'is-active' : 'is-disabled']"><a
-										@click="tabOpen='subscribe'">Subscribe</a></li>
-								<li :class="[ tabOpen === 'settings' ? 'is-active' : 'is-disabled']"><a
-										@click="tabOpen='settings'">Settings</a></li>
-							</ul>
-						</div>
-						<code v-if="tabOpen ==='wallet'">
-							<Wallet></Wallet>
-						</code>
-						<code v-if="tabOpen ==='bot'">
-							<bot></bot>
-						</code>
-						<code v-if="tabOpen ==='exchanges'">
-							<exchanges></exchanges>
-						</code>
-						<code v-if="tabOpen ==='balances'">
-							<Balances></Balances>
-						</code>
-						<code v-if="tabOpen ==='backfill'">
-							<Backfill></Backfill>
-						</code>
-						<code v-if="tabOpen ==='train'">
-							<Train></Train>
-						</code>
-						<code v-if="tabOpen ==='trade'">
-							<trade></trade>
-						</code>
-						<code v-if="tabOpen ==='trollbox'">
-							<trollbox></trollbox>
-						</code>
-						<code v-if="tabOpen ==='reports'">
-							<trollbox></trollbox>
-						</code>
-						<code v-if="tabOpen ==='subscribe'">
-							<p text-white>Coming Soon! </p>
-						</code>
-						<code v-if="tabOpen ==='settings'">
-							<settings></settings>
-						</code>
-
-						<!--					<div class="box help-content">-->
-						<!--					</div>-->
-
-					</div>
-
-				</div>
-			</div>
-		</div>
-
-		<password :showModal="openPassword"></password>
-		<welcome :showModal="openWelcome"></welcome>
-		<Setup :showModal="openSetup"></Setup>
-		<RestoreSeed :showModal="openRestoreSeed"></RestoreSeed>
-		<Configuration :showModal="openConfiguration"></Configuration>
-		<Register :showModal="openRegister"></Register>
-		<Send :showModal="openSend"></Send>
-		<DisplaySeed :showModal="openDisplaySeed"></DisplaySeed>
-		<SetupExchange :showModal="openSetupExchange"></SetupExchange>
-		<EditBot :showModal="openEditBot"></EditBot>
-<!--		<MinerTraderSelect :showModal="openEditBot"></MinerTraderSelect>-->
-
-		<radial-menu
-				style="margin: auto; margin-top: 300px; background-color: white"
-				:itemSize="50"
-				:radius="120"
-				:angle-restriction="180">
-			<radial-menu-item
-					v-for="(item, index) in items"
-					:key="index"
-					style="background-color: white"
-					@click="() => handleClick(item)">
-				<span>{{item}}</span>
-			</radial-menu-item>
-		</radial-menu>
-		<div style="color: rgba(0,0,0,0.6); margin-top: 16px;">{{ lastClicked }}</div>
-
-
-	</div>
+        <radial-menu
+                style="margin: auto; margin-top: 300px; background-color: white"
+                :itemSize="50"
+                :radius="120"
+                :angle-restriction="180">
+            <radial-menu-item
+                    v-for="(item, index) in items"
+                    :key="index"
+                    style="background-color: white"
+                    @click="() => handleClick(item)">
+                <span>{{item}}</span>
+            </radial-menu-item>
+        </radial-menu>
+        <div style="color: rgba(0,0,0,0.6); margin-top: 16px;">{{ lastClicked }}</div>
+    </div>
 </template>
 
 <script>
@@ -314,10 +281,10 @@
         apiSecretPath,
         checkConfigs,
         getModels,
-		deleteModel,
-		getModel,
-		getSimResults,
-		backtestDir
+        deleteModel,
+        getModel,
+        getSimResults,
+        backtestDir
     } from '../modules/config'
     //modules
 
@@ -387,8 +354,8 @@
         },
         data() {
             return {
-                fomopoints:"",
-                showModal:"",
+                fomopoints: "",
+                showModal: "",
                 bots: [],
                 positions: [],
                 trades: [],
@@ -414,8 +381,8 @@
                 duration: 1000,
                 isBull: false,
                 isBear: false,
-                isMiner: true,
-                isTrader: false,
+                isMiner: false,
+                isTrader: true,
                 isFunded: false,
                 isTrading: false,
                 isTraining: false,
@@ -458,23 +425,23 @@
 
             /*
 
-				Setup stages
+             Setup stages
 
-				isRightVersion?
+             isRightVersion?
 
-				do I have a grin wallet already?
-				  if not, setup(welcome componiant)
+             do I have a grin wallet already?
+             if not, setup(welcome componiant)
 
-				verifyPassword
-				  else offer new wallet
+             verifyPassword
+             else offer new wallet
 
-				do I have a config file?
-				  Should always
+             do I have a config file?
+             Should always
 
-				does config file have a username?
-				  else register
+             does config file have a username?
+             else register
 
-			 */
+             */
 
             this.$log.info("checkpoint 1 mounted")
 
@@ -515,19 +482,19 @@
                 ipcRenderer.on('trades', (work, data2, data3) => {
 
                     /*
-                    	trade:  {
-                    			  event: 'trades',
-								  global: true,
-								  source: 'bitmex',
-								  time: 1572669006552,
-								  trade:
-								   { price: 9245,
-									 side: 'Buy',
-									 size: 3230,
-									 time: 1572669006450,
-									 trade_id: '4ec837e3-0808-eb57-84e9-8fbf74133f33',
-									 unix: 1572669006450 }
-								 }
+                     trade:  {
+                     event: 'trades',
+                     global: true,
+                     source: 'bitmex',
+                     time: 1572669006552,
+                     trade:
+                     { price: 9245,
+                     side: 'Buy',
+                     size: 3230,
+                     time: 1572669006450,
+                     trade_id: '4ec837e3-0808-eb57-84e9-8fbf74133f33',
+                     unix: 1572669006450 }
+                     }
                      */
 
 
@@ -557,13 +524,6 @@
 
                 ipcRenderer.on('signal', (work, data2, data3) => {
 
-                    /*
-                    	signal:  {
-
-                    	}
-
-                     */
-
                     this.$log.debug("><><><><><><><><>< signal! ", data2)
 
                     this.$toasted.show('SIGNAL! : ' + data2.signal, {
@@ -580,22 +540,16 @@
                     //
                     // }
 
-
                     //sound.playChingle()
                     messageBus.$emit('<><><><><><><><><>< signal', data2)
 
-
-                    //
                     if (data2.signal === "buy") {
                         this.$botService.buySignal()
                     }
 
-
                     if (data2.signal === "sell") {
                         this.$botService.sellSignal()
                     }
-
-
                 })
 
                 messageBus.$on('execution', (trade) => {
@@ -609,7 +563,6 @@
                     })
 
                 })
-
 
                 let pieChart = [
                     {label: 'In Positions', value: 50},
@@ -763,33 +716,33 @@
         },
         methods: {
             startMining: async function () {
-				try{
+                try {
 
-				    //push to main start mining
+                    //push to main start mining
 
-				}catch(e){
-				    this.$log.error(e)
-				}
+                } catch (e) {
+                    this.$log.error(e)
+                }
             },
             openResult: async function (name) {
-                let path = "file://"+backtestDir+"/"+name
+                let path = "file://" + backtestDir + "/" + name
                 this.$log.info("path: ", path)
                 shell.openExternal(path)
             },
             editBot: async function (name) {
-                this.$log.info("editBot bot name: ",name)
-				this.openEditBot = true
+                this.$log.info("editBot bot name: ", name)
+                this.openEditBot = true
                 messageBus.$emit('SelectBot', name);
 
             },
             deleteBot: async function (name) {
-                this.$log.info("delete bot name: ",name)
+                this.$log.info("delete bot name: ", name)
                 //delete files
                 let result = await deleteModel(name)
-                this.$log.info("delete bot result: ",result)
+                this.$log.info("delete bot result: ", result)
 
                 let models = await getModels()
-                this.$log.info("models: ",models)
+                this.$log.info("models: ", models)
                 //this.$log.info("models: ",models.length)
                 //this.$log.info("models: ",typeof(models))
                 this.bots = models
@@ -798,27 +751,27 @@
             startTraining: function () {
                 this.$log.info("Start training!! ")
                 let settings = {
-                    foo:"bar"
+                    foo: "bar"
                 }
-                ipcRenderer.send("bot","train",settings)
+                ipcRenderer.send("bot", "train", settings)
             },
             startBacktest: function () {
                 this.$log.info("Start training!! ")
                 let settings = {
-                    foo:"bar"
+                    foo: "bar"
                 }
-                ipcRenderer.send("bot","simulate",settings)
+                ipcRenderer.send("bot", "simulate", settings)
             },
             startTrading: function () {
                 this.$log.info("Start trading!! ")
                 let settings = {
-                    foo:"bar"
+                    foo: "bar"
                 }
 
                 //TODO warning?
                 //Will I loose all your monies?
 
-                ipcRenderer.send("bot","trade",settings)
+                ipcRenderer.send("bot", "trade", settings)
             },
             buySignal() {
                 try {
@@ -878,9 +831,11 @@
             formatToPriceUSD(value) {
                 return `<h4>$ ${Number(value).toFixed(2)}</h4>`;
             },
+            formatToPriceUSDRaw(value) {
+                return `${Number(value).toFixed(2)}`;
+            },
             updatePostition: async function () {
                 try {
-                    //
                     await this.$botService.updatePosition()
                     let status = await this.$botService.getSummaryInfo()
                     this.$log.info("status: ", status)
@@ -888,8 +843,10 @@
                     this.lastPrice = status.LAST_PRICE
 
                     if (status.BALANCE_AVAILABLE > 0) {
+                        this.isBitmexLive = true
                         this.totalBalance = status.BALANCE_AVAILABLE
                         this.totalUSD = status.BALANCE_AVAILABLE * status.LAST_PRICE
+                        console.log("updatePostition() | status:", status)
                         this.isBear = status.IS_BEAR
                         this.isBull = status.IS_BULL
                         this.isFunded = true
@@ -917,85 +874,69 @@
             loadConfig: async function () {
                 let configStatus = checkConfigs()
                 let config = getConfig()
-                this.$log.info("config: ", config)
+                this.$log.info("loadConfig() | config: ", config)
 
                 let password = this.$walletService.getPassword()
                 if (password) {
                     this.isNotConfiged = false
-
-                    //init bot
-                    await this.$botService.initClient(password)
-                    //startSockets
+                    await this.$botService.initClient(password, config)
                     await this.$botService.startSockets()
-
                     this.updatePostition()
-
-
                 } else {
                     this.$log.info("Password Not Set! : ")
                 }
 
+                // TODO: UnComment/Fix This for Startup Config Modals
+                if (!configStatus.isConfigured) {
+                    this.$log.info("checkpoint 3 No config found!")
+                    this.openWelcome = true
+                } else {
+                    this.$log.info("checkpoint 3a config found!")
+                    if (configStatus.isRegistered) {
+                        this.$log.info("checkpoint 4a username found!")
+                        let password = this.$walletService.getPassword()
+                        if (password) {
+                            if (!this.username) {
+                                this.username = config.username
+                            }
+                            if (!this.signingPub) {
+                                this.signingPub = config.signingPub
+                            }
+                            if (!this.signingPriv) {
+                                this.signingPriv = config.signingPriv
+                            }
 
-                // if (!configStatus.isConfigured) {
-                //     this.$log.info("checkpoint 3 No config found!")
-                //     //open settings modal
-                //     this.openWelcome = true
-                // } else {
-                //     this.$log.info("checkpoint 3a config found!")
-                //     //isRegistered?
-                //     if (configStatus.isRegistered) {
-                //         this.$log.info("checkpoint 4a username found!")
-                //         //startup
-                //         //isPassword
-                //         let password = this.$walletService.getPassword()
-                //         if (password) {
-                //             if (!this.username) {
-                //                 this.username = config.username
-                //             }
-                //             if (!this.signingPub) {
-                //                 this.signingPub = config.signingPub
-                //             }
-                //             if (!this.signingPriv) {
-                //                 this.signingPriv = config.signingPriv
-                //             }
-                //
-                //             //init bot
-                //             await this.$botService.init(password)
-                //
-                // 			//test bitmex
-                // 			let status = await this.$botService.getSummaryInfo()
-                //
-                //
-                //
-                // 			//if online
-                // 			if(status.online){
-                //
-                // 			}
-                //
-                //
-                //             // if (!this.signingPub || !this.signingPriv) {
-                //             //     this.openRegister = true
-                //             // }
-                //         } else {
-                //             this.openPassword = true
-                //         }
-                //
-                //
-                //     } else {
-                //         //if wallet
-                //         if (configStatus.isWallet) {
-                //             this.$log.info("checkpoint 4b no username found!")
-                //             //nerf register
-                // 			this.openPassword = true
-                // 			//this.openRegister = true
-                //
-                // 			//
-                //
-                //         } else {
-                //             this.openWelcome = true
-                //         }
-                //     }
-                // }
+                            //init bot
+                            await this.$botService.init(password)
+
+                            //test bitmex
+                            let status = await this.$botService.getSummaryInfo()
+
+                            //if online
+                            if (status.online) {
+                            }
+
+                            // if (!this.signingPub || !this.signingPriv) {
+                            //     this.openRegister = true
+                            // }
+                        } else {
+                            this.openPassword = true
+                        }
+                    } else {
+                        //if wallet
+                        if (configStatus.isWallet) {
+                            this.$log.info("checkpoint 4b no username found!")
+                            if (!global.FOMO_INITIALIZED_PASSWORD) {
+                                this.openPassword = true
+                                global.FOMO_INITIALIZED_PASSWORD = true
+                            }
+
+                            //this.openRegister = true
+                        } else {
+                            this.openWelcome = true
+                        }
+                    }
+                }
             },
             getUsers: function () {
                 this.$http
@@ -1078,344 +1019,344 @@
             }
         }
     }
+
 </script>
 
 <style>
-	/* CSS */
-	.help-content {
-		background-color: darkslateblue !important;
-	}
+    /* CSS */
+    .help-content {
+        background-color: darkslateblue !important;
+    }
 
-	.help-tabs {
-		margin-bottom: 10px !important;
-	}
+    .help-tabs {
+        margin-bottom: 10px !important;
+    }
 
-	.tabs li.is-active a {
-		border-bottom-color: #000000;
-		color: #7763A9;
-		border-bottom: 3px solid;
-		font-weight: bold;
-	}
+    .tabs li.is-active a {
+        border-bottom-color: #000000;
+        color: #7763A9;
+        border-bottom: 3px solid;
+        font-weight: bold;
+    }
 
-	code, pre {
-		color: #1b1e21 !important;
-		background-color: darkslateblue !important;
-	}
+    code, pre {
+        color: #1b1e21 !important;
+        background-color: darkslateblue !important;
+    }
 
-	* {
-		font-family: "Avenir", Helvetica, Arial, sans-serif;
-	}
+    * {
+        font-family: "Avenir", Helvetica, Arial, sans-serif;
+    }
 
-	span {
-		font-size: 28px;
-	}
+    span {
+        font-size: 28px;
+    }
 
-	button {
-		border: none;
-		margin-left: 20px;
-		padding: 10px;
-		border-radius: 100px;
-	}
+    button {
+        border: none;
+        margin-left: 20px;
+        padding: 10px;
+        border-radius: 100px;
+    }
 
-	button:focus {
-		outline: none;
-	}
+    button:focus {
+        outline: none;
+    }
 
+    body {
+        margin: 0px;
+        width: 100%;
+    }
 
-	body {
-		margin: 0px;
-		width: 100%;
-	}
+    .wrap {
+        margin: 0px auto;
+        width: 486px;
+    }
 
-	.wrap {
-		margin: 0px auto;
-		width: 486px;
-	}
+    .text {
+        text-align: center;
+        margin-top: 56px;
+        color: #fff;
+        font-size: 1.0em;
+        font-family: sans-serif;
+        text-transform: uppercase;
+    }
 
-	.text {
-		text-align: center;
-		margin-top: 56px;
-		color: #fff;
-		font-size: 1.0em;
-		font-family: sans-serif;
-		text-transform: uppercase;
-	}
+    .animated {
+        animation-duration: 2.5s;
+        animation-fill-mode: both;
+        animation-iteration-count: infinite;
+    }
 
-	.animated {
-		animation-duration: 2.5s;
-		animation-fill-mode: both;
-		animation-iteration-count: infinite;
-	}
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+        }
+        40% {
+            transform: translateY(-30px);
+        }
+        60% {
+            transform: translateY(-15px);
+        }
+    }
 
-	@keyframes bounce {
-		0%, 20%, 50%, 80%, 100% {
-			transform: translateY(0);
-		}
-		40% {
-			transform: translateY(-30px);
-		}
-		60% {
-			transform: translateY(-15px);
-		}
-	}
+    .bounce {
+        animation-name: bounce;
+    }
 
-	.bounce {
-		animation-name: bounce;
-	}
+    @keyframes flash {
+        0%, 50%, 100% {
+            opacity: 1;
+        }
+        25%, 75% {
+            opacity: 0;
+        }
+    }
 
-	@keyframes flash {
-		0%, 50%, 100% {
-			opacity: 1;
-		}
-		25%, 75% {
-			opacity: 0;
-		}
-	}
+    .flash {
+        animation-name: flash;
+    }
 
-	.flash {
-		animation-name: flash;
-	}
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.1);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
 
-	@keyframes pulse {
-		0% {
-			transform: scale(1);
-		}
-		50% {
-			transform: scale(1.1);
-		}
-		100% {
-			transform: scale(1);
-		}
-	}
+    .pulse {
+        animation-name: pulse;
+        animation-duration: 1s;
+    }
 
-	.pulse {
-		animation-name: pulse;
-		animation-duration: 1s;
-	}
+    @keyframes rubberBand {
+        0% {
+            transform: scale(1);
+        }
+        30% {
+            transform: scaleX(1.25) scaleY(0.75);
+        }
+        40% {
+            transform: scaleX(0.75) scaleY(1.25);
+        }
+        60% {
+            transform: scaleX(1.15) scaleY(0.85);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
 
-	@keyframes rubberBand {
-		0% {
-			transform: scale(1);
-		}
-		30% {
-			transform: scaleX(1.25) scaleY(0.75);
-		}
-		40% {
-			transform: scaleX(0.75) scaleY(1.25);
-		}
-		60% {
-			transform: scaleX(1.15) scaleY(0.85);
-		}
-		100% {
-			transform: scale(1);
-		}
-	}
+    .rubberBand {
+        animation-name: rubberBand;
+    }
 
-	.rubberBand {
-		animation-name: rubberBand;
-	}
+    @keyframes shake {
+        0%, 100% {
+            transform: translateX(0);
+        }
+        10%, 30%, 50%, 70%, 90% {
+            transform: translateX(-10px);
+        }
+        20%, 40%, 60%, 80% {
+            transform: translateX(10px);
+        }
+    }
 
-	@keyframes shake {
-		0%, 100% {
-			transform: translateX(0);
-		}
-		10%, 30%, 50%, 70%, 90% {
-			transform: translateX(-10px);
-		}
-		20%, 40%, 60%, 80% {
-			transform: translateX(10px);
-		}
-	}
+    .shake {
+        animation-name: shake;
+    }
 
-	.shake {
-		animation-name: shake;
-	}
+    @keyframes swing {
+        20% {
+            transform: rotate(15deg);
+        }
+        40% {
+            transform: rotate(-10deg);
+        }
+        60% {
+            transform: rotate(5deg);
+        }
+        80% {
+            transform: rotate(-5deg);
+        }
+        100% {
+            transform: rotate(0deg);
+        }
+    }
 
-	@keyframes swing {
-		20% {
-			transform: rotate(15deg);
-		}
-		40% {
-			transform: rotate(-10deg);
-		}
-		60% {
-			transform: rotate(5deg);
-		}
-		80% {
-			transform: rotate(-5deg);
-		}
-		100% {
-			transform: rotate(0deg);
-		}
-	}
+    .swing {
+        transform-origin: top center;
+        animation-name: swing;
+    }
 
-	.swing {
-		transform-origin: top center;
-		animation-name: swing;
-	}
+    @keyframes wobble {
+        0% {
+            transform: translateX(0%);
+        }
+        15% {
+            transform: translateX(-25%) rotate(-5deg);
+        }
+        30% {
+            transform: translateX(20%) rotate(3deg);
+        }
+        45% {
+            transform: translateX(-15%) rotate(-3deg);
+        }
+        60% {
+            transform: translateX(10%) rotate(2deg);
+        }
+        75% {
+            transform: translateX(-5%) rotate(-1deg);
+        }
+        100% {
+            transform: translateX(0%);
+        }
+    }
 
-	@keyframes wobble {
-		0% {
-			transform: translateX(0%);
-		}
-		15% {
-			transform: translateX(-25%) rotate(-5deg);
-		}
-		30% {
-			transform: translateX(20%) rotate(3deg);
-		}
-		45% {
-			transform: translateX(-15%) rotate(-3deg);
-		}
-		60% {
-			transform: translateX(10%) rotate(2deg);
-		}
-		75% {
-			transform: translateX(-5%) rotate(-1deg);
-		}
-		100% {
-			transform: translateX(0%);
-		}
-	}
+    .wobble {
+        animation-name: wobble;
+    }
 
-	.wobble {
-		animation-name: wobble;
-	}
+    @keyframes flip {
+        0% {
+            transform: perspective(400px) translateZ(0) rotateY(0) scale(1);
+            animation-timing-function: ease-out;
+        }
+        40% {
+            transform: perspective(400px) translateZ(150px) rotateY(170deg) scale(1);
+            animation-timing-function: ease-out;
+        }
+        50% {
+            transform: perspective(400px) translateZ(150px) rotateY(190deg) scale(1);
+            animation-timing-function: ease-in;
+        }
+        80% {
+            transform: perspective(400px) translateZ(0) rotateY(360deg) scale(.95);
+            animation-timing-function: ease-in;
+        }
+        100% {
+            transform: perspective(400px) translateZ(0) rotateY(360deg) scale(1);
+            animation-timing-function: ease-in;
+        }
+    }
 
-	@keyframes flip {
-		0% {
-			transform: perspective(400px) translateZ(0) rotateY(0) scale(1);
-			animation-timing-function: ease-out;
-		}
-		40% {
-			transform: perspective(400px) translateZ(150px) rotateY(170deg) scale(1);
-			animation-timing-function: ease-out;
-		}
-		50% {
-			transform: perspective(400px) translateZ(150px) rotateY(190deg) scale(1);
-			animation-timing-function: ease-in;
-		}
-		80% {
-			transform: perspective(400px) translateZ(0) rotateY(360deg) scale(.95);
-			animation-timing-function: ease-in;
-		}
-		100% {
-			transform: perspective(400px) translateZ(0) rotateY(360deg) scale(1);
-			animation-timing-function: ease-in;
-		}
-	}
+    .animated.flip {
+        backface-visibility: visible;
+        animation-name: flip;
+    }
 
-	.animated.flip {
-		backface-visibility: visible;
-		animation-name: flip;
-	}
+    @keyframes lightSpeedIn {
+        0% {
+            transform: translateX(100%) skewX(-30deg);
+            opacity: 0;
+        }
+        60% {
+            transform: translateX(-20%) skewX(30deg);
+            opacity: 1;
+        }
+        80% {
+            transform: translateX(0%) skewX(-15deg);
+            opacity: 1;
+        }
+        100% {
+            transform: translateX(0%) skewX(0deg);
+            opacity: 1;
+        }
+    }
 
-	@keyframes lightSpeedIn {
-		0% {
-			transform: translateX(100%) skewX(-30deg);
-			opacity: 0;
-		}
-		60% {
-			transform: translateX(-20%) skewX(30deg);
-			opacity: 1;
-		}
-		80% {
-			transform: translateX(0%) skewX(-15deg);
-			opacity: 1;
-		}
-		100% {
-			transform: translateX(0%) skewX(0deg);
-			opacity: 1;
-		}
-	}
+    .lightSpeedIn {
+        animation-name: lightSpeedIn;
+        animation-timing-function: ease-out;
+    }
 
-	.lightSpeedIn {
-		animation-name: lightSpeedIn;
-		animation-timing-function: ease-out;
-	}
+    @keyframes rollIn {
+        0% {
+            opacity: 0;
+            transform: translateX(-100%) rotate(-120deg);
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(0px) rotate(0deg);
+        }
+    }
 
-	@keyframes rollIn {
-		0% {
-			opacity: 0;
-			transform: translateX(-100%) rotate(-120deg);
-		}
-		100% {
-			opacity: 1;
-			transform: translateX(0px) rotate(0deg);
-		}
-	}
+    .rollIn {
+        animation-name: rollIn;
+    }
 
-	.rollIn {
-		animation-name: rollIn;
-	}
+    @keyframes rotateIn {
+        0% {
+            transform-origin: center center;
+            transform: rotate(-200deg);
+            opacity: 0;
+        }
+        100% {
+            transform-origin: center center;
+            transform: rotate(0);
+            opacity: 1;
+        }
+    }
 
-	@keyframes rotateIn {
-		0% {
-			transform-origin: center center;
-			transform: rotate(-200deg);
-			opacity: 0;
-		}
-		100% {
-			transform-origin: center center;
-			transform: rotate(0);
-			opacity: 1;
-		}
-	}
+    .rotateIn {
+        animation-name: rotateIn;
+    }
 
-	.rotateIn {
-		animation-name: rotateIn;
-	}
+    @keyframes hinge {
+        0% {
+            transform: rotate(0);
+            transform-origin: top left;
+            animation-timing-function: ease-in-out;
+        }
+        20%, 60% {
+            transform: rotate(80deg);
+            transform-origin: top left;
+            animation-timing-function: ease-in-out;
+        }
+        40% {
+            transform: rotate(60deg);
+            transform-origin: top left;
+            animation-timing-function: ease-in-out;
+        }
+        80% {
+            transform: rotate(60deg) translateY(0);
+            transform-origin: top left;
+            animation-timing-function: ease-in-out;
+        }
+        100% {
+            transform: translateY(700px);
+        }
+    }
 
-	@keyframes hinge {
-		0% {
-			transform: rotate(0);
-			transform-origin: top left;
-			animation-timing-function: ease-in-out;
-		}
-		20%, 60% {
-			transform: rotate(80deg);
-			transform-origin: top left;
-			animation-timing-function: ease-in-out;
-		}
-		40% {
-			transform: rotate(60deg);
-			transform-origin: top left;
-			animation-timing-function: ease-in-out;
-		}
-		80% {
-			transform: rotate(60deg) translateY(0);
-			transform-origin: top left;
-			animation-timing-function: ease-in-out;
-		}
-		100% {
-			transform: translateY(700px);
-		}
-	}
+    .hinge {
+        margin: 20px;
+        animation-name: hinge;
+    }
 
-	.hinge {
-		margin: 20px;
-		animation-name: hinge;
-	}
+    @media all and (max-width: 680px) {
+        .wrap {
+            width: 100%;
+        }
 
-	@media all and (max-width: 680px) {
-		.wrap {
-			width: 100%;
-		}
+        .box {
+            width: 100%;
+            height: 55px;
+            clear: both;
+            margin: 0px auto;
+        }
 
-		.box {
-			width: 100%;
-			height: 55px;
-			clear: both;
-			margin: 0px auto;
-		}
+        .text {
+            margin-top: 20px;
+        }
 
-		.text {
-			margin-top: 20px;
-		}
-
-		.hingebox, .flipbox {
-			display: none;
-		}
-	}
+        .hingebox, .flipbox {
+            display: none;
+        }
+    }
 
 </style>

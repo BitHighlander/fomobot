@@ -5,7 +5,7 @@ var moment = require('moment');
 //var Gdax = require('coinbase-pro'),
 var minimist = require('minimist')
 
-let log = require("default-logger")()
+let log = require("default-logger")
 
 let {BitmexAPI} = require("bitmex-node")
 //var datetime = require('node-datetime');
@@ -156,10 +156,9 @@ module.exports = function gdax (conf) {
 
         getTrades: function (opts, cb) {
             let tag = TAG + " | getTrades | "
-            log.info(tag, "get trades! opts: ",opts)
-
-            log.info(tag,"start: ",moment(opts.from).calendar())
-            log.info(tag,"end: ",moment(opts.to).calendar())
+            console.log(tag, "get trades! opts: " + JSON.stringify(opts))
+            console.log(tag,"start: ",moment(opts.from).calendar())
+            console.log(tag,"end: ",moment(opts.from).calendar())
             // var func_args = [].slice.call(arguments)
             // var client = publicClient(opts.product_id)
             // var args = {}
@@ -195,45 +194,47 @@ module.exports = function gdax (conf) {
             //     cache.trade_ids = cache.trade_ids.slice(fromIndex)
             //     return
             // }
-            // if(so.debug) log.info('getproducttrades call')
+            // if(so.debug) console.log('getproducttrades call')
             //
-            // log.info(tag,"args: ",args)
+            // console.log(tag,"args: ",args)
             //
             //
             // // let now = new Date().getTime()
             // //now = parseInt(now/1000)
             // let now = new Date()
-            // log.info("now: ",now)
+            // console.log("now: ",now)
             // let hourAgo = new Date(now.getTime() - 1000 * 60 * 60)
             // //hourAgo = hourAgo - 1000 * 60 * 60
-            // log.info("hourAgo: ",hourAgo)
+            // console.log("hourAgo: ",hourAgo)
             // //let dateTimeHourAgo = new datetime.create(hourAgo)
             //
             // let dateTimeHourAgo = new Date(hourAgo)
-            // log.info("dateTimeHourAgo: ",dateTimeHourAgo)
+            // console.log("dateTimeHourAgo: ",dateTimeHourAgo)
             // hourAgo = parseInt(hourAgo/1000)
-
-            bitmex.Trade.get({symbol:"XBTUSD",count:"500",startTime:opts.from,endTime:opts.to})
+            let now = new Date()
+            bitmex.Trade.get({symbol:"XBTUSD",count:"500",startTime:new Date(now.getTime() - 1000 * 60 * 60),endTime:opts.from})
                 .then(function(resp){
-                    log.info(tag,"length: ",resp.length)
+                    console.log(tag,"length: ",resp.length)
                     //console.log(typeof(resp))
 
                     let trades = []
 
                     for(let i = 0; i < resp.length; i++){
                         let entry = resp[i]
-                        //log.info("entry: ",entry)
+                        //console.log("entry: ",entry)
                         let normalized = {}
                         normalized.trade_id = entry.trdMatchID
                         normalized.time = new Date(entry.timestamp).getTime()
                         normalized.unix = new Date(entry.timestamp).getTime()
-                        normalized.human = moment(new Date(entry.timestamp)).calendar()
+                        // Changed this from your library that would create a result like "Today at 1:04PM" :schwindy:
+                        normalized.human = new Date(entry.timestamp).toString()
                         normalized.size = entry.size
                         normalized.side = entry.side
                         normalized.price = entry.price
                         trades.push(normalized)
+                        console.log("Added Trade(" + normalized.trade_id + ") @ " + normalized.human + " | " + normalized.unix)
                     }
-                    log.info("trades: ",trades.length,)
+                    console.log("trades: ",trades.length,)
                     cb(null, trades)
                 })
                 .catch(function(e){
@@ -244,7 +245,7 @@ module.exports = function gdax (conf) {
             //     if (!err) err = statusErr(resp, body)
             //     if (err) return retry('getTrades', func_args, err)
             //     var trades = body.map(function (trade) {
-            //         log.info("trade: ",trade)
+            //         console.log("trade: ",trade)
             //         return {
             //             trade_id: trade.trade_id,
             //             time: new Date(trade.time).getTime(),
@@ -263,7 +264,7 @@ module.exports = function gdax (conf) {
             var client = authedClient()
 
             if (so.debug) {
-                log.info('getaccounts call')
+                console.log('getaccounts call')
             }
 
             client.getAccounts(function (err, resp, body) {
@@ -295,7 +296,7 @@ module.exports = function gdax (conf) {
             }
             var func_args = [].slice.call(arguments)
             var client = publicClient(opts.product_id)
-            if(so.debug) log.info('getproductticker call')
+            if(so.debug) console.log('getproductticker call')
             client.getProductTicker(opts.product_id, function (err, resp, body) {
                 if (!err) err = statusErr(resp, body)
                 if (err) return retry('getQuote', func_args, err)
@@ -311,7 +312,7 @@ module.exports = function gdax (conf) {
             var client = authedClient()
 
             if (so.debug) {
-                log.info('cancelorder call')
+                console.log('cancelorder call')
             }
 
             client.cancelOrder(opts.order_id, function (err, resp, body) {
@@ -349,7 +350,7 @@ module.exports = function gdax (conf) {
             delete opts.order_type
 
             if (so.debug) {
-                log.info('buy call')
+                console.log('buy call')
             }
 
             client.buy(opts, function (err, resp, body) {
@@ -393,7 +394,7 @@ module.exports = function gdax (conf) {
             delete opts.order_type
 
             if (so.debug) {
-                log.info('sell call')
+                console.log('sell call')
             }
 
             client.sell(opts, function (err, resp, body) {
@@ -422,7 +423,7 @@ module.exports = function gdax (conf) {
                 let order_cache = websocket_cache[opts.product_id].orders['~' + opts.order_id]
 
                 if (so.debug) {
-                    log.info('getOrder websocket cache', order_cache)
+                    console.log('getOrder websocket cache', order_cache)
                 }
 
                 cb(null, order_cache)
@@ -433,7 +434,7 @@ module.exports = function gdax (conf) {
             var client = authedClient()
 
             if (so.debug) {
-                log.info('getorder call')
+                console.log('getorder call')
             }
 
             client.getOrder(opts.order_id, function (err, resp, body) {

@@ -8,6 +8,9 @@ var conf = require('./conf')
 let zenbot = {}
 zenbot.conf = conf
 
+// I had to make this global for the line below: `tb(null, zenbot)` (zenbot is not defined otherwise :schwindy:)
+global.zenbot = zenbot
+
 var authStr = '', authMechanism, connectionString
 
 if(zenbot.conf.mongo.username){
@@ -31,7 +34,8 @@ require('mongodb').MongoClient.connect(connectionString, { useNewUrlParser: true
         console.error('WARNING: MongoDB Connection Error: ', err)
         console.error('WARNING: without MongoDB some features (such as backfilling/simulation) may be disabled.')
         console.error('Attempted authentication string: ' + connectionString)
-        cb(null, zenbot)
+        // What is cb? it is not defined. Is it a global that is defined by something else? :schwindy:
+        //cb(null, global.zenbot)
         return
     }
 

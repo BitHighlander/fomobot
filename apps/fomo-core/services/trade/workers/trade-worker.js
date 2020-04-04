@@ -10,7 +10,8 @@ require('dotenv').config({path:"../../../.env"})
 const TAG = " | trade-worker | "
 
 let log = require("default-logger")()
-const {subscriber,publisher,redis} = require('@bithighlander/default-redis')
+const {subscriber,publisher,redis} = require('@fomobro/default-redis')
+
 
 let wait = require('wait-promise');
 let sleep = wait.sleep;
@@ -211,7 +212,6 @@ let onStart = async function (){
 
         log.info("unrealized profit: ",positions[0].unrealisedGrossPnl)
 
-        log.info("currentQty: ",positions[0].lastValue)
         log.info("currentQty: ",positions[0].currentQty)
         log.info("markPrice: ",positions[0].markPrice)
         log.info("marginCallPrice: ",positions[0].marginCallPrice)

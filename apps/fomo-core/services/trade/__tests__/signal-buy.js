@@ -1,6 +1,6 @@
 require('dotenv').config()
 require('dotenv').config({path:"../../../.env"});
-const {subscriber,publisher,redis} = require('@bithighlander/default-redis')
+const {subscriber,publisher,redis} = require('@fomobro/default-redis')
 
 
 let work = {signal:"sell",time:new Date().getTime()}
