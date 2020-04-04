@@ -1,6 +1,6 @@
 {
   "name": "fomobot",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "author": "highlander <bithighlander@gmail.com>",
   "description": "Your Fomo Bro!",
   "license": null,
@@ -10,6 +10,8 @@
     "npm": "npm i",
     "yarn": "yarn",
     "build": "node .electron-vue/build.js && electron-builder --win",
+    "build-win": "node .electron-vue/build.js && electron-builder --win",
+    "build-linux": "node .electron-vue/build.js && electron-builder --linux",
     "build:dir": "node apps/fomo-native/.electron-vue/build.js && electron-builder --dir",
     "build:clean": "cross-env BUILD_TARGET=clean node apps/fomo-native/.electron-vue/build.js",
     "build:web": "cross-env BUILD_TARGET=web node apps/fomo-native/.electron-vue/build.js",
