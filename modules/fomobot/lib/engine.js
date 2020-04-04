@@ -36,7 +36,9 @@ module.exports = function (s, conf) {
   let so = s.options
   if(true){
     if (so.mode !== 'live') {
-      s.exchange = require("C:\\Users\\Administrator.SKIPPYSTATION-0\\GitHub\\fomobot\\apps\\fomo-core\\extensions\\exchanges\\sim\\exchange.js")(conf, s)
+      s.exchange = {}
+      //TODO static links? move code into here?
+        //s.exchange = require("C:\\Users\\Administrator.SKIPPYSTATION-0\\GitHub\\fomobot\\apps\\fomo-core\\extensions\\exchanges\\sim\\exchange.js")(conf, s)
       //s.exchange = require("/home/highlander/WebstormProjects/fomobot/modules/fomobot/extensions/exchanges/sim/exchange.js")(conf, s)
     }
     // else {

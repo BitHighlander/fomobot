@@ -56,12 +56,12 @@ let Options = {
 
 Vue.use(Toasted, Options)
 
-import Card from './Components/Cards/Card.vue';
+//import Card from './Components/Cards/Card.vue';
 
 //Super
 Vue.use(BootstrapVue)
 Vue.component('chart', Echarts);
-Vue.component('card', Card);
+//Vue.component('card', Card);
 Vue.use(VueClipboard)
 Vue.use(Donut);
 Vue.botService = Vue.prototype.$botService = botService

@@ -2,350 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="222539ec-8fd8-4098-b8a4-b0833b44921b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/backfill.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/boot.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/conf.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/_stub/_codemap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/_stub/exchange.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/_stub/products.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/binance/exchange.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/binance/products.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/binance/update-products.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/bitfinex/exchange.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/bitfinex/products.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/bitfinex/update-products.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/bitmex/exchange.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/bitmex/products.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/bitmex/test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/bitmex/update-products.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/bitstamp/exchange.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/bitstamp/products.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/bittrex/exchange.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/bittrex/products.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/bittrex/update-products.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/cexio/exchange.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/cexio/products.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/cexio/update-products.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/gdax/exchange.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/gdax/products.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/gdax/test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/gdax/update-products.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/gemini/exchange.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/gemini/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/gemini/products.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/gemini/update-products.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/hitbtc/exchange.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/hitbtc/products.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/hitbtc/update-products.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/kraken/exchange.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/kraken/products.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/kraken/update-products.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/poloniex/exchange.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/poloniex/products.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/poloniex/update-products.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/quadriga/exchange.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/quadriga/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/quadriga/products.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/sim/exchange.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/therock/exchange.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/therock/products.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/therock/update-products.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/wexnz/exchange.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/wexnz/products.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/exchanges/wexnz/update-products.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/notifiers/discord.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/notifiers/ifttt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/notifiers/prowl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/notifiers/pushbullet.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/notifiers/pushover.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/notifiers/slack.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/notifiers/telegram.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/notifiers/textbelt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/notifiers/xmpp.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/output/_codemap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/output/api.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/bollinger/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/cci_srsi/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/crossover_vwap/example_sims/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/crossover_vwap/example_sims/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/crossover_vwap/example_sims/vwapmax0.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/crossover_vwap/example_sims/vwapmax10.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/crossover_vwap/example_sims/vwapmax100.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/crossover_vwap/example_sims/vwapmax1000.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/crossover_vwap/example_sims/vwapmax10000.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/crossover_vwap/example_sims/vwapmax20000.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/crossover_vwap/example_sims/vwapmax500.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/crossover_vwap/example_sims/vwapmax5000.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/crossover_vwap/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/dema/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/ehlers_ft/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/ehlers_mama/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/ehlers_mama/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/ehlers_trend/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/ehlers_trend/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/forex_analytics/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/ichimoku/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/ichimoku_score/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/ichimoku_score/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/kc/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/macd/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/momentum/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/multi/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/neural/Capture.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/neural/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/neural/conf-example.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/neural/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/noop/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/pivot/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/renko/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/rsi/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/sar/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/speed/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/srsi_macd/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/stddev/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/ta_ema/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/ta_macd/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/ta_macd_ext/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/ta_ppo/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/ta_srsi_bollinger/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/ta_stoch_bollinger/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/ta_trix/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/ta_ultosc/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/ti_bollinger/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/ti_hma/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/ti_stoch/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/ti_stoch_bollinger/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/trend_bollinger/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/trend_ema/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/trendline/Capture.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/trendline/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/trendline/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/trust_distrust/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/vpt/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/extensions/strategies/wavetrend/strategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/_data-structures/Queue.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/adx.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/backtester.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/bollinger.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/cci.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/cmf.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/debug.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/ema.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/engine.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/format.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/heikinAshi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/helpers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/highest.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/kc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/lowest.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/lrc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/momentum.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/normalize-selector.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/notify.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/objectify-selector.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/output.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/phenotype.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/rsi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/sar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/services/collection-service.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/services/consume-and-process-service.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/services/exchange-service.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/services/resume-marker-service.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/services/trades-service.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/slow_stochastic.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/sma.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/srsi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/stddev.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/ta_bollinger.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/ta_ema.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/ta_macd.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/ta_macd_ext.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/ta_ppo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/ta_stoch.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/ta_stochrsi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/ta_trix.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/ta_ultosc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/ta_volume.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/ta_willr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/tcf.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/ti_bollinger.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/ti_hma.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/ti_macd.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/ti_rsi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/ti_stoch.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/ti_stochrsi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/vma.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/vwap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/lib/wto.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/modules/analytics/__tests__/candlesticks.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/modules/analytics/__tests__/test-module.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/modules/analytics/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/modules/analytics/models/temp.06386bd67dd782a007ba18193c5bfa4f4e6fd42a57849b3db7b5ba911f1eb9db-20190927_040010+0000.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/modules/bitmex/__tests__/stream.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/modules/bitmex/__tests__/test-module.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/modules/bitmex/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/modules/candlebuilder/__tests__/test-module.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/modules/candlebuilder/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/modules/influx/__tests__/test-module.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/modules/influx/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/services/backfill/__tests__/test-module.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/services/backfill/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/services/simulate/__tests__/test-module.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/services/simulate/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/services/simulate/models/temp.06386bd67dd782a007ba18193c5bfa4f4e6fd42a57849b3db7b5ba911f1eb9db-20190927_040010+0000.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/services/simulate/models/temp.06386bd67dd782a007ba18193c5bfa4f4e6fd42a57849b3db7b5ba911f1eb9db-20190927_040010+0000.json-simTrainingResult.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/services/simulate/templates/dashboard.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/services/simulate/templates/dashboard_assets/css/animate.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/services/simulate/templates/dashboard_assets/css/colors/default.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/services/simulate/templates/dashboard_assets/css/spinners.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/services/simulate/templates/dashboard_assets/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/services/simulate/templates/dashboard_assets/js/custom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/services/simulate/templates/dashboard_assets/js/jquery.slimscroll.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/services/simulate/templates/dashboard_assets/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/services/simulate/templates/sim_result.html.tpl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/services/trade/__tests__/signal-buy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/services/trade/__tests__/test-module.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/services/trade/from-scratch.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/services/trade/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/services/trade/models/temp.06386bd67dd782a007ba18193c5bfa4f4e6fd42a57849b3db7b5ba911f1eb9db-20190927_040010+0000.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/services/trade/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/services/trade/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/services/trade/workers/trade-worker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/services/train/__tests__/test-module.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/services/train/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/services/train/models/temp.06386bd67dd782a007ba18193c5bfa4f4e6fd42a57849b3db7b5ba911f1eb9db-20190927_040010+0000.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/services/train/models/temp.91c44006e951c5cd5069aed74874077926646decea3145974547c9e050fb2945-20190927_040010+0000.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/simulations.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/templates/dashboard.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/templates/dashboard_assets/css/animate.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/templates/dashboard_assets/css/colors/default.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/templates/dashboard_assets/css/spinners.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/templates/dashboard_assets/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/templates/dashboard_assets/js/custom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/templates/dashboard_assets/js/jquery.slimscroll.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/templates/dashboard_assets/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/templates/sim_result.html.tpl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/trade-from-scratch.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/trade.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-core/train.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/fomo-binance/__tests__/test-module.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/nedb/__tests__/test-module.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/nedb/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/nedb/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/nedb/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/nedb/schema.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/fomobot/__tests__/test-module.js" beforeDir="false" afterPath="$PROJECT_DIR$/modules/fomobot/__tests__/test-module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/fomobot/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/modules/fomobot/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/fomo-native/.electron-vue/webpack.main.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fomo-native/.electron-vue/webpack.main.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/fomo-native/.electron-vue/webpack.renderer.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fomo-native/.electron-vue/webpack.renderer.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/fomo-native/.electron-vue/webpack.web.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fomo-native/.electron-vue/webpack.web.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/fomo-native/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fomo-native/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/fomo-native/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fomo-native/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/fomo-native/src/renderer/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fomo-native/src/renderer/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/fomobot/lib/engine.js" beforeDir="false" afterPath="$PROJECT_DIR$/modules/fomobot/lib/engine.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/fomobot/lib/services/collection-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/modules/fomobot/lib/services/collection-service.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/fomobot/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/modules/fomobot/package.json" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/.tmp/" />
-    <ignored path="$PROJECT_DIR$/temp/" />
-    <ignored path="$PROJECT_DIR$/tmp/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.env">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/fomo-core/.env">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/fomo-core/trade-from-scratch.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/fomo-core/services/train/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="30" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/apps/fomo-core/services/trade/from-scratch.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-675">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/fomo-native/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1695">
-              <caret line="113" column="27" selection-start-line="113" selection-start-column="27" selection-end-line="113" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/fomo-service/__tests__/sub-ws.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="52" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="52" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/fomo-bitmex/__tests__/test-module.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/bitmex-realtime-api/test/test.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" selection-start-line="12" selection-end-line="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/default-redis/__tests__/test-module.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -356,80 +27,6 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>bitmex</find>
-      <find>&lt;&gt;</find>
-      <find>&lt;&gt;&lt;&gt;&lt;</find>
-      <find>eventBus</find>
-      <find>lastValue</find>
-      <find>onTrades</find>
-      <find>signal</find>
-      <find>BitmexAPI</find>
-      <find>messageBus</find>
-      <find>console.log</find>
-      <find>onTrade</find>
-      <find>positions</find>
-      <find>BALANCE_POSITIONS</find>
-      <find>isBear</find>
-      <find>status:</find>
-      <find>trades.push</find>
-      <find>BALANCE_POSITION</find>
-      <find>config</find>
-      <find>windowEditBot</find>
-      <find>password</find>
-      <find>showModal</find>
-      <find>editBot</find>
-      <find>openEditBot</find>
-      <find>../../</find>
-      <find>resume_markers</find>
-      <find>show</find>
-      <find>jest</find>
-      <find>balances</find>
-      <find>vue-radial-menu</find>
-      <find>isMiner</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>this.$log.debug</replace>
-      <replace>this.seeds</replace>
-      <replace>background-color: darkslateblue;</replace>
-      <replace>&lt;input class=&quot;text-white is-disabled&quot;</replace>
-      <replace>placeholder=&quot;&quot; disabled&gt;</replace>
-      <replace>82</replace>
-      <replace>width: 70px; background-color: darkslateblue;</replace>
-      <replace>log.debug(tag,</replace>
-      <replace>var talib = require('talib-fomo')</replace>
-      <replace>path.join(fomoPath,</replace>
-      <replace>console.log(tag,</replace>
-      <replace>output = output+</replace>
-      <replace>0x3f72bba888da894e73523daa9735596725c15518</replace>
-      <replace>false</replace>
-      <replace>box help-content</replace>
-      <replace>console.log</replace>
-      <replace>../../modules/</replace>
-      <replace>../</replace>
-      <replace>@fomobot/</replace>
-      <replace>./../</replace>
-      <replace>./../../</replace>
-      <replace>apps/fomo-native</replace>
-      <replace>@fomobro</replace>
-      <replace>@fomobro/</replace>
-      <replace>&quot;version&quot;:&quot;0.0.0&quot;</replace>
-      <replace>log.debug</replace>
-      <replace>fomo</replace>
-      <replace>.onmessage(</replace>
-      <replace>FOMO</replace>
-      <replace>./</replace>
-    </replaceStrings>
-    <dirStrings>
-      <dir>$PROJECT_DIR$/src/renderer/components</dir>
-      <dir>$PROJECT_DIR$/src/modules/lib</dir>
-      <dir>$PROJECT_DIR$/src</dir>
-      <dir>$PROJECT_DIR$/src/renderer</dir>
-      <dir>$PROJECT_DIR$</dir>
-      <dir>$PROJECT_DIR$/apps/fomo-native</dir>
-    </dirStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -438,125 +35,13 @@
       </map>
     </option>
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/modules/fomo-bitmex/__tests__/test-module.js" />
-        <option value="$PROJECT_DIR$/modules/fomobot/debug.js" />
-        <option value="$PROJECT_DIR$/modules/fomobot/engine.js" />
-        <option value="$PROJECT_DIR$/modules/fomobot/extensions/strategies/ta_ultosc/strategy.js" />
-        <option value="$PROJECT_DIR$/modules/fomo-service/index.js" />
-        <option value="$PROJECT_DIR$/.circleci/config.yml" />
-        <option value="$PROJECT_DIR$/apps/fomo-native/src/modules/extensions/strategies/forex_analytics/strategy.js" />
-        <option value="$PROJECT_DIR$/apps/fomo-native/src/modules/train.js" />
-        <option value="$PROJECT_DIR$/modules/fomobot/extensions/strategies/forex_analytics/strategy.js" />
-        <option value="$PROJECT_DIR$/lerna.json" />
-        <option value="$PROJECT_DIR$/modules/fomo-service/package.json" />
-        <option value="$PROJECT_DIR$/modules/forex-analytics-fomo/package.json" />
-        <option value="$PROJECT_DIR$/modules/accounting/package.json" />
-        <option value="$PROJECT_DIR$/modules/default-mongo/package.json" />
-        <option value="$PROJECT_DIR$/modules/default-redis/package.json" />
-        <option value="$PROJECT_DIR$/modules/fomo-binance/package.json" />
-        <option value="$PROJECT_DIR$/modules/fomo-bitmex/package.json" />
-        <option value="$PROJECT_DIR$/modules/fomo-coincap/package.json" />
-        <option value="$PROJECT_DIR$/modules/talib-fomo/package.json" />
-        <option value="$PROJECT_DIR$/modules/loggerdog-client/package.json" />
-        <option value="$PROJECT_DIR$/apps/fomo-cli/package.json" />
-        <option value="$PROJECT_DIR$/apps/fomo-cluster/package.json" />
-        <option value="$PROJECT_DIR$/modules/influx/package.json" />
-        <option value="$PROJECT_DIR$/scripts/publish" />
-        <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/apps/fomo-native/src/modules/wallet.js" />
-        <option value="$PROJECT_DIR$/apps/fomo-native/src/renderer/components/MinerTraderSelect.vue" />
-        <option value="$PROJECT_DIR$/modules/bitmex-realtime-api/lib/ReconnectingSocket.js" />
-        <option value="$PROJECT_DIR$/apps/fomo-native/node_modules/@fomobro/bitmex-realtime-api-native/lib/ReconnectingSocket.js" />
-        <option value="$PROJECT_DIR$/modules/fomo-bitmex/index.js" />
-        <option value="$PROJECT_DIR$/modules/bitmex-realtime-api/package.json" />
-        <option value="$PROJECT_DIR$/modules/fomo-service/__tests__/sub-ws.js" />
-        <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/modules/fomobot/lib/ta_ultosc.js" />
-        <option value="$PROJECT_DIR$/apps/fomo-native/node_modules/@fomobro/fomobot/index.js" />
-        <option value="$PROJECT_DIR$/modules/fomobot/package.json" />
-        <option value="$PROJECT_DIR$/apps/fomo-native/package.json" />
-        <option value="$PROJECT_DIR$/modules/fomobot/lib/engine.js" />
-        <option value="$PROJECT_DIR$/apps/fomo-native/src/renderer/main.js" />
-        <option value="$PROJECT_DIR$/apps/fomo-native/node_modules/@fomobro/fomobot/lib/engine.js" />
-        <option value="$PROJECT_DIR$/apps/fomo-native/src/modules/fomobot.js" />
-        <option value="$PROJECT_DIR$/apps/fomo-native/src/main/index.js" />
-        <option value="$PROJECT_DIR$/apps/fomo-native/src/renderer/components/EditBot.vue" />
-        <option value="$PROJECT_DIR$/apps/fomo-native/src/renderer/App.vue" />
-        <option value="$PROJECT_DIR$/apps/fomo-native/src/renderer/components/Miner.vue" />
-        <option value="$PROJECT_DIR$/modules/fomobot/index.js" />
-        <option value="$PROJECT_DIR$/modules/fomobot/extensions/exchanges/bitmex/exchange.js" />
-        <option value="$PROJECT_DIR$/modules/nedb/__tests__/test-module.js" />
-        <option value="$PROJECT_DIR$/modules/fomobot/lib/services/collection-service.js" />
-        <option value="$PROJECT_DIR$/modules/fomo-binance/__tests__/test-module.js" />
-        <option value="$PROJECT_DIR$/modules/fomobot/__tests__/test-module.js" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="2890" />
-    <option name="y" value="507" />
-    <option name="width" value="1430" />
-    <option name="height" value="1899" />
-  </component>
+  <component name="ProjectId" id="1a3kAPO05sr77AroF9Z6bcVF6ac" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="fomobot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fomobot" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fomobot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fomobot" type="462c0819:PsiDirectoryNode" />
-              <item name=".circleci" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fomobot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fomobot" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fomobot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fomobot" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="fomo-core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fomobot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fomobot" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="fomo-core" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fomobot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fomobot" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="fomo-core" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
-              <item name="trade" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
-  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="nodejs_interpreter_path" value="$USER_HOME$/.nvm/versions/node/v8.9.3/bin/node" />
+    <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -592,23 +77,37 @@
     </option>
   </component>
   <component name="RunManager" selected="Node.js.test.js">
-    <configuration name="sub-ws.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="sub-ws.js" working-dir="$PROJECT_DIR$/modules/fomo-service/__tests__">
-      <method v="2" />
-    </configuration>
     <configuration name="test-module.js (1)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="test-module.js" working-dir="$PROJECT_DIR$/modules/fomo-bitmex/__tests__">
-      <method v="2" />
-    </configuration>
-    <configuration name="test-module.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="test-module.js" working-dir="$PROJECT_DIR$/modules/fomobot/__tests__">
       <method v="2" />
     </configuration>
     <configuration name="test.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="test.js" working-dir="$PROJECT_DIR$/modules/bitmex-realtime-api/test">
       <method v="2" />
     </configuration>
-    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/apps/fomo-native/package.json" />
       <command value="run" />
       <scripts>
-        <script value="dev" />
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="npm (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/apps/fomo-native/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="npm" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="npm" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/modules/fomobot/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="npm" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -616,11 +115,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.build" />
+        <item itemvalue="npm.npm (1)" />
+        <item itemvalue="npm.npm" />
         <item itemvalue="Node.js.test.js" />
         <item itemvalue="Node.js.test-module.js (1)" />
-        <item itemvalue="Node.js.sub-ws.js" />
-        <item itemvalue="Node.js.test-module.js" />
-        <item itemvalue="npm.dev" />
       </list>
     </recent_temporary>
   </component>
@@ -688,6 +187,7 @@
       <workItem from="1580446187206" duration="2428000" />
       <workItem from="1582441184967" duration="14000" />
       <workItem from="1583619990255" duration="529000" />
+      <workItem from="1585971522329" duration="2589000" />
     </task>
     <task id="LOCAL-00036" summary="like this layout">
       <created>1565148305982</created>
@@ -1035,59 +535,19 @@
     <option name="localTasksCounter" value="85" />
     <servers />
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="440123000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="2890" y="507" width="1430" height="1899" extended-state="0" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.476731" visible="true" weight="0.22316986" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="npm" order="2" sideWeight="0.523269" side_tool="true" visible="true" weight="0.22316986" />
-      <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="0" />
-      <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Find" order="2" weight="0.32819247" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49964714" weight="0.2963272" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="7" />
-      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32910663" />
-      <window_info anchor="bottom" id="GraphQL" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50035286" side_tool="true" weight="0.53130215" />
-      <window_info anchor="bottom" id="Terminal" order="12" />
-      <window_info anchor="bottom" id="TypeScript" order="13" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7268332" visible="true" weight="0.34270102" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="npm" order="2" sideWeight="0.2731668" side_tool="true" visible="true" weight="0.34270102" />
-      <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="0" />
-      <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Find" order="2" weight="0.32875264" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49964714" visible="true" weight="0.36683673" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="7" />
-      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="GraphQL" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50035286" side_tool="true" weight="0.53130215" />
-      <window_info anchor="bottom" id="Terminal" order="12" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout-to-restore>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
@@ -1118,322 +578,5 @@
     <MESSAGE value="begin miner mode" />
     <MESSAGE value="add fomo-core" />
     <option name="LAST_COMMIT_MESSAGE" value="add fomo-core" />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/modules/fomobot/extensions/strategies/ta_ultosc/strategy.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/fomobot/.env" />
-    <entry file="file://$PROJECT_DIR$/modules/fomobot/boot.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-180" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/fomobot/conf.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/fomobot/package-lock.json" />
-    <entry file="file://$PROJECT_DIR$/modules/fomobot/lib/ta_ultosc.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/fomo-native/node_modules/@fomobro/fomobot/conf.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/fomo-native/node_modules/@fomobro/fomobot/extensions/strategies/ta_ultosc/strategy.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="4" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/talib-fomo/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/fomobot/extensions/exchanges/sim/exchange.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1200">
-          <caret line="80" selection-start-line="80" selection-end-line="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/fomo-native/.electron-vue/build.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-177" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/fomo-native/.electron-vue/dev-runner.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/fomo-native/.electron-vue/webpack.main.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1080">
-          <caret line="72" selection-start-line="72" selection-end-line="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/fomobot/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="61" column="13" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/fomo-native/node_modules/bitmex-node/dist/api/BitmexAPI.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/fomo-native/node_modules/@fomobro/fomobot/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="78" column="18" selection-start-line="78" selection-start-column="18" selection-end-line="78" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/fomo-native/node_modules/@fomobro/fomobot/lib/engine.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14430">
-          <caret line="962" column="38" selection-start-line="962" selection-start-column="38" selection-end-line="962" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="35" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/fomo-native/src/renderer/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="58" column="7" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/fomo-service/package.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/fomo-native/.electron-vue/dev-client.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" column="3" selection-start-line="38" selection-start-column="3" selection-end-line="38" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/fomobot/lib/engine.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11445">
-          <caret line="763" selection-start-line="763" selection-end-line="763" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/fomo-native/src/modules/fomobot.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1288">
-          <caret line="301" lean-forward="true" selection-start-line="301" selection-end-line="301" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="n#!!block;n#getBackfillStatus#0;n#BotService#0" />
-            <element signature="n#!!block;n#getBackfillChart#0;n#BotService#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/fomo-native/src/main/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="240" column="3" selection-start-line="240" selection-start-column="3" selection-end-line="240" selection-end-column="3" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#60#95#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/fomo-native/src/renderer/components/Miner.vue" />
-    <entry file="file://$PROJECT_DIR$/apps/fomo-native/src/renderer/components/Train.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="78" column="39" selection-start-line="78" selection-start-column="32" selection-end-line="78" selection-end-column="39" />
-          <folding>
-            <element signature="e#1653#1694#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/fomo-native/src/renderer/components/EditBot.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="40" column="34" selection-start-line="40" selection-start-column="34" selection-end-line="40" selection-end-column="34" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#header#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#section#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="e#562#614#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/fomo-native/appveyor.yml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/fomobot/lib/services/collection-service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/fomo-native/src/coins/FOMO.abi.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/fomo-binance/index.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/fomo-service/index.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/nedb/package.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/nedb/__tests__/test-module.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/fomobot/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1215">
-          <caret line="117" column="73" selection-start-line="117" selection-start-column="73" selection-end-line="117" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/fomo-binance/__tests__/test-module.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/influx/index.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/influx/__tests__/test-module.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/fomobot/extensions/exchanges/bitmex/exchange.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="34" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/fomobot/__tests__/test-module.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" selection-start-line="14" selection-start-column="3" selection-end-line="17" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/fomo-native/src/renderer/App.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" column="44" selection-start-line="36" selection-start-column="44" selection-end-line="36" selection-end-column="44" />
-          <folding>
-            <element signature="n#style#0;n#b-card#0;n#b-col#0;n#b-row#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#b-card#0;n#div#0;n#b-col#1;n#b-row#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#b-card#1;n#div#0;n#b-col#1;n#b-row#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#b-card#0;n#div#1;n#b-col#1;n#b-row#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#radial-menu#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#radial-menu-item#0;n#radial-menu#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="e#8179#8237#0" expanded="true" />
-            <element signature="e#8653#8691#0" expanded="true" />
-            <element signature="e#9261#9301#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/fomo-native/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1695">
-          <caret line="113" column="27" selection-start-line="113" selection-start-column="27" selection-end-line="113" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/fomo-service/__tests__/sub-ws.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="52" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/fomo-bitmex/__tests__/test-module.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/bitmex-realtime-api/test/test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/default-redis/__tests__/test-module.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/fomo-core/.env">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/fomo-core/trade-from-scratch.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/fomo-core/services/train/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="30" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/fomo-core/services/trade/from-scratch.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-675">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
   </component>
 </project>
