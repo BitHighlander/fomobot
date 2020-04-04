@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="222539ec-8fd8-4098-b8a4-b0833b44921b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/apps/fomo-native/.electron-vue/webpack.main.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fomo-native/.electron-vue/webpack.main.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/fomo-native/.electron-vue/webpack.renderer.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fomo-native/.electron-vue/webpack.renderer.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/fomo-native/.electron-vue/webpack.web.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fomo-native/.electron-vue/webpack.web.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/fomo-native/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fomo-native/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/fomo-native/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fomo-native/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/fomo-native/src/renderer/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fomo-native/src/renderer/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/fomobot/lib/engine.js" beforeDir="false" afterPath="$PROJECT_DIR$/modules/fomobot/lib/engine.js" afterDir="false" />
+    <list default="true" id="222539ec-8fd8-4098-b8a4-b0833b44921b" name="Default Changelist" comment="debug building!">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/fomobot/lib/services/collection-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/modules/fomobot/lib/services/collection-service.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/fomobot/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/modules/fomobot/package.json" afterDir="false" />
     </list>
@@ -187,21 +181,7 @@
       <workItem from="1580446187206" duration="2428000" />
       <workItem from="1582441184967" duration="14000" />
       <workItem from="1583619990255" duration="529000" />
-      <workItem from="1585971522329" duration="2589000" />
-    </task>
-    <task id="LOCAL-00036" summary="like this layout">
-      <created>1565148305982</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1565148305982</updated>
-    </task>
-    <task id="LOCAL-00037" summary="like this layout">
-      <created>1565156257576</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1565156257576</updated>
+      <workItem from="1585971522329" duration="4771000" />
     </task>
     <task id="LOCAL-00038" summary="lookin purty">
       <created>1565238874054</created>
@@ -532,7 +512,21 @@
       <option name="project" value="LOCAL" />
       <updated>1573353583442</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="debug building!">
+      <created>1585974149580</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1585974149580</updated>
+    </task>
+    <task id="LOCAL-00086" summary="remove nedb">
+      <created>1585975332400</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1585975332400</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -552,8 +546,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="ready to start live trade!" />
-    <MESSAGE value="begin day" />
     <MESSAGE value="yay tests" />
     <MESSAGE value="bump version" />
     <MESSAGE value="fix history" />
@@ -577,6 +569,8 @@
     <MESSAGE value="ready for overnight test" />
     <MESSAGE value="begin miner mode" />
     <MESSAGE value="add fomo-core" />
-    <option name="LAST_COMMIT_MESSAGE" value="add fomo-core" />
+    <MESSAGE value="debug building!" />
+    <MESSAGE value="remove nedb" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove nedb" />
   </component>
 </project>
