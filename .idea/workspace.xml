@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="222539ec-8fd8-4098-b8a4-b0833b44921b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/apps/fomo-native/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fomo-native/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/fomo-native/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fomo-native/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/fomo-native/static/.gitkeep" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -70,9 +69,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Node.js.test.js">
-    <configuration name="test-module.js (1)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="test-module.js" working-dir="$PROJECT_DIR$/modules/fomo-bitmex/__tests__">
-      <method v="2" />
-    </configuration>
     <configuration name="test.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="test.js" working-dir="$PROJECT_DIR$/modules/bitmex-realtime-api/test">
       <method v="2" />
     </configuration>
@@ -81,6 +77,16 @@
       <command value="run" />
       <scripts>
         <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/apps/fomo-native/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -108,11 +114,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.build" />
+        <item itemvalue="npm.dev" />
         <item itemvalue="npm.npm (1)" />
+        <item itemvalue="npm.build" />
         <item itemvalue="npm.npm" />
         <item itemvalue="Node.js.test.js" />
-        <item itemvalue="Node.js.test-module.js (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -180,14 +186,7 @@
       <workItem from="1580446187206" duration="2428000" />
       <workItem from="1582441184967" duration="14000" />
       <workItem from="1583619990255" duration="529000" />
-      <workItem from="1585971522329" duration="5969000" />
-    </task>
-    <task id="LOCAL-00039" summary="finish setup">
-      <created>1565240253708</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1565240253708</updated>
+      <workItem from="1585971522329" duration="6608000" />
     </task>
     <task id="LOCAL-00040" summary="begin seeds">
       <created>1565241408720</created>
@@ -525,7 +524,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585976676937</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="debug building!">
+      <created>1585978311851</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1585978311851</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
