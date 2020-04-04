@@ -10,7 +10,7 @@ jobs:
           command: npm run build-auth
       - run: cd ./apps/fomo-native && npm i
       - run: cd ./apps/fomo-native && node .electron-vue/build.js
-      - run: cd ./apps/fomo-native && npm run release-release
+      - run: cd ./apps/fomo-native && npm run release
 
 workflows:
   version: 2

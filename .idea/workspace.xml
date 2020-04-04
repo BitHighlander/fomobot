@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="222539ec-8fd8-4098-b8a4-b0833b44921b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/apps/fomo-native/static/.gitkeep" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.circleci/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.circleci/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/fomo-native/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fomo-native/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/fomo-native/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fomo-native/package.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -68,10 +70,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Node.js.test.js">
-    <configuration name="test.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="test.js" working-dir="$PROJECT_DIR$/modules/bitmex-realtime-api/test">
-      <method v="2" />
-    </configuration>
+  <component name="RunManager">
     <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/apps/fomo-native/package.json" />
       <command value="run" />
@@ -87,6 +86,16 @@
       <command value="run" />
       <scripts>
         <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="node version" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/apps/fomo-native/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="node version" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -114,11 +123,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.node version" />
         <item itemvalue="npm.dev" />
         <item itemvalue="npm.npm (1)" />
         <item itemvalue="npm.build" />
         <item itemvalue="npm.npm" />
-        <item itemvalue="Node.js.test.js" />
       </list>
     </recent_temporary>
   </component>
@@ -186,14 +195,7 @@
       <workItem from="1580446187206" duration="2428000" />
       <workItem from="1582441184967" duration="14000" />
       <workItem from="1583619990255" duration="529000" />
-      <workItem from="1585971522329" duration="6608000" />
-    </task>
-    <task id="LOCAL-00040" summary="begin seeds">
-      <created>1565241408720</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1565241408720</updated>
+      <workItem from="1585971522329" duration="7016000" />
     </task>
     <task id="LOCAL-00041" summary="gettin there">
       <created>1565322599257</created>
@@ -531,7 +533,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585978311851</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="gitkeep">
+      <created>1585978942283</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1585978942283</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -551,7 +560,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="yay tests" />
     <MESSAGE value="bump version" />
     <MESSAGE value="fix history" />
     <MESSAGE value="begin bitmex" />
@@ -576,6 +584,7 @@
     <MESSAGE value="add fomo-core" />
     <MESSAGE value="remove nedb" />
     <MESSAGE value="debug building!" />
-    <option name="LAST_COMMIT_MESSAGE" value="debug building!" />
+    <MESSAGE value="gitkeep" />
+    <option name="LAST_COMMIT_MESSAGE" value="gitkeep" />
   </component>
 </project>
