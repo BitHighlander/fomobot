@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="222539ec-8fd8-4098-b8a4-b0833b44921b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.circleci/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.circleci/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/fomo-native/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fomo-native/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/fomo-native/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fomo-native/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/talib-fomo/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/modules/talib-fomo/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/talib-fomo/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/modules/talib-fomo/package.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -123,8 +122,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.node version" />
         <item itemvalue="npm.dev" />
+        <item itemvalue="npm.node version" />
         <item itemvalue="npm.npm (1)" />
         <item itemvalue="npm.build" />
         <item itemvalue="npm.npm" />
@@ -195,14 +194,7 @@
       <workItem from="1580446187206" duration="2428000" />
       <workItem from="1582441184967" duration="14000" />
       <workItem from="1583619990255" duration="529000" />
-      <workItem from="1585971522329" duration="7016000" />
-    </task>
-    <task id="LOCAL-00041" summary="gettin there">
-      <created>1565322599257</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1565322599257</updated>
+      <workItem from="1585971522329" duration="11981000" />
     </task>
     <task id="LOCAL-00042" summary="bump">
       <created>1565324733083</created>
@@ -540,7 +532,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585978942283</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="release">
+      <created>1585979357683</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1585979357683</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -560,7 +559,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="bump version" />
     <MESSAGE value="fix history" />
     <MESSAGE value="begin bitmex" />
     <MESSAGE value="begin UI sprint" />
@@ -585,6 +583,7 @@
     <MESSAGE value="remove nedb" />
     <MESSAGE value="debug building!" />
     <MESSAGE value="gitkeep" />
-    <option name="LAST_COMMIT_MESSAGE" value="gitkeep" />
+    <MESSAGE value="release" />
+    <option name="LAST_COMMIT_MESSAGE" value="release" />
   </component>
 </project>
