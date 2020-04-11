@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="222539ec-8fd8-4098-b8a4-b0833b44921b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/apps/fomo-cli/src/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-cli/src/modules/config.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/fomo-cli/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/fomo-cli/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fomo-cli/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/fomo-native/src/main/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fomo-native/src/main/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/fomobot/__tests__/test-module.js" beforeDir="false" afterPath="$PROJECT_DIR$/modules/fomobot/__tests__/test-module.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/fomobot/lib/engine.js" beforeDir="false" afterPath="$PROJECT_DIR$/modules/fomobot/lib/engine.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/fomobot/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/modules/fomobot/package.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -74,7 +72,10 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Node.js.test-module.js">
+    <configuration name="test-module.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="test-module.js" working-dir="$PROJECT_DIR$/modules/fomobot/__tests__">
+      <method v="2" />
+    </configuration>
     <configuration name="build-linux" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/apps/fomo-native/package.json" />
       <command value="run" />
@@ -105,16 +106,6 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="node version" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/apps/fomo-native/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="node version" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
     <configuration name="npm" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -127,11 +118,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.test-module.js" />
         <item itemvalue="npm.build" />
         <item itemvalue="npm.dev" />
         <item itemvalue="npm.npm" />
         <item itemvalue="npm.build-linux" />
-        <item itemvalue="npm.node version" />
       </list>
     </recent_temporary>
   </component>
@@ -200,14 +191,7 @@
       <workItem from="1582441184967" duration="14000" />
       <workItem from="1583619990255" duration="529000" />
       <workItem from="1585971522329" duration="13871000" />
-      <workItem from="1586576628925" duration="5935000" />
-    </task>
-    <task id="LOCAL-00044" summary="bump">
-      <created>1565326116310</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1565326116310</updated>
+      <workItem from="1586576628925" duration="10248000" />
     </task>
     <task id="LOCAL-00045" summary="pw hashing">
       <created>1565326926086</created>
@@ -545,7 +529,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586033174690</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="begin fomo-cli">
+      <created>1586582573439</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1586582573439</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -567,7 +558,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="begin UI sprint" />
     <MESSAGE value="backfill page lookin good" />
     <MESSAGE value="beging bot inventory" />
     <MESSAGE value="pre-bootstrap" />
@@ -592,6 +582,7 @@
     <MESSAGE value="release" />
     <MESSAGE value="talib debug" />
     <MESSAGE value="bump fomobot" />
-    <option name="LAST_COMMIT_MESSAGE" value="bump fomobot" />
+    <MESSAGE value="begin fomo-cli" />
+    <option name="LAST_COMMIT_MESSAGE" value="begin fomo-cli" />
   </component>
 </project>
