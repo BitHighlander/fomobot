@@ -28,6 +28,8 @@ const wait = require('wait-promise');
 const client = new BitMEXClient();
 const sleep = wait.sleep;
 
+let SELECTED_STRAT = "bollinger"
+
 //Title
 clear();
 console.log(
@@ -38,6 +40,8 @@ console.log(
 
 program
   .version('0.0.1')
+  .option('-S, --strategy <type>', ' Select Strategy [forex_analytics,bollinger,cci_srsi,crossover_vwap,dema,ichimoku_score,ichimoku,speed,wavetrend,trust_distrust,ta_ultosc,stddev,trendline,renko]')
+  .option('-B, --backfill <type>', ' Select Backfill settings (in days)')
   .description(" An Automated trading program optimised to lose your money! ")
   .parse(process.argv);
 
@@ -45,21 +49,26 @@ if (!process.argv.slice(2).length) {
   program.outputHelp();
 }
 
+//flags
+if(program.strategy) SELECTED_STRAT = program.strategy
+
 let onRun = async function(){
   let tag = TAG + " | onRun | "
   try{
     //get strat
-    let engine = await bot.init("ta_ultosc");
+
+    log.info(tag,"strategy: ",program.strategy)
+    let engine = await bot.init(SELECTED_STRAT);
     await sleep(4000);
 
     engine.on('events', function (message:any) {
       //event triggerd
-      log.info("event: ",message)
+      log.info("**** Signal event: **** ",message)
     });
 
     //sub to trades
     client.addStream('XBTUSD', 'trade', function (data:any, symbol:any, tableName:any) {
-      log.info(tag,"Stream: ",data, symbol, tableName)
+      log.debug(tag,"Stream: ",data, symbol, tableName)
 
       let clean = []
       for(let i = 0; i < data.length; i++){
@@ -82,13 +91,28 @@ let onRun = async function(){
         normalized.price = tradeInfo.price
         clean.push(normalized)
       }
+      bot.load(clean)
 
+      //console.log("****",engine)
       //push trades to engine
-      engine.update(clean,true,function(err:any){
-        if(err) throw Error(err)
-      })
+      // engine.load(clean,true,function(err:any){
+      //   if(err) throw Error(err)
+      // })
 
     })
+  }catch(e){
+    log.error(tag,e)
+    throw Error(e)
+  }
+}
+
+let onBackfill = async function(){
+  let tag = TAG + " | onBackfill | "
+  try{
+    //get backfill status
+
+
+
   }catch(e){
     log.error(tag,e)
     throw Error(e)

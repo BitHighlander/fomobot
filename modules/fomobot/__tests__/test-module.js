@@ -30,12 +30,15 @@ let run_test = async function(){
         //log.info(tag,"total trades: ",allTrades.length)
 
         //Load trades to engine
+        console.log(allTrades[0])
         bot.load(allTrades)
 
         //
         events.on('events', async function (message) {
             log.debug(tag,"<><><><><><><><><><><>><> message: ",message)
         })
+
+        //push trade
 
 
     }catch(e){

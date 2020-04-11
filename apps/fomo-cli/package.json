@@ -6,14 +6,15 @@
     "fomobot": "./lib/index.js"
   },
   "scripts": {
-    "start": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts run",
+    "start": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts run --strategy ta_ultosc",
     "create": "npm run build && npm run test",
     "build": "tsc -p .",
     "test": "sudo npm i -g && pizza",
     "refresh": "rm -rf ./node_modules ./package-lock.json && npm install"
   },
   "dependencies": {
-    "@fomobro/fomobot": "^1.0.18",
+    "@fomobro/fomo-sim": "^1.0.1",
+    "@fomobro/fomobot": "^1.0.21",
     "bitmex-realtime-api": "^0.4.3",
     "chalk": "^4.0.0",
     "clear": "^0.1.0",

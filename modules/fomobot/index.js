@@ -70,7 +70,7 @@ module.exports = {
         return load_trades(trades);
     },
     push: function(trade) {
-        return push_trade(trade);
+        return load_trade(trade);
     },
     backfill: function() {
         return backfill_trade_data();
@@ -324,6 +324,21 @@ let backfill_trade_data =  async function (trades) {
         }
 
         //
+
+        return true
+    }catch(e){
+        console.error(tag,"Error: ",e)
+        throw e
+    }
+}
+
+let load_trade =  async function (trade) {
+    let tag = TAG + " | get_current_usd | "
+    try{
+
+        ENGINE.update([trade],true,function(err){
+            if(err) throw Error(error)
+        })
 
         return true
     }catch(e){

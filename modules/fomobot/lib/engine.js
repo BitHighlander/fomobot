@@ -2,7 +2,7 @@ let TAG = " | engine | "
 
 let log = require("default-logger")()
 
-
+let sim = require("@fomobro/fomo-sim")
 //const {subscriber,publisher,redis} = require('@fomobro/default-redis')
 //sub to pubsub
 
@@ -39,7 +39,7 @@ module.exports = function (s, conf) {
         console.log("__dirname: ",__dirname)
         let pathNew = __dirname.replace("/lib","")
         console.log("pathNew: ",pathNew)
-        s.exchange = require(`${pathNew}/extensions/exchanges/sim/exchange.js`)(conf, s)
+        s.exchange = sim(conf, s)
         //s.exchange = require(`${__dirname}/apps/fomo-core/extensions/exchanges/sim/exchange.js`)(conf, s)
         //console.log("try2: ",require(`${__dirname}/apps/fomo-core/extensions/exchanges/sim/exchange.js`)(conf, s))
 
