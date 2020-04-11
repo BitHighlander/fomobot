@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="222539ec-8fd8-4098-b8a4-b0833b44921b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/apps/fomo-native/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fomo-native/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/fomo-cli/src/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/fomo-cli/src/modules/config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/fomo-cli/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/fomo-cli/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fomo-cli/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/fomo-native/src/main/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fomo-native/src/main/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,6 +21,7 @@
         <option value="package.json" />
         <option value="Vue Single File Component" />
         <option value="JavaScript File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -38,22 +44,22 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="settings.nodejs" />
-    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/apps/fomo-cli/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/apps/fomo-native/src" />
-      <recent name="$PROJECT_DIR$/apps/fomo-native" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/exchanges/bitmex" />
-      <recent name="$PROJECT_DIR$/src/exchanges/binance" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/modules/nedb" />
       <recent name="$PROJECT_DIR$/modules" />
       <recent name="$PROJECT_DIR$/apps/fomo-native/.electron-vue" />
       <recent name="$PROJECT_DIR$/scripts" />
       <recent name="$PROJECT_DIR$/apps/fomo-native" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/apps/fomo-cli/src" />
+      <recent name="$PROJECT_DIR$/apps/fomo-native/src" />
+      <recent name="$PROJECT_DIR$/apps/fomo-native" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/exchanges/bitmex" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -80,7 +86,7 @@
       <method v="2" />
     </configuration>
     <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/apps/fomo-native/package.json" />
+      <package-json value="$PROJECT_DIR$/apps/fomo-cli/package.json" />
       <command value="run" />
       <scripts>
         <script value="build" />
@@ -109,8 +115,8 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="npm (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/apps/fomo-native/package.json" />
+    <configuration name="npm" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
         <script value="npm" />
@@ -121,11 +127,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.build-linux" />
-        <item itemvalue="npm.dev" />
-        <item itemvalue="npm.node version" />
-        <item itemvalue="npm.npm (1)" />
         <item itemvalue="npm.build" />
+        <item itemvalue="npm.dev" />
+        <item itemvalue="npm.npm" />
+        <item itemvalue="npm.build-linux" />
+        <item itemvalue="npm.node version" />
       </list>
     </recent_temporary>
   </component>
@@ -193,14 +199,8 @@
       <workItem from="1580446187206" duration="2428000" />
       <workItem from="1582441184967" duration="14000" />
       <workItem from="1583619990255" duration="529000" />
-      <workItem from="1585971522329" duration="13255000" />
-    </task>
-    <task id="LOCAL-00043" summary="devtoops">
-      <created>1565326091904</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1565326091904</updated>
+      <workItem from="1585971522329" duration="13871000" />
+      <workItem from="1586576628925" duration="5935000" />
     </task>
     <task id="LOCAL-00044" summary="bump">
       <created>1565326116310</created>
@@ -538,7 +538,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586031908890</updated>
     </task>
-    <option name="localTasksCounter" value="92" />
+    <task id="LOCAL-00092" summary="bump fomobot">
+      <created>1586033174690</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1586033174690</updated>
+    </task>
+    <option name="localTasksCounter" value="93" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -549,7 +556,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -558,7 +567,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="begin bitmex" />
     <MESSAGE value="begin UI sprint" />
     <MESSAGE value="backfill page lookin good" />
     <MESSAGE value="beging bot inventory" />
@@ -583,6 +591,7 @@
     <MESSAGE value="gitkeep" />
     <MESSAGE value="release" />
     <MESSAGE value="talib debug" />
-    <option name="LAST_COMMIT_MESSAGE" value="talib debug" />
+    <MESSAGE value="bump fomobot" />
+    <option name="LAST_COMMIT_MESSAGE" value="bump fomobot" />
   </component>
 </project>

@@ -168,8 +168,8 @@ ipcMain.on('sub-fomo-ws', async (event, arg) => {
         //bot.load(allTrades)
 
         // Send a BuySignal
-        let message = { signal: "buy" };
-        event.sender.send("signal", message)
+        //let message = { signal: "buy" };
+        //event.sender.send("signal", message)
 
         engine.on('events', function (message) {
             event.sender.send("trades", message)
