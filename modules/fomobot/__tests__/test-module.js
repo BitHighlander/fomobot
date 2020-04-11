@@ -34,7 +34,7 @@ let run_test = async function(){
 
         //
         events.on('events', async function (message) {
-            log.info(tag,"<><><><><><><><><><><>><> message: ",message)
+            log.debug(tag,"<><><><><><><><><><><>><> message: ",message)
         })
 
 

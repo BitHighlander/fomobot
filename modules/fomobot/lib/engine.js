@@ -762,7 +762,7 @@ module.exports = function (s, conf) {
     }
     else if (s.signal) {
 
-      console.log("SIGNAL BRO *************************", s.signal)
+      //console.log("SIGNAL BRO *************************", s.signal)
       let signal = {
         signal:s.signal,
         time:new Date().getTime()
@@ -975,7 +975,7 @@ module.exports = function (s, conf) {
     //log.info("lookback: ",s.lookback)
 
     if(s.lookback.length > 100) {
-      log.info("Cleaning up lookback! ")
+      log.debug(TAG,"Cleaning up lookback! ")
       s.lookback.shift()
     }
 
@@ -1009,14 +1009,14 @@ module.exports = function (s, conf) {
         if (!s.in_preroll && !so.manual) {
           executeStop(true)
           if (s.signal) {
-            console.log("SIGNAL BRO *************************")
+            //console.log("SIGNAL BRO *************************")
             let signal = {
               signal:s.signal,
               time:new Date().getTime()
             }
 
             //redis.lpush("fomo:signal",JSON.stringify(signal))
-            //executeSignal(s.signal)
+            executeSignal(s.signal)
           }
         }
         //s.action = null
