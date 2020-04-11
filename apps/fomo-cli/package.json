@@ -13,7 +13,7 @@
     "refresh": "rm -rf ./node_modules ./package-lock.json && npm install"
   },
   "dependencies": {
-    "@fomobro/fomobot": "^1.0.16",
+    "@fomobro/fomobot": "^1.0.18",
     "bitmex-realtime-api": "^0.4.3",
     "chalk": "^4.0.0",
     "clear": "^0.1.0",
