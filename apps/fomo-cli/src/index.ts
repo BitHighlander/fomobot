@@ -23,8 +23,10 @@ const program = require('commander');
 const log = require("loggerdog-client")()
 const BitMEXClient = require('bitmex-realtime-api');
 const wait = require('wait-promise');
+const db = require('monk')('localhost/zenbot4')
 
 //globals
+const tradesDB = db.get('trades')
 const client = new BitMEXClient();
 const sleep = wait.sleep;
 
@@ -60,6 +62,18 @@ let onRun = async function(){
     log.info(tag,"strategy: ",program.strategy)
     let engine = await bot.init(SELECTED_STRAT);
     await sleep(4000);
+
+    //get recent history
+    let allTrades = await tradesDB.find({selector:"bitmex.BTC-USD"},{limit:10000,sort:{time:-1}})
+    //log.info(tag,"total trades: ",allTrades.length)
+
+    //Load trades to engine
+    chalk.blue(
+      " Loading trades into the Fomo engine! "
+    )
+    bot.load(allTrades)
+    await sleep(6000);
+
 
     engine.on('events', function (message:any) {
       //event triggerd
