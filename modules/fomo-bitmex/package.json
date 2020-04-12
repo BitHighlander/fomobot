@@ -1,4 +1,8 @@
 {
   "name": "@fomobro/fomo-bitmex",
-  "version": "1.0.13"
+  "version": "1.0.13",
+  "dependencies": {
+    "bitmex-node": "^1.9.0",
+    "dotenv": "^8.2.0"
+  }
 }

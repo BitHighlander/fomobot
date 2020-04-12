@@ -84,14 +84,13 @@ let onRun = async function(){
   let tag = TAG + " | onRun | "
   try{
     //get strat
-
     log.info(tag,"strategy: ",program.strategy)
     let engine = await bot.init(SELECTED_STRAT);
     await sleep(4000);
 
     //get recent history
     let allTrades = await tradesDB.find({selector:"bitmex.BTC-USD"},{limit:10000,sort:{time:-1}})
-    //log.info(tag,"total trades: ",allTrades.length)
+    log.info(tag,"total trades: ",allTrades.length)
 
     //Load trades to engine
     chalk.blue(
@@ -109,11 +108,10 @@ let onRun = async function(){
         sellSignal()
       } else if(message.signal === "buy") {
         //goBull
-        sellSignal()
+        buySignal()
       } else {
         log.error("Unknown Signal!  message: ",message)
       }
-
     });
 
     //sub to trades
@@ -123,15 +121,6 @@ let onRun = async function(){
       let clean = []
       for(let i = 0; i < data.length; i++){
         let tradeInfo = data[i]
-
-        //console.log("tradeInto: ",tradeInfo)
-
-        //let price
-        let price = tradeInfo.price
-        let amount = tradeInfo.size
-        // console.log("price: ",price)
-        // console.log("amount: ",amount)
-
         let normalized:any = {}
         normalized.trade_id = tradeInfo.trdMatchID
         normalized.time = new Date(tradeInfo.timestamp).getTime()
@@ -142,13 +131,6 @@ let onRun = async function(){
         clean.push(normalized)
       }
       bot.load(clean)
-
-      //console.log("****",engine)
-      //push trades to engine
-      // engine.load(clean,true,function(err:any){
-      //   if(err) throw Error(err)
-      // })
-
     })
   }catch(e){
     log.error(tag,e)

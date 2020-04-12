@@ -1,30 +1,39 @@
+require('dotenv').config()
+require('dotenv').config({path:"../../.env"});
+
 let {BitmexAPI,BitmexSocket} = require("bitmex-node");
 //var datetime = require('node-datetime');
 var moment = require('moment');
 //sub to pubsub
-const pubsubLib = require("redis")
-    , subscriber = pubsubLib.createClient()
-    , publisher = pubsubLib.createClient();
+// const pubsubLib = require("redis")
+//     , subscriber = pubsubLib.createClient()
+//     , publisher = pubsubLib.createClient();
 
-// const bitmex = new BitmexAPI({
-//     "apiKeyID": "kWKByIp9ynsprvY_X451ny3W",
-//     "apiKeySecret": "K5kxJo0F-Wg_gefxlmelrxJctRsGzWv5crlzP7bW86Wyui9i",
+if(!process.env['API_KEY_PUBLIC']) throw Error(" Missing API_KEY_PUBLIC! ")
+if(!process.env['API_KEY_PRIVATE']) throw Error(" Missing API_KEY_PRIVATE! ")
+console.log("process.env['API_KEY_PUBLIC']: ",process.env['API_KEY_PUBLIC'])
+console.log("process.env['API_KEY_PRIVATE']: ",process.env['API_KEY_PRIVATE'])
+
+const bitmex = new BitmexAPI({
+    "apiKeyID": process.env['API_KEY_PUBLIC'],
+    "apiKeySecret": process.env['API_KEY_PRIVATE'],
+    //"proxy": "https://cors-anywhere.herokuapp.com/"
+    "testnet": true
+});
+
+
+// const bitmexSocket = new BitmexSocket({
+//     "apiKeyID": "",
+//     "apiKeySecret": "",
 //     //"proxy": "https://cors-anywhere.herokuapp.com/"
 // });
 
-
-const bitmexSocket = new BitmexSocket({
-    "apiKeyID": "",
-    "apiKeySecret": "",
-    //"proxy": "https://cors-anywhere.herokuapp.com/"
-});
-
-const bitmex = new BitmexAPI({
-    "apiKeyID": "",
-    "apiKeySecret": "",
-    "testnet":true
-    //"proxy": "https://cors-anywhere.herokuapp.com/"
-});
+// const bitmex = new BitmexAPI({
+//     "apiKeyID": "",
+//     "apiKeySecret": "",
+//     "testnet":true
+//     //"proxy": "https://cors-anywhere.herokuapp.com/"
+// });
 
 
 //pubsub
@@ -77,8 +86,13 @@ const bitmex = new BitmexAPI({
 
 // bitmex.User.getWalletSummary()
 //     .then(function(resp){
+//
 //         console.log(resp)
+//
 //     })
+//   .catch(function(e){
+//       console.error(e)
+//   })
 
 
 // bitmex.User.getDepositAddress()
@@ -91,10 +105,11 @@ const bitmex = new BitmexAPI({
 //         console.log(resp)
 //     })
 
-// bitmex.User.getWallet()
-//     .then(function(resp){
-//         console.log(resp)
-//     })
+bitmex.User.getWallet()
+    .then(function(resp){
+        console.log("balance: ",parseInt(resp.deltaAmount) / 100000000)
+        console.log("address: ",resp.addr)
+    })
 
 // bitmex.Execution.getTradeHistory()
 //     .then(function(resp){
@@ -109,10 +124,11 @@ const bitmex = new BitmexAPI({
 //     })
 
 
-// bitmex.Position.get()
-//     .then(function(resp){
-//         console.log(resp)
-//     })
+bitmex.Position.get()
+    .then(function(resp){
+        console.log(resp)
+        console.log(resp[0])
+    })
 
 //trade!
 
@@ -131,12 +147,18 @@ const bitmex = new BitmexAPI({
 //     })
 
 //leverage seems to be working
-// bitmex.Order.new({symbol:"XBTUSD",orderQty:10000,price:"10500",leverage:"100"})
+// bitmex.Order.new({symbol:"XBTUSD",orderQty:-1000,price:"6700",leverage:"20"})
 //     .then(function(resp){
 //         console.log(resp)
 //     })
 //     .catch(function(e){
 //         console.error(e)
+//         console.error(e.message)
+//         let trimBack = e.message.split(" XBt ")
+//         console.error(trimBack)
+//         let trimFront = trimBack[0].split("Account has insufficient Available Balance, ")
+//         let neededForOrder = trimFront[1]
+//         console.error("neededForOrder: ",parseInt(neededForOrder) / 100000000)
 //     })
 
 
@@ -147,17 +169,17 @@ const bitmex = new BitmexAPI({
 
 // backfill
 
-let now = new Date();
-now = moment(now).toISOString();
-console.log("now: ",now);
-// //now = parseInt(now/1000)
-// now = new Date()
-// console.log("now: ",now)
-let hourAgo = moment(new Date()).subtract(1, 'm');
-hourAgo = moment(hourAgo).toISOString();
-
-// hourAgo = hourAgo - 1000 * 60 * 60
-console.log("hourAgo: ",hourAgo);
+// let now = new Date();
+// now = moment(now).toISOString();
+// console.log("now: ",now);
+// // //now = parseInt(now/1000)
+// // now = new Date()
+// // console.log("now: ",now)
+// let hourAgo = moment(new Date()).subtract(1, 'm');
+// hourAgo = moment(hourAgo).toISOString();
+//
+// // hourAgo = hourAgo - 1000 * 60 * 60
+// console.log("hourAgo: ",hourAgo);
 //let dateTimeHourAgo = new datetime.create(hourAgo)
 
 // let dateTimeHourAgo = new Date(hourAgo)
