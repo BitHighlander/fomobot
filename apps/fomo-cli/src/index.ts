@@ -36,13 +36,17 @@ const log = require("loggerdog-client")()
 const BitMEXClient = require('bitmex-realtime-api');
 const wait = require('wait-promise');
 const db = require('monk')('localhost/zenbot4')
+const { EventBus } = require('light-event-bus')
 
 //globals
+const eventBus = new EventBus()
 const tradesDB = db.get('trades')
 const client = new BitMEXClient();
 const sleep = wait.sleep;
 
-let EXCHANGES:any = {};
+// @ts-ignore
+global.EXCHANGES = {};
+
 let LAST_PRICE:any
 let SELECTED_STRAT = "bollinger"
 let WALLET_PASSWORD:string
@@ -65,6 +69,10 @@ console.log(
     figlet.textSync('Fomo-cli', { horizontalLayout: 'full' })
   )
 );
+
+process.on('uncaughtException', function (e){
+  console.log(e);
+})
 
 // let order = { symbol: 'XBTUSD', orderQty: -100, price: '6753' }
 // console.log("settings: ",{
@@ -113,17 +121,18 @@ if(program.strategy) SELECTED_STRAT = program.strategy
 if(program.leverage) LEVERAGE = parseInt(program.leverage)
 
 
-let onRun = async function(){
+let onRun: (this: any) => Promise<void>;
+onRun = async function (this: any) {
   let tag = TAG + " | onRun | "
-  try{
+  try {
     //get strat
-    log.info(tag,"strategy: ",program.strategy)
+    log.info(tag, "strategy: ", program.strategy)
     let engine = await bot.init(SELECTED_STRAT);
     await sleep(4000);
 
     //get recent history
-    let allTrades = await tradesDB.find({selector:"bitmex.BTC-USD"},{limit:10000,sort:{time:-1}})
-    log.info(tag,"total trades: ",allTrades.length)
+    let allTrades = await tradesDB.find({selector: "bitmex.BTC-USD"}, {limit: 10000, sort: {time: -1}})
+    log.info(tag, "total trades: ", allTrades.length)
 
     //Load trades to engine
     chalk.blue(
@@ -132,34 +141,33 @@ let onRun = async function(){
     bot.load(allTrades)
     await sleep(6000);
 
-
-    engine.on('events', async function (message:any) {
+    // @ts-ignore
+    engine.on('events', async message => {
       //event triggerd
-      log.info("**** Signal event: **** ",message)
-      if(message.signal === "sell"){
+      log.info("**** Signal event: **** ", message)
+      if (message.signal === "sell") {
+
         //goBear
-        // let order = { symbol: 'XBTUSD', orderQty: -100, price: '6753' }
-        // let result = await EXCHANGES['bitmex'].Order.new(order)
-        //log.info("RESULT: ",result)
-        await sellSignal(LAST_PRICE,EXCHANGES)
-      } else if(message.signal === "buy") {
+        eventBus.publish('event', {message})
+      } else if (message.signal === "buy") {
         //goBull
 
-        await buySignal(LAST_PRICE)
-
+        //await buySignal(LAST_PRICE)
+        eventBus.publish('event', {message})
       } else {
-        log.error("Unknown Signal!  message: ",message)
+        log.error("Unknown Signal!  message: ", message)
       }
     });
 
     //sub to trades
-    client.addStream('XBTUSD', 'trade', function (data:any, symbol:any, tableName:any) {
-      log.debug(tag,"Stream: ",data, symbol, tableName)
+    client.addStream('XBTUSD', 'trade', function (data: any, symbol: any, tableName: any) {
+      log.debug(tag, "Stream: ", data, symbol, tableName)
+
 
       let clean = []
-      for(let i = 0; i < data.length; i++){
+      for (let i = 0; i < data.length; i++) {
         let tradeInfo = data[i]
-        let normalized:any = {}
+        let normalized: any = {}
         normalized.trade_id = tradeInfo.trdMatchID
         normalized.time = new Date(tradeInfo.timestamp).getTime()
         normalized.unix = new Date(tradeInfo.timestamp).getTime()
@@ -171,11 +179,11 @@ let onRun = async function(){
       }
       bot.load(clean)
     })
-  }catch(e){
-    log.error(tag,e)
+  } catch (e) {
+    log.error(tag, e)
     throw Error(e)
   }
-}
+};
 
 let onBackfill = async function(){
   let tag = TAG + " | onBackfill | "
@@ -206,8 +214,10 @@ let onStart = async function(){
       //decrypt
       let apiKeys = await initBot(WALLET_PASSWORD,config,LEVERAGE)
       log.info(tag,"apiKeys: ",apiKeys)
-
-      EXCHANGES['bitmex'] = new BitmexAPI({
+      API_KEY_PUBLIC = apiKeys.API_KEY_PUBLIC
+      API_KEY_PRIVATE = apiKeys.API_KEY_PRIVATE
+      // @ts-ignore
+      global.EXCHANGES['bitmex'] = new BitmexAPI({
         "apiKeyID": apiKeys.API_KEY_PUBLIC,
         "apiKeySecret": apiKeys.API_KEY_PRIVATE,
         "testnet": true
@@ -215,6 +225,29 @@ let onStart = async function(){
       })
       await updatePosition()
     }
+
+
+    // @ts-ignore
+    const subscription = eventBus.subscribe('event', async arg => {
+      log.info("EVENT keys: ",{
+        API_KEY_PUBLIC,
+        API_KEY_PRIVATE
+      })
+      let client = new BitmexAPI({
+        "apiKeyID": API_KEY_PUBLIC,
+        "apiKeySecret": API_KEY_PRIVATE,
+        "testnet": true
+        // "proxy": "https://cors-anywhere.herokuapp.com/" //TODO setup proxy
+      })
+
+      let order = { symbol: 'XBTUSD', orderQty: -100, price: '6753' }
+      log.info("order: ",order)
+      // @ts-ignore
+      let result = await global.EXCHANGES['bitmex'].Order.new(order)
+      log.info("RESULT: ",result)
+
+      return console.log("EVENT!", arg);
+    })
 
     //if configured AND command is run
     log.info(tag,"args: ",process.argv)

@@ -17,7 +17,6 @@ const Cryptr = require('cryptr');
 const db = require('monk')('localhost/zenbot4');
 const tradesDB = db.get('trades');
 
-
 let IS_BEAR = false;
 let IS_BULL = false;
 let IS_INIT = false;
@@ -59,8 +58,12 @@ export async function initBot(password:string,config:any,leverage:number){
     }
 
     //update leverage
-    // let leverageSucces = await EXCHANGES['bitmex'].Position.updateLeverage({symbol:"XBTUSD",leverage:leverage})
-    // log.info(tag,"leverageSucces: ",leverageSucces)
+    let leverageSucces = await EXCHANGES['bitmex'].Position.updateLeverage({symbol:"XBTUSD",leverage:leverage})
+    log.info(tag,"leverageSucces: ",leverageSucces)
+
+
+
+
     return {API_KEY_PRIVATE,API_KEY_PUBLIC}
   }catch (e) {
     console.error(tag,"e: ",e)
@@ -145,7 +148,7 @@ export async function buySignal(lastPrice:any){
       }
       log.info(tag,"Order: ",order)
 
-      const client = EXCHANGES['bitmex']
+      //const client = EXCHANGES['bitmex']
       // let client = new BitmexAPI({
       //   // @ts-ignore
       //   "apiKeyID": API_KEY_PRIVATE,
@@ -155,19 +158,19 @@ export async function buySignal(lastPrice:any){
       //   // "proxy": "https://cors-anywhere.herokuapp.com/" //TODO setup proxy
       // })
 
-      client.Order.new(order)
-        .then(function(resp:any){
-          log.info(tag,"Order Resp: ",resp)
-        })
-        .catch(function(e:any){
-          log.error(e)
-          log.error(e.message)
-          let trimBack = e.message.split(" XBt ")
-          log.error(trimBack)
-          let trimFront = trimBack[0].split("Account has insufficient Available Balance, ")
-          let neededForOrder = trimFront[1]
-          log.error("neededForOrder: ",parseInt(neededForOrder) / 100000000)
-        })
+      // client.Order.new(order)
+      //   .then(function(resp:any){
+      //     log.info(tag,"Order Resp: ",resp)
+      //   })
+      //   .catch(function(e:any){
+      //     log.error(e)
+      //     log.error(e.message)
+      //     let trimBack = e.message.split(" XBt ")
+      //     log.error(trimBack)
+      //     let trimFront = trimBack[0].split("Account has insufficient Available Balance, ")
+      //     let neededForOrder = trimFront[1]
+      //     log.error("neededForOrder: ",parseInt(neededForOrder) / 100000000)
+      //   })
 
 
       IS_BULL = true
