@@ -1,0 +1,14 @@
+{
+  "name": "trade",
+  "version": "1.0.0",
+  "scripts": {
+    "run": "node from-scratch.js"
+  },
+  "dependencies": {
+    "@bithighlander/default-redis": "^4.3.2",
+    "bitmex-node": "^1.9.0",
+    "dotenv": "^8.2.0",
+    "redis": "^2.8.0",
+    "wait-promise": "^0.4.1"
+  }
+}

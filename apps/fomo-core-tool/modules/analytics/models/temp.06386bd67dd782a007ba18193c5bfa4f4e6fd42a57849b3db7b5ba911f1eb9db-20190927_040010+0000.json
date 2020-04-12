@@ -1,0 +1,81 @@
+{
+    "selector": "bitmex.BTC-USD",
+    "period": "30m",
+    "options": {
+        "populationCount": 100,
+        "generationCount": 100,
+        "selectionAmount": 10,
+        "leafValueMutationProbability": 0.5,
+        "leafSignMutationProbability": 0.3,
+        "logicalNodeMutationProbability": 0.3,
+        "leafIndicatorMutationProbability": 0.2,
+        "crossoverProbability": 0.03,
+        "indicators": [
+            "CCI",
+            "MACD",
+            "RSI",
+            "SAR",
+            "Stochastic"
+        ]
+    },
+    "strategy": {
+        "buy": {
+            "operator": "Or",
+            "left": {
+                "operator": "And",
+                "left": {
+                    "indicator": "RSI",
+                    "sign": ">",
+                    "value": 86342.32330321276
+                },
+                "right": {
+                    "indicator": "RSI",
+                    "sign": ">",
+                    "value": 18361.91121722673
+                }
+            },
+            "right": {
+                "operator": "Or",
+                "left": {
+                    "indicator": "Stochastic",
+                    "sign": ">",
+                    "value": 10902.356656755092
+                },
+                "right": {
+                    "indicator": "RSI",
+                    "sign": ">",
+                    "value": 7014.610294654564
+                }
+            }
+        },
+        "sell": {
+            "operator": "And",
+            "left": {
+                "operator": "And",
+                "left": {
+                    "indicator": "Stochastic",
+                    "sign": "<",
+                    "value": -17374.021573824244
+                },
+                "right": {
+                    "indicator": "Stochastic",
+                    "sign": "<",
+                    "value": -10625.087759540515
+                }
+            },
+            "right": {
+                "operator": "Or",
+                "left": {
+                    "indicator": "CCI",
+                    "sign": ">",
+                    "value": 404617.3684767127
+                },
+                "right": {
+                    "indicator": "SAR",
+                    "sign": ">",
+                    "value": 9747339.833973436
+                }
+            }
+        }
+    }
+}
