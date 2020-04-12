@@ -4,6 +4,8 @@
       FOMObot cli
           -Highlander
  */
+require('dotenv').config()
+require('dotenv').config({path:"../../.env"});
 const TAG = " | App | "
 import {
   getConfig,
@@ -13,7 +15,17 @@ import {
   backtestDir
 } from './modules/config'
 
+import {
+  initBot,
+  updatePosition,
+  getSummaryInfo,
+  buySignal,
+  sellSignal
+} from './modules/fomobot'
+
 //Modules
+const Cryptr = require('cryptr');
+const {BitmexAPI, BitmexSocket} = require("bitmex-node");
 const bot = require("@fomobro/fomobot")
 const chalk = require('chalk');
 const clear = require('clear');
@@ -31,6 +43,18 @@ const client = new BitMEXClient();
 const sleep = wait.sleep;
 
 let SELECTED_STRAT = "bollinger"
+let WALLET_PASSWORD:string
+let API_KEY_PUBLIC:string
+let API_KEY_PRIVATE:string
+let EXCHANGES:any
+let BALANCE_BTC
+let IS_BULL
+let IS_BEAR
+
+if(process.env['WALLET_PASSWORD']){
+  WALLET_PASSWORD = process.env['WALLET_PASSWORD']
+  log.info("Password loaded from env! ",WALLET_PASSWORD)
+}
 
 //Title
 clear();
@@ -44,6 +68,7 @@ program
   .version('0.0.1')
   .option('-S, --strategy <type>', ' Select Strategy [forex_analytics,bollinger,cci_srsi,crossover_vwap,dema,ichimoku_score,ichimoku,speed,wavetrend,trust_distrust,ta_ultosc,stddev,trendline,renko]')
   .option('-B, --backfill <type>', ' Select Backfill settings (in days)')
+  .option('-P, --password <type>', ' Fomo Wallet Password')
   .description(" An Automated trading program optimised to lose your money! ")
   .parse(process.argv);
 
@@ -53,6 +78,7 @@ if (!process.argv.slice(2).length) {
 
 //flags
 if(program.strategy) SELECTED_STRAT = program.strategy
+
 
 let onRun = async function(){
   let tag = TAG + " | onRun | "
@@ -78,6 +104,16 @@ let onRun = async function(){
     engine.on('events', function (message:any) {
       //event triggerd
       log.info("**** Signal event: **** ",message)
+      if(message.signal === "sell"){
+        //goBear
+        sellSignal()
+      } else if(message.signal === "buy") {
+        //goBull
+        sellSignal()
+      } else {
+        log.error("Unknown Signal!  message: ",message)
+      }
+
     });
 
     //sub to trades
@@ -125,7 +161,7 @@ let onBackfill = async function(){
   try{
     //get backfill status
 
-
+    //if not done, backfill
 
   }catch(e){
     log.error(tag,e)
@@ -145,6 +181,11 @@ let onStart = async function(){
     //if no config setup
 
     //if no api keys setup exchange
+    if(config.bitMexTestPub && config.bitMexTestPub){
+      //decrypt
+      await initBot(WALLET_PASSWORD,config)
+      await updatePosition()
+    }
 
     //if configured AND command is run
     log.info(tag,"args: ",process.argv)
@@ -161,3 +202,26 @@ let onStart = async function(){
   }
 }
 onStart()
+
+
+let onUpdate = async function(){
+  let tag = TAG + " | onUpdate | "
+  try{
+      let status = getSummaryInfo()
+      log.info("summary lastPrice: ",status.LAST_PRICE)
+      log.info("summary balance Available: ",status.BALANCE_AVAILABLE)
+      log.info("summary balance Position: ",status.BALANCE_POSITION)
+      log.info("summary balance isBull: ",status.IS_BULL)
+      log.info("summary balance isBear: ",status.IS_BEAR)
+
+      //positions
+
+      //PNL
+
+  }catch(e){
+    log.error(tag,e)
+    throw Error(e)
+  }
+}
+//1min
+setInterval(onUpdate,20*1000)
