@@ -24,19 +24,18 @@ let IS_INIT = false;
 let IS_PAPER = false;
 let IS_TESTNET = true;
 
-let API_KEY_PRIVATE;
-let API_KEY_PUBLIC;
+let API_KEY_PRIVATE:any;
+let API_KEY_PUBLIC:any;
 let BALANCE_AVAILABLE = 0;
 let BALANCE_POSITION = 0;
 let BALANCES:any = [];
 let EXCHANGES:any = {};
-let LAST_PRICE:any = 0;
 let PCT_IN_POSITION = 0;
 let POSITIONS:any = [];
 let POSITION_NATIVE = 0;
 let POSITION_PNL = 0;
 
-export function initBot(password:string,config:any){
+export async function initBot(password:string,config:any,leverage:number){
   let tag = TAG + " | initBot | "
   try{
 
@@ -47,15 +46,22 @@ export function initBot(password:string,config:any){
     let priv = cryptr.decrypt(encryptedPriv)
     log.info(tag,"decrypted privkey: ",priv)
     API_KEY_PRIVATE = priv
-
+    API_KEY_PUBLIC = config.bitMexTestPub
     //load to global
-    EXCHANGES['bitmex'] = new BitmexAPI({
-      "apiKeyID": config.bitMexTestPub,
-      "apiKeySecret": priv,
-      "testnet": true
-      // "proxy": "https://cors-anywhere.herokuapp.com/" //TODO setup proxy
-    })
 
+    if(API_KEY_PRIVATE && API_KEY_PUBLIC){
+      EXCHANGES['bitmex'] = new BitmexAPI({
+        "apiKeyID": API_KEY_PUBLIC,
+        "apiKeySecret": API_KEY_PRIVATE,
+        "testnet": true
+        // "proxy": "https://cors-anywhere.herokuapp.com/" //TODO setup proxy
+      })
+    }
+
+    //update leverage
+    // let leverageSucces = await EXCHANGES['bitmex'].Position.updateLeverage({symbol:"XBTUSD",leverage:leverage})
+    // log.info(tag,"leverageSucces: ",leverageSucces)
+    return {API_KEY_PRIVATE,API_KEY_PUBLIC}
   }catch (e) {
     console.error(tag,"e: ",e)
     return e
@@ -71,12 +77,12 @@ export async function updatePosition(){
     let wallet = await client.User.getWallet()
     log.debug("updatePosition() | wallet: ", wallet)
 
-    let balance = wallet.amount
+    let balance = parseInt(wallet.deltaAmount) / 100000000
     log.info("updatePosition() | balance: ", balance)
-    BALANCE_AVAILABLE = balance / 100000000
+    BALANCE_AVAILABLE = balance
 
     let positions = await client.Position.get()
-    log.info("updatePosition() | positions: ", positions)
+    log.debug("updatePosition() | positions: ", positions)
 
     for (let i = 0; i < positions.length; i++) {
       let position = positions[i]
@@ -105,44 +111,69 @@ export async function updatePosition(){
         IS_BEAR = true
       }
     }
-
+    return true
   }catch (e) {
     console.error(tag,"e: ",e)
     return e
   }
 }
 
-export async function buySignal(){
+export async function buySignal(lastPrice:any){
   let tag = TAG + " | buySignal | "
   try{
-
+    log.info(tag,"Checkpoint")
     //
     if (IS_BEAR || !IS_BULL) {
       //go bull
-
+      log.info(tag,"Going Bull!")
       //get position
 
       //amount = position X 2
       let amount = Math.abs(POSITION_NATIVE) * 2
-      if (!amount || amount < 0) amount = 1000
+      if (!amount || amount < 0) amount = 100
       log.info(tag, "amount: ", amount)
 
-
-      log.info(tag, "LAST_PRICE: ", LAST_PRICE)
-      let price = LAST_PRICE + (LAST_PRICE * 0.01)
+      log.info(tag, "lastPrice: ", lastPrice)
+      let price = lastPrice + (lastPrice * 0.01)
       price = price.toFixed(0)
       log.info(tag, "price: ", price)
 
-      let result = await EXCHANGES['bitmex'].Order.new({
+      let order = {
         symbol: "XBTUSD",
         orderQty: amount,
-        price: price,
-        leverage: "5"
-      })
-      log.info("result: ", result)
+        price: price
+      }
+      log.info(tag,"Order: ",order)
+
+      const client = EXCHANGES['bitmex']
+      // let client = new BitmexAPI({
+      //   // @ts-ignore
+      //   "apiKeyID": API_KEY_PRIVATE,
+      //   // @ts-ignore
+      //   "apiKeySecret": API_KEY_PUBLIC,
+      //   "testnet": true
+      //   // "proxy": "https://cors-anywhere.herokuapp.com/" //TODO setup proxy
+      // })
+
+      client.Order.new(order)
+        .then(function(resp:any){
+          log.info(tag,"Order Resp: ",resp)
+        })
+        .catch(function(e:any){
+          log.error(e)
+          log.error(e.message)
+          let trimBack = e.message.split(" XBt ")
+          log.error(trimBack)
+          let trimFront = trimBack[0].split("Account has insufficient Available Balance, ")
+          let neededForOrder = trimFront[1]
+          log.error("neededForOrder: ",parseInt(neededForOrder) / 100000000)
+        })
+
 
       IS_BULL = true
       IS_BEAR = false
+    } else {
+      log.info(tag,"Already a Bull!")
     }
 
   }catch (e) {
@@ -151,43 +182,96 @@ export async function buySignal(){
   }
 }
 
-export async function sellSignal(){
+export async function sellSignal(lastPrice:any,EXCHANGES:any){
   let tag = TAG + " | sellSignal | "
   try{
     //
     log.info(tag, "Sell signal!")
-    await updatePosition()
-    //
     if (IS_BULL || !IS_BEAR) {
-      //go bull
+      //go bear
+      log.info(tag,"Going Bear! !!!  bro")
+      log.info(tag,"exchanges: ",EXCHANGES['bitmex'])
+      let order = { symbol: 'XBTUSD', orderQty: -100, price: '6753' }
+      let result = await EXCHANGES['bitmex'].Order.new(order)
+      log.info("RESULT: ",result)
+
+      //order
 
 
-      let amount = Math.abs(POSITION_NATIVE)
-      if (!amount || amount < 0) amount = 1000
 
-      log.info(tag, "amount: ", amount)
-      amount = amount * -1
+      // let amount = Math.abs(POSITION_NATIVE)
+      // if (!amount || amount < 0) amount = 100
+      //
+      // log.info(tag, "amount: ", amount)
+      // amount = amount * -1
+      //
+      // log.info(tag, "lastPrice: ", lastPrice)
+      // let price:any = lastPrice - (lastPrice * 0.01)
+      // price = price.toFixed(0)
+      // log.info(tag, "price: ", price)
 
-      log.info(tag, "LAST_PRICE: ", LAST_PRICE)
-      let price:any = LAST_PRICE - (LAST_PRICE * 0.01)
-      price = price.toFixed(0)
-      log.info(tag, "price: ", price)
+      // let order = {
+      //   symbol: "XBTUSD",
+      //   orderQty: amount,
+      //   price: price
+      // }
+      // log.info(tag,"Order: ",order)
+      // const client = EXCHANGES['bitmex']
+      // console.log("settings: ",{
+      //   "apiKeyID": API_KEY_PRIVATE,
+      //   "apiKeySecret": API_KEY_PUBLIC,
+      //   "testnet": true
+      //   // "proxy": "https://cors-anywhere.herokuapp.com/" //TODO setup proxy
+      // })
 
-      let result = await EXCHANGES['bitmex'].Order.new({
-        symbol: "XBTUSD",
-        orderQty: amount,
-        price: price,
-        leverage: "5"
-      })
-      log.info("result: ", result)
+      // let client = new BitmexAPI({
+      //   "apiKeyID": API_KEY_PRIVATE,
+      //   "apiKeySecret": API_KEY_PUBLIC,
+      //   "testnet": true
+      //   // "proxy": "https://cors-anywhere.herokuapp.com/" //TODO setup proxy
+      // })
+
+      // const client = EXCHANGES['bitmex']
+      // let order = { symbol: 'XBTUSD', orderQty: -100, price: '6753' }
+      // let result = await EXCHANGES['bitmex'].Order.new(order)
+      // log.info("RESULT: ",result)
+      //
+      // client.Order.new(order)
+      //   .then(function(resp:any){
+      //     log.info(tag,"Order Resp: ",resp)
+      //   })
+      //   .catch(function(e:any){
+      //     log.error(e)
+      //     log.error(e.message)
+      //     let trimBack = e.message.split(" XBt ")
+      //     log.error(trimBack)
+      //     let trimFront = trimBack[0].split("Account has insufficient Available Balance, ")
+      //     let neededForOrder = trimFront[1]
+      //     log.error("neededForOrder: ",parseInt(neededForOrder) / 100000000)
+      //   })
+      // EXCHANGES['bitmex'].Order.new(order)
+      //   .then(function(resp:any){
+      //     log.info(tag,"Order Resp: ",resp)
+      //   })
+      //   .catch(function(e:any){
+      //     log.error(e)
+      //     log.error(e.message)
+      //     let trimBack = e.message.split(" XBt ")
+      //     log.error(trimBack)
+      //     let trimFront = trimBack[0].split("Account has insufficient Available Balance, ")
+      //     let neededForOrder = trimFront[1]
+      //     log.error("neededForOrder: ",parseInt(neededForOrder) / 100000000)
+      //   })
 
 
-      IS_BULL = true
-      IS_BEAR = false
+      IS_BULL = false
+      IS_BEAR = true
+    } else {
+      log.info(tag,"Already a Bear!")
     }
   }catch (e) {
     console.error(tag,"e: ",e)
-    return e
+    throw e
   }
 }
 
@@ -197,7 +281,6 @@ export function getSummaryInfo(){
 
     let output = {
       online: IS_INIT,
-      LAST_PRICE,
       POSITIONS,
       POSITION_PNL,
       BALANCE_POSITION,

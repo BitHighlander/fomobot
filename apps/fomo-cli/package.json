@@ -6,7 +6,7 @@
     "fomobot": "./lib/index.js"
   },
   "scripts": {
-    "start": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts run --strategy ta_ultosc",
+    "start": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts run --strategy ta_ultosc --leverage 6",
     "create": "npm run build && npm run test",
     "build": "tsc -p .",
     "test": "sudo npm i -g && pizza",

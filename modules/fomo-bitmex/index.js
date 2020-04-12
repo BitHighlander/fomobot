@@ -146,36 +146,43 @@ bitmex.User.getWallet()
 //         console.error(e)
 //     })
 
+
+// let order = { symbol: 'XBTUSD', orderQty: -1000, price: '6753' }
+let order = { symbol: 'XBTUSD', orderQty: -100, price: '6753' }
+
+
+//works
+//let order = {symbol:"XBTUSD",orderQty:-100,price:"6700"}
 //leverage seems to be working
-// bitmex.Order.new({symbol:"XBTUSD",orderQty:-1000000,price:"6700"})
-//     .then(function(resp){
-//         console.log(resp)
-//     })
-//     .catch(function(e){
-//         console.error(e)
-//         console.error(e.message)
-//         let trimBack = e.message.split(" XBt ")
-//         console.error(trimBack)
-//         let trimFront = trimBack[0].split("Account has insufficient Available Balance, ")
-//         let neededForOrder = trimFront[1]
-//         console.error("neededForOrder: ",parseInt(neededForOrder) / 100000000)
-//     })
+bitmex.Order.new(order)
+    .then(function(resp){
+        console.log(resp)
+    })
+    .catch(function(e){
+        console.error(e)
+        console.error(e.message)
+        let trimBack = e.message.split(" XBt ")
+        console.error(trimBack)
+        let trimFront = trimBack[0].split("Account has insufficient Available Balance, ")
+        let neededForOrder = trimFront[1]
+        console.error("neededForOrder: ",parseInt(neededForOrder) / 100000000)
+    })
 
 
 
-bitmex.Position.updateLeverage({symbol:"XBTUSD",leverage:"6"})
-  .then(function(resp){
-      console.log(resp)
-  })
-  .catch(function(e){
-      console.error(e)
-      console.error(e.message)
-      let trimBack = e.message.split(" XBt ")
-      console.error(trimBack)
-      let trimFront = trimBack[0].split("Account has insufficient Available Balance, ")
-      let neededForOrder = trimFront[1]
-      console.error("neededForOrder: ",parseInt(neededForOrder) / 100000000)
-  })
+// bitmex.Position.updateLeverage({symbol:"XBTUSD",leverage:"6"})
+//   .then(function(resp){
+//       console.log(resp)
+//   })
+//   .catch(function(e){
+//       console.error(e)
+//       console.error(e.message)
+//       let trimBack = e.message.split(" XBt ")
+//       console.error(trimBack)
+//       let trimFront = trimBack[0].split("Account has insufficient Available Balance, ")
+//       let neededForOrder = trimFront[1]
+//       console.error("neededForOrder: ",parseInt(neededForOrder) / 100000000)
+//   })
 
 
 

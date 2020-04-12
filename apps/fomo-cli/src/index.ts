@@ -42,14 +42,16 @@ const tradesDB = db.get('trades')
 const client = new BitMEXClient();
 const sleep = wait.sleep;
 
+let EXCHANGES:any = {};
+let LAST_PRICE:any
 let SELECTED_STRAT = "bollinger"
 let WALLET_PASSWORD:string
 let API_KEY_PUBLIC:string
 let API_KEY_PRIVATE:string
-let EXCHANGES:any
 let BALANCE_BTC
 let IS_BULL
 let IS_BEAR
+let LEVERAGE = 20 // default
 
 if(process.env['WALLET_PASSWORD']){
   WALLET_PASSWORD = process.env['WALLET_PASSWORD']
@@ -64,11 +66,41 @@ console.log(
   )
 );
 
+// let order = { symbol: 'XBTUSD', orderQty: -100, price: '6753' }
+// console.log("settings: ",{
+//   "apiKeyID": API_KEY_PRIVATE,
+//   "apiKeySecret": API_KEY_PUBLIC,
+//   "testnet": true
+//   // "proxy": "https://cors-anywhere.herokuapp.com/" //TODO setup proxy
+// })
+//
+// let client = new BitmexAPI({
+//   "apiKeyID": API_KEY_PRIVATE,
+//   "apiKeySecret": API_KEY_PUBLIC,
+//   "testnet": true
+//   // "proxy": "https://cors-anywhere.herokuapp.com/" //TODO setup proxy
+// })
+//
+// client.Order.new(order)
+//   .then(function(resp:any){
+//     log.info(tag,"Order Resp: ",resp)
+//   })
+//   .catch(function(e:any){
+//     log.error(e)
+//     log.error(e.message)
+//     let trimBack = e.message.split(" XBt ")
+//     log.error(trimBack)
+//     let trimFront = trimBack[0].split("Account has insufficient Available Balance, ")
+//     let neededForOrder = trimFront[1]
+//     log.error("neededForOrder: ",parseInt(neededForOrder) / 100000000)
+//   })
+
 program
   .version('0.0.1')
   .option('-S, --strategy <type>', ' Select Strategy [forex_analytics,bollinger,cci_srsi,crossover_vwap,dema,ichimoku_score,ichimoku,speed,wavetrend,trust_distrust,ta_ultosc,stddev,trendline,renko]')
   .option('-B, --backfill <type>', ' Select Backfill settings (in days)')
   .option('-P, --password <type>', ' Fomo Wallet Password')
+  .option('-L, --leverage <type>', ' Leverage (The Magic Money Button)')
   .description(" An Automated trading program optimised to lose your money! ")
   .parse(process.argv);
 
@@ -78,6 +110,7 @@ if (!process.argv.slice(2).length) {
 
 //flags
 if(program.strategy) SELECTED_STRAT = program.strategy
+if(program.leverage) LEVERAGE = parseInt(program.leverage)
 
 
 let onRun = async function(){
@@ -100,15 +133,20 @@ let onRun = async function(){
     await sleep(6000);
 
 
-    engine.on('events', function (message:any) {
+    engine.on('events', async function (message:any) {
       //event triggerd
       log.info("**** Signal event: **** ",message)
       if(message.signal === "sell"){
         //goBear
-        sellSignal()
+        // let order = { symbol: 'XBTUSD', orderQty: -100, price: '6753' }
+        // let result = await EXCHANGES['bitmex'].Order.new(order)
+        //log.info("RESULT: ",result)
+        await sellSignal(LAST_PRICE,EXCHANGES)
       } else if(message.signal === "buy") {
         //goBull
-        buySignal()
+
+        await buySignal(LAST_PRICE)
+
       } else {
         log.error("Unknown Signal!  message: ",message)
       }
@@ -128,6 +166,7 @@ let onRun = async function(){
         normalized.size = tradeInfo.size
         normalized.side = tradeInfo.side
         normalized.price = tradeInfo.price
+        LAST_PRICE = tradeInfo.price
         clean.push(normalized)
       }
       bot.load(clean)
@@ -165,7 +204,15 @@ let onStart = async function(){
     //if no api keys setup exchange
     if(config.bitMexTestPub && config.bitMexTestPub){
       //decrypt
-      await initBot(WALLET_PASSWORD,config)
+      let apiKeys = await initBot(WALLET_PASSWORD,config,LEVERAGE)
+      log.info(tag,"apiKeys: ",apiKeys)
+
+      EXCHANGES['bitmex'] = new BitmexAPI({
+        "apiKeyID": apiKeys.API_KEY_PUBLIC,
+        "apiKeySecret": apiKeys.API_KEY_PRIVATE,
+        "testnet": true
+        // "proxy": "https://cors-anywhere.herokuapp.com/" //TODO setup proxy
+      })
       await updatePosition()
     }
 
