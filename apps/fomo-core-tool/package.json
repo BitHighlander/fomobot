@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "@babel/core": "^7.1.2",
-    "@bithighlander/default-redis": "^4.3.2",
     "@fomobro/default-redis": "^1.0.13",
     "@slack/client": "^5.0.1",
     "async": "^3.0.1",
