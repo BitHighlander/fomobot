@@ -212,7 +212,12 @@ module.exports = function gdax (conf) {
             // console.log("dateTimeHourAgo: ",dateTimeHourAgo)
             // hourAgo = parseInt(hourAgo/1000)
             let now = new Date()
-            bitmex.Trade.get({symbol:"XBTUSD",count:"500",startTime:new Date(now.getTime() - 1000 * 60 * 60),endTime:opts.from})
+
+            let toUnix = new Date(now.getTime() - 1000 * 60 * 60)
+            let fromUnix  = opts.from
+            
+            
+            bitmex.Trade.get({symbol:"XBTUSD",count:"100",startTime:fromUnix,endTime:toUnix})
                 .then(function(resp){
                     console.log(tag,"length: ",resp.length)
                     //console.log(typeof(resp))
