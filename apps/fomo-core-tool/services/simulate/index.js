@@ -1,4 +1,8 @@
 const TAG = " | Simulations | "
+require('dotenv').config()
+require('dotenv').config({path:"../../.env"});
+require('dotenv').config({path:"../../../.env"});
+require('dotenv').config({path:"../../../../.env"});
 
 var tb = require('timebucket')
 n = require('numbro')
@@ -18,12 +22,12 @@ let s =
                 strategy: 'forex_analytics',
                 disable_options: true,
                 modelfile:
-                    '/home/highlander/WebstormProjects/zenbot/models/temp.4be28aced9275fbb8008139f62b0cc46ebfb4dc292339fcad80442029bfdfea3-20190820_041537+0000.json',
+                    __dirname+'/models/temp.06386bd67dd782a007ba18193c5bfa4f4e6fd42a57849b3db7b5ba911f1eb9db-20190927_040010+0000.json',
                 start: 1566274500000,
                 end: "",
                 period: '30m',
                 filename:
-                    '/home/highlander/WebstormProjects/zenbot/models/temp.4be28aced9275fbb8008139f62b0cc46ebfb4dc292339fcad80442029bfdfea3-20190820_041537+0000.json-simTrainingResult.html',
+                  __dirname+'/models/temp.06386bd67dd782a007ba18193c5bfa4f4e6fd42a57849b3db7b5ba911f1eb9db-20190927_040010+0000.json-simTrainingResult.html',
                 quarentine_time: 10,
                 sell_stop_pct: 0,
                 buy_stop_pct: 0,

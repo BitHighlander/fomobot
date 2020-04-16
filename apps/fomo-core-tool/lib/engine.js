@@ -1,6 +1,6 @@
 let TAG = " | engine | "
 
-let log = require("default-logger")
+let log = require("default-logger")()
 
 
 const {subscriber, publisher, redis} = require('@fomobro/default-redis')

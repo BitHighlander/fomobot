@@ -1,6 +1,6 @@
 {
   "name": "@fomobro/fomobot",
-  "version": "1.0.21",
+  "version": "1.0.23",
   "scripts": {
     "npm": "npm i",
     "node version": "node --version",
@@ -10,7 +10,7 @@
     "@babel/core": "^7.1.2",
     "@fomobro/fomo-sim": "^1.0.2",
     "@fomobro/loggerdog-client": "^1.0.13",
-    "@fomobro/talib-fomo": "^1.0.13",
+    "@fomobro/talib-fomo": "latest",
     "@slack/client": "^5.0.1",
     "async": "^3.0.1",
     "babel-loader": "^8.0.4",
