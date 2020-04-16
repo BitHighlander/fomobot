@@ -8,6 +8,7 @@
   "scripts": {
     "node version": "node --version",
     "npm": "npm i",
+    "npm-rebuild": "npm rebuild",
     "yarn": "yarn",
     "build": "node .electron-vue/build.js && electron-builder --win",
     "build-win": "node .electron-vue/build.js && electron-builder --win",
