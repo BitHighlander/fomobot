@@ -1,4 +1,4 @@
-# fomobot
+  # fomobot
 
 > Your Fomo Bro!
 
