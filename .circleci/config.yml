@@ -18,7 +18,7 @@ jobs:
 #      - run: npm run build-auth
       - run:
          command: npm install @fomobro/talib-fomo
-         shell: bash.exe
+         shell: cmd.exe
          name: Try to Install @fomobro/talib-fomo (in any directory...)
       - run:
          command: cd apps/fomo-native && npm install @fomobro/talib-fomo
