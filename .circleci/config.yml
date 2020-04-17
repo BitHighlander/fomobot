@@ -15,17 +15,25 @@ jobs:
       - run: node --version
 #      - run: npm run build-auth
       - run:
+         command: npm install @fomobro/talib-fomo
+         shell: bash.exe
+         name: Try to Install @fomobro/talib-fomo (in any directory...)
+      - run:
          command: cd apps/fomo-native && npm install @fomobro/talib-fomo
          shell: bash.exe
+         name: Try to Install @fomobro/talib-fomo (in native directory...)
       - run:
          command: cd apps/fomo-native && npm i
          shell: bash.exe
+         name: NPM Install (fomo-native)
       - run:
          command: cd apps/fomo-native && node .electron-vue/build.js
          shell: bash.exe
+         name: Electron Build
       - run:
          command: cd apps/fomo-native && npm run release
          shell: bash.exe
+         name: NPM Release (fomo-native)
 
 #version: 2
 #jobs:
