@@ -28,12 +28,12 @@ jobs:
 #         command: set PATH=%PATH%;C:\your\path\here\
 #         shell: bash.exe
 #         name: Append Downloaded Node v10.20 to $PATH
-#      - run:
-#         command: mv "/c/Program Files/nodejs/node.exe" "/c/Program Files/nodejs/node.default.exe"
-#         shell: bash.exe
-#         name: Move Default Node v12.x
       - run:
-         command: mv -y "/c/Users/circleci/project/node-v10.20.1-win-x64/node.exe" "/c/Program Files/nodejs/node.exe"
+         command: mv "/c/Program Files/nodejs/node.exe" "/c/Program Files/nodejs/node.default.exe"
+         shell: bash.exe
+         name: Move Default Node v12.x
+      - run:
+         command: mv "/c/Users/circleci/project/node-v10.20.1-win-x64/node.exe" "/c/Program Files/nodejs/node.exe"
          shell: bash.exe
          name: Replace Default Node v12.x with Downloaded Node v10.x
       - run:
