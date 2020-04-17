@@ -1,25 +1,56 @@
-version: 2
+version: 2.1 # Use version 2.1 to enable orb usage.
+
+orbs:
+  win: circleci/windows@2.2.0 # The Windows orb give you everything you need to start using the Windows executor.
+
 jobs:
-  build:
-    macos:
-      xcode: "10.0.0"
+  build: # name of your job
+    executor:
+      name: win/default # executor type
+      size: "medium" # resource class, can be "medium", "large", "xlarge", "2xlarge", defaults to "medium" if not specified
+
     steps:
+      # Commands are run in a Windows virtual machine environment
       - checkout
+      - run: Write-Host 'Hello, Windows'
       - run: node --version
-      - run: which node
-      - run: curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
-      - run: nvm install 10.15.3
-      - run: nvm alias default 10.15.3
-      - run:
-          name: Authenticate with registry
-          command: npm run build-auth
+      - run: npm run build-auth
       - run: cd ./apps/fomo-native && npm i
       - run: cd ./apps/fomo-native && node .electron-vue/build.js
       - run: cd ./apps/fomo-native && npm run release
 
-workflows:
-  version: 2
-  build:
-    jobs:
-      - build
-
+#version: 2
+#jobs:
+#  build:
+#    macos:
+#      xcode: "10.0.0"
+#    steps:
+#      - checkout
+#      - run: node --version
+#      - run: which node
+##      - run: curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
+##      - run: nvm install 10.15.3
+##      - run: nvm alias default 10.15.3
+#      - run:
+#          name: Authenticate with registry
+#          command: npm run build-auth
+#      - run: cd ./apps/fomo-native && npm i
+#      - run: cd ./apps/fomo-native && node .electron-vue/build.js
+#      - run: cd ./apps/fomo-native && npm run release
+#    windows:
+#    steps:
+#      - checkout
+#      - run: node --version
+#      - run:
+#          name: Authenticate with registry
+#          command: npm run build-auth
+#      - run: cd ./apps/fomo-native && npm i
+#      - run: cd ./apps/fomo-native && node .electron-vue/build.js
+#      - run: cd ./apps/fomo-native && npm run release
+#
+#workflows:
+#  version: 2
+#  build:
+#    jobs:
+#      - build
+#
