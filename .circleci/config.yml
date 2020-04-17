@@ -10,7 +10,7 @@ jobs:
       size: "medium" # resource class, can be "medium", "large", "xlarge", "2xlarge", defaults to "medium"
     steps:
       - checkout
-      - run: node --version && where node
+      - run: node --version
 #      - run: npm run build-auth
       - run:
          command: curl -O https://nodejs.org/dist/latest-v10.x/node-v10.20.1-win-x64.zip
@@ -21,9 +21,13 @@ jobs:
          shell: powershell.exe
          name: Extract Node v10.20 (.zip)
       - run:
-         command: dir && "node-v10.20.1-win-x64/node.exe" --version
+         command: dir && "node-v10.20.1-win-x64/node.exe" --version && where node
          shell: bash.exe
          name: Test Downloaded Node v10.20 Binary Version
+#      - run:
+#         command: set PATH=%PATH%;C:\your\path\here\
+#         shell: bash.exe
+#         name: Append Downloaded Node v10.20 to $PATH
       - run:
          command: npm install @fomobro/talib-fomo
          shell: cmd.exe
