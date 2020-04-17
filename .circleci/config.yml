@@ -24,10 +24,6 @@ jobs:
          command: dir && "node-v10.20.1-win-x64/node.exe" --version && where node && pwd
          shell: bash.exe
          name: Test Downloaded Node v10.20 Binary Version
-#      - run:
-#         command: set PATH=%PATH%;C:\your\path\here\
-#         shell: bash.exe
-#         name: Append Downloaded Node v10.20 to $PATH
       - run:
          command: mv "/c/Program Files/nodejs/node.exe" "/c/Program Files/nodejs/node.default.exe"
          shell: bash.exe
@@ -40,6 +36,10 @@ jobs:
          command: node --version
          shell: bash.exe
          name: Test OS Installed Node Version
+      - run:
+         command: rm apps/fomo-native/package-lock.json
+         shell: bash.exe
+         name: Delete package-lock.json (fomo-native)
 #      - run:
 #         command: npm install @fomobro/talib-fomo
 #         shell: bash.exe
