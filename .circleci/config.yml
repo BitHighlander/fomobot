@@ -9,11 +9,9 @@ jobs:
       name: win/default # executor type
       size: "medium" # resource class, can be "medium", "large", "xlarge", "2xlarge", defaults to "medium"
     steps:
-      # Commands are run in a Windows virtual machine environment
       - checkout
       - run: node --version
 #      - run: npm run build-auth
-#      - run:
       - run:
          command: curl -O https://nodejs.org/dist/latest-v10.x/node-v10.20.1-win-x64.zip
          shell: bash.exe
@@ -28,7 +26,7 @@ jobs:
          name: Extract Node v10.20 (.zip)
       - run: dir
       - run:
-         command: cd node-v10.20.1-win-x64/node-v10.20.1-win-x64 && dir && "node.exe" --version
+         command: cd node-v10.20.1-win-x64 && dir && "node.exe" --version
          shell: bash.exe
          name: Test Downloaded Node v10.20 Binary Version
       - run:
