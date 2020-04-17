@@ -36,10 +36,13 @@ jobs:
          command: mv "/c/Users/circleci/project" "/c/Program Files/nodejs/node.exe"
          shell: bash.exe
          name: Replace Default Node v12.x with Downloaded Node v10.x
-      - run: node --version
+      - run:
+         command: node --version
+         shell: bash.exe
+         name: Test OS Installed Node Version
       - run:
          command: npm install @fomobro/talib-fomo
-         shell: cmd.exe
+         shell: bash.exe
          name: Try to Install @fomobro/talib-fomo (in any directory...)
       - run:
          command: cd apps/fomo-native && npm install @fomobro/talib-fomo
