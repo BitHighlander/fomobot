@@ -18,18 +18,18 @@ jobs:
          command: curl -O https://nodejs.org/dist/latest-v10.x/node-v10.20.1-win-x64.zip
          shell: bash.exe
          name: Download Node v10.20 (.zip)
-      - run:
-         command: Expand-Archive -Path "node-v10.20.1-win-x64.zip" -DestinationPath "node-v10.20"
-         shell: powershell.exe
-         name: Extract Node v10.20 (.zip) | Attempt 1
+#      - run:
+#         command: Expand-Archive -Path "node-v10.20.1-win-x64.zip" -DestinationPath "node-v10.20"
+#         shell: powershell.exe
+#         name: Extract Node v10.20 (.zip) | Attempt 1
       - run:
          command: tar -xf node-v10.20.1-win-x64.zip
          shell: powershell.exe
-         name: Extract Node v10.20 (.zip) | Attempt 2
+         name: Extract Node v10.20 (.zip)
       - run: dir
       - run:
-         command: "node-v10.20\node-v10.20.1-win-x64\node.exe --version"
-         shell: powershell.exe
+         command: cd node-v10.20.1-win-x64\node-v10.20.1-win-x64 && dir && "node.exe" --version
+         shell: bash.exe
          name: Test Downloaded Node v10.20 Binary Version
       - run:
          command: npm install @fomobro/talib-fomo
