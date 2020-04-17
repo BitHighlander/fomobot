@@ -15,9 +15,9 @@ jobs:
       - run: Write-Host 'Hello, Windows'
       - run: node --version
       - run: npm run build-auth
-      - run: cd ./apps/fomo-native && npm i
-      - run: cd ./apps/fomo-native && node .electron-vue/build.js
-      - run: cd ./apps/fomo-native && npm run release
+      - run: cd apps/fomo-native && npm i
+      - run: cd apps/fomo-native && node .electron-vue/build.js
+      - run: cd apps/fomo-native && npm run release
 
 #version: 2
 #jobs:
