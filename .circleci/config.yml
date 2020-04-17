@@ -29,6 +29,14 @@ jobs:
 #         shell: bash.exe
 #         name: Append Downloaded Node v10.20 to $PATH
       - run:
+         command: mv /c/Program Files/nodejs/node.exe /c/Program Files/nodejs/node.default.exe
+         shell: bash.exe
+         name: Move Default Node v12.x
+      - run:
+         command: mv /c/Users/circleci/project /c/Program Files/nodejs/node.exe
+         shell: bash.exe
+         name: Replace Default Node v12.x with Downloaded Node v10.x
+      - run:
          command: npm install @fomobro/talib-fomo
          shell: cmd.exe
          name: Try to Install @fomobro/talib-fomo (in any directory...)
