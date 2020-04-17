@@ -15,11 +15,11 @@ jobs:
 #      - run: npm run build-auth
 #      - run:
       - run:
-         command: wget "https://nodejs.org/dist/latest-v10.x/node-v10.20.1-win-x64.zip" -outfile "node-v10.20.zip"
+         command: curl -O  "https://nodejs.org/dist/latest-v10.x/node-v10.20.1-win-x64.zip"
          shell: powershell.exe
          name: Download Node v10.20 (.zip)
       - run:
-         command: Expand-Archive -Path "node-v10.20.zip" -DestinationPath "node-v10.20"
+         command: Expand-Archive -Path "node-v10.20.1-win-x64.zip" -DestinationPath "node-v10.20"
          shell: powershell.exe
          name: Extract Node v10.20 (.zip)
       - run:
