@@ -17,8 +17,12 @@ jobs:
       - run:
          command: cd apps/fomo-native && npm i
          shell: bash.exe
-      - run: cd apps/fomo-native && node .electron-vue/build.js
-      - run: cd apps/fomo-native && npm run release
+      - run:
+         command: cd apps/fomo-native && node .electron-vue/build.js
+         shell: bash.exe
+      - run:
+         command: cd apps/fomo-native && npm run release
+         shell: bash.exe
 
 #version: 2
 #jobs:
