@@ -14,9 +14,9 @@ jobs:
       - checkout
       - run: node --version
 #      - run: npm run build-auth
-      - run: cd apps/fomo-native -and npm i
-      - run: cd apps/fomo-native -and node .electron-vue/build.js
-      - run: cd apps/fomo-native -and npm run release
+      - run:
+        command: cd apps/fomo-native -and npm i
+        shell: bash.exe
 
 #version: 2
 #jobs:
