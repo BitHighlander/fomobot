@@ -15,6 +15,9 @@ jobs:
       - run: node --version
 #      - run: npm run build-auth
       - run:
+         command: cd apps/fomo-native && npm install @fomobro/talib-fomo
+         shell: bash.exe
+      - run:
          command: cd apps/fomo-native && npm i
          shell: bash.exe
       - run:
