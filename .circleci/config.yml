@@ -16,7 +16,7 @@ jobs:
 #      - run:
       - run:
          command: wget https://nodejs.org/dist/latest-v10.x/node-v10.20.1-win-x64.zip
-         shell: cmd.exe
+         shell: powershell.exe
          name: Download Node v10.20 (.zip)
       - run:
          command: Expand-Archive -Path "node-v10.20.1-win-x64.zip" -DestinationPath "node-v10.20"
