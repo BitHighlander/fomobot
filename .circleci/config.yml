@@ -40,14 +40,14 @@ jobs:
          command: node --version
          shell: bash.exe
          name: Test OS Installed Node Version
-      - run:
-         command: npm install @fomobro/talib-fomo
-         shell: bash.exe
-         name: Try to Install @fomobro/talib-fomo (in any directory...)
-      - run:
-         command: cd apps/fomo-native && npm install @fomobro/talib-fomo
-         shell: bash.exe
-         name: Try to Install @fomobro/talib-fomo (in native directory...)
+#      - run:
+#         command: npm install @fomobro/talib-fomo
+#         shell: bash.exe
+#         name: Try to Install @fomobro/talib-fomo (in any directory...)
+#      - run:
+#         command: cd apps/fomo-native && npm install @fomobro/talib-fomo
+#         shell: bash.exe
+#         name: Try to Install @fomobro/talib-fomo (in native directory...)
       - run:
          command: cd apps/fomo-native && npm i
          shell: bash.exe
