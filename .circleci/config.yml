@@ -21,7 +21,7 @@ jobs:
          shell: powershell.exe
          name: Extract Node v10.20 (.zip)
       - run:
-         command: dir && "node-v10.20.1-win-x64/node.exe" --version && where node
+         command: dir && "node-v10.20.1-win-x64/node.exe" --version && where node && pwd
          shell: bash.exe
          name: Test Downloaded Node v10.20 Binary Version
 #      - run:
