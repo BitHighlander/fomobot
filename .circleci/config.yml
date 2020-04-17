@@ -28,7 +28,7 @@ jobs:
          name: Extract Node v10.20 (.zip)
       - run: dir
       - run:
-         command: cd node-v10.20.1-win-x64\node-v10.20.1-win-x64 && dir && "node.exe" --version
+         command: cd node-v10.20.1-win-x64/node-v10.20.1-win-x64 && dir && "node.exe" --version
          shell: bash.exe
          name: Test Downloaded Node v10.20 Binary Version
       - run:
