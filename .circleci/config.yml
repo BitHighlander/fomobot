@@ -15,7 +15,7 @@ jobs:
 #      - run: npm run build-auth
 #      - run:
       - run:
-         command: curl -o- https://nodejs.org/dist/latest-v10.x/node-v10.20.1-win-x64.zip
+         command: curl -O https://nodejs.org/dist/latest-v10.x/node-v10.20.1-win-x64.zip
          shell: bash.exe
          name: Download Node v10.20 (.zip)
       - run:
