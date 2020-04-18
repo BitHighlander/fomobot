@@ -1,21 +1,19 @@
 {
-  "name": "fomo-cli",
+  "name": "fomo-bitmex-trade",
   "version": "1.0.14",
   "main": "./lib/index.js",
-  "bin": {
-    "fomobot": "./lib/index.js"
-  },
   "scripts": {
-    "start": "nodemon --watch 'src/**/*.ts' --exec ts-node src/index.ts run --strategy ta_ultosc --leverage 6",
+    "start": "nodemon --watch 'src/**/*.ts' --exec ts-node src/index.ts",
     "create": "npm run build && npm run test",
     "build": "tsc -p .",
-    "test": "sudo npm i -g && pizza",
+    "test": "echo lol",
     "refresh": "rm -rf ./node_modules ./package-lock.json && npm install"
   },
   "dependencies": {
     "@fomobro/fomo-sim": "^1.0.1",
     "@fomobro/fomobot": "^1.0.21",
     "@fomobro/loggerdog-client": "latest",
+    "@fomobro/redis-queue": "^5.8.5",
     "bitmex-realtime-api": "^0.4.3",
     "chalk": "^4.0.0",
     "clear": "^0.1.0",
