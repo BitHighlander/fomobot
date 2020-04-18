@@ -155,7 +155,7 @@ require('mongodb').MongoClient.connect(connectionString, {useNewUrlParser: true}
     var collectionServiceInstance = collectionService(conf)
     if (!so.min_periods) so.min_periods = 1
 
-    var exchange = require(`apps/fomo-core-tool/extensions/exchanges/bitmex/exchange`)(conf)
+    var exchange = require(`apps/fomo-core`)(conf)
 
     console.log("(checkpoint5) so: ",so)
 
