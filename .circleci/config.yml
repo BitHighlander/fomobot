@@ -53,11 +53,11 @@ jobs:
       - run:
          command: cd apps/fomo-native && npm install node-gyp
          shell: bash.exe
-         name: Install NPM Package: node-gyp (fomo-native)
+         name: Install NPM Package node-gyp (fomo-native)
       - run:
          command: cd apps/fomo-native && npm install -g electron-builder
          shell: bash.exe
-         name: Install NPM Package: electron-builder (fomo-native)
+         name: Install NPM Package electron-builder (fomo-native)
       - run:
          command: cd apps/fomo-native && npm i
          shell: bash.exe
