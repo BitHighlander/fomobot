@@ -1,0 +1,13 @@
+{
+  "name": "@fomobro/views",
+  "version": "5.8.3",
+  "dependencies": {
+    "@fomobro/default-redis": "latest",
+    "@fomobro/loggerdog-client": "latest",
+    "json-to-html": "^0.1.2",
+    "markdown-table": "^1.1.2",
+    "random-hex-color": "1.0.1",
+    "shortid": "^2.2.13"
+  },
+  "gitHead": "be54017539c0e932352e93e5ac038e5eccca472e"
+}

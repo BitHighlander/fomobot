@@ -15,6 +15,7 @@
     "@fomobro/fomobot": "^1.0.21",
     "@fomobro/loggerdog-client": "latest",
     "@fomobro/redis-queue": "^5.8.5",
+    "@fomobro/views": "^5.8.3",
     "bitmex-realtime-api": "^0.4.3",
     "chalk": "^4.0.0",
     "clear": "^0.1.0",

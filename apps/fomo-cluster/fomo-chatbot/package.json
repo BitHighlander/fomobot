@@ -1,0 +1,33 @@
+{
+  "name": "@fomobro/chatbot",
+  "version": "1.0.0",
+  "main": "./app.ts",
+  "types": "./app.d.ts",
+  "scripts": {
+    "test": "ts-node __tests__/test-module.js",
+    "start-dev": "ts-node app.ts",
+    "start": "node lib/app.js",
+    "build": "tsc -p .",
+    "prepublish": "tsc -p ."
+  },
+  "dependencies": {
+    "@fomobro/default-redis": "latest",
+    "@fomobro/loggerdog-client": "latest",
+    "@fomobro/mongo-default-env": "latest",
+    "asciichart": "^1.5.9",
+    "dotenv": "^8.2.0",
+    "graphql-request": "^1.8.2",
+    "random-hex-color": "^1.0.1",
+    "rivescript": "^2.0.0",
+    "sentence-tokenizer": "^1.0.1",
+    "slackbots": "^1.2.0",
+    "ts-node": "^8.6.2",
+    "urban": "^0.3.2",
+    "when": "^3.7.8"
+  },
+  "devDependencies": {
+    "@types/node": "^13.7.0",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.7.5"
+  }
+}

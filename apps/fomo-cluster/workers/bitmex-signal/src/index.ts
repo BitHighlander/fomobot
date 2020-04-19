@@ -18,6 +18,7 @@ import {
 } from './modules/config'
 
 //Modules
+const view = require("@fomobro/views")
 const queue = require("@fomobro/redis-queue")
 const Cryptr = require('cryptr');
 const bot = require("@fomobro/fomobot")
@@ -91,6 +92,7 @@ onRun = async function (this: any) {
 
         //goBear
         queue.createWork("fomo-signal",signal)
+        view.displayStringToChannel("SIGNAL: ("+signal.event+") last: "+signal.lastPrice+" Strat: "+signal.strategy,"markets")
       } else if (message.signal === "buy") {
         //goBull
         let signal:any ={}
@@ -101,6 +103,7 @@ onRun = async function (this: any) {
 
         //goBull
         queue.createWork("fomo-signal",signal)
+        view.displayStringToChannel("SIGNAL: ("+signal.event+") last: "+signal.lastPrice+" Strat: "+signal.strategy,"markets")
       } else {
         log.error("Unknown Signal!  message: ", message)
       }

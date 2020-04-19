@@ -65,7 +65,7 @@ let backfill = async function(days,ipcEvent){
 
             let cmd = {}
 
-            cmd.days = 10
+            cmd.days = 1
 
             selector = objectifySelector(conf.selector)
             log.info("selector: ",selector)
