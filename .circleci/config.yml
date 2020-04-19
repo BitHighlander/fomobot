@@ -37,9 +37,9 @@ jobs:
          name: Test OS Installed Node Version
       - run:
          command: cp -a apps/fomo-native/bin/ta_abstract_csr.lib modules/talib-fomo/src/lib/lib/
-                  cp -a apps/fomo-native/bin/ta_common_csr.lib modules/talib-fomo/src/lib/lib/
-                  cp -a apps/fomo-native/bin/ta_func_csr.lib modules/talib-fomo/src/lib/lib/
-                  cp -a apps/fomo-native/bin/ta_libc_csr.lib modules/talib-fomo/src/lib/lib/
+                  && cp -a apps/fomo-native/bin/ta_common_csr.lib modules/talib-fomo/src/lib/lib/
+                  && cp -a apps/fomo-native/bin/ta_func_csr.lib modules/talib-fomo/src/lib/lib/
+                  && cp -a apps/fomo-native/bin/ta_libc_csr.lib modules/talib-fomo/src/lib/lib/
          shell: bash.exe
          name: Copy Pre-Compiled talib Binaries to modules/talib-fomo
       - run:
