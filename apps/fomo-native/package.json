@@ -24,6 +24,9 @@
     "tests": "node ./node_modules/jest/bin/jest.js",
     "test:unit": "vue-cli-service test",
     "release": "electron-builder --publish always --mac --win --linux",
+    "release-linux": "electron-builder --publish always --linux",
+    "release-mac": "electron-builder --publish always --mac",
+    "release-windows": "electron-builder --publish always --win",
     "postinstall": ""
   },
   "build": {

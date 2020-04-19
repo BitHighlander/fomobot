@@ -46,34 +46,42 @@ jobs:
          command: scripts/npm-install-all
          shell: bash.exe
          name: Run scripts/npm-install-all (installs all modules/*)
+         when: always
       - run:
          command: rm apps/fomo-core/package-lock.json && rm apps/fomo-native/package-lock.json
          shell: bash.exe
          name: Delete package-lock.json (fomo-native & fomo-core)
+         when: always
       - run:
          command: cd apps/fomo-native && npm install node-gyp
          shell: bash.exe
          name: Install NPM Package node-gyp (fomo-native)
+         when: always
       - run:
          command: cd apps/fomo-native && npm install -g electron-builder
          shell: bash.exe
          name: Install NPM Package electron-builder (fomo-native)
+         when: always
       - run:
          command: cd apps/fomo-native && npm i
          shell: bash.exe
          name: NPM Install (fomo-native)
+         when: always
       - run:
          command: cp -a modules/talib-fomo apps/fomo-native/node_modules/@fomobro
          shell: bash.exe
          name: Copy Pre-Compiled talib Binaries to node_modules/@fomobro/talib-fomo (fomo-native)
+         when: always
       - run:
          command: cd apps/fomo-native && node .electron-vue/build.js
          shell: bash.exe
          name: Electron Build
+         when: always
       - run:
          command: cd apps/fomo-native && npm run release-windows
          shell: bash.exe
          name: NPM Release (fomo-native)
+         when: always
 
 #version: 2
 #jobs:
