@@ -63,7 +63,9 @@ jobs:
          shell: bash.exe
          name: NPM Install (fomo-native)
       - run:
-         command: cp -a apps/fomo-native/bin/talib.node modules/talib-fomo/build/Release
+         command: mkdir modules/talib-fomo/build
+                  && mkdir modules/talib-fomo/build/Release
+                  && cp -a apps/fomo-native/bin/talib.node modules/talib-fomo/build/Release
          shell: bash.exe
          name: Copy Precompiled talib.node to modules/talib-fomo
       - run:
