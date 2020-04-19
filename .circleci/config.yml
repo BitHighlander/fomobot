@@ -73,7 +73,7 @@ jobs:
          name: Copy Pre-Compiled talib Binaries to node_modules/@fomobro/talib-fomo (fomo-native)
          when: always
       - run:
-         command: cd apps/fomo-native && node .electron-vue/build.js && electron-builder --win
+         command: cd apps/fomo-native && node .electron-vue/build.js
          shell: bash.exe
          name: Electron Build
          when: always
