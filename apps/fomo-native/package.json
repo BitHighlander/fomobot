@@ -64,7 +64,6 @@
     "@babel/core": "^7.1.2",
     "@fomobro/default-redis": "^1.0.13",
     "@fomobro/fomobot": "latest",
-    "@fomobro/talib-fomo": "latest",
     "@slack/client": "^5.0.1",
     "@vue/babel-preset-app": "^3.9.2",
     "animate.css": "^3.7.0",
