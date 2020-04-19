@@ -119,7 +119,6 @@
     "externalip": "^1.0.2",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^4.0.0",
-    "forex-analytics-fomo": "0.0.19",
     "fs-extra": "^7.0.1",
     "fstream": "^1.0.12",
     "gemini-api": "^2.0.4",
