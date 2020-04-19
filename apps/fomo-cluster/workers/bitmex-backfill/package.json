@@ -1,0 +1,36 @@
+{
+  "name": "fomo-bitmex-backfill",
+  "version": "1.0.14",
+  "main": "./lib/index.js",
+  "scripts": {
+    "start": "nodemon --watch 'src/**/*.ts' --exec ts-node src/index.ts",
+    "create": "npm run build && npm run test",
+    "build": "tsc -p .",
+    "test": "echo lol",
+    "refresh": "rm -rf ./node_modules ./package-lock.json && npm install"
+  },
+  "dependencies": {
+    "@fomobro/default-redis": "^1.0.13",
+    "@fomobro/fomo-sim": "^1.0.1",
+    "@fomobro/fomobot": "^1.0.21",
+    "@fomobro/loggerdog-client": "latest",
+    "@fomobro/redis-queue": "^5.8.5",
+    "chalk": "^4.0.0",
+    "clear": "^0.1.0",
+    "commander": "^5.0.0",
+    "cryptr": "^4.0.2",
+    "default-logger": "0.0.2",
+    "figlet": "^1.3.0",
+    "find-package-json": "^1.2.0",
+    "fs-extra": "^9.0.0",
+    "loggerdog-client": "0.0.4",
+    "monk": "^7.1.2",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "@types/node": "^13.11.1",
+    "nodemon": "^2.0.3",
+    "ts-node": "^8.8.2",
+    "typescript": "^3.8.3"
+  }
+}

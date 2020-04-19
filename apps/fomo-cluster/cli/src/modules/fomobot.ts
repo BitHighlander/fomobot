@@ -1,4 +1,4 @@
-/**
+/*
     FOMOBOT Primary Functions
 
       * Lose you your retirement account

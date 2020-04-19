@@ -22,7 +22,7 @@ let IS_BULL = false;
 let IS_INIT = false;
 let IS_PAPER = false;
 let IS_TESTNET = true;
-let POSITION_SIZE_USD = 100
+let POSITION_SIZE_USD = 1000
 
 let API_KEY_PRIVATE:any;
 let API_KEY_PUBLIC:any;

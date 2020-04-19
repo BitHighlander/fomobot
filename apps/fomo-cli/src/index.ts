@@ -25,6 +25,7 @@ import {
 
 //Modules
 const Cryptr = require('cryptr');
+const inquirer = require('inquirer');
 const {BitmexAPI, BitmexSocket} = require("bitmex-node");
 const bot = require("@fomobro/fomobot")
 const chalk = require('chalk');
@@ -52,9 +53,7 @@ let SELECTED_STRAT = "bollinger"
 let WALLET_PASSWORD:string
 let API_KEY_PUBLIC:string
 let API_KEY_PRIVATE:string
-let BALANCE_BTC
-let IS_BULL
-let IS_BEAR
+let NEW_FLAG = false
 let LEVERAGE = 20 // default
 
 if(process.env['WALLET_PASSWORD']){
@@ -105,6 +104,7 @@ process.on('uncaughtException', function (e){
 
 program
   .version('0.0.1')
+  .option('-N, --new', ' Force  new User setup')
   .option('-S, --strategy <type>', ' Select Strategy [forex_analytics,bollinger,cci_srsi,crossover_vwap,dema,ichimoku_score,ichimoku,speed,wavetrend,trust_distrust,ta_ultosc,stddev,trendline,renko]')
   .option('-B, --backfill <type>', ' Select Backfill settings (in days)')
   .option('-P, --password <type>', ' Fomo Wallet Password')
@@ -119,6 +119,7 @@ if (!process.argv.slice(2).length) {
 //flags
 if(program.strategy) SELECTED_STRAT = program.strategy
 if(program.leverage) LEVERAGE = parseInt(program.leverage)
+if(program.new) NEW_FLAG = true
 
 
 let onRun: (this: any) => Promise<void>;
@@ -185,18 +186,51 @@ onRun = async function (this: any) {
   }
 };
 
-let onBackfill = async function(){
+// let onBackfill = async function(){
+//   let tag = TAG + " | onBackfill | "
+//   try{
+//     //get backfill status
+//
+//     //if not done, backfill
+//
+//   }catch(e){
+//     log.error(tag,e)
+//     throw Error(e)
+//   }
+// }
+
+let onSetup = async function(){
   let tag = TAG + " | onBackfill | "
   try{
     //get backfill status
 
     //if not done, backfill
 
+
+    const questions = [
+      { type: 'input', name: 'username', message: 'Select username', default: "billy" },
+      { type: 'input', name: 'seed', message: 'restore from seed? (leave empty to create new)', default: "" },
+      { type: 'input', name: 'bitmexPub', message: 'Bitmex PubKey', default: "" },
+      { type: 'input', name: 'bitmexPriv', message: 'Bitmex PrivKey', default: "" },
+      { type: 'input', name: 'password', message: 'password', default: "" },
+    ];
+
+    inquirer
+      .prompt(questions)
+      .then(function (answers:any) {
+        console.log(answers);
+        //TODO config create
+
+
+      })
+
+
   }catch(e){
     log.error(tag,e)
     throw Error(e)
   }
 }
+
 
 let onStart = async function(){
   let tag = TAG + " | onStart | "
@@ -207,47 +241,46 @@ let onStart = async function(){
     log.info(tag,"configStatus() | configStatus: ", configStatus)
     log.info(tag,"loadConfig() | config: ", config)
 
+    //if new flag
+    if(NEW_FLAG){
+      //if config
+      if(config){
+        //
+        log.info("CONFIG FOUND! please backup and remove from home dir! ")
+      } else {
+        //signup
+        //setup
+        onSetup()
+      }
+        // move current to backup
+    }
+
     //if no config setup
+
+    //
+    if(!WALLET_PASSWORD){
+      const questions = [
+        { type: 'input', name: 'password', message: 'password', default: "" },
+      ];
+
+      inquirer
+        .prompt(questions)
+        .then(function (answers:any) {
+          console.log(answers);
+          WALLET_PASSWORD = answers.password
+
+          //TODO verify password!
+
+        })
+
+    }
 
     //if no api keys setup exchange
     if(config.bitMexTestPub && config.bitMexTestPub){
       //decrypt
-      let apiKeys = await initBot(WALLET_PASSWORD,config,LEVERAGE)
-      log.info(tag,"apiKeys: ",apiKeys)
-      API_KEY_PUBLIC = apiKeys.API_KEY_PUBLIC
-      API_KEY_PRIVATE = apiKeys.API_KEY_PRIVATE
-      // @ts-ignore
-      global.EXCHANGES['bitmex'] = new BitmexAPI({
-        "apiKeyID": apiKeys.API_KEY_PUBLIC,
-        "apiKeySecret": apiKeys.API_KEY_PRIVATE,
-        "testnet": true
-        // "proxy": "https://cors-anywhere.herokuapp.com/" //TODO setup proxy
-      })
+      await initBot(WALLET_PASSWORD,config,LEVERAGE)
       await updatePosition()
     }
-
-
-    // @ts-ignore
-    const subscription = eventBus.subscribe('event', async arg => {
-      log.info("EVENT keys: ",{
-        API_KEY_PUBLIC,
-        API_KEY_PRIVATE
-      })
-      let client = new BitmexAPI({
-        "apiKeyID": API_KEY_PUBLIC,
-        "apiKeySecret": API_KEY_PRIVATE,
-        "testnet": true
-        // "proxy": "https://cors-anywhere.herokuapp.com/" //TODO setup proxy
-      })
-
-      let order = { symbol: 'XBTUSD', orderQty: -100, price: '6753' }
-      log.info("order: ",order)
-      // @ts-ignore
-      let result = await global.EXCHANGES['bitmex'].Order.new(order)
-      log.info("RESULT: ",result)
-
-      return console.log("EVENT!", arg);
-    })
 
     //if configured AND command is run
     log.info(tag,"args: ",process.argv)
@@ -263,6 +296,7 @@ let onStart = async function(){
     throw Error(e)
   }
 }
+
 onStart()
 
 
