@@ -71,7 +71,7 @@ jobs:
          shell: bash.exe
          name: Electron Build
       - run:
-         command: cd apps/fomo-native && npm run release
+         command: cd apps/fomo-native && npm run release-windows
          shell: bash.exe
          name: NPM Release (fomo-native)
 
