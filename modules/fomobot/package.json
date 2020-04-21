@@ -1,6 +1,6 @@
 {
   "name": "@fomobro/fomobot",
-  "version": "1.0.20",
+  "version": "1.0.24",
   "scripts": {
     "npm": "npm i",
     "node version": "node --version",
