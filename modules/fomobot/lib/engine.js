@@ -1,5 +1,5 @@
 let TAG = " | engine | "
-
+let sim = require("@fomobro/fomo-sim")
 let log = require("default-logger")()
 
 
@@ -58,15 +58,15 @@ module.exports = function (s, conf) {
     try {
         if (true) {
             if (so.mode !== 'live') {
-                s.exchange = require(GetExtensionExchangeSimPath())(conf, s)
+                s.exchange = sim(conf, s)
             } else {
-                s.exchange = require(path.resolve(__dirname, `./extensions/exchanges/gdax/exchange`))(conf)
+                //s.exchange = require(path.resolve(__dirname, `./extensions/exchanges/gdax/exchange`))(conf)
             }
         } else if (so.mode === 'paper') {
-            s.exchange = require(GetExtensionExchangeSimPath())(conf, s)
+            s.exchange = sim(conf, s)
         }
 
-        if (!s.exchange || s.exchange == undefined) {
+        if (!s.exchange) {
             log.warn('cannot trade ' + (so && so.selector ? so.selector.normalized : 'N/A') + ': exchange not implemented')
             process.exit(1)
         }
