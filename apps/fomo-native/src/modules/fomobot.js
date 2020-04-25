@@ -183,7 +183,7 @@ class BotService {
         }
     }
 
-    static async buySignal() {
+    static async buySignal(contractPrincipleUsd = 5000) {
         let tag = TAG + " | buySignal | "
         try {
             await this.updatePosition()
@@ -195,7 +195,7 @@ class BotService {
 
                 //amount = position X 2
                 let amount = Math.abs(POSITION_NATIVE) * 2
-                if (!amount || amount < 0) amount = 1000
+                if (!amount || amount < 0) amount = contractPrincipleUsd = 5000
                 log.info(tag, "amount: ", amount)
 
 
@@ -208,7 +208,7 @@ class BotService {
                     symbol: "XBTUSD",
                     orderQty: amount,
                     price: price,
-                    leverage: "5"
+                    leverage: 5
                 })
                 log.info("result: ", result)
                 messageBus.$emit('execution', result)
@@ -224,7 +224,7 @@ class BotService {
         }
     }
 
-    static async sellSignal() {
+    static async sellSignal(contractPrincipleUsd = 5000) {
         let tag = TAG + " | sellSignal | "
         try {
             log.info(tag, "Sell signal!")
@@ -235,7 +235,7 @@ class BotService {
 
 
                 let amount = Math.abs(POSITION_NATIVE)
-                if (!amount || amount < 0) amount = 1000
+                if (!amount || amount < 0) amount = contractPrincipleUsd
 
                 log.info(tag, "amount: ", amount)
                 amount = amount * -1

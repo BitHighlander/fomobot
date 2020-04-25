@@ -12,10 +12,10 @@ let bot = require("../index.js")
 
 
 
-// bot.backfill()
-//     .then(function(resp){
-//         console.log(resp)
-//     })
+bot.backfill()
+    .then(function(resp){
+        console.log(resp)
+    })
 
 
 let run_test = async function(){
@@ -44,7 +44,7 @@ let run_test = async function(){
 }
 
 
-run_test()
+//run_test()
 
 //get trades from db
 

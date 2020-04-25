@@ -28,73 +28,81 @@ let clock
 let nice_errors = new RegExp(/(slippage protection|loss protection)/)
 
 module.exports = function (s, conf) {
+    const GetExtensionExchangeSimPath = (x = 'sim') => {
+        const IS_WIN = process.platform === "win32"
+        const DS = IS_WIN ? "\\" : "/"
+        const BASE_PATH = path.resolve(__dirname, '../../../../')
+        const IS_PACKAGED = ((BASE_PATH.indexOf(`${DS}Local${DS}Programs${DS}fomobot${DS}resources${DS}`) !== -1)
+        || (BASE_PATH.indexOf(`${DS}win-unpacked${DS}resources${DS}`) !== -1))
+
+        if (IS_PACKAGED) {
+            // Example: C:\Users\Administrator.SKIPPYSTATION-0\AppData\Local\Programs\fomobot\resources\app.asar
+            log.warn("BASE_PATH:", BASE_PATH)
+            log.warn("IS_WIN:", IS_WIN)
+            log.warn("IS_PACKAGED:", IS_PACKAGED)
+            return `${BASE_PATH}/node_modules/@fomobro/fomobot/extensions/exchanges/${x}/exchange.js`
+        }
+
+        const pathNew = path.resolve(__dirname, '../')
+        log.warn("__dirname: ", __dirname)
+        log.warn("pathNew: ", pathNew)
+        return `${pathNew}${DS}extensions${DS}exchanges${DS}${x}${DS}exchange.js`
+    }
+
     let tag = TAG + " | export | "
     let eventBus = conf.eventBus
     eventBus.on('trade', queueTrade)
     eventBus.on('trades', onTrades)
 
-    let so = s.options
-    if (true) {
-        if (so.mode !== 'live') {
-            const IS_WIN = process.platform === "win32"
-            const DS = IS_WIN ? "\\" : "/"
-            const BASE_PATH = path.resolve(__dirname, '../../../../')
-            const IS_PACKAGED = BASE_PATH.indexOf(`${DS}Local${DS}Programs${DS}fomobot${DS}resources${DS}`) !== -1
-
-            if (IS_PACKAGED) {
-                // Example: C:\Users\Administrator.SKIPPYSTATION-0\AppData\Local\Programs\fomobot\resources\app.asar
-                console.log("BASE_PATH:", BASE_PATH)
-                console.log("IS_WIN:", IS_WIN)
-                console.log("IS_PACKAGED:", IS_PACKAGED)
-                s.exchange = require(`${BASE_PATH}/node_modules/@fomobro/fomobot/extensions/exchanges/sim/exchange.js`)(conf, s)
+    let so = s.options || {}
+    try {
+        if (true) {
+            if (so.mode !== 'live') {
+                s.exchange = require(GetExtensionExchangeSimPath())(conf, s)
             } else {
-                const pathNew = __dirname.replace("/lib", "")
-                console.log("__dirname: ", __dirname)
-                console.log("pathNew: ", pathNew)
-                s.exchange = require(`${pathNew}/extensions/exchanges/sim/exchange.js`)(conf, s)
+                s.exchange = require(path.resolve(__dirname, `./extensions/exchanges/gdax/exchange`))(conf)
             }
+        } else if (so.mode === 'paper') {
+            s.exchange = require(GetExtensionExchangeSimPath())(conf, s)
+        }
+
+        if (!s.exchange || s.exchange == undefined) {
+            log.warn('cannot trade ' + (so && so.selector ? so.selector.normalized : 'N/A') + ': exchange not implemented')
+            process.exit(1)
+        }
+
+        //console.log("so: ",so)
+        s.product_id = so.selector.product_id
+        s.asset = so.selector.asset
+        s.currency = so.selector.currency
+        s.asset_capital = 0
+
+        if (typeof so.period_length == 'undefined')
+            so.period_length = so.period
+        else
+            so.period = so.period_length
+
+        let products = s.exchange.getProducts()
+        products.forEach(function (product) {
+            if (product.asset === s.asset && product.currency === s.currency) {
+                s.product = product
+            }
+        })
+        if (!s.product) {
+            console.error('error: could not find product "' + s.product_id + '"')
+            process.exit(1)
+        }
+        if (s.exchange.dynamicFees) {
+            s.exchange.setFees({asset: s.asset, currency: s.currency})
+        }
+        if (so.mode === 'sim' || so.mode === 'paper') {
+            s.balance = {asset: so.asset_capital, currency: so.currency_capital, deposit: 0}
         }
         else {
-            s.exchange = require(path.resolve(__dirname, `./extensions/exchanges/gdax/exchange`))(conf)
+            s.balance = {asset: 0, currency: 0, deposit: 0}
         }
-    }
-    else if (so.mode === 'paper') {
-        s.exchange = require(path.resolve(__dirname, './extensions/exchanges/sim/exchange'))(conf, s)
-    }
-    if (!s.exchange) {
-        console.error('cannot trade ' + so.selector.normalized + ': exchange not implemented')
-        process.exit(1)
-    }
-
-    //console.log("so: ",so)
-    s.product_id = so.selector.product_id
-    s.asset = so.selector.asset
-    s.currency = so.selector.currency
-    s.asset_capital = 0
-
-    if (typeof so.period_length == 'undefined')
-        so.period_length = so.period
-    else
-        so.period = so.period_length
-
-    let products = s.exchange.getProducts()
-    products.forEach(function (product) {
-        if (product.asset === s.asset && product.currency === s.currency) {
-            s.product = product
-        }
-    })
-    if (!s.product) {
-        console.error('error: could not find product "' + s.product_id + '"')
-        process.exit(1)
-    }
-    if (s.exchange.dynamicFees) {
-        s.exchange.setFees({asset: s.asset, currency: s.currency})
-    }
-    if (so.mode === 'sim' || so.mode === 'paper') {
-        s.balance = {asset: so.asset_capital, currency: so.currency_capital, deposit: 0}
-    }
-    else {
-        s.balance = {asset: 0, currency: 0, deposit: 0}
+    } catch (e) {
+        console.error(e)
     }
 
     function memDump() {
