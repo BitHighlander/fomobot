@@ -160,7 +160,7 @@ ipcMain.on('sub-fomo-ws', async (event, arg) => {
     event.returnValue = 'pong';
 
     try {
-        let engine = await bot.init("ta_ultosc");
+        let engine = await bot.init("bollinger");
         await sleep(4000);
 
         // Load Historical Trades
@@ -181,7 +181,7 @@ ipcMain.on('sub-fomo-ws', async (event, arg) => {
 
             socket.on('message', function(message) {
                 const obj = JSON.parse(message);
-                console.log('Message received:', obj);
+                //console.log('Message received:', obj);
                 bot.load(obj.trades);
                 event.sender.send("trades", obj);
             });

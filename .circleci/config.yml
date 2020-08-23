@@ -1,20 +1,117 @@
-version: 2
+version: 2.1 # Use version 2.1 to enable orb usage.
+
+orbs:
+  win: circleci/windows@2.2.0 # The Windows orb give you everything you need to start using the Windows executor.
+
 jobs:
-  build:
-    macos:
-      xcode: "10.0.0"
+  build: # name of your job
+    executor:
+      name: win/default # executor type
+      size: "medium" # resource class, can be "medium", "large", "xlarge", "2xlarge", defaults to "medium"
     steps:
       - checkout
+#      - run: npm run build-auth
       - run:
-          name: Authenticate with registry
-          command: npm run build-auth
-      - run: cd ./apps/fomo-native && npm i
-      - run: cd ./apps/fomo-native && node .electron-vue/build.js
-      - run: cd ./apps/fomo-native && npm run release
+         command: curl -O https://nodejs.org/dist/latest-v10.x/node-v10.20.1-win-x64.zip
+         shell: bash.exe
+         name: Download Node v10.20 (.zip)
+      - run:
+         command: tar -xf node-v10.20.1-win-x64.zip
+         shell: powershell.exe
+         name: Extract Node v10.20 (.zip)
+      - run:
+         command: dir && "node-v10.20.1-win-x64/node.exe" --version && where node && pwd
+         shell: bash.exe
+         name: Test Downloaded Node v10.20 Binary Version
+      - run:
+         command: mv "/c/Program Files/nodejs/node.exe" "/c/Program Files/nodejs/node.default.exe"
+         shell: bash.exe
+         name: Move Default Node v12.x
+      - run:
+         command: mv "/c/Users/circleci/project/node-v10.20.1-win-x64/node.exe" "/c/Program Files/nodejs/node.exe"
+         shell: bash.exe
+         name: Replace Default Node v12.x with Downloaded Node v10.x
+      - run:
+         command: node --version
+         shell: bash.exe
+         name: Test OS Installed Node Version
+      - run:
+         command: cp -a apps/fomo-native/bin/ta_abstract_csr.lib modules/talib-fomo/src/lib/lib/
+                  && cp -a apps/fomo-native/bin/ta_common_csr.lib modules/talib-fomo/src/lib/lib/
+                  && cp -a apps/fomo-native/bin/ta_func_csr.lib modules/talib-fomo/src/lib/lib/
+                  && cp -a apps/fomo-native/bin/ta_libc_csr.lib modules/talib-fomo/src/lib/lib/
+         shell: bash.exe
+         name: Copy Pre-Compiled talib Binaries to modules/talib-fomo
+      - run:
+         command: scripts/npm-install-all
+         shell: bash.exe
+         name: Run scripts/npm-install-all (installs all modules/*)
+      - run:
+         command: rm apps/fomo-core/package-lock.json && rm apps/fomo-native/package-lock.json
+         shell: bash.exe
+         name: Delete package-lock.json (fomo-native & fomo-core)
+      - run:
+         command: cd apps/fomo-native && npm install node-gyp
+         shell: bash.exe
+         name: Install NPM Package node-gyp (fomo-native)
+      - run:
+         command: cd apps/fomo-native && npm install -g electron-builder
+         shell: bash.exe
+         name: Install NPM Package electron-builder (fomo-native)
+      - run:
+         command: cd apps/fomo-native && npm i
+         shell: bash.exe
+         name: NPM Install (fomo-native)
+      - run:
+         command: cp -a apps/fomo-native/bin/talib.node modules/talib-fomo/build/Release
+         shell: bash.exe
+         name: Copy Precompiled talib.node to modules/talib-fomo
+      - run:
+         command: cp -a modules/talib-fomo apps/fomo-native/node_modules/@fomobro
+         shell: bash.exe
+         name: Copy Pre-Compiled talib Binaries to node_modules/@fomobro/talib-fomo (fomo-native)
+      - run:
+         command: cd apps/fomo-native && node .electron-vue/build.js && electron-builder --publish always --win
+         shell: bash.exe
+         name: Electron Build
+#      - run:
+#         command: cd apps/fomo-native && npm run release-windows
+#         shell: bash.exe
+#         name: NPM Release (fomo-native)
+#         when: always
 
-workflows:
-  version: 2
-  build:
-    jobs:
-      - build
-
+#version: 2
+#jobs:
+#  build:
+#    macos:
+#      xcode: "10.0.0"
+#    steps:
+#      - checkout
+#      - run: node --version
+#      - run: which node
+##      - run: curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
+##      - run: nvm install 10.15.3
+##      - run: nvm alias default 10.15.3
+#      - run:
+#          name: Authenticate with registry
+#          command: npm run build-auth
+#      - run: cd ./apps/fomo-native && npm i
+#      - run: cd ./apps/fomo-native && node .electron-vue/build.js
+#      - run: cd ./apps/fomo-native && npm run release
+#    windows:
+#    steps:
+#      - checkout
+#      - run: node --version
+#      - run:
+#          name: Authenticate with registry
+#          command: npm run build-auth
+#      - run: cd ./apps/fomo-native && npm i
+#      - run: cd ./apps/fomo-native && node .electron-vue/build.js
+#      - run: cd ./apps/fomo-native && npm run release
+#
+#workflows:
+#  version: 2
+#  build:
+#    jobs:
+#      - build
+#

@@ -49,10 +49,9 @@ function _extractContext(stack, depth) {
         let chunks = arr[depth].split('/')
         let business = chunks[chunks.length - 1] // ha ha!
         let matches = business.match(/^([^:]+):(\d+):(\d+)/i)
-
-        let filename = matches[1]
-        let line = matches[2]
-        let pos = matches[3]
+        let filename = matches ? matches[1] : "";
+        let line = matches ? matches[2] : ""
+        let pos = matches ? matches[3] : ""
 
         return { filename, line, pos }
     } catch (ex) {
