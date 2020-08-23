@@ -1,4 +1,4 @@
-var pusher = require('apps/fomo-native/src/modules/extensions/notifiers/pushbullet')
+var pusher = require('apps/fomo-native-legacy/src/modules/extensions/notifiers/pushbullet')
 
 module.exports = function pushbullet (config) {
   var pushbullet = {

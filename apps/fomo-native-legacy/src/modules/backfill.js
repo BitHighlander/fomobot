@@ -63,7 +63,7 @@ let backfill = function(start,stop,ipcEvent){
 
             selector = objectifySelector(conf.selector)
             //var exchange = require(`./extensions/exchanges/${selector.exchange_id}/exchange`)(conf)
-            var exchange = require(`apps/fomo-native/src/modules/extensions/exchanges/bitmex/exchange`)(conf)
+            var exchange = require(`apps/fomo-native-legacy`)(conf)
             if (!exchange) {
                 console.error('cannot backfill ' + selector.normalized + ': exchange not implemented')
                 process.exit(1)
