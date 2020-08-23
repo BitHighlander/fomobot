@@ -1,6 +1,6 @@
 {
   "name": "@fomobro/talib-fomo",
-  "version": "1.0.14",
+  "version": "1.0.18",
   "author": "Mustafa Oransel",
   "contributors": [
     "Alfred Omega",
@@ -22,6 +22,7 @@
   ],
   "scripts": {
     "version": "node --version",
+    "prepublish": "npm clean && npm install",
     "install": "node ./src/lib/build.js && node-gyp configure && node-gyp build",
     "clean": "node ./src/lib/clean.js"
   },

@@ -1,4 +1,4 @@
-var Poloniex = require('poloniex.js')
+var Poloniex = require('../../../../fomo-bot/node_modules/poloniex.js/lib/poloniex')
   , moment = require('moment')
   , n = require('numbro')
   // eslint-disable-next-line no-unused-vars

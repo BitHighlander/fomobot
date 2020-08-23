@@ -1,0 +1,27 @@
+{
+  "name": "slack-bridge",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "ts-node __tests__/test-module.js",
+    "start-dev": "ts-node index",
+    "start": "node lib/index",
+    "build": "tsc -p .",
+    "prepublish": "tsc -p .",
+    "build:live": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' app.ts"
+  },
+  "dependencies": {
+    "@fomobro/default-redis": "latest",
+    "@fomobro/loggerdog-client": "latest",
+    "@fomobro/mongo-default-env": "latest",
+    "dotenv": "^8.2.0",
+    "sentence-tokenizer": "^1.0.1",
+    "slackbots": "^1.2.0",
+    "ts-node": "^8.6.2",
+    "wait-promise": "^0.4.1"
+  },
+  "devDependencies": {
+    "@types/node": "^13.7.0",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.7.5"
+  }
+}

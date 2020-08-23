@@ -40,6 +40,7 @@
     "express-rate-limit": "^5.0.0",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^4.0.0",
+    "forex-analytics-fomo": "0.0.20",
     "forex.analytics": "0.0.15",
     "gemini-api": "^2.0.4",
     "glob": "^7.1.1",

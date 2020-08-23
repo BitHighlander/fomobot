@@ -57,7 +57,7 @@ require('mongodb').MongoClient.connect(connectionString, { useNewUrlParser: true
     cmd.days = 10
 
     selector = objectifySelector(conf.selector)
-    var exchange = require(`./extensions/exchanges/${selector.exchange_id}/exchange`)(conf)
+    var exchange = require(`./apps/fomo-core`)(conf)
     if (!exchange) {
         console.error('cannot backfill ' + selector.normalized + ': exchange not implemented')
         process.exit(1)

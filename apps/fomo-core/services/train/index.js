@@ -2,6 +2,11 @@
     Train models
 
  */
+require('dotenv').config()
+require('dotenv').config({path:"../../.env"});
+require('dotenv').config({path:"../../../.env"});
+require('dotenv').config({path:"../../../../.env"});
+
 var tb = require('timebucket')
     , minimist = require('minimist')
     , fs = require('fs')

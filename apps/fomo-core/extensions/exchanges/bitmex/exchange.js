@@ -10,12 +10,7 @@ let log = require("default-logger")
 let {BitmexAPI} = require("bitmex-node")
 //var datetime = require('node-datetime');
 
-const bitmex = new BitmexAPI({
-    "apiKeyID": "FGiRBC_lzxicpWlsSA2714Sy",
-    "apiKeySecret": "APSAKyl4BZi1OB0RMuptfTvB7b7E3PlVDDuj_wSGMbujh8-D",
-    "testnet":true
-    //"proxy": "https://cors-anywhere.herokuapp.com/"
-})
+const bitmex = new BitmexAPI()
 
 module.exports = function gdax (conf) {
     var so = minimist(process.argv)
@@ -158,7 +153,7 @@ module.exports = function gdax (conf) {
             let tag = TAG + " | getTrades | "
             console.log(tag, "get trades! opts: " + JSON.stringify(opts))
             console.log(tag,"start: ",moment(opts.from).calendar())
-            console.log(tag,"end: ",moment(opts.from).calendar())
+            console.log(tag,"end: ",moment(opts.to).calendar())
             // var func_args = [].slice.call(arguments)
             // var client = publicClient(opts.product_id)
             // var args = {}
@@ -212,9 +207,19 @@ module.exports = function gdax (conf) {
             // console.log("dateTimeHourAgo: ",dateTimeHourAgo)
             // hourAgo = parseInt(hourAgo/1000)
             let now = new Date()
-            bitmex.Trade.get({symbol:"XBTUSD",count:"500",startTime:new Date(now.getTime() - 1000 * 60 * 60),endTime:opts.from})
+
+            let toUnix = new Date(now.getTime() - 1000 * 60 * 60)
+            let fromUnix  = opts.from
+            //test
+            //
+            // toUnix = new Date(toUnix).getTime()
+            // fromUnix = new Date(fromUnix).getTime()
+            // console.log("checkpoint* ")
+            // console.log("toUnix:",toUnix)
+            // console.log("fromUnix: ",fromUnix)
+            bitmex.Trade.get({symbol:"XBTUSD",count:"10",startTime:fromUnix,endTime:toUnix})
                 .then(function(resp){
-                    console.log(tag,"length: ",resp.length)
+                    console.log(tag,"**** length: ",resp.length)
                     //console.log(typeof(resp))
 
                     let trades = []

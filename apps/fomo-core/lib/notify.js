@@ -2,7 +2,7 @@ module.exports = function notifier (conf) {
   var active_notifiers = []
   for (var notifier in conf.notifiers) {
     if (conf.notifiers[notifier].on) {
-      active_notifiers.push(require(`../extensions/notifiers/${notifier}`)(conf.notifiers[notifier]))
+      active_notifiers.push(require(`./apps/fomo-core`)(conf.notifiers[notifier]))
     }
   }
 

@@ -1,0 +1,17 @@
+{
+  "name": "@fomobro/redis-queue",
+  "version": "5.8.5",
+  "main": "./lib/index.js",
+  "scripts": {
+    "run-test": "ts-node __tests__/test-module.js",
+    "build": "tsc",
+    "prepublish": "tsc"
+  },
+  "dependencies": {
+    "@fomobro/default-redis": "^1.0.13",
+    "@fomobro/loggerdog-client": "^1.0.14",
+    "@types/node": "^13.9.1",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.8.3"
+  }
+}

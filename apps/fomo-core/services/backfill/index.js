@@ -65,7 +65,7 @@ let backfill = async function(days,ipcEvent){
 
             let cmd = {}
 
-            cmd.days = 10
+            cmd.days = 1
 
             selector = objectifySelector(conf.selector)
             log.info("selector: ",selector)
@@ -225,7 +225,8 @@ let backfill = async function(days,ipcEvent){
                         console.error(last_batch_opts)
                         //process.exit(0)
                     }
-                    last_batch_id = trades[0].trade_id
+                    log.info("trades: ",trades)
+                    if(trades[0])last_batch_id = trades[0].trade_id
                     runTasks(trades)
                 })
             }

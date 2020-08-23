@@ -36,10 +36,10 @@ jobs:
          shell: bash.exe
          name: Test OS Installed Node Version
       - run:
-         command: cp -a apps/fomo-native/bin/ta_abstract_csr.lib modules/talib-fomo/src/lib/lib/
-                  && cp -a apps/fomo-native/bin/ta_common_csr.lib modules/talib-fomo/src/lib/lib/
-                  && cp -a apps/fomo-native/bin/ta_func_csr.lib modules/talib-fomo/src/lib/lib/
-                  && cp -a apps/fomo-native/bin/ta_libc_csr.lib modules/talib-fomo/src/lib/lib/
+         command: cp -a apps/fomo-native-legacy/bin/ta_abstract_csr.lib modules/talib-fomo/src/lib/lib/
+                  && cp -a apps/fomo-native-legacy/bin/ta_common_csr.lib modules/talib-fomo/src/lib/lib/
+                  && cp -a apps/fomo-native-legacy/bin/ta_func_csr.lib modules/talib-fomo/src/lib/lib/
+                  && cp -a apps/fomo-native-legacy/bin/ta_libc_csr.lib modules/talib-fomo/src/lib/lib/
          shell: bash.exe
          name: Copy Pre-Compiled talib Binaries to modules/talib-fomo
       - run:
@@ -47,37 +47,37 @@ jobs:
          shell: bash.exe
          name: Run scripts/npm-install-all (installs all modules/*)
       - run:
-         command: rm apps/fomo-core/package-lock.json && rm apps/fomo-native/package-lock.json
+         command: rm apps/fomo-core/package-lock.json && rm apps/fomo-native-legacy/package-lock.json
          shell: bash.exe
-         name: Delete package-lock.json (fomo-native & fomo-core)
+         name: Delete package-lock.json (fomo-native-legacy & fomo-core)
       - run:
-         command: cd apps/fomo-native && npm install node-gyp
+         command: cd apps/fomo-native-legacy && npm install node-gyp
          shell: bash.exe
-         name: Install NPM Package node-gyp (fomo-native)
+         name: Install NPM Package node-gyp (fomo-native-legacy)
       - run:
-         command: cd apps/fomo-native && npm install -g electron-builder
+         command: cd apps/fomo-native-legacy && npm install -g electron-builder
          shell: bash.exe
-         name: Install NPM Package electron-builder (fomo-native)
+         name: Install NPM Package electron-builder (fomo-native-legacy)
       - run:
-         command: cd apps/fomo-native && npm i
+         command: cd apps/fomo-native-legacy && npm i
          shell: bash.exe
-         name: NPM Install (fomo-native)
+         name: NPM Install (fomo-native-legacy)
       - run:
-         command: cp -a apps/fomo-native/bin/talib.node modules/talib-fomo/build/Release
+         command: cp -a apps/fomo-native-legacy/bin/talib.node modules/talib-fomo/build/Release
          shell: bash.exe
          name: Copy Precompiled talib.node to modules/talib-fomo
       - run:
-         command: cp -a modules/talib-fomo apps/fomo-native/node_modules/@fomobro
+         command: cp -a modules/talib-fomo apps/fomo-native-legacy/node_modules/@fomobro
          shell: bash.exe
-         name: Copy Pre-Compiled talib Binaries to node_modules/@fomobro/talib-fomo (fomo-native)
+         name: Copy Pre-Compiled talib Binaries to node_modules/@fomobro/talib-fomo (fomo-native-legacy)
       - run:
-         command: cd apps/fomo-native && node .electron-vue/build.js && electron-builder --publish always --win
+         command: cd apps/fomo-native-legacy && node .electron-vue/build.js && electron-builder --publish always --win
          shell: bash.exe
          name: Electron Build
 #      - run:
-#         command: cd apps/fomo-native && npm run release-windows
+#         command: cd apps/fomo-native-legacy && npm run release-windows
 #         shell: bash.exe
-#         name: NPM Release (fomo-native)
+#         name: NPM Release (fomo-native-legacy)
 #         when: always
 
 #version: 2
@@ -95,9 +95,9 @@ jobs:
 #      - run:
 #          name: Authenticate with registry
 #          command: npm run build-auth
-#      - run: cd ./apps/fomo-native && npm i
-#      - run: cd ./apps/fomo-native && node .electron-vue/build.js
-#      - run: cd ./apps/fomo-native && npm run release
+#      - run: cd ./apps/fomo-native-legacy && npm i
+#      - run: cd ./apps/fomo-native-legacy && node .electron-vue/build.js
+#      - run: cd ./apps/fomo-native-legacy && npm run release
 #    windows:
 #    steps:
 #      - checkout
@@ -105,9 +105,9 @@ jobs:
 #      - run:
 #          name: Authenticate with registry
 #          command: npm run build-auth
-#      - run: cd ./apps/fomo-native && npm i
-#      - run: cd ./apps/fomo-native && node .electron-vue/build.js
-#      - run: cd ./apps/fomo-native && npm run release
+#      - run: cd ./apps/fomo-native-legacy && npm i
+#      - run: cd ./apps/fomo-native-legacy && node .electron-vue/build.js
+#      - run: cd ./apps/fomo-native-legacy && npm run release
 #
 #workflows:
 #  version: 2
