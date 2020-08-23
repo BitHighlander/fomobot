@@ -1,0 +1,31 @@
+{
+  "name": "fomo-api",
+  "version": "6.2.5",
+  "main": "./lib/index.js",
+  "types": "./lib/main.d.ts",
+  "scripts": {
+    "npm": "npm i",
+    "test-local": "npm run build && node __tests__/test-local.js",
+    "test-prod": "npm run build && node __tests__/test-prod.js",
+    "create": "npm run build && npm run test",
+    "build": "tsc -p .",
+    "prepublish": "npm run build",
+    "refresh": "rm -rf ./node_modules ./package-lock.json && npm install"
+  },
+  "dependencies": {
+    "@fomobro/default-redis-accounting": "^1.0.13",
+    "@fomobro/fomo-wallet": "0.0.1",
+    "@types/node": "^13.13.12",
+    "axios": "^0.19.2",
+    "datadog-metrics": "^0.8.1",
+    "dotenv": "^8.2.0",
+    "loggerdog-client": "0.0.4",
+    "openapi-client-axios": "^3.6.1",
+    "request": "^2.88.2",
+    "shortid": "^2.2.15",
+    "socket.io-client": "^2.3.0",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.5",
+    "when": "^3.7.8"
+  }
+}

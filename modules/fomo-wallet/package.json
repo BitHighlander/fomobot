@@ -1,0 +1,20 @@
+{
+  "name": "@fomobro/fomo-wallet",
+  "version": "0.0.1",
+  "main": "./lib/index.js",
+  "types": "./lib/main.d.ts",
+  "scripts": {
+    "npm": "npm i",
+    "test": "npm run build && node __tests__/test-module.js",
+    "create": "npm run build && npm run test",
+    "build": "tsc -p .",
+    "prepublish": "npm run build",
+    "refresh": "rm -rf ./node_modules ./package-lock.json && npm install"
+  },
+  "dependencies": {
+    "bip39": "^3.0.2",
+    "coininfo": "^5.1.0",
+    "coinkey": "^3.0.0",
+    "hdkey": "^2.0.1"
+  }
+}
