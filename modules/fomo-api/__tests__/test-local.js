@@ -35,7 +35,8 @@ let run_test = async function(){
         console.log("signup: ",signup)
 
         //create prediction
-        let inTenMinutes = new Date().getTime() + 1000 * 60 * 10
+        // let inTenMinutes = new Date().getTime() + 1000 * 60 * 10
+        let inTenMinutes = new Date().getTime() + 1000 * 11
         let prediction = {
             coin:"BTC",
             time:inTenMinutes.toString(),

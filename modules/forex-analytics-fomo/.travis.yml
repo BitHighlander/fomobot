@@ -13,6 +13,6 @@ env:
 addons:
   apt:
     sources:
-      - ubuntu-toolchain-r-test
+      - ubuntu-toolchain-r-__test__
     packages:
       - g++-4.8

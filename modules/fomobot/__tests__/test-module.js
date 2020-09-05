@@ -19,7 +19,7 @@ bot.backfill()
 
 
 let run_test = async function(){
-    let tag = " | run-test | "
+    let tag = " | run-__test__ | "
     try{
         let events = await bot.init("ta_ultosc")
         console.log(events)

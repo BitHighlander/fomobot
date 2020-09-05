@@ -6,4 +6,4 @@ let view = require("../index")
 
 
 
-view.displayStringToChannel("test: ","markets")
+view.displayStringToChannel("__test__: ","markets")

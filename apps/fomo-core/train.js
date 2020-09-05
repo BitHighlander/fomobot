@@ -276,7 +276,7 @@ require('mongodb').MongoClient.connect(connectionString, { useNewUrlParser: true
             if (so.days_test > 0) {
                 var endTest = moment(so.end_training).add(so.days_test, 'days')
 
-                console.log('\nRunning simulation on test data from '
+                console.log('\nRunning simulation on __test__ data from '
                     + moment(so.end_training).format('YYYY-MM-DD HH:mm:ss ZZ') + ' to '
                     + moment(endTest).format('YYYY-MM-DD HH:mm:ss ZZ') + ' (' + so.days_test + ' days).\n'
                 )

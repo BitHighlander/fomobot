@@ -150,7 +150,7 @@ let onSetup = async function(){
     //create wallet
     await initWallet(encryptedString,hash)
 
-    //TODO test keys
+    //TODO __test__ keys
 
 
     //save to config

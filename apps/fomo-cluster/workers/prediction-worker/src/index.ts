@@ -12,8 +12,10 @@ const sleep = wait.sleep;
 
 let fomo = require("fomo-api")
 let shortid = require('shortid');
-let urlSpec = "https://fomobro.com/spec/swagger.json"
-console.log(urlSpec)
+
+let urlSpec = "http://127.0.0.1:8000/spec/swagger.json"
+// let urlSpec = "https://fomobro.com/spec/swagger.json"
+// console.log(urlSpec)
 
 let onStart = async function(){
     try{

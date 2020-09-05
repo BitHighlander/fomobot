@@ -67,7 +67,7 @@ const {redis,redisQueue} = require("../index")
 write
  */
 
-// redis.set("test","foo")
+// redis.set("__test__","foo")
 //     .then(function(resp){
 //         console.log("resp: ",resp)
 //     })
@@ -77,7 +77,7 @@ write
 Read
  */
 
-// redis.get("test")
+// redis.get("__test__")
 //     .then(function(resp){
 //         console.log("resp: ",resp)
 //     })
