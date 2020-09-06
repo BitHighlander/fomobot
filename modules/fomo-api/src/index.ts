@@ -36,6 +36,10 @@ module.exports = {
         let resp = await fomoApi.instance.GetInfo()
         return resp.data;
     },
+    getUser:async function (username:string) {
+        let resp = await fomoApi.instance.User(username)
+        return resp.data;
+    },
     create:async function (username:string,account:string) {
         let resp = await fomoApi.instance.CreateAccount(null,{username,account})
         return resp.data;

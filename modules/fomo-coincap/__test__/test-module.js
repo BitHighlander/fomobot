@@ -1,11 +1,12 @@
 require("dotenv").config({path:"../.env"})
 let coincap = require("../index")
 
+console.log(new Date().getTime() + 1000 * 20)
 
-coincap.getPrice('BTC')
-    .then(function(resp){
-        console.log(resp)
-    })
+// coincap.getPrice('BTC')
+//     .then(function(resp){
+//         console.log(resp)
+//     })
 
 // coincap.assets()
 //     .then(function(resp){

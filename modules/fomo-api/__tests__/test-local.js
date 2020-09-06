@@ -34,17 +34,25 @@ let run_test = async function(){
         let signup = await fomo.create(username,apiKeys.account)
         console.log("signup: ",signup)
 
+        //get user info
+        let userInfoPublic = await fomo.getUser(username)
+        console.log("userInfoPublic: ",userInfoPublic)
+
+        //get user info Private
+        let userInfoPrivate = await fomo.getInfo(username)
+        console.log("userInfoPrivate: ",userInfoPrivate)
+
         //create prediction
         // let inTenMinutes = new Date().getTime() + 1000 * 60 * 10
-        let inTenMinutes = new Date().getTime() + 1000 * 11
-        let prediction = {
-            coin:"BTC",
-            time:inTenMinutes.toString(),
-            price:"10000"
-        }
-
-        let predictionResult = await fomo.predict(prediction)
-        console.log("predictionResult: ",predictionResult)
+        // let inTenMinutes = new Date().getTime() + 1000 * 11
+        // let prediction = {
+        //     coin:"BTC",
+        //     time:inTenMinutes.toString(),
+        //     price:"10000"
+        // }
+        //
+        // let predictionResult = await fomo.predict(prediction)
+        // console.log("predictionResult: ",predictionResult)
 
     }catch(e){
         console.error(e)

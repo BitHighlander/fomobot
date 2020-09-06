@@ -237,11 +237,11 @@ let onUpdate = async function(){
   let tag = TAG + " | onUpdate | "
   try{
     let status = getSummaryInfo()
-    log.info("summary lastPrice: ",status.LAST_PRICE)
-    log.info("summary balance Available: ",status.BALANCE_AVAILABLE)
-    log.info("summary balance Position: ",status.BALANCE_POSITION)
-    log.info("summary balance isBull: ",status.IS_BULL)
-    log.info("summary balance isBear: ",status.IS_BEAR)
+    // log.info("summary lastPrice: ",status.LAST_PRICE)
+    // log.info("summary balance Available: ",status.BALANCE_AVAILABLE)
+    // log.info("summary balance Position: ",status.BALANCE_POSITION)
+    // log.info("summary balance isBull: ",status.IS_BULL)
+    // log.info("summary balance isBear: ",status.IS_BEAR)
 
     //positions
 

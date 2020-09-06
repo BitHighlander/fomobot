@@ -46,7 +46,7 @@ export function innitConfig(languageSelected:string){
     let config:any = {}
     config.locale = "english"
     config.localeSelected = true
-    config.version = finder.next().value.version
+    config.version = "1.0.1"
     config.isCli = true
 
     fs.writeFileSync(fomoConfig,JSON.stringify(config))
@@ -56,38 +56,37 @@ export function innitConfig(languageSelected:string){
   }
 }
 
-
 //innit Wallet
-export function initWallet(encryptedSeed:any,passwordHash:any){
-  let tag = TAG + " | initWallet | "
-  try{
+export async function initWallet(encryptedSeed: any, passwordHash: any) {
+  let tag = TAG + " | initWallet | ";
+  try {
+    console.log(tag, "seedDir: ", seedDir);
 
-    mkdirp(seedDir, function (err:any) {
-      if (err) console.error(err)
-      else console.log('seedDir: ',seedDir)
+    //make the dir
+    let isCreated = await mkdirp(seedDir);
+    //console.log("isCreated: ", isCreated);
 
-      let output:any = {}
-      console.log(tag,"CHECKPOINT innitConfig")
-      console.log(tag,"encryptedSeed: ",encryptedSeed)
-
-
-      let wallet:any = {}
-      wallet.hash = passwordHash
-      wallet.version = 1
-      wallet.type = "seedwords"
-      wallet.vault = encryptedSeed
-
-      let result = fs.writeFileSync(seedPath,JSON.stringify(wallet))
-      console.log("result: ",result)
-    });
+    let output: any = {};
+    //console.log(tag, "CHECKPOINT innitConfig");
+    //console.log(tag, "encryptedSeed: ", encryptedSeed);
 
 
+    let wallet: any = {};
+    wallet.hash = passwordHash;
+    wallet.version = 1;
+    wallet.type = "seedwords";
+    wallet.vault = encryptedSeed;
 
-  }catch (e) {
-    console.error(tag,"e: ",e)
-    return {}
+    let result = fs.writeFileSync(seedPath, JSON.stringify(wallet));
+    //console.log("result: ", result);
+
+    return true;
+  } catch (e) {
+    console.error(tag, "e: ", e);
+    return {};
   }
 }
+
 
 //check
 export function checkConfigs(){
@@ -115,13 +114,18 @@ export function checkConfigs(){
   return output
 }
 
-export function getWallet(){
-  try{
-    return fs.readFileSync(seedPath)
-  }catch (e) {
-    return {}
+export function getWallet() {
+  try {
+    let walletBuff = fs.readFileSync(seedPath);
+    let walletString = walletBuff.toString()
+    let wallet = JSON.parse(walletString)
+
+    return wallet
+  } catch (e) {
+    return {};
   }
 }
+
 
 
 export function getConfig(){
