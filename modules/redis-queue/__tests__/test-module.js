@@ -28,9 +28,9 @@ let ASSET = "BNB"
 
 let run_test = async function(){
     try{
-        await queue.delete('test-queue')
-        let resp = await queue.createWork("test-queue",{work:2})
-        let resp2 = await queue.createWork("test-queue",{work:2})
+        await queue.delete('__test__-queue')
+        let resp = await queue.createWork("__test__-queue",{work:2})
+        let resp2 = await queue.createWork("__test__-queue",{work:2})
 
         console.log(resp)
         console.log(resp2)
@@ -39,7 +39,7 @@ let run_test = async function(){
         //work = 0
 
         //verify only one work
-        let work = await queue.viewWork('test-queue',10)
+        let work = await queue.viewWork('__test__-queue',10)
         console.log(work)
 
     }catch(e){
@@ -52,19 +52,19 @@ run_test()
 // let run_test = async function(){
 //     try{
 //
-//         await queue.delete('test-queue')
+//         await queue.delete('__test__-queue')
 //
 //         //doesnt throw on expired
-//         let expire = await queue.getWork('test-queue',1)
+//         let expire = await queue.getWork('__test__-queue',1)
 //         console.log("expire: ",expire)
 //
 //
 //         for(let i = 0; i < 5; i++){
-//             await queue.createWork("test-queue",{work:i})
+//             await queue.createWork("__test__-queue",{work:i})
 //         }
 //
 //         //start working
-//         let work = await queue.getWork('test-queue')
+//         let work = await queue.getWork('__test__-queue')
 //         console.log("work: ",work)
 //
 //         //if lifo

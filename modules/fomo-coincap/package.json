@@ -1,6 +1,6 @@
 {
   "name": "@fomobro/fomo-coincap",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "A coincap module",
   "main": "index.js",
   "scripts": {
@@ -12,8 +12,9 @@
   "author": "highlander",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.19.0",
-    "default-logger": "0.0.2",
-    "dotenv": "^8.0.0"
+    "@fomobro/loggerdog-client": "^1.0.14",
+    "axios": "^0.19.2",
+    "dotenv": "^8.2.0",
+    "graphql-request": "^1.8.2"
   }
 }

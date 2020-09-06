@@ -3,4 +3,4 @@ let log = require("../index.js")()
 
 console.log(process.env['REDIS_LOGGING'])
 
-log.info(" | test | ","foo","bar")
+log.info(" | __test__ | ","foo","bar")

@@ -909,7 +909,7 @@
                             //init bot
                             await this.$botService.init(password)
 
-                            //test bitmex
+                            //__test__ bitmex
                             let status = await this.$botService.getSummaryInfo()
 
                             //if online

@@ -210,7 +210,7 @@ module.exports = function gdax (conf) {
 
             let toUnix = new Date(now.getTime() - 1000 * 60 * 60)
             let fromUnix  = opts.from
-            //test
+            //__test__
             //
             // toUnix = new Date(toUnix).getTime()
             // fromUnix = new Date(fromUnix).getTime()

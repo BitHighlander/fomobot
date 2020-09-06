@@ -1,6 +1,6 @@
 {
-  "name": "fomo-api",
-  "version": "6.2.5",
+  "name": "@fomobro/fomo-api",
+  "version": "6.2.6",
   "main": "./lib/index.js",
   "types": "./lib/main.d.ts",
   "scripts": {
