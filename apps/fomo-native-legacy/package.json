@@ -269,7 +269,7 @@
     "inject-loader": "^4.0.1",
     "js-yaml": "3.13.1",
     "json2csv": "^4.0.2",
-    "karma": "^2.0.2",
+    "karma": "^6.3.14",
     "karma-chai": "^0.1.0",
     "karma-coverage": "^1.1.2",
     "karma-electron": "^6.0.0",
